@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}Employees List{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+
+  <div class="container">
+    <p>It Assets </p>
+    <div class="row">
+        <div class="col-md-12 bg-light text-right">
+            <a type="button" class="btn btn-warning" href="/assetapp/new_employees">Entry Form</a>
+        </div>
+    </div>
+      <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Location</th>
+        <th>Email</th>
+        <th>Mobile Number</th>
+        <th>Place</th>
+        <th>Department</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
+      </tr>
+    </thead>
+          {% for form in form_list %}
+    <tbody>
+      <tr>
+        <td>{{form.location }}</td>
+        <td>{{form.asset_no}}</td>
+        <td>{{form.emp_id}}</td>
+        <td>{{form.user_name}}</td>
+        <td>{{form.usage_type}}</td>
+        <td>{{form.machine_type}}</td>
+        <td>{{form.gef_identification_number}}</td>
+        <td>{{form.domain_workgoup}}</td>
+        <td>{{form.make}}</td>
+        <td>{{form.machine_model_no}}</td>
+        <td>{{form.serial_no}}</td>
+        <td>{{form.hdd}}</td>
+        <td>{{form.make1}}</td>
+        <td>{{form.model}}</td>
+        <td>{{form.serial_no}}</td>
+        <td>{{form.ram}}</td>
+        <td>{{form.processor}}</td>
+        <td>{{form.purchase_date}}</td>
+        <td>{{form.warranty_start_date}}</td>
+        <td>{{form.warranty_end_date}}</td>
+        <td>{{form.amc_start_date}}</td>
+        <td>{{form.amc_end_date}}</td>
+        <td>{{form.os_version}}</td>
+        <td>{{form.os}}</td>
+        <td>{{form.ms_office_version}}</td>
+        <td>{{form.ms_office_version1}}</td>
+        <td>{{form.os_details}}</td>
+        <td>{{form.antivirus}}</td>
+        <td>{{form.autocad}}</td>
+        <td>{{form.adobe_acrobate}}</td>
+        <td>{{form.visio}}</td>
+        <td>{{form.access}}</td>
+        <td>{{form.sap}}</td>
+        <td>{{form.status}}</td>
+        <td>{{form.remarks}}</td>
+        <td>{{form.user_acceptance_date}}</td>
+        <td>{{form.user_handed_over_date}}</td>
+        <td><button class="btn btn-default"><a href="/assetapp/edit?id={{form.id}}">Edit</a></button></td>
+        <td><button class="btn btn-default"><a href="/assetapp/delete?id={{form.id}}">Delete</a></button></td>
+
+      </tr>
+    </tbody>
+          {% endfor %}
+  </table>
+</div>
+{% endif %}
+{% endblock %}

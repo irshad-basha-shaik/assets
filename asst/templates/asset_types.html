@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Department List{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+
+  <div class="container">
+    <p>Assets Type</p>
+    <div class="row">
+        <div class="col-md-12 bg-light text-right">
+            <a type="button" class="btn btn-warning" href="/assetapp/atype_entry">Asset Type Entry</a>
+        </div>
+    </div>
+      <table class="table table-bordered">
+    <thead>
+      <tr>
+          <th>Asset Id</th>
+          <th>Asset Name</th>
+          <th>Code</th>
+
+      </tr>
+    </thead>
+          {% for d in depts %}
+    <tbody>
+      <tr>
+          <td>{{d.id}}</td>
+          <td>{{d.dname}}</td>
+          <td>{{d.code}}</td>
+
+      </tr>
+    </tbody>
+          {% endfor %}
+  </table>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}Employees List{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+
+  <div class="container">
+    <p>Assets List:</p>
+    <div class="row">
+        <div class="col-md-12 bg-light text-right">
+            <a type="button" class="btn btn-warning" href="/assetapp/new_assets">Entry Assets</a>
+        </div>
+    </div>
+      <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Location</th>
+        <th>Asset No</th>
+        <th>Emp.ID </th>
+        <th>User name</th>
+        <th>usage type</th>
+        <th>Machine Type</th>
+        <th>GEF Identification  Number </th>
+        <th>Domain / Workgoup </th>
+        <th>Make</th>
+        <th>Machine Model no</th>
+        <th>Serial no</th>
+        <th>HDD</th>
+        <th>Make</th>
+        <th>Model </th>
+        <th>Serial No.</th>
+        <th>RAM</th>
+        <th>Processor</th>
+        <th>Purchase Date </th>
+        <th>Warranty Start Date</th>
+        <th>Warranty End Date</th>
+        <th>AMC Start Date</th>
+        <th>AMC End  Date</th>
+        <th>OS Version</th>
+        <th>OS</th>
+        <th>MS Office Version </th>
+        <th>MS Office Version</th>
+        <th>OS Details (OEM / Volume)</th>
+        <th>Antivirus</th>
+        <th>AutoCAD</th>
+        <th>Adobe acrobate</th>
+        <th>Visio</th>
+        <th>Access</th>
+        <th>SAP</th>
+        <th>Status</th>
+        <th>Remarks</th>
+        <th>User Acceptance Date </th>
+        <th>User Handed Over Date</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
+      </tr>
+    </thead>
+          {% for form in form_list %}
+    <tbody>
+      <tr>
+        <td>{{form.name}}</td>
+        <td>{{form.email}}</td>
+        <td>{{form.mobile}}</td>
+        <td>{{form.place}}</td>
+        <td>{{form.depid}}</td>
+        <td><button class="btn btn-default"><a href="/assetapp/edit?id={{form.id}}">Edit</a></button></td>
+        <td><button class="btn btn-default"><a href="/assetapp/delete?id={{form.id}}">Delete</a></button></td>
+
+      </tr>
+    </tbody>
+          {% endfor %}
+  </table>
+</div>
+{% endif %}
+{% endblock %}

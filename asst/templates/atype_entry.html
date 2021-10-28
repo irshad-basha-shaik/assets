@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Department Entry{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+
+<form class="forms-sample" method="POST" action="/assetapp/asset_type_saveform">
+    {% csrf_token %}
+                    <div class="form-group row">
+                      <label for="dname" class="col-sm-3 col-form-label"> Asset Type</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="dname" placeholder="dname" name="dname">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="code" class="col-sm-3 col-form-label"> Code </label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="code" placeholder="code" name="code">
+                      </div>
+                    </div>
+                    <div>
+                         <a href="delete?id={{form.id}}">Delete</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+
+                  </form>
+{% endif %}
+{% endblock %}
