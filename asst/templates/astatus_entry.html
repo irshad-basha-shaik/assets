@@ -11,20 +11,24 @@
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h1 class="card-title">New Assets Types</h1>
-                  <form class="forms-sample" method="POST" action="/assetapp/asset_type_saveform">
+                  <h1 class="card-title">Assets Status:</h1>
+                  <p class="card-description">
+                    Status of Assets.
+                  </p>
+                  <form class="forms-sample" method="POST" action="/assetapp/astatus_saveform">
                       {% csrf_token %}
                     <div class="form-group row">
-                      <label for="dname" class="col-sm-3 col-form-label"> Asset Type</label>
+                      <label for="asid" class="col-sm-3 col-form-label"> Asset Status Id</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="dname" placeholder="dname" name="dname">
-                        <input type="hidden" class="form-control" id="id" placeholder="id" name="id">
+                        <input type="text" class="form-control" id="asid" placeholder="asid" name="asid">
+                        <input type="hidden" class="form-control" id="id" name="id">
                       </div>
                     </div>
+
                     <div class="form-group row">
-                      <label for="code" class="col-sm-3 col-form-label"> Code </label>
+                      <label for="asname" class="col-sm-3 col-form-label"> Asset Status</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="code" placeholder="code" name="code">
+                        <input type="text" class="form-control" id="asname" placeholder="asname" name="asname">
                       </div>
                     </div>
 

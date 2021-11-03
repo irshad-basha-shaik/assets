@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Department Entry{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h1 class="card-title">Add Location</h1>
+                  <form class="forms-sample" method="POST" action="/assetapp/location_saveform">
+                      {% csrf_token %}
+                    <div class="form-group row">
+                      <label for="lid" class="col-sm-3 col-form-label"> Location Id</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="lid" placeholder="lid" name="lid">
+                        <input type="hidden" class="form-control" id="id" name="id">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="name" class="col-sm-3 col-form-label"> Location Name</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="name" placeholder="name" name="name">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="adress" class="col-sm-3 col-form-label"> Location Adress</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="adress" placeholder="adress" name="adress">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="owner" class="col-sm-3 col-form-label"> Owner</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="owner" placeholder="owner" name="owner">
+                      </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+              {% endif %}
+{% endblock %}

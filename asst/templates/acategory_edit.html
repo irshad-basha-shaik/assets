@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Department Entry{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+    <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h1 class="card-title">Edit Assets Category:</h1>
+                    <form class="forms-sample" method="POST" action="/assetapp/acategory_editform">
+                    {% csrf_token %}
+                      <input type="hidden" name="id" value="{{form.id}}"/>
+                      <div class="form-group row">
+                      <label for="acid" class="col-sm-3 col-form-label"> Asset Category Id</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" value="{{form.acid}}" id="acid" placeholder="category id" name="acid">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="acname" class="col-sm-3 col-form-label"> Asset Category</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" value="{{form.acname}}" id="acname" placeholder="category name" name="acname">
+                      </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a class="btn btn-danger" href="acategory_delete?id={{form.id}}">Delete</a>
+
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}

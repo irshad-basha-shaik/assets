@@ -1,12 +1,213 @@
 {% extends 'base.html' %}
 
 {% block title %}Employees List{% endblock %}
+{% block navbar_right %}
+        {% if user.is_authenticated %}
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                <p class="mb-0 font-weight-normal float-left dropdown-header">Profile</p>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-success">
+                      <i class="mdi mdi-information mx-0"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <h6 class="preview-subject font-weight-normal">Settings</h6>
+                    <p class="font-weight-light small-text mb-0 text-muted">
+                      Just now
+                    </p>
+                  </div>
+                </a>
+                <a class="dropdown-item preview-item" href="/asst/logout">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-info">
+                      <i class="mdi mdi-account-box mx-0"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <h6 class="preview-subject font-weight-normal">Logout</h6>
+                    <p class="font-weight-light small-text mb-0 text-muted">
+                      2 days ago
+                    </p>
+                  </div>
+                </a>
+              </div>
+                {% else %}
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+
+                <a class="dropdown-item preview-item" href="/asst/login">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-success">
+                      <i class="mdi mdi-information mx-0"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <h6 class="preview-subject font-weight-normal">Login</h6>
+                    <p class="font-weight-light small-text mb-0 text-muted">
+                      Just now
+                    </p>
+                  </div>
+                </a>
+
+              </div>
+{% endif %}
+{% endblock %}
 
 {% block content %}
 {% if user.is_authenticated %}
 
+<div class="content-wrapper">
+    <div class="col-lg-12 stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Assets List</h4>
+                <div class="row">
+                    <div class="col-md-12 bg-light text-right">
+                        <a type="button" class="btn btn-success" href="/assetapp/assets_entry">Asset Entry</a>
+                    </div>
+                </div>
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                            <th> Location </th>
+                            <th> Asset_No </th>
+                            <th>serial_no</th>
+                            <th> Emp_Id </th>
+                            <th> User_Name </th>
+                            <th>usage_type</th>
+                            <th>machine_type</th>
+                            <!--th>gef_identification_number</th>
+                            <th>domain_workgoup</th>
+                            <th>make</th>
+                            <th>machine_model_no</th>
+                            <th>model</th>
+                            <th>ram</th>
+                            <th>processor</th>
 
-  <div class="container">
+                            <th>HDD Capacity</th>
+                            <th>serial_no1</th>
+
+
+                            <th>purchase_date</th>
+                            <th>warranty_start_date</th>
+                            <th>warranty_end_date</th>
+                            <th>amc_start_date</th>
+                            <th>amc_end_date</th>
+                            <th>os_version</th>
+                            <th>os</th>
+                            <th>ms_office_version</th>
+                            <th>os_details</th>
+                            <th>antivirus</th>
+                            <th>autocad</th>
+                            <th>adobe_acrobate</th>
+                            <th>visio</th>
+                            <th>access</th>
+                            <th>sap</th>
+                            <th>status</th>
+                            <th>remarks</th>
+                            <th>user_acceptance_date</th>
+                            <th>user_handed_over_date</th-->
+                            <th>Edit</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                            {% for form in alist %}
+                        <tr>
+                             <td>{{form.location}} </td>
+                            <td>{{form.asset_no}}</td>
+                            <td>{{form.serial_no}}</td>
+                            <td>{{form.emp_id}}</td>
+                            <td>{{form.user_name}}</td>
+                            <td>{{form.usage_type}}</td>
+                            <td>{{form.machine_type}}</td>
+                            <!--td>{{form.gef_identification_number}}</td>
+                            <td>{{form.domain_workgoup}}</td>
+                            <td>{{form.make}}</td>
+                            <td>{{form.machine_model_no}}</td>
+                            <td>{{form.model}}</td>
+                            <td>{{form.ram}}</td>
+                            <td>{{form.processor}}</td>
+                            <td>{{form.hdd}}</td>
+                            <td>{{form.serial_no1}}</td>
+
+
+                            <td>{{form.purchase_date}}</td>
+                            <td>{{form.warranty_start_date}}</td>
+                            <td>{{form.warranty_end_date}}</td>
+                            <td>{{form.amc_start_date}}</td>
+                            <td>{{form.amc_end_date}}</td>
+                            <td>{{form.os_version}}</td>
+                            <td>{{form.os}}</td>
+                            <td>{{form.ms_office_version}}</td>
+                            <td>{{form.os_details}}</td>
+                            <td>{{form.antivirus}}</td>
+                            <td>{{form.autocad}}</td>
+                            <td>{{form.adobe_acrobate}}</td>
+                            <td>{{form.visio}}</td>
+                            <td>{{form.access}}</td>
+                            <td>{{form.sap}}</td>
+                            <td>{{form.status}}</td>
+                            <td>{{form.remarks}}</td>
+                            <td>{{form.user_acceptance_date}}</td>
+                            <td>{{form.user_handed_over_date}}</td-->
+                            <td><button class="btn btn-default"><a href="/assetapp/a_edit?id={{form.id}}">Edit</a></button></td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+          </div>
+        </div>
+<!--div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Select size</h4>
+                  <p class="card-description">
+                    Add classes like <code>.form-control-lg</code> and <code>.form-control-sm</code>.
+                  </p>
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1">Large select</label>
+                    <select class="form-control form-control-lg" id="exampleFormControlSelect1">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect2">Default select</label>
+                    <select class="form-control" id="exampleFormControlSelect2">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect3">Small select</label>
+                    <select class="form-control form-control-sm" id="exampleFormControlSelect3">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div-->
+  <!--div class="container">
     <p>Assets List:</p>
     <div class="row">
         <div class="col-md-12 bg-light text-right">
@@ -73,6 +274,7 @@
     </tbody>
           {% endfor %}
   </table>
-</div>
+</div-->
+
 {% endif %}
 {% endblock %}

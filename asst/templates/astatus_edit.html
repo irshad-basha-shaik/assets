@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Department Entry{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h1 class="card-title">Edit Assets Status:</h1>
+                    <form class="forms-sample" method="POST" action="/assetapp/astatus_editform">
+                    {% csrf_token %}
+                      <input type="hidden" name="id" value="{{form.id}}"/>
+                      <div class="form-group row">
+                      <label for="asid" class="col-sm-3 col-form-label"> Asset Status Id</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" value="{{form.asid}}" id="asid" placeholder="category id" name="asid">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="asname" class="col-sm-3 col-form-label"> Asset Status</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" value="{{form.asname}}" id="asname" placeholder="assets status" name="asname">
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a class="btn btn-danger" href="astatus_delete?id={{form.id}}">Delete</a>
+
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</div>
+{% endif %}
+{% endblock %}
