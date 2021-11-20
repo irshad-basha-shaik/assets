@@ -1,7 +1,15 @@
-from django.urls import path
+from django.urls import path,include
 from . import views
-
 urlpatterns = [
+    path('', views.index, name='home'),
+    path('assets', views.index, name='home'),
+    path('assets_entry', views.new, name='home'),
+    path('assets_edit/<int:id>',views.edit,name='edit'),
+    path('delete/<int:id>',views.delete,name='delete'),
+]
+'''
+urlpatterns = [
+    
     path('assets',views.assets,name='assets'),
     path('assets_entry',views.assets_entry,name='assets_entry'),
     path('asaveform',views.asaveform,name='asaveform'),
@@ -52,3 +60,4 @@ urlpatterns = [
     path('software_delete', views.software_delete, name='software_delete'),
 
 ]
+'''
