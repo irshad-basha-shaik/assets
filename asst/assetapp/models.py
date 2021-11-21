@@ -4,6 +4,7 @@ from datetime import date
 
 class AssetModel(models.Model):
     user_name = models.CharField(max_length=100, default='1')
+    user_email = models.EmailField(max_length=100,default='1')
     location = models.CharField(max_length=100)
     asset_no = models.CharField(max_length=100, default='1')
     serial_no = models.CharField(max_length=100, default='1')
@@ -12,6 +13,7 @@ class AssetModel(models.Model):
     machine_type = models.CharField(max_length=100, default='1')
     gef_id_number = models.CharField(max_length=100, default='1')
     domain_workgroup = models.CharField(max_length=100, default='1')
+    Domain_User_Name = models.CharField(max_length=100, default='1')
     machine_make = models.CharField(max_length=100, default='1')
     machine_model_no = models.CharField(max_length=100, default='1')
     machine_serial_no = models.CharField(max_length=100, default='1')
@@ -39,6 +41,7 @@ class AssetModel(models.Model):
     Visio = models.BooleanField(default='1')
     Access = models.BooleanField(default='1')
     SAP = models.BooleanField(default='1')
+    SAP_User_ID =models.CharField(max_length=100, default='1')
     Status = models.CharField(max_length=100, default='1')
     Remarks = models.CharField(max_length=100, default='1')
 

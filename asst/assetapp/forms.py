@@ -122,6 +122,7 @@ DOMAIN_WORKGROUP = (
 )
 class AssetForm(forms.ModelForm):
     user_name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    user_email = forms.EmailField(max_length=100,widget=forms.EmailInput(attrs={'class': 'form-control'}))
     location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}))
     asset_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -130,6 +131,7 @@ class AssetForm(forms.ModelForm):
     machine_type = forms.ChoiceField(choices=MACHINE_TYPE,widget=forms.Select(attrs={'class': 'form-control'}))
     gef_id_number = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     domain_workgroup = forms.ChoiceField(choices=DOMAIN_WORKGROUP,widget=forms.Select(attrs={'class': 'form-control'}))
+    Domain_User_Name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     machine_make = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     machine_model_no = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     machine_serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -157,9 +159,10 @@ class AssetForm(forms.ModelForm):
     Visio = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     Access = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     SAP = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
+    SAP_User_ID = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     Status = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     Remarks =forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     class Meta:
         model = AssetModel
-        fields = ['user_name','location','asset_no','serial_no','emp_id','usage_type','machine_type','gef_id_number','domain_workgroup','machine_make','machine_model_no','machine_serial_no','hdd','hdd_make','hdd_model','hdd_serial_no','ram','processor','processor_purchase_date','warranty_start_date','warranty_end_date','amc_start_date','amc_end_date','user_acceptance_date','user_handed_over_date','ms_office','ms_office_version','OEM_Volume','Operating_System_Version','OS','Antivirus','AutoCAD','Adobe_acrobate','Visio','Access','SAP','Status','Remarks']
+        fields = ['user_name','user_email','location','asset_no','serial_no','emp_id','usage_type','machine_type','gef_id_number','domain_workgroup','Domain_User_Name','machine_make','machine_model_no','machine_serial_no','hdd','hdd_make','hdd_model','hdd_serial_no','ram','processor','processor_purchase_date','warranty_start_date','warranty_end_date','amc_start_date','amc_end_date','user_acceptance_date','user_handed_over_date','ms_office','ms_office_version','OEM_Volume','Operating_System_Version','OS','Antivirus','AutoCAD','Adobe_acrobate','Visio','Access','SAP','SAP_User_ID','Status','Remarks']
