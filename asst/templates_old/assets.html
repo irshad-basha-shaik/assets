@@ -73,42 +73,41 @@
                             <!--th> Location </th>
                             <th> Asset_No </th>
                             <th>serial_no</th>
-                            <th> Emp_Id </th>
+                            <th> Emp_Id </th-->
                             <th> User_Name </th>
                             <th>usage_type</th>
                             <th>machine_type</th>
-                            <th>gef_id_number</th>
-                            <th>domain_workgoup</th>
-                            <th>machine_make</th>
+                            <!--th>gef_id_number</th-->
+                            <th>Domain Workgroup</th>
+                            <!--th>machine_make</th>
                             <th>machine_model_no</th>
                             <th>machine_serial_no</th>
                             <th>ram</th>
                             <th>processor</th>
-
                             <th>HDD Capacity</th>
-                            <th>serial_no1</th>
+                            <th>HDD Serial No</th>
 
-
-                            <th>processor_purchase_date</th-->
+                            <th>processor_purchase_date</th>
                             <th>warranty_start_date</th>
                             <th>warranty_end_date</th>
                             <th>amc_start_date</th>
                             <th>amc_end_date</th>
-                            <!--th>os_version</th>
-                            <th>os</th>
-                            <th>ms_office_version</th>
-                            <th>os_details</th-->
-                            <!--th>antivirus</th>
-                            <th>autocad</th>
-                            <th>adobe_acrobate</th>
-                            <th>visio</th>
-                            <th>access</th>
-                            <th>sap</th>
-                            <th>status</th>
-                            <th>remarks</th-->
+                            <th>OS Version</th>
+                            <th>OS</th>
+                            <th>Ms Office Version</th>
+                            <th>OEM Volume</th>
+                            <th>Antivirus</th>
+                            <th>AutoCAD</th>
+                            <th>Adobe Acrobate</th>
+                            <th>Visio</th>
+                            <th>Access</th>
+                            <th>SAP</th-->
+                            <!--th>status</th>
+                            <th>remarks</th>
                             <th>user_acceptance_date</th>
-                            <th>user_handed_over_date</th>
+                            <th>user_handed_over_date</th-->
                             <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -117,41 +116,42 @@
                              <!--td>{{form.location}} </td>
                             <td>{{form.asset_no}}</td>
                             <td>{{form.serial_no}}</td>
-                            <td>{{form.emp_id}}</td>
+                            <td>{{form.emp_id}}</td-->
                             <td>{{form.user_name}}</td>
                             <td>{{form.usage_type}}</td>
                             <td>{{form.machine_type}}</td>
-                            <td>{{form.gef_id_number}}</td>
-                            <td>{{form.domain_workgoup}}</td>
-                            <td>{{form.machine_make}}</td>
+                            <!--td>{{form.gef_id_number}}</td-->
+                            <td>{{form.domain_workgroup}}</td>
+                            <!--td>{{form.machine_make}}</td>
                             <td>{{form.machine_model_no}}</td>
                             <td>{{form.machine_serial_no}}</td>
                             <td>{{form.ram}}</td>
                             <td>{{form.processor}}</td>
                             <td>{{form.hdd}}</td>
-                            <td>{{form.serial_no1}}</td>
+                            <td>{{form.hdd_serial_no}}</td>
 
 
-                            <td>{{form.processor_purchase_date}}</td-->
+                            <td>{{form.processor_purchase_date}}</td>
                             <td>{{form.warranty_start_date}}</td>
                             <td>{{form.warranty_end_date}}</td>
                             <td>{{form.amc_start_date}}</td>
                             <td>{{form.amc_end_date}}</td>
-                            <!--td>{{form.os_version}}</td>
-                            <td>{{form.os}}</td>
+                            <td>{{form.Operating_System_Version}}</td>
+                            <td>{{form.OS}}</td>
                             <td>{{form.ms_office_version}}</td>
-                            <td>{{form.os_details}}</td-->
-                            <!--td>{{form.antivirus}}</td>
-                            <td>{{form.autocad}}</td>
-                            <td>{{form.adobe_acrobate}}</td>
-                            <td>{{form.visio}}</td>
-                            <td>{{form.access}}</td>
-                            <td>{{form.sap}}</td>
-                            <td>{{form.status}}</td>
-                            <td>{{form.remarks}}</td-->
+                            <td>{{form.OEM_Volume}}</td-->
+                            <!--td>{{form.Antivirus}}</td>
+                            <td>{{form.AutoCAD}}</td>
+                            <td>{{form.Adobe_acrobate}}</td>
+                            <td>{{form.Visio}}</td>
+                            <td>{{form.Access}}</td>
+                            <td>{{form.SAP}}</td-->
+                            <!--td>{{form.status}}</td>
+                            <td>{{form.remarks}}</td>
                             <td>{{form.user_acceptance_date}}</td>
-                            <td>{{form.user_handed_over_date}}</td>
-                            <td><button class="btn btn-default"><a href="/assetapp/assets_edit/{{form.id}}">Edit</a></button></td>
+                            <td>{{form.user_handed_over_date}}</td-->
+                            <td><a href="/assetapp/assets_edit/{{form.id}}">Edit</a></td>
+                            <td><a href="/assetapp/assets_delete/{{form.id}}">Delete</a></td>
                         </tr>
                         {% endfor %}
                       </tbody>

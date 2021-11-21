@@ -5,7 +5,7 @@ urlpatterns = [
     path('assets', views.index, name='home'),
     path('assets_entry', views.new, name='home'),
     path('assets_edit/<int:id>',views.edit,name='edit'),
-    path('delete/<int:id>',views.delete,name='delete'),
+    path('assets_delete/<int:id>',views.delete,name='delete'),
 ]
 '''
 urlpatterns = [

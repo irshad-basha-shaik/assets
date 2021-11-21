@@ -3,13 +3,15 @@ from django.db import models
 from datetime import date
 
 class AssetModel(models.Model):
+    user_name = models.CharField(max_length=100, default='1')
     location = models.CharField(max_length=100)
     asset_no = models.CharField(max_length=100, default='1')
+    serial_no = models.CharField(max_length=100, default='1')
     emp_id = models.CharField(max_length=100, default='1')
     usage_type = models.CharField(max_length=100, default='1')
     machine_type = models.CharField(max_length=100, default='1')
     gef_id_number = models.CharField(max_length=100, default='1')
-    domain_workgoup = models.CharField(max_length=100, default='1')
+    domain_workgroup = models.CharField(max_length=100, default='1')
     machine_make = models.CharField(max_length=100, default='1')
     machine_model_no = models.CharField(max_length=100, default='1')
     machine_serial_no = models.CharField(max_length=100, default='1')
@@ -26,10 +28,18 @@ class AssetModel(models.Model):
     amc_end_date = models.DateField(default=date(1111, 11, 11))
     user_acceptance_date = models.DateField(default=date(1111, 11, 11))
     user_handed_over_date = models.DateField(default=date(1111, 11, 11))
-    OS_Version = models.CharField(max_length=100, default='1')
+    Operating_System_Version = models.CharField(max_length=100, default='1')
     OS = models.CharField(max_length=100, default='1')
+    OEM_Volume = models.BooleanField(default='1')
     ms_office = models.BooleanField(default='1')
     ms_office_version = models.CharField(max_length=100, default='1')
-    OEM_Volume = models.CharField(max_length=100, default='1')
+    Antivirus = models.BooleanField(default='1')
+    AutoCAD = models.BooleanField(default='1')
+    Adobe_acrobate = models.BooleanField(default='1')
+    Visio = models.BooleanField(default='1')
+    Access = models.BooleanField(default='1')
+    SAP = models.BooleanField(default='1')
+    Status = models.CharField(max_length=100, default='1')
+    Remarks = models.CharField(max_length=100, default='1')
 
 
