@@ -6,7 +6,7 @@ from django import forms
 
 
 # creating a form
-from .models import AssetModel
+from .models import AssetModel,WifiModel,FirewallModel
 
 USAGE_TYPE = [
     ('Spare_Old', 'Spare_Old'),
@@ -201,11 +201,15 @@ class WifiForm(forms.ModelForm):
     Remarks = forms.ChoiceField(choices=REMARKS,widget=forms.Select(attrs={'class': 'form-control'}))
     Devices = forms.ChoiceField(choices=DEVICES,widget=forms.Select(attrs={'class': 'form-control'}))
 
+    class Meta:
+        model = WifiModel
+        fields = '__all__'
+
 class FirewallForm(forms.ModelForm):
-    location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}))
+    Location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}))
     Old_Asset_No = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     Asset_No = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
-    user_name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    User_name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     machine_type = forms.ChoiceField(choices=MACHINE_TYPE,widget=forms.Select(attrs={'class': 'form-control'}))
     Make = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     Model_no = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -215,6 +219,10 @@ class FirewallForm(forms.ModelForm):
     AMC_Start_Date = forms.DateField(label='Purchase Date', widget=forms.SelectDateWidget(years=YEARS))
     AMC_End_Date = forms.DateField(label='Purchase Date', widget=forms.SelectDateWidget(years=YEARS))
     Remarks = forms.ChoiceField(choices=REMARKS,widget=forms.Select(attrs={'class': 'form-control'}))
+
+    class Meta:
+        model = FirewallModel
+        fields = '__all__'
 
 class VCCForm(forms.ModelForm):
     location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}))

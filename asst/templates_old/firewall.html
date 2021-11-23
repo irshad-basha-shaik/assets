@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block title %}Employees List{% endblock %}
+{% block navbar_right %}
+        {% if user.is_authenticated %}
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                <p class="mb-0 font-weight-normal float-left dropdown-header">Profile</p>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-success">
+                      <i class="mdi mdi-information mx-0"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <h6 class="preview-subject font-weight-normal">Settings</h6>
+                    <p class="font-weight-light small-text mb-0 text-muted">
+                      Just now
+                    </p>
+                  </div>
+                </a>
+                <a class="dropdown-item preview-item" href="/asst/logout">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-info">
+                      <i class="mdi mdi-account-box mx-0"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <h6 class="preview-subject font-weight-normal">Logout</h6>
+                    <p class="font-weight-light small-text mb-0 text-muted">
+                      2 days ago
+                    </p>
+                  </div>
+                </a>
+              </div>
+                {% else %}
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+
+                <a class="dropdown-item preview-item" href="/asst/login">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-success">
+                      <i class="mdi mdi-information mx-0"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <h6 class="preview-subject font-weight-normal">Login</h6>
+                    <p class="font-weight-light small-text mb-0 text-muted">
+                      Just now
+                    </p>
+                  </div>
+                </a>
+
+              </div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<div class="content-wrapper">
+    <div class="col-lg-12 stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Firewall</h4>
+                <div class="row">
+                    <div class="col-md-12 bg-light text-right">
+                        <a type="button" class="btn btn-success" href="/assetapp/firewall_entry">New Entry</a>
+                    </div>
+                </div>
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                            <th> Location </th>
+                            <th> Old_Asst_No </th>
+                            <th> Asst_No</th>
+                            <th> User_name </th>
+                            <th> Machine_Type </th>
+                            <th> Make </th>
+                            <th> Model_no</th>
+                            <th> Machine_Si_no</th>
+                            <th> Machine_Number</th>
+                            <th> Purchase_Date</th>
+                            <th> AMC_Start_Date</th>
+                            <th> AMC_End_Date</th>
+                            <th> Remarks</th>
+                            <th> Edit</th>
+                            <th> Delete</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                            {% for form in list %}
+                        <tr>
+                             <th>{{form.Location }}</th>
+                            <th>{{form.Old_Asst_No }}</th>
+                            <th>{{form.Asst_No}}</th>
+                            <th>{{form.User_name}}</th>
+                            <th>{{form.Make }}</th>
+                            <th>{{form.Model_no}}</th>
+                            <th>{{form.Machine_Si_no}}</th>
+                            <th>{{form.Machine_Number}}</th>
+                            <th>{{form.Purchase_Date}}</th>
+                            <th>{{form.AMC_Start_Date}}</th>
+                            <th>{{form.AMC_End_Date}}</th>
+                            <th>{{form.Remarks}}</th>
+                            <td><a href="/assetapp/firewall_edit/{{form.id}}">Edit</a></td>
+                            <td><a href="/assetapp/firewall_delete/{{form.id}}">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+{% endif %}
+{% endblock %}

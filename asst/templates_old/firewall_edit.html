@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block title %}Department Entry{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Entry Form</h4>
+                  <p class="card-description">
+                    Enter form layout
+                  </p>
+                  <form class="forms-sample" method="POST"> {% csrf_token %}
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label"> Location </label>
+                      <div class="col-sm-9">
+                        {{form.Location}}
+                      </div>
+                    </div>
+                      <div class="form-group row">
+                      <label class="col-sm-3 col-form-label"> Old_Asst_No </label>
+                      <div class="col-sm-9">
+                        {{form.Old_Asst_No}}
+                      </div>
+                    </div>
+                      <div class="form-group row">
+                      <label class="col-sm-3 col-form-label"> Asst_No </label>
+                      <div class="col-sm-9">
+                        {{form.Asst_No}}
+                      </div>
+                    </div>
+                      <div class="form-group row">
+                      <label class="col-sm-3 col-form-label"> User_name </label>
+                      <div class="col-sm-9">
+                        {{form.User_name}}
+                      </div>
+                    </div>
+                      <div class="form-group row">
+                      <label class="col-sm-3 col-form-label"> Make </label>
+                      <div class="col-sm-9">
+                        {{form.Make}}
+                      </div>
+                    </div>
+                      <div class="form-group row">
+                      <label class="col-sm-3 col-form-label"> Model_no </label>
+                      <div class="col-sm-9">
+                        {{form.Model_no}}
+                      </div>
+                    </div>
+                      <div class="form-group row">
+                      <label class="col-sm-3 col-form-label"> Machine_Si_no </label>
+                      <div class="col-sm-9">
+                        {{form.Machine_Si_no}}
+                      </div>
+                    </div>
+                      <div class="form-group row">
+                      <label class="col-sm-3 col-form-label"> Machine_Number </label>
+                      <div class="col-sm-9">
+                        {{form.Machine_Number}}
+                      </div>
+                    </div>
+                      <div class="form-group row">
+                      <label class="col-sm-3 col-form-label"> Purchase_Date </label>
+                      <div class="col-sm-9">
+                        {{form.Purchase_Date}}
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label"> AMC_Start_Date </label>
+                      <div class="col-sm-9">
+                        {{form.AMC_Start_Date}}
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label"> AMC_End_Date </label>
+                      <div class="col-sm-9">
+                        {{form.AMC_End_Date}}
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label"> Remarks </label>
+                      <div class="col-sm-9">
+                        {{form.Remarks}}
+                      </div>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+{% endif %}
+{% endblock %}

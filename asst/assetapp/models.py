@@ -89,7 +89,7 @@ class VCCModel(models.Model):
     AMC_End_Date = models.DateField(default=date(1111, 11, 11))
     Remarks = models.CharField(max_length=100)
 
-class Printers(models.Model):
+class PrinterModel(models.Model):
     Location = models.CharField(max_length=100)
     Asset_no = models.CharField(max_length=100)
     New_Asset_No = models.CharField(max_length=100)
@@ -105,7 +105,7 @@ class Printers(models.Model):
     End_AMC_Date = models.DateField(default=date(1111, 11, 11))
     Remarks = models.CharField(max_length=100)
 
-class UPS(models.Model):
+class UPSModel(models.Model):
     Location = models.CharField(max_length=100)
     Asset_no = models.CharField(max_length=100)
     New_Asset_No = models.CharField(max_length=100)
@@ -120,7 +120,7 @@ class UPS(models.Model):
     Remarks = models.CharField(max_length=100)
     Status = models.CharField(max_length=100)
 
-class Switches(models.Model):
+class SwitcheModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asset_No = models.CharField(max_length=100)
     Asset_No = models.CharField(max_length=100)
@@ -136,7 +136,7 @@ class Switches(models.Model):
     AMC_Date = models.DateField(default=date(1111, 11, 11))
     Remarks = models.CharField(max_length=100)
 
-class NVR_DVR(models.Model):
+class NVR_DVRModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asset_no = models.CharField(max_length=100)
     Asset_no = models.CharField(max_length=100)
@@ -152,7 +152,7 @@ class NVR_DVR(models.Model):
     AMC_End_date = models.DateField(default=date(1111, 11, 11))
     Status = models.CharField(max_length=100)
 
-class Projectors(models.Model):
+class ProjectorModel(models.Model):
     Location = models.CharField(max_length=100)
     Asset_no = models.CharField(max_length=100)
     New_Asset_No = models.CharField(max_length=100)
@@ -166,7 +166,7 @@ class Projectors(models.Model):
     Warranty_Details = models.DateField(default=date(1111, 11, 11))
     Remarks = models.CharField(max_length=100)
 
-class CCTV_Camera(models.Model):
+class CCTV_CameraModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asset_No = models.CharField(max_length=100)
     Asset_no = models.CharField(max_length=100)
@@ -183,7 +183,7 @@ class CCTV_Camera(models.Model):
     Status = models.CharField(max_length=100)
 
 
-class CCTV_HDD(models.Model):
+class CCTV_HDDModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asset_No = models.CharField(max_length=100)
     Asset_no = models.CharField(max_length=100)
@@ -203,7 +203,7 @@ class CCTV_HDD(models.Model):
     Status = models.CharField(max_length=100)
 
 
-class Ext_HDD(models.Model):
+class Ext_HDDModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asset_No = models.CharField(max_length=100)
     Asset_no = models.CharField(max_length=100)
@@ -221,7 +221,7 @@ class Ext_HDD(models.Model):
     AMC_End_date = models.DateField(default=date(1111, 11, 11))
     Status = models.CharField(max_length=100)
 
-class NAS(models.Model):
+class NASModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asset_No = models.CharField(max_length=100)
     Asset_no = models.CharField(max_length=100)
@@ -237,7 +237,7 @@ class NAS(models.Model):
     Status = models.CharField(max_length=100)
     Remarks = models.CharField(max_length=100)
 
-class EPBEX(models.Model):
+class EPBEXModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asset_No = models.CharField(max_length=100)
     Asset_no = models.CharField(max_length=100)
@@ -253,7 +253,7 @@ class EPBEX(models.Model):
     AMC_End_date = models.DateField(default=date(1111, 11, 11))
     Status = models.CharField(max_length=100)
 
-class Ext_DVD(models.Model):
+class Ext_DVDModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asset_No = models.CharField(max_length=100)
     Asset_no = models.CharField(max_length=100)
@@ -270,7 +270,7 @@ class Ext_DVD(models.Model):
     AMC_End_date = models.DateField(default=date(1111, 11, 11))
     Status = models.CharField(max_length=100)
 
-class Phones(models.Model):
+class PhonesModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asset_No = models.CharField(max_length=100)
     Asset_no = models.CharField(max_length=100)
@@ -287,7 +287,7 @@ class Phones(models.Model):
     Remarks = models.CharField(max_length=100)
 
 
-class LED_TV(models.Model):
+class LED_TVModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asset =models.CharField(max_length=100)
     New_Asset =models.CharField(max_length=100)
@@ -304,7 +304,7 @@ class LED_TV(models.Model):
     Status = models.CharField(max_length=100)
 
 
-class Monitors(models.Model):
+class MonitorsModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asset =models.CharField(max_length=100)
     New_Asset =models.CharField(max_length=100)
@@ -321,7 +321,7 @@ class Monitors(models.Model):
     Status = models.CharField(max_length=100)
     Remarks = models.CharField(max_length=100)
 
-class Racks(models.Model):
+class RacksModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asset_No = models.CharField(max_length=100)
     Asset_no = models.CharField(max_length=100)
@@ -334,7 +334,7 @@ class Racks(models.Model):
     AMC_End_date = models.DateField(default=date(1111, 11, 11))
     Status = models.CharField(max_length=100)
 
-class LIUs(models.Model):
+class LIUsModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asset_No = models.CharField(max_length=100)
     Asset_no = models.CharField(max_length=100)
@@ -349,7 +349,7 @@ class LIUs(models.Model):
     Status = models.CharField(max_length=100)
     Remarks = models.CharField(max_length=100)
 
-class Jackpannel(models.Model):
+class JackpannelModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asset_No = models.CharField(max_length=100)
     Asset_no = models.CharField(max_length=100)
@@ -365,7 +365,7 @@ class Jackpannel(models.Model):
     Status = models.CharField(max_length=100)
 
 
-class Cameras(models.Model):
+class CamerasModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asset_No = models.CharField(max_length=100)
     Asset_no = models.CharField(max_length=100)
@@ -382,7 +382,7 @@ class Cameras(models.Model):
     Status = models.CharField(max_length=100)
 
 
-class Access_Control(models.Model):
+class Access_ControlModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asset_No = models.CharField(max_length=100)
     Asset_no = models.CharField(max_length=100)
@@ -399,7 +399,7 @@ class Access_Control(models.Model):
     AMC_End_date = models.DateField(default=date(1111, 11, 11))
     Status = models.CharField(max_length=100)
 
-class Bio_Metric(models.Model):
+class Bio_MetricModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asset_No = models.CharField(max_length=100)
     Asset_no = models.CharField(max_length=100)
@@ -418,7 +418,7 @@ class Bio_Metric(models.Model):
     Remarks = models.CharField(max_length=100)
 
 
-class Pen_Drives(models.Model):
+class Pen_DrivesModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asset_No = models.CharField(max_length=100)
     Asset_no = models.CharField(max_length=100)
@@ -434,7 +434,7 @@ class Pen_Drives(models.Model):
     AMC_End_date = models.DateField(default=date(1111, 11, 11))
     Status = models.CharField(max_length=100)
 
-class Shredder(models.Model):
+class ShredderModel(models.Model):
     Location = models.CharField(max_length=100)
     Asset_no = models.CharField(max_length=100)
     New_Asset_No = models.CharField(max_length=100)

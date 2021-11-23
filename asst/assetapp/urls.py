@@ -2,11 +2,21 @@ from django.urls import path,include
 from . import views
 urlpatterns = [
     path('', views.index, name='home'),
-    path('assets', views.index, name='home'),
-    path('assets_entry', views.new, name='home'),
+    path('assets', views.index, name='assets'),
+    path('assets_entry', views.new, name='entry'),
     path('assets_edit/<int:id>',views.edit,name='edit'),
     path('assets_delete/<int:id>',views.delete,name='delete'),
-]
+
+    path('wifi',views.wifi_index,name='wifi'),
+    path('wifi_entry',views.wifi,name='wifi_entry'),
+    path('wifi_edit/<int:id>',views.wifi_edit,name='wifi_edit'),
+    path('wifi_delete/<int:id>',views.wifi_delete,name='wifi_delete'),
+
+    path('firewall',views.firewall_index,name='firewall'),
+    path('firewall_entry',views.firewall,name='firewall_entry'),
+    path('firewall_edit/<int:id>',views.firewall_edit,name='firewall_edit'),
+    path('firewall_delete/<int:id>',views.firewall_delete,name='firewall_delete'),
+    ]
 '''
 urlpatterns = [
     
