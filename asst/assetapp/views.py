@@ -4,8 +4,10 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from .forms import AssetForm,WifiForm,FirewallForm
 from .models import AssetModel,WifiModel,FirewallModel
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
+@csrf_exempt
 
 def new(request):
     context = {}
