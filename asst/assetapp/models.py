@@ -66,15 +66,15 @@ class FirewallModel(models.Model):
     Old_Asst_No = models.CharField(max_length=100)
     Asst_No = models.CharField(max_length=100)
     User_name = models.CharField(max_length=100)
-    Machine_Type = models.CharField(max_length=100)
     Make = models.CharField(max_length=100)
-    Model_no = models.CharField(max_length=100)
-    Machine_Si_no = models.CharField(max_length=100)
+    Machine_Model_no = models.CharField(max_length=100)
+    Machine_Sl_no = models.CharField(max_length=100)
     Machine_Number = models.CharField(max_length=100)
     Purchase_Date = models.DateField(default=date(1111, 11, 11))
     AMC_Start_Date = models.DateField(default=date(1111, 11, 11))
     AMC_End_Date = models.DateField(default=date(1111, 11, 11))
     Remarks = models.CharField(max_length=100)
+    Machine_Type = models.CharField(max_length=100)
 
 class VCCModel(models.Model):
     Location = models.CharField(max_length=100)
