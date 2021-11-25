@@ -16,7 +16,13 @@ urlpatterns = [
     path('firewall_entry',views.firewall,name='firewall_entry'),
     path('firewall_edit/<int:id>',views.firewall_edit,name='firewall_edit'),
     path('firewall_delete/<int:id>',views.firewall_delete,name='firewall_delete'),
-    ]
+
+    path('vcc', views.vcc_index, name='vcc'),
+    path('vcc_entry', views.vcc, name='vcc_entry'),
+    path('vcc_edit/<int:id>', views.vcc_edit, name='vcc_edit'),
+    path('vcc_delete/<int:id>', views.vcc_delete, name='vcc_delete'),
+
+]
 '''
 urlpatterns = [
     
