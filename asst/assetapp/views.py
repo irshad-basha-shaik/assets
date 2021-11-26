@@ -2,8 +2,8 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm,WifiForm,FirewallForm,VCCForm
-from .models import AssetModel,WifiModel,FirewallModel,VCCModel
+from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm
+from .models import AssetModel,WifiModel,FirewallModel,VCCModel,PrinterModel
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
@@ -130,7 +130,7 @@ def vcc_index(request):
     return render(request, "vcc.html", {"list": list})
 
 def vcc_edit(request,id):
-    obj = get_object_or_404(WifiModel, pk=id)
+    obj = get_object_or_404(VCCModel, pk=id)
     context = {}
     form = VCCForm(instance=obj)
     if request.method == 'POST':
@@ -146,5 +146,41 @@ def vcc_edit(request,id):
 def vcc_delete(request,id):
     context = {}
     obj = get_object_or_404(VCCModel, id=id)
+    obj.delete()
+    return HttpResponseRedirect("/")
+
+
+def printer(request):
+    context = {}
+    context['form'] = PrintersForm()
+    if request.method == 'POST':
+        form = PrintersForm(request.POST)
+        if form.is_valid():
+            student = form.save(commit=False)
+            student.save()
+            return printer_index(request)
+    return render(request, "printer_entry.html", context)
+
+def printer_index(request):
+    list = PrinterModel.objects.all()
+    return render(request, "printer.html", {"list": list})
+
+def printer_edit(request,id):
+    obj = get_object_or_404(PrinterModel, pk=id)
+    context = {}
+    form = PrintersForm(instance=obj)
+    if request.method == 'POST':
+        form = PrintersForm(request.POST)
+        if form.is_valid():
+            #AssetModel.objects.filter(pk=id).update(location=form.cleaned_data['location'],asset_no=form.cleaned_data['asset_no'],emp_id=form.cleaned_data['emp_id'],usage_type=form.cleaned_data['usage_type'],machine_type=form.cleaned_data['machine_type'],gef_id_number=form.cleaned_data['gef_id_number'],domain_workgoup=form.cleaned_data['domain_workgoup'],machine_make=form.cleaned_data['machine_make'],machine_model_no=form.cleaned_data['machine_model_no'],machine_serial_no=form.cleaned_data['machine_serial_no'],hdd=form.cleaned_data['hdd'],hdd_make=form.cleaned_data['hdd_make'],hdd_model=form.cleaned_data['hdd_model'],hdd_serial_no=form.cleaned_data['hdd_serial_no'],ram=form.cleaned_data['ram'])
+            PrinterModel.objects.filter(pk=id).update(Location=form.cleaned_data['Location'],Old_Asst_No=form.cleaned_data['Old_Asst_No'],Asst_No=form.cleaned_data['Asst_No'], User_name_Location=form.cleaned_data['User_name_Location'],Make=form.cleaned_data['Make'],Machine_Model_no=form.cleaned_data['Machine_Model_no'],Machine_Sl_no=form.cleaned_data['Machine_Sl_no'],Machine_Number=form.cleaned_data['Machine_Number'],Purchase_Date=form.cleaned_data['Purchase_Date'],Warranty_Details=form.cleaned_data['Warranty_Details'],AMC_Date=form.cleaned_data['AMC_Date'],Remarks=form.cleaned_data['Remarks'],Devices=form.cleaned_data['Devices'])
+
+            return vcc_index(request)
+    context['form'] = form
+    return render(request,"printer_edit.html",context)
+
+def printer_delete(request,id):
+    context = {}
+    obj = get_object_or_404(PrinterModel, id=id)
     obj.delete()
     return HttpResponseRedirect("/")

@@ -22,6 +22,11 @@ urlpatterns = [
     path('vcc_edit/<int:id>', views.vcc_edit, name='vcc_edit'),
     path('vcc_delete/<int:id>', views.vcc_delete, name='vcc_delete'),
 
+    path('printer', views.printer_index, name='printer'),
+    path('printer_entry', views.printer, name='printer_entry'),
+    path('printer_edit/<int:id>', views.printer_edit, name='printer_edit'),
+    path('printer_delete/<int:id>', views.printer_delete, name='printer_delete'),
+
 ]
 '''
 urlpatterns = [
