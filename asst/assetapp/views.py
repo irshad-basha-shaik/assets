@@ -1,11 +1,16 @@
+from datetime import datetime
 
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm
+from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION
 from .models import AssetModel,WifiModel,FirewallModel,VCCModel,PrinterModel
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
+import json
+from django.core import serializers
+from django.http import JsonResponse
+from django.http import HttpResponse
 
 @csrf_exempt
 
@@ -19,11 +24,102 @@ def new(request):
             student = form.save(commit=False)
             student.save()
             return index(request)
+        else:
+            print(form.errors)
 
     return render(request,"assets_entry.html",context)
 def index(request):
     list = AssetModel.objects.all()
     return render(request,"assets.html",{"list":list})
+def OSTally():
+    win_live = []
+    ser_live = []
+    for os in OS:
+        a = 1
+
+        c1 = getAssetCount(os[1], False)
+        c2 = getAssetCount(os[1], True)
+        c3 = getAvailableLicence(os[1])
+        c4 = c3 - c1
+
+        c5 = False
+        c6 = True
+        if (c4 < 0):
+            c5 = True
+            c6 = False
+        temp = {"OS": os[1], "VolumeLicence": c1, "OEM": c2, "pos": 0, "Available": c3, "Balance": c4,
+                 "CurrentAvailableBalance": c4, "BorrowPath": []}
+        if os[1].startswith("Win."):
+            # ver=os[1].replace("Win","")
+            b = getOSPosition(os[1])
+            temp['pos'] = b
+            win_live.append(temp)
+        elif os[1].startswith("Ser."):
+            b = getOSPosition(os[1])
+            temp['pos'] = b
+            ser_live.append(temp)
+    win_live = generateCarryForward(win_live)
+    ser_live = generateCarryForward(ser_live)
+    return win_live,ser_live
+def fetchBalance(need1,x,list):
+    need=need1*-1
+    for y in list:
+        if x['pos']<y['pos']:
+            if y['CurrentAvailableBalance'] >=need:
+                temp = y['CurrentAvailableBalance'] - need
+                y['CurrentAvailableBalance']=temp
+                x['CurrentAvailableBalance'] = 0
+                ttemp={"LenderVersion":y["OS"],"BorrowLicence":need}
+                x["BorrowPath"].append(ttemp)
+                return 0
+            elif y['CurrentAvailableBalance'] >0:
+                tal=y['CurrentAvailableBalance']
+                need =  need -y['CurrentAvailableBalance']
+                y['CurrentAvailableBalance'] = 0
+                x['CurrentAvailableBalance'] = need*-1
+                ttemp = {"LenderVersion": y["OS"], "BorrowLicence": tal}
+                x["BorrowPath"].append(ttemp)
+    return need
+def generateCarryForward(list):
+    for x in list:
+        if x["Balance"]<0:
+            need= x["Balance"]
+            fetchBalance(need,x,list)
+            i=10
+    return list
+def getOSPosition(obj):
+    s=AVAILABLE_LICENCE_ORDER[obj]
+    if s!= None:
+        return s
+    return -1
+def getAvailableLicence(obj):
+    try:
+        s=AVAILABLE_LICENCE[obj]
+    except:
+        s=-1
+
+    return s
+def getAssetCount(os,oem):
+    list = AssetModel.objects.all().filter(OS=os,OEM_Volume=oem)
+    return len(list)
+def getDashboard(request):
+
+#    obj = AssetModel.objects.all().values()
+    list = serializers.serialize("json", AssetModel.objects.all())
+
+    #y = json.dumps(obj)
+    #return render(request, "dashboard.json", {"list": {'asset':list}})
+    return HttpResponse(json.dumps({'asset':list,"available_licence":AVAILABLE_LICENCE,"LIC_ORDER":AVAILABLE_LICENCE_ORDER}), content_type="application/json")
+
+def home(request):
+    context = {}
+    a,b=OSTally()
+    now = datetime.today()
+    context['win'] = a
+    context['server'] = b
+    context['now'] = now
+
+    return render(request, "home.html", context)
 def edit(request,id):
     obj = get_object_or_404(AssetModel, pk=id)
     context = {}

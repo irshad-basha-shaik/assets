@@ -30,20 +30,25 @@ MACHINE_TYPE = [
 
 ]
 HDD = [
-    ('500 GB','500 GB'),
-    ('512 GB', '512 GB'),
-    ('160 GB', '160 GB'),
-    ('250 GB', '250 GB'),
+    ('', ''),
     ('320 GB', '320 GB'),
-    ('2TB+4TB', '2TB+4TB'),
     ('1 TB', '1 TB'),
-    ('10 TB', '10 TB'),
+    ('500 GB', '500 GB'),
+    ('160 GB', '160 GB'),
+    ('128 GB', '128 GB'),
+    ('512 GB', '512 GB'),
+    ('250 GB', '250 GB'),
+    ('350 GB', '350 GB'),
+    ('2TB+4TB', '2TB+4TB'),
+    ('2TB 4TB', '2TB 4TB')
 ]
 HDD_CAPACITY = (
     ('500MB','500MB'),
     ('120GB', '120GB'),
     ('160GB', '160GB'),
     ('240GB', '240GB'),
+    ('350GB', '350GB'),
+    ('350 GB', '350 GB'),
     ('500GB', '500GB'),
     ('1TB', '1TB'),
     ('2TB', '2TB'),
@@ -61,6 +66,7 @@ RAM = [
     ('24GB', '24GB'),
     ('32GB', '32GB'),
     ('64GB', '64GB'),
+    ('1 GB','1 GB'),
     ('2 GB','2 GB'),
     ('3 GB','3 GB'),
     ('4 GB', '4 GB'),
@@ -181,40 +187,74 @@ PROCESSOR = [
 YEARS= [x for x in range(1940,2021)]
 
 MS_VERSION =  (
-    ('MS Office Standard 2010','MS Office Standard 2010'),
-    ('MS Office Standard 2013','MS Office Standard 2013'),
-    ('MS Office Standard 2016','MS Office Standard 2016'),
+    ('MS Office Standard 2010', 'MS Office Standard 2010'),
+    ('MS Office Standard 2013', 'MS Office Standard 2013'),
+    ('MS Office Standard 2016', 'MS Office Standard 2016'),
+    ('MS Office Standard 2019', 'MS Office Standard 2019'),
+
+
     ('','')
 )
 OEM_VOLUME = [x for x in range(1990,2021)]
 OS_VERSION = (
-    ('Win-7 Pro.32 Bit','Win-7 Pro.32 Bit'),
-    ('Win-7 Pro.64 Bit','Win-7 Pro.64 Bit'),
-    ('Win-7 Pro 32 Bit','Win-7 Pro 32 Bit'),
-    ('Win-7 Pro 64 Bit','Win-7 Pro 64 Bit'),
-    ('Win-10 Pro 64 Bit','Win-10 Pro 64 Bit'),
-    ('Win-10 Pro.64 Bit','Win-10 Pro.64 Bit'),
-    ('Win-Server-2012','Win-Server-2012'),
-    ('Win-8.1 Pro.32 Bit','Win-8.1 Pro.32 Bit'),
-    ('Win-8.1 Pro.64 Bit','Win-8.1 Pro.64 Bit'),
-    ('Win-8.1 Pro 32 Bit','Win-8.1 Pro 32 Bit'),
-    ('Win-8.1 Pro 64 Bit','Win-8.1 Pro 64 Bit'),
-    ('windows 10Pro.64bit','windows 10Pro.64bit'),
-    ('Win- 8.1Pro.64bit','Win- 8.1Pro.64bit'),
-    ('Windows 10Pro.64bit','Windows 10Pro.64bit')
+('',''),
+('Win-7 Pro.32 Bit','Win-7 Pro.32 Bit'),
+('Win-Server-2012','Win-Server-2012'),
+('Win-10 Pro 64 Bit','Win-10 Pro 64 Bit'),
+('Win-8.1 Pro.32 Bit','Win-8.1 Pro.32 Bit'),
+('Win-8.1 Pro 64 Bit','Win-8.1 Pro 64 Bit'),
+('Win-10 Pro. 32 Bit','Win-10 Pro. 32 Bit'),
+('Win-7 Pro.64 Bit','Win-7 Pro.64 Bit'),
+('Win.10 pro. 64 Bit','Win.10 pro. 64 Bit'),
+('Win-8.1pro 64 Bit','Win-8.1pro 64 Bit'),
+('Win-8.1 Pro 32 Bit','Win-8.1 Pro 32 Bit'),
+('windows 10Pro.64bit','windows 10Pro.64bit'),
+('Win- 8.1Pro.64bit','Win- 8.1Pro.64bit'),
+('Win- 8.1 Pro 64 Bit','Win- 8.1 Pro 64 Bit'),
+('Win-8.1 Pro.64 Bit','Win-8.1 Pro.64 Bit'),
+('Windows 10Pro.64bit','Windows 10Pro.64bit'),
+('Windows Xp Pro.','Windows Xp Pro.'),
+('Win-8.1Pro 32 Bit','Win-8.1Pro 32 Bit'),
+('Windows 10 Pro 64 Bit','Windows 10 Pro 64 Bit'),
+('Win-Server-2016 Std','Win-Server-2016 Std'),
+('Win-10 Home Single Lan.','Win-10 Home Single Lan.')
+
 )
 OS = (
-    ('Win.7','Win.7'),
-    ('Win.8','Win.8'),
-    ('Win 8','Win 8'),
-    ('Win.10','Win.10'),
-    ('Ser.2012','Ser.2012'),
-    ('Blank','Blank'),
-    ('Ser.2016','Ser.2016'),
-    ('Win.XP','Win.XP')
+    ('', ''),
+    ('Win.XP', 'Win.XP'),
+    ('Win.7', 'Win.7'),
+    ('Win.8', 'Win.8'),
+    ('Win.10', 'Win.10'),
+    ('Win.11', 'Win.11'),
+    ('Ser.2012', 'Ser.2012'),
+    ('Ser.2016', 'Ser.2016'),
+    ('Ser.2019', 'Ser.2019'),
 )
+AVAILABLE_LICENCE={
+    'Win.7': 56,
+    'Win.8': 60,
+    'Win.10': 101,
+    'Win.11': 13,
+    'Ser.2012': 9,
+    'Ser.2016': 1,
+    'Ser.2019': 0,
+    'Win.XP': 5
+}
+AVAILABLE_LICENCE_ORDER={
+    'Win.7': 1.2,
+    'Win.8': 1.3,
+    'Win.10': 1.4,
+    'Win.11': 1.5,
+    'Ser.2012': 2.1,
+    'Ser.2016': 2.2,
+    'Ser.2019': 2.3,
+    'Win.XP': 1.1
+}
 DOMAIN_WORKGROUP = (
     ('Domain','Domain'),
+    ('Domian','Domian'),
+('workgroup','workgroup'),
     ('Workgroup','Workgroup')
 )
 REMARKS = (
@@ -232,32 +272,32 @@ class AssetForm(forms.ModelForm):
     location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     asset_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
-    emp_id = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    emp_id = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     usage_type = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=USAGE_TYPE))
     machine_type = forms.ChoiceField(choices=MACHINE_TYPE,widget=forms.Select(attrs={'class': 'form-control'}))
-    gef_id_number = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    gef_id_number = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     domain_workgroup = forms.ChoiceField(choices=DOMAIN_WORKGROUP,widget=forms.Select(attrs={'class': 'form-control'}))
     Domain_User_Name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     machine_make = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     machine_model_no = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    machine_serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
-    hdd = forms.ChoiceField(choices=HDD,widget=forms.Select(attrs={'class': 'form-control'}))
-    hdd_make = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
-    hdd_model = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
-    hdd_serial_no =forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
-    ram =forms.ChoiceField(choices=RAM,widget=forms.Select(attrs={'class': 'form-control'}))
+    machine_serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
+    hdd = forms.ChoiceField(choices=HDD,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    hdd_make = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
+    hdd_model = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
+    hdd_serial_no =forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
+    ram =forms.ChoiceField(choices=RAM,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     processor_purchase_date = forms.DateField(label='Processor Purchase Date', widget=forms.SelectDateWidget(years=YEARS))
-    processor = forms.ChoiceField(choices=PROCESSOR,widget=forms.Select(attrs={'class': 'form-control'}))
+    processor = forms.ChoiceField(choices=PROCESSOR,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     warranty_start_date = forms.DateField(label='Warranty Start Date', widget=forms.SelectDateWidget(years=YEARS))
     warranty_end_date = forms.DateField(label='Warranty End Date', widget=forms.SelectDateWidget(years=YEARS))
     amc_start_date = forms.DateField(label='AMC Start Date', widget=forms.SelectDateWidget(years=YEARS))
     amc_end_date = forms.DateField(label='AMC End Date', widget=forms.SelectDateWidget(years=YEARS))
     user_acceptance_date = forms.DateField(label='User Acceptance Date', widget=forms.SelectDateWidget(years=YEARS))
     user_handed_over_date = forms.DateField(label='User Handed Over Date', widget=forms.SelectDateWidget(years=YEARS))
-    Operating_System_Version = forms.ChoiceField(choices=OS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}))
-    OS = forms.ChoiceField(choices=OS,widget=forms.Select(attrs={'class': 'form-control'}))
+    Operating_System_Version = forms.ChoiceField(choices=OS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    OS = forms.ChoiceField(choices=OS,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_office = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
-    ms_office_version = forms.ChoiceField(choices=MS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}))
+    ms_office_version = forms.ChoiceField(choices=MS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     OEM_Volume = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     Antivirus = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     AutoCAD = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
@@ -266,8 +306,8 @@ class AssetForm(forms.ModelForm):
     Access = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     SAP = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     SAP_User_ID = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
-    Status = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
-    Remarks = forms.ChoiceField(choices=REMARKS,widget=forms.Select(attrs={'class': 'form-control'}))
+    Status = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
+    Remarks = forms.ChoiceField(choices=REMARKS,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
 
     class Meta:
         model = AssetModel
@@ -280,7 +320,7 @@ class WifiForm(forms.ModelForm):
     User_name_Location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}))
     Make = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     Machine_Model_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
-    Machine_Sl_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    Machine_Sl_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     Machine_Number = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     Purchase_Date = forms.DateField(label='Purchase Date', widget=forms.SelectDateWidget(years=YEARS))
     Warranty_Details = forms.DateField(label='Warranty End Date', widget=forms.SelectDateWidget(years=YEARS))

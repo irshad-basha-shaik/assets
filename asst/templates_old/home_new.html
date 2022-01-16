@@ -50,27 +50,7 @@
                           </td>
                         </tr>
                          {% endfor %}
-{% for form in server %}
-                        <tr>
-                          <td>
-                            {{form.OS}}
-                          </td>
-                          <td>
-                            {{form.VolumeLicence}}
 
-                          </td>
-                          <td>
-                            {{form.Available}}
-                          </td>
-                          <td>
-                           {{form.CurrentAvailableBalance}}&nbsp[ {{form.Balance}}<sup>{{form.OS}}</sup>
-                             {% for form1 in form.BorrowPath %}
-                            &nbsp;+&nbsp;{{form1.BorrowLicence}}<sup>{{form1.LenderVersion}}</sup>
-                            {% endfor %}
-                            ]
-                          </td>
-                        </tr>
-                         {% endfor %}
                       </tbody>
                     </table>
                   </div>
