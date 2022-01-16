@@ -42,9 +42,16 @@
                             {{form.Available}}
                           </td>
                           <td>
-                           {{form.CurrentAvailableBalance}}&nbsp[ {{form.Balance}}<sup>{{form.OS}}</sup>
+                           {% if form.CurrentAvailableBalance < 0 %}
+                              <label class="badge badge-danger">{{form.CurrentAvailableBalance}} </label>
+                             {% elif form.CurrentAvailableBalance == 0 %}
+                              <label class="badge badge-info">{{form.CurrentAvailableBalance}}</label>
+                              {% elif form.CurrentAvailableBalance > 0 %}
+                              <label class="badge badge-success">{{form.CurrentAvailableBalance}}</label>
+                              {% endif %}
+                              &nbsp[ {{form.Balance}}<sup><div class="badge badge-success badge-pill">{{form.OS}}</div></sup>
                              {% for form1 in form.BorrowPath %}
-                            &nbsp;+&nbsp;{{form1.BorrowLicence}}<sup>{{form1.LenderVersion}}</sup>
+                            &nbsp;+&nbsp;{{form1.BorrowLicence}}<sup><div class="badge badge-info badge-pill">{{form1.LenderVersion}}</div></sup>
                             {% endfor %}
                             ]
                           </td>
@@ -63,7 +70,14 @@
                             {{form.Available}}
                           </td>
                           <td>
-                           {{form.CurrentAvailableBalance}}&nbsp[ {{form.Balance}}<sup>{{form.OS}}</sup>
+                         {% if form.CurrentAvailableBalance < 0 %}
+                              <label class="badge badge-danger">{{form.CurrentAvailableBalance}} </label>
+                             {% elif form.CurrentAvailableBalance == 0 %}
+                              <label class="badge badge-info">{{form.CurrentAvailableBalance}}</label>
+                              {% elif form.CurrentAvailableBalance > 0 %}
+                              <label class="badge badge-success">{{form.CurrentAvailableBalance}}</label>
+                              {% endif %}
+                              &nbsp[ {{form.Balance}}<sup><div class="badge badge-success badge-pill">{{form.OS}}</div></sup>
                              {% for form1 in form.BorrowPath %}
                             &nbsp;+&nbsp;{{form1.BorrowLicence}}<sup>{{form1.LenderVersion}}</sup>
                             {% endfor %}
