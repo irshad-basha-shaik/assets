@@ -118,11 +118,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_ROOT = '/home/abed/pycharm/assets/asst'
+STATIC_ROOT = BASE_DIR
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    '/home/abed/pycharm/assets/asst/static',
+    BASE_DIR / 'static',
 )
 
 # Default primary key field type

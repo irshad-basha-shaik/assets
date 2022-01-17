@@ -121,10 +121,10 @@ def getAvailableLicence(obj):
 
     return s
 def getAssetCount(os,oem):
-    list = AssetModel.objects.all().filter(OS=os,OEM_Volume=oem)
+    list = AssetModel.objects.all().filter(OS=os,OEM_Volume=oem,usage_type='Live')
     return len(list)
 def getMSOfficeCount(oem):
-    list = AssetModel.objects.all().filter(ms_office_version=oem)
+    list = AssetModel.objects.all().filter(ms_office_version=oem,usage_type='Live')
     return len(list)
 def home(request):
     context = {}
