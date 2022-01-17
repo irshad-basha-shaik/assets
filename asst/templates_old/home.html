@@ -5,7 +5,7 @@
 {% block content %}
 {% if user.is_authenticated %}
  <div class="row">
-            <div class="col-lg-9 grid-margin stretch-card">
+            <div class="col-lg-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Total Operating System Licences</h4>
@@ -14,7 +14,7 @@
                       <thead>
                         <tr>
                             <th colspan="2">
-                            <i class="mdi mdi-windows" ></i>
+                            OS
                           </th>
                           <th>
                             <i class="mdi mdi-account-key"></i>
@@ -28,13 +28,12 @@
 
 
                         </tr>
-
                       </thead>
                       <tbody>
                       {% for form in win %}
                         <tr>
                           {% if forloop.counter0  < 1 %}
-                            <td   rowspan="9"  class="badge-info">
+                            <td   rowspan="6"  class="badge-danger">
                             Volume
                           </td>
                             {% endif %}
@@ -42,12 +41,11 @@
                             {{form.OS}}
                           </td>
                           <td>
-                              <span style="float:right">{{form.VolumeLicence}}</span>
+                            {{form.VolumeLicence}}
 
                           </td>
                           <td>
-                              <span style="float:right">{{form.Available}}</span>
-
+                            {{form.Available}}
                           </td>
                           <td>
                            {% if form.CurrentAvailableBalance < 0 %}
@@ -65,20 +63,17 @@
                           </td>
                         </tr>
                          {% endfor %}
-
-                      {% for form in server %}
+{% for form in server %}
                         <tr>
                           <td>
                             {{form.OS}}
                           </td>
                           <td>
-                              <span style="float:right">{{form.VolumeLicence}}</span>
-
+                            {{form.VolumeLicence}}
 
                           </td>
                           <td>
-                              <span style="float:right">{{form.Available}}</span>
-
+                            {{form.Available}}
                           </td>
                           <td>
                          {% if form.CurrentAvailableBalance < 0 %}
@@ -96,67 +91,13 @@
                           </td>
                         </tr>
                          {% endfor %}
-                       <tr>
-                          <td >Total</td>
-                          <td><span style="float:right">{{VolumeSum.VolumeLicence}}</span></td>
-                           <td><span style="float:right">{{VolumeSum.Available}}</span></td>
-                             <td><span style="float:right">{{VolumeSum.CurrentAvailableBalance}}</span></td>
-                      </tr>
                       </tbody>
                     </table>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Total Operating System Licences</h4>
-                  <div class="table-responsive">
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                            <th colspan="2">
-                            <i class="mdi mdi-windows"></i>
-                          </th>
-                          <th>
-                            <i class="mdi mdi-account-key"></i>
-                          </th>
-
-                        </tr>
-
-                      </thead>
-                      <tbody>
-                      {% for form in win %}
-                        <tr>
-                          {% if forloop.counter0  < 1 %}
-                            <td   rowspan="6"  class="badge-success">
-                            OEM
-                          </td>
-                            {% endif %}
-                           <td >
-                               <span >{{form.OS}}</span>
-                          </td>
-                          <td >
-                              <span style="float:right">{{form.OEM}}</span>
-                          </td>
-
-                        </tr>
-                         {% endfor %}
-
-                       <tr>
-                          <td >Total</td>
-                          <td><span style="float:right">{{VolumeSum.OEM}}</span></td>
-                      </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-<div class="row">
-    <div class="col-lg-6 grid-margin stretch-card">
+            <div class="col-lg-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Total MS Office Licences</h4>
@@ -164,8 +105,8 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th colspan="2">
-                            <i class="mdi mdi-office"></i>
+                          <th>
+                            MS Office
                           </th>
                            <th>
                             <i class="mdi mdi-account-key"></i>
@@ -183,21 +124,15 @@
                       <tbody>
                       {% for form in MSOFfice %}
                         <tr>
-                            {% if forloop.counter0  < 1 %}
-                            <td   rowspan="5"  class="badge-info">
-                            Volume
-                          </td>
-                            {% endif %}
                           <td>
                             {{form.OS}}
                           </td>
-
-                          <td><span style="float:right">{{form.VolumeLicence}}</span>
-
+                          <td>
+                            {{form.VolumeLicence}}
 
                           </td>
-                          <td><span style="float:right">{{form.Available}}</span>
-
+                          <td>
+                            {{form.Available}}
                           </td>
                           <td>
                            {% if form.CurrentAvailableBalance < 0 %}
@@ -214,23 +149,14 @@
                             ]
                           </td>
                         </tr>
-
                          {% endfor %}
-                      <tr>
-                          <td >Total</td>
-                          <td><span style="float:right">{{MSOFSum.VolumeLicence}}</span></td>
-                           <td><span style="float:right">{{MSOFSum.Available}}</span></td>
-                             <td><span style="float:right">{{MSOFSum.CurrentAvailableBalance}}</span></td>
-                      </tr>
-
                       </tbody>
                     </table>
                   </div>
                 </div>
               </div>
             </div>
-
-</div>
+          </div>
           <!-- row end -->
 {% endif %}
 {% endblock %}

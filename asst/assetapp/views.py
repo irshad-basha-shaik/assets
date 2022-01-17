@@ -68,7 +68,7 @@ def MSOFfice():
         if (c4 < 0):
             c5 = True
             c6 = False
-        temp = {"OS": os[1], "VolumeLicence": c1, "OEM":0, "pos": 0, "Available": c3, "Balance": c4,
+        temp = {"OS": os[1], "VolumeLicence": c1,  "pos": 0, "Available": c3, "Balance": c4,
                  "CurrentAvailableBalance": c4, "BorrowPath": []}
         b = getOSPosition(os[1])
         temp['pos'] = b
@@ -129,24 +129,21 @@ def home(request):
     a,b=OSTally()
     now = datetime.today()
     context['win'] = a
-    context['VolumeSum'] = sum(a+b)
+    context['winSum'] = sum(a)
     context['server'] = b
-    c = MSOFfice()
-    context['MSOFfice'] = c
-    context['MSOFSum'] = sum(c)
+    context['serverVolumeSum'] = sum(b)
+    context['MSOFfice'] = MSOFfice()
     context['now'] = now
 
     return render(request, "home.html", context)
 def sum(obj):
-    temp = { "VolumeLicence":  0, "OEM":0,"Available": 0, "Balance": 0,
+    temp = { "VolumeLicence":  0, "Available": 0, "Balance": 0,
             "CurrentAvailableBalance": 0}
     for  x in obj:
         temp["VolumeLicence"]=temp["VolumeLicence"]+x["VolumeLicence"]
         temp["Available"] = temp["Available"] + x["Available"]
         temp["Balance"] = temp["Balance"] + x["Balance"]
-        temp["OEM"] = temp["OEM"] + x["OEM"]
         temp["CurrentAvailableBalance"] = temp["CurrentAvailableBalance"] + x["CurrentAvailableBalance"]
-
     return temp
 def edit(request,id):
     obj = get_object_or_404(AssetModel, pk=id)
