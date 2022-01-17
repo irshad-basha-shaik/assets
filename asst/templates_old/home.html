@@ -13,17 +13,17 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>
-                            OS Type
+                            <th colspan="2">
+                            OS
                           </th>
                           <th>
-                            Volume Licences
+                            <i class="mdi mdi-account-key"></i>
                           </th>
                           <th>
-                            Available Volume Licences
+                            <i class="mdi mdi-key-change"></i>
                           </th>
                           <th>
-                            Balance
+                            <i class="mdi mdi-scale-balance"></i>
                           </th>
 
 
@@ -32,7 +32,12 @@
                       <tbody>
                       {% for form in win %}
                         <tr>
-                          <td>
+                          {% if forloop.counter0  < 1 %}
+                            <td   rowspan="6"  class="badge-danger">
+                            Volume
+                          </td>
+                            {% endif %}
+                           <td>
                             {{form.OS}}
                           </td>
                           <td>
@@ -59,7 +64,7 @@
                         </tr>
                          {% endfor %}
 {% for form in server %}
-                        <tr>
+                        <!--tr>
                           <td>
                             {{form.OS}}
                           </td>
@@ -84,7 +89,7 @@
                             {% endfor %}
                             ]
                           </td>
-                        </tr>
+                        </tr-->
                          {% endfor %}
                       </tbody>
                     </table>
@@ -101,16 +106,16 @@
                       <thead>
                         <tr>
                           <th>
-                            MS Office Type
+                            MS Office
+                          </th>
+                           <th>
+                            <i class="mdi mdi-account-key"></i>
                           </th>
                           <th>
-                            Volume Licences
+                            <i class="mdi mdi-key-change"></i>
                           </th>
                           <th>
-                            Available Volume Licences
-                          </th>
-                          <th>
-                            Balance
+                            <i class="mdi mdi-scale-balance"></i>
                           </th>
 
 
