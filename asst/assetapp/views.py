@@ -81,25 +81,27 @@ def fetchBalance(need1,x,list):
     need=need1*-1
     for y in list:
         if x['pos']<y['pos']:
-            if y['CurrentAvailableBalance'] >=need:
+            if y['Available'] >=need:
                 temp = y['CurrentAvailableBalance'] - need
                 y['CurrentAvailableBalance']=temp
                 x['CurrentAvailableBalance'] = 0
                 ttemp={"LenderVersion":y["OS"],"BorrowLicence":need}
                 x["BorrowPath"].append(ttemp)
                 return 0
-            elif y['CurrentAvailableBalance'] >0:
-                tal=y['CurrentAvailableBalance']
-                need =  need -y['CurrentAvailableBalance']
+            elif y['Available'] < need:
+                #tal=y['CurrentAvailableBalance']
+                need2 =  need -y['CurrentAvailableBalance']
+                k=y['CurrentAvailableBalance']
+                ttemp = {"LenderVersion": y["OS"], "BorrowLicence": k}
                 y['CurrentAvailableBalance'] = 0
-                x['CurrentAvailableBalance'] = need*-1
-                ttemp = {"LenderVersion": y["OS"], "BorrowLicence": tal}
+                x['CurrentAvailableBalance'] = need2*-1
+
                 x["BorrowPath"].append(ttemp)
     return need
 def generateCarryForward(list):
     for x in list:
-        if x["Balance"]<0:
-            need= x["Balance"]
+        if x['CurrentAvailableBalance']<0:
+            need= x["CurrentAvailableBalance"]
             fetchBalance(need,x,list)
             i=10
     return list
@@ -132,7 +134,9 @@ def home(request):
     context['winSum'] = sum(a)
     context['server'] = b
     context['serverVolumeSum'] = sum(b)
-    context['MSOFfice'] = MSOFfice()
+    c = MSOFfice()
+    context['MSOFfice'] = c
+    context['MSOFficeSum'] = sum(c)
     context['now'] = now
 
     return render(request, "home.html", context)

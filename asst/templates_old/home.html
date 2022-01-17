@@ -5,7 +5,7 @@
 {% block content %}
 {% if user.is_authenticated %}
  <div class="row">
-            <div class="col-lg-6 grid-margin stretch-card">
+            <div class="col-lg-8 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Total Operating System Licences</h4>
@@ -17,13 +17,13 @@
                             OS
                           </th>
                           <th>
-                            <i class="mdi mdi-account-key"></i>
+                            Live
                           </th>
                           <th>
-                            <i class="mdi mdi-key-change"></i>
+                            Available
                           </th>
                           <th>
-                            <i class="mdi mdi-scale-balance"></i>
+                            Balance
                           </th>
 
 
@@ -97,6 +97,51 @@
                 </div>
               </div>
             </div>
+            <div class="col-lg-4 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">OEM Operating System Licences</h4>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                            <th colspan="2">
+                            OS
+                          </th>
+                          <th>
+                            Total
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for form in win %}
+                        <tr>
+                          {% if forloop.counter0  < 1 %}
+                            <td   rowspan="6"  class="badge-success">
+                            OEM
+                          </td>
+                            {% endif %}
+                           <td>
+                            {{form.OS}}
+                          </td>
+                          <td>
+                            {{form.OEM}}
+
+                          </td>
+
+                        </tr>
+                         {% endfor %}
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          <!-- row end -->
+ <div class="row">
             <div class="col-lg-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
@@ -156,7 +201,6 @@
                 </div>
               </div>
             </div>
-          </div>
-          <!-- row end -->
+ </div>
 {% endif %}
 {% endblock %}
