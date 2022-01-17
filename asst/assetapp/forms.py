@@ -239,7 +239,11 @@ AVAILABLE_LICENCE={
     'Ser.2012': 9,
     'Ser.2016': 1,
     'Ser.2019': 0,
-    'Win.XP': 5
+    'Win.XP': 5,
+    'MS Office Standard 2010': 55,
+    'MS Office Standard 2013': 85,
+    'MS Office Standard 2016':130,
+    'MS Office Standard 2019': 0
 }
 AVAILABLE_LICENCE_ORDER={
     'Win.7': 1.2,
@@ -249,7 +253,11 @@ AVAILABLE_LICENCE_ORDER={
     'Ser.2012': 2.1,
     'Ser.2016': 2.2,
     'Ser.2019': 2.3,
-    'Win.XP': 1.1
+    'Win.XP': 1.1,
+    'MS Office Standard 2010': 4.1,
+    'MS Office Standard 2013': 4.2,
+    'MS Office Standard 2016':4.3,
+    'MS Office Standard 2019': 4.4
 }
 DOMAIN_WORKGROUP = (
     ('Domain','Domain'),

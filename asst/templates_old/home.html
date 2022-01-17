@@ -5,7 +5,7 @@
 {% block content %}
 {% if user.is_authenticated %}
  <div class="row">
-            <div class="col-lg-12 grid-margin stretch-card">
+            <div class="col-lg-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Total Operating System Licences</h4>
@@ -25,6 +25,7 @@
                           <th>
                             Balance
                           </th>
+
 
                         </tr>
                       </thead>
@@ -80,6 +81,65 @@
                               &nbsp[ {{form.Balance}}<sup><div class="badge badge-success badge-pill">{{form.OS}}</div></sup>
                              {% for form1 in form.BorrowPath %}
                             &nbsp;+&nbsp;{{form1.BorrowLicence}}<sup>{{form1.LenderVersion}}</sup>
+                            {% endfor %}
+                            ]
+                          </td>
+                        </tr>
+                         {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Total MS Office Licences</h4>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>
+                            MS Office Type
+                          </th>
+                          <th>
+                            Volume Licences
+                          </th>
+                          <th>
+                            Available Volume Licences
+                          </th>
+                          <th>
+                            Balance
+                          </th>
+
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for form in MSOFfice %}
+                        <tr>
+                          <td>
+                            {{form.OS}}
+                          </td>
+                          <td>
+                            {{form.VolumeLicence}}
+
+                          </td>
+                          <td>
+                            {{form.Available}}
+                          </td>
+                          <td>
+                           {% if form.CurrentAvailableBalance < 0 %}
+                              <label class="badge badge-danger">{{form.CurrentAvailableBalance}} </label>
+                             {% elif form.CurrentAvailableBalance == 0 %}
+                              <label class="badge badge-info">{{form.CurrentAvailableBalance}}</label>
+                              {% elif form.CurrentAvailableBalance > 0 %}
+                              <label class="badge badge-success">{{form.CurrentAvailableBalance}}</label>
+                              {% endif %}
+                              &nbsp[ {{form.Balance}}<sup><div class="badge badge-success badge-pill">{{form.OS}}</div></sup>
+                             {% for form1 in form.BorrowPath %}
+                            &nbsp;+&nbsp;{{form1.BorrowLicence}}<sup><div class="badge badge-info badge-pill">{{form1.LenderVersion}}</div></sup>
                             {% endfor %}
                             ]
                           </td>

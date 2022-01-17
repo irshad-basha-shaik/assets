@@ -4,7 +4,6 @@ urlpatterns = [
     path('assetapp', views.index, name='home'),
     path('', views.home, name='home1'),
 
-    path('dashboard.json', views.getDashboard, name='dashboard'),
     path('assets', views.index, name='assets'),
     path('assets_entry', views.new, name='entry'),
     path('assets_edit/<int:id>',views.edit,name='edit'),

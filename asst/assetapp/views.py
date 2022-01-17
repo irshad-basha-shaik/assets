@@ -19,7 +19,6 @@ def new(request):
     context['form'] = AssetForm()
     if request.method== 'POST':
         form = AssetForm(request.POST)
-
         if form.is_valid():
             student = form.save(commit=False)
             student.save()
@@ -35,13 +34,10 @@ def OSTally():
     win_live = []
     ser_live = []
     for os in OS:
-        a = 1
-
         c1 = getAssetCount(os[1], False)
         c2 = getAssetCount(os[1], True)
         c3 = getAvailableLicence(os[1])
         c4 = c3 - c1
-
         c5 = False
         c6 = True
         if (c4 < 0):
@@ -50,7 +46,6 @@ def OSTally():
         temp = {"OS": os[1], "VolumeLicence": c1, "OEM": c2, "pos": 0, "Available": c3, "Balance": c4,
                  "CurrentAvailableBalance": c4, "BorrowPath": []}
         if os[1].startswith("Win."):
-            # ver=os[1].replace("Win","")
             b = getOSPosition(os[1])
             temp['pos'] = b
             win_live.append(temp)
@@ -61,6 +56,27 @@ def OSTally():
     win_live = generateCarryForward(win_live)
     ser_live = generateCarryForward(ser_live)
     return win_live,ser_live
+def MSOFfice():
+    win_live = []
+    ser_live = []
+    for os in MS_VERSION:
+        c1 = getMSOfficeCount(os[1])
+        c3 = getAvailableLicence(os[1])
+        c4 = c3 - c1
+        c5 = False
+        c6 = True
+        if (c4 < 0):
+            c5 = True
+            c6 = False
+        temp = {"OS": os[1], "VolumeLicence": c1,  "pos": 0, "Available": c3, "Balance": c4,
+                 "CurrentAvailableBalance": c4, "BorrowPath": []}
+        b = getOSPosition(os[1])
+        temp['pos'] = b
+        if temp["OS"]!='':
+            win_live.append(temp)
+
+    win_live = generateCarryForward(win_live)
+    return win_live
 def fetchBalance(need1,x,list):
     need=need1*-1
     for y in list:
@@ -88,10 +104,13 @@ def generateCarryForward(list):
             i=10
     return list
 def getOSPosition(obj):
-    s=AVAILABLE_LICENCE_ORDER[obj]
-    if s!= None:
-        return s
-    return -1
+    s= None
+    try:
+        s=AVAILABLE_LICENCE_ORDER[obj]
+        if s!= None:
+            return s
+    except:
+        return -1
 def getAvailableLicence(obj):
     try:
         s=AVAILABLE_LICENCE[obj]
@@ -102,21 +121,16 @@ def getAvailableLicence(obj):
 def getAssetCount(os,oem):
     list = AssetModel.objects.all().filter(OS=os,OEM_Volume=oem)
     return len(list)
-def getDashboard(request):
-
-#    obj = AssetModel.objects.all().values()
-    list = serializers.serialize("json", AssetModel.objects.all())
-
-    #y = json.dumps(obj)
-    #return render(request, "dashboard.json", {"list": {'asset':list}})
-    return HttpResponse(json.dumps({'asset':list,"available_licence":AVAILABLE_LICENCE,"LIC_ORDER":AVAILABLE_LICENCE_ORDER}), content_type="application/json")
-
+def getMSOfficeCount(oem):
+    list = AssetModel.objects.all().filter(ms_office_version=oem)
+    return len(list)
 def home(request):
     context = {}
     a,b=OSTally()
     now = datetime.today()
     context['win'] = a
     context['server'] = b
+    context['MSOFfice'] = MSOFfice()
     context['now'] = now
 
     return render(request, "home.html", context)
