@@ -13,16 +13,17 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                            <th colspan="2">
+                            <th class="badge-info text-center"> </th>
+                            <th class="table-info" >
                             OS
                           </th>
-                          <th>
+                          <th class="table-warning">
                             Live
                           </th>
-                          <th>
+                          <th class="table-success">
                             Available
                           </th>
-                          <th>
+                          <th class="table-primary">
                             Balance
                           </th>
 
@@ -33,21 +34,21 @@
                       {% for form in win %}
                         <tr>
                           {% if forloop.counter0  < 1 %}
-                            <td   rowspan="10"  class="badge-info text-center">
+                            <td   rowspan="11"  class="badge-info text-center">
                             Volume
                           </td>
                             {% endif %}
-                           <td>
+                           <td class="table-info">
                             {{form.OS}}
                           </td>
-                          <td>
+                          <td class="table-warning">
                             {{form.VolumeLicence}}
 
                           </td>
-                          <td>
+                          <td class="table-success">
                             {{form.Available}}
                           </td>
-                          <td>
+                          <td class="table-primary">
                            {% if form.CurrentAvailableBalance < 0 %}
                               <label class="badge badge-danger">{{form.CurrentAvailableBalance}} </label>
                              {% elif form.CurrentAvailableBalance == 0 %}
@@ -63,25 +64,35 @@
                           </td>
                         </tr>
                          {% endfor %}
+
                       <tr>
-                          <td>Total</td>
-                              <td>{{winSum.VolumeLicence}}</td>
-                              <td>{{winSum.Available}}</td>
-                          <td>{{winSum.CurrentAvailableBalance}}</td>
+                          <td class="table-info" style="font-weight: bold">Total</td>
+                              <td class="table-warning" style="font-weight: bold">{{winSum.VolumeLicence}}</td>
+                              <td class="table-success" style="font-weight: bold" >{{winSum.Available}}</td>
+                              <td class="table-primary" style="font-weight: bold">
+                                  {% if winSum.CurrentAvailableBalance < 0 %}
+                                  <label class="badge badge-danger">{{winSum.CurrentAvailableBalance}} </label>
+                                 {% elif winSum.CurrentAvailableBalance == 0 %}
+                                  <label class="badge badge-info">{{winSum.CurrentAvailableBalance}}</label>
+                                  {% elif winSum.CurrentAvailableBalance > 0 %}
+                                  <label class="badge badge-success">{{winSum.CurrentAvailableBalance}}</label>
+                                  {% endif %}
+                              </td>
                       </tr>
+
 {% for form in server %}
                         <tr>
-                          <td>
+                          <td class="table-info">
                             {{form.OS}}
                           </td>
-                          <td>
+                          <td class="table-warning">
                             {{form.VolumeLicence}}
 
                           </td>
-                          <td>
+                          <td class="table-success">
                             {{form.Available}}
                           </td>
-                          <td>
+                          <td class="table-primary">
                          {% if form.CurrentAvailableBalance < 0 %}
                               <label class="badge badge-danger">{{form.CurrentAvailableBalance}} </label>
                              {% elif form.CurrentAvailableBalance == 0 %}
@@ -94,15 +105,27 @@
                             &nbsp;+&nbsp;{{form1.BorrowLicence}}<sup>{{form1.LenderVersion}}</sup>
                             {% endfor %}
                             ]
+
                           </td>
                         </tr>
                          {% endfor %}
+
                          <tr>
-                          <td>Total</td>
-                              <td>{{serverVolumeSum.VolumeLicence}}</td>
-                              <td>{{serverVolumeSum.Available}}</td>
-                          <td>{{serverVolumeSum.CurrentAvailableBalance}}</td>
+
+                          <td class="table-info" style="font-weight: bold">Total</td>
+                             <td class="table-warning" style="font-weight: bold">{{serverVolumeSum.VolumeLicence}}</td>
+                              <td class="table-success" style="font-weight: bold">{{serverVolumeSum.Available}}</td>
+                          <td class="table-primary" style="font-weight: bold">
+                              {% if serverVolumeSum.CurrentAvailableBalance < 0 %}
+                              <label class="badge badge-danger">{{serverVolumeSum.CurrentAvailableBalance}} </label>
+                             {% elif serverVolumeSum.CurrentAvailableBalance == 0 %}
+                              <label class="badge badge-info">{{serverVolumeSum.CurrentAvailableBalance}}</label>
+                              {% elif serverVolumeSum.CurrentAvailableBalance > 0 %}
+                              <label class="badge badge-success">{{serverVolumeSum.CurrentAvailableBalance}}</label>
+                              {% endif %}</td>
+
                       </tr>
+
                       </tbody>
                     </table>
                   </div>
@@ -117,10 +140,11 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                            <th colspan="2">
+                            <th class="badge-success text-center"></th>
+                            <th class="table-info" >
                             OS
                           </th>
-                          <th>
+                          <th class="table-warning">
                             Total
                           </th>
                         </tr>
@@ -133,16 +157,22 @@
                             OEM
                           </td>
                             {% endif %}
-                           <td>
+                           <td class="table-info">
                             {{form.OS}}
                           </td>
-                          <td>
+                          <td class="table-warning">
                             {{form.OEM}}
 
                           </td>
 
                         </tr>
                          {% endfor %}
+                      <tr>
+                          <td class="table-info" style="font-weight: bold">Total</td>
+                          <td class="table-warning" style="font-weight: bold">{{winSum.VolumeLicence}}</td>
+
+
+                      </tr>
 
                       </tbody>
                     </table>
@@ -162,16 +192,17 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th colspan="2">
+                            <th class="badge-info text-center"> </th>
+                          <th class="table-info" >
                             MS Office
                           </th>
-                           <th>
+                           <th class="table-warning">
                             Live
                           </th>
-                          <th>
+                          <th class="table-success">
                             Available
                           </th>
-                          <th>
+                          <th class="table-primary">
                             Balance
                           </th>
 
@@ -180,23 +211,23 @@
                       </thead>
                       <tbody>
                       {% for form in MSOFfice %}
-                        <tr>
+                        <tr >
                        {% if forloop.counter0  < 1 %}
                             <td   rowspan="5"  class="badge-info text-center">
                             Volume
                           </td>
                             {% endif %}
-                          <td>
+                          <td class="table-info">
                             {{form.OS}}
                           </td>
-                          <td>
+                          <td class="table-warning">
                             {{form.VolumeLicence}}
 
                           </td>
-                          <td>
+                          <td class="table-success">
                             {{form.Available}}
                           </td>
-                          <td>
+                          <td class="table-primary">
                            {% if form.CurrentAvailableBalance < 0 %}
                               <label class="badge badge-danger">{{form.CurrentAvailableBalance}} </label>
                              {% elif form.CurrentAvailableBalance == 0 %}
@@ -213,10 +244,18 @@
                         </tr>
                          {% endfor %}
                        <tr>
-                          <td>Total</td>
-                              <td>{{MSOFficeSum.VolumeLicence}}</td>
-                              <td>{{MSOFficeSum.Available}}</td>
-                          <td>{{MSOFficeSum.CurrentAvailableBalance}}</td>
+                          <td class="table-info" style="font-weight: bold">Total</td>
+                              <td class="table-warning" style="font-weight: bold">{{MSOFficeSum.VolumeLicence}}</td>
+                              <td class="table-success" style="font-weight: bold">{{MSOFficeSum.Available}}</td>
+                          <td  class="table-primary" style="font-weight: bold">
+                              {% if MSOFficeSum.CurrentAvailableBalance < 0 %}
+                              <label  class="badge badge-danger">{{MSOFficeSum.CurrentAvailableBalance}} </label>
+                             {% elif MSOFficeSum.CurrentAvailableBalance == 0 %}
+                              <label  class="badge badge-info">{{MSOFficeSum.CurrentAvailableBalance}}</label>
+                              {% elif MSOFficeSum.CurrentAvailableBalance > 0 %}
+                              <label class="badge badge-success">{{MSOFficeSum.CurrentAvailableBalance}}</label>
+                              {% endif %}
+                          </td>
                       </tr>
                       </tbody>
                     </table>
