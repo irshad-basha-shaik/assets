@@ -131,7 +131,7 @@ def home(request):
     context['win'] = a
     context['winSum'] = sum(a)
     context['server'] = b
-    context['serverSum'] = sum(a)
+    context['serverVolumeSum'] = sum(b)
     context['MSOFfice'] = MSOFfice()
     context['now'] = now
 
