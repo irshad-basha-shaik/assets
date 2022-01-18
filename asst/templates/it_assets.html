@@ -33,30 +33,14 @@
                             Used Workstations
                         </td>
                         <tr>
+
                           <th >
                             Locations
-                          </th>
+                          </th>{% for form in list %}
                             <th >
-                            Hyderabad
-                          </th>
-                            <th >
-                            Krishnapatnam
-                          </th>
-                            <th >
-                            Kakinada
-                          </th>
-                            <th >
-                            Kakinada-3
-                          </th>
-                            <th >
-                            Marketing
-                          </th>
-                            <th >
-                            Depot
-                          </th>
-                            <th >
-                            TOTAL / Live
-                          </th>
+                            {{form.location.LOCATION}}
+                          </th>{% endfor %}
+
                         </tr>
                         <tr >
                           <th >

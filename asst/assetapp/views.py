@@ -3,7 +3,7 @@ from datetime import datetime
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION
+from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE
 from .models import AssetModel,WifiModel,FirewallModel,VCCModel,PrinterModel
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
@@ -28,9 +28,21 @@ def new(request):
 
     return render(request,"assets_entry.html",context)
 def it_assets(request):
-    list = AssetForm()
+    list = getAssets()
+    return render(request, "it_assets.html", {"list": list})
+def getAssets():
+    list = {"remark":[]}
+    for r in REMARKS:
+        list1 ={"machine":[] }
+        for mtypes in MACHINE_TYPE:
+            list2 ={"location":[] }
+            for l in LOCATION:
+                dat = getAssetCountByLocationRemarksMachineType(l[1],r[1],mtypes[1])
+                list2['location'].append({"LOCATION": l[1],"Machine": mtypes[1],"remark":r[1],"data":dat})
+            list1['machine'].append(list2);
+        list['remark'].append(list1);
+    return list
 
-    return render(request,"it_assets.html",{"list":list})
 def index(request):
     list = AssetModel.objects.all()
     return render(request,"assets.html",{"list":list})
@@ -124,9 +136,14 @@ def getAvailableLicence(obj):
         s=-1
 
     return s
+def getAssetCountByLocationRemarksMachineType(l,r,m):
+    list = AssetModel.objects.all().filter(location=l, usage_type=r, machine_type=m)
+    return len(list)
+
 def getAssetCount(os,oem):
     list = AssetModel.objects.all().filter(OS=os,OEM_Volume=oem,usage_type='Live')
     return len(list)
+
 def getMSOfficeCount(oem):
     list = AssetModel.objects.all().filter(ms_office_version=oem,usage_type='Live')
     return len(list)
