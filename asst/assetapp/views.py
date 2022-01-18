@@ -27,6 +27,10 @@ def new(request):
             print(form.errors)
 
     return render(request,"assets_entry.html",context)
+def it_assets(request):
+    list = AssetForm()
+
+    return render(request,"it_assets.html",{"list":list})
 def index(request):
     list = AssetModel.objects.all()
     return render(request,"assets.html",{"list":list})

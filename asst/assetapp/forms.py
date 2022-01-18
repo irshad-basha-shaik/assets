@@ -22,6 +22,7 @@ LOCATION = [
     ('DEPOT', 'DEPOT')
 
 ]
+
 MACHINE_TYPE = [
     ('Laptop','Laptop'),
     ('Desktop','Desktop'),
@@ -191,10 +192,10 @@ MS_VERSION =  (
     ('MS Office Standard 2013', 'MS Office Standard 2013'),
     ('MS Office Standard 2016', 'MS Office Standard 2016'),
     ('MS Office Standard 2019', 'MS Office Standard 2019'),
-
-
+    ('MS Office 365', 'MS Office 365'),
     ('','')
 )
+
 OEM_VOLUME = [x for x in range(1990,2021)]
 OS_VERSION = (
 ('',''),
@@ -243,7 +244,8 @@ AVAILABLE_LICENCE={
     'MS Office Standard 2010': 55,
     'MS Office Standard 2013': 85,
     'MS Office Standard 2016':130,
-    'MS Office Standard 2019': 0
+    'MS Office Standard 2019': 0,
+    'MS Office 365': 0
 }
 AVAILABLE_LICENCE_ORDER={
     'Win.7': 1.2,
@@ -274,6 +276,10 @@ DEVICES = (
     ('Access Point','Access Point'),
     ('Wifi','Wifi')
 )
+
+Used_Workstations = {
+    'Win.7': 1.2,
+}
 class AssetForm(forms.ModelForm):
     user_name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     user_email = forms.EmailField(max_length=100,widget=forms.EmailInput(attrs={'class': 'form-control'}),required=False)

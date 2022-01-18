@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-w$6puk2%7!(%p_c$*^$1w!0qw&qx(&1d1490-*ix0)l9k8ba*r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.180','localhost']
+ALLOWED_HOSTS = ['192.168.1.180','localhost',]
 
 
 # Application definition
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'asst.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [str(BASE_DIR.joinpath('templates_old'))],
+        'DIRS': [str(BASE_DIR.joinpath('templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,7 +118,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_ROOT = BASE_DIR
+STATIC_ROOT = '/home/abed/pycharm/assets/asst'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (

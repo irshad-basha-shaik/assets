@@ -29,6 +29,9 @@ urlpatterns = [
     path('printer_edit/<int:id>', views.printer_edit, name='printer_edit'),
     path('printer_delete/<int:id>', views.printer_delete, name='printer_delete'),
 
+
+    path('it_assets', views.it_assets, name='it_assets'),
+
 ]
 '''
 urlpatterns = [
