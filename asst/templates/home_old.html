@@ -1,0 +1,241 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if user.is_authenticated %}
+        <div class="row">
+            <div class="col-lg-9 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Total Operating System Licences</h4>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                            <th colspan="2">
+                            <i class="mdi mdi-windows" ></i>
+                          </th>
+                          <th>
+                            <i class="mdi mdi-account-key"></i>
+                          </th>
+                          <th>
+                            <i class="mdi mdi-key-change"></i>
+                          </th>
+                          <th>
+                            <i class="mdi mdi-scale-balance"></i>
+                          </th>
+
+
+                        </tr>
+
+                      </thead>
+                      <tbody>
+                      {% for form in win %}
+                        <tr>
+                          {% if forloop.counter0  < 1 %}
+                            <td   rowspan="9"  class="badge-info">
+                            Volume
+                          </td>
+                            {% endif %}
+                           <td>
+                            {{form.OS}}
+                          </td>
+                          <td>
+                              <span style="float:right">{{form.VolumeLicence}}</span>
+
+                          </td>
+                          <td>
+                              <span style="float:right">{{form.Available}}</span>
+
+                          </td>
+                          <td>
+                           {% if form.CurrentAvailableBalance < 0 %}
+                              <label class="badge badge-danger">{{form.CurrentAvailableBalance}} </label>
+                             {% elif form.CurrentAvailableBalance == 0 %}
+                              <label class="badge badge-info">{{form.CurrentAvailableBalance}}</label>
+                              {% elif form.CurrentAvailableBalance > 0 %}
+                              <label class="badge badge-success">{{form.CurrentAvailableBalance}}</label>
+                              {% endif %}
+                              &nbsp[ {{form.Balance}}<sup><div class="badge badge-success badge-pill">{{form.OS}}</div></sup>
+                             {% for form1 in form.BorrowPath %}
+                            &nbsp;+&nbsp;{{form1.BorrowLicence}}<sup><div class="badge badge-info badge-pill">{{form1.LenderVersion}}</div></sup>
+                            {% endfor %}
+                            ]
+                          </td>
+                        </tr>
+                         {% endfor %}
+<<<<<<< HEAD
+
+                      {% for form in server %}
+=======
+{% for form in server %}
+>>>>>>> origin/main
+                        <tr>
+                          <td>
+                            {{form.OS}}
+                          </td>
+                          <td>
+                              <span style="float:right">{{form.VolumeLicence}}</span>
+
+
+                          </td>
+                          <td>
+                              <span style="float:right">{{form.Available}}</span>
+
+                          </td>
+                          <td>
+                         {% if form.CurrentAvailableBalance < 0 %}
+                              <label class="badge badge-danger">{{form.CurrentAvailableBalance}} </label>
+                             {% elif form.CurrentAvailableBalance == 0 %}
+                              <label class="badge badge-info">{{form.CurrentAvailableBalance}}</label>
+                              {% elif form.CurrentAvailableBalance > 0 %}
+                              <label class="badge badge-success">{{form.CurrentAvailableBalance}}</label>
+                              {% endif %}
+                              &nbsp[ {{form.Balance}}<sup><div class="badge badge-success badge-pill">{{form.OS}}</div></sup>
+                             {% for form1 in form.BorrowPath %}
+                            &nbsp;+&nbsp;{{form1.BorrowLicence}}<sup>{{form1.LenderVersion}}</sup>
+                            {% endfor %}
+                            ]
+                          </td>
+                        </tr>
+                         {% endfor %}
+                       <tr>
+                          <td >Total</td>
+                          <td><span style="float:right">{{VolumeSum.VolumeLicence}}</span></td>
+                           <td><span style="float:right">{{VolumeSum.Available}}</span></td>
+                             <td><span style="float:right">{{VolumeSum.CurrentAvailableBalance}}</span></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Total Operating System Licences</h4>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                            <th colspan="2">
+                            <i class="mdi mdi-windows"></i>
+                          </th>
+                          <th>
+                            <i class="mdi mdi-account-key"></i>
+                          </th>
+
+                        </tr>
+
+                      </thead>
+                      <tbody>
+                      {% for form in win %}
+                        <tr>
+                          {% if forloop.counter0  < 1 %}
+                            <td   rowspan="6"  class="badge-success">
+                            OEM
+                          </td>
+                            {% endif %}
+                           <td >
+                               <span >{{form.OS}}</span>
+                          </td>
+                          <td >
+                              <span style="float:right">{{form.OEM}}</span>
+                          </td>
+
+                        </tr>
+                         {% endfor %}
+
+                       <tr>
+                          <td >Total</td>
+                          <td><span style="float:right">{{VolumeSum.OEM}}</span></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    <div class="row">
+        <div class="col-lg-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Total MS Office Licences</h4>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th colspan="2">
+                            <i class="mdi mdi-office"></i>
+                          </th>
+                           <th>
+                            <i class="mdi mdi-account-key"></i>
+                          </th>
+                          <th>
+                            <i class="mdi mdi-key-change"></i>
+                          </th>
+                          <th>
+                            <i class="mdi mdi-scale-balance"></i>
+                          </th>
+
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for form in MSOFfice %}
+                        <tr>
+                            {% if forloop.counter0  < 1 %}
+                            <td   rowspan="5"  class="badge-info">
+                            Volume
+                          </td>
+                            {% endif %}
+                          <td>
+                            {{form.OS}}
+                          </td>
+
+                          <td><span style="float:right">{{form.VolumeLicence}}</span>
+
+
+                          </td>
+                          <td><span style="float:right">{{form.Available}}</span>
+
+                          </td>
+                          <td>
+                           {% if form.CurrentAvailableBalance < 0 %}
+                              <label class="badge badge-danger">{{form.CurrentAvailableBalance}} </label>
+                             {% elif form.CurrentAvailableBalance == 0 %}
+                              <label class="badge badge-info">{{form.CurrentAvailableBalance}}</label>
+                              {% elif form.CurrentAvailableBalance > 0 %}
+                              <label class="badge badge-success">{{form.CurrentAvailableBalance}}</label>
+                              {% endif %}
+                              &nbsp[ {{form.Balance}}<sup><div class="badge badge-success badge-pill">{{form.OS}}</div></sup>
+                             {% for form1 in form.BorrowPath %}
+                            &nbsp;+&nbsp;{{form1.BorrowLicence}}<sup><div class="badge badge-info badge-pill">{{form1.LenderVersion}}</div></sup>
+                            {% endfor %}
+                            ]
+                          </td>
+                        </tr>
+
+                         {% endfor %}
+                      <tr>
+                          <td >Total</td>
+                          <td><span style="float:right">{{MSOFSum.VolumeLicence}}</span></td>
+                           <td><span style="float:right">{{MSOFSum.Available}}</span></td>
+                             <td><span style="float:right">{{MSOFSum.CurrentAvailableBalance}}</span></td>
+                      </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+    </div>
+          <!-- row end -->
+
+{% endif %}
+{% endblock %}
