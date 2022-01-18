@@ -1,0 +1,339 @@
+<style>
+    .table td {
+        padding: .5rem 0.9375rem!important;
+
+}
+.table {
+  margin-bottom: 0;
+}
+
+.table thead th {
+  border-top: 0;
+  border-bottom-width: 1px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+</style>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">My IT Asset's</h4>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <td rowspan="9"  >
+                            Used Workstations
+                        </td>
+                        <tr>
+                          <th >
+                            Locations
+                          </th>
+                            <th >
+                            Hyderabad
+                          </th>
+                            <th >
+                            Krishnapatnam
+                          </th>
+                            <th >
+                            Kakinada
+                          </th>
+                            <th >
+                            Kakinada-3
+                          </th>
+                            <th >
+                            Marketing
+                          </th>
+                            <th >
+                            Depot
+                          </th>
+                            <th >
+                            TOTAL / Live
+                          </th>
+                        </tr>
+                        <tr >
+                          <th >
+                            Desktop
+                          </th>
+                            <th >
+                            18
+                          </th>
+                            <th >
+                            60
+                          </th>
+                            <th >
+                            21
+                          </th>
+                            <th >
+                            41
+                          </th>
+                            <th >
+                            0
+                          </th>
+                            <th >
+                            24
+                          </th>
+                            <th >
+                            164
+                          </th>
+                        </tr>
+                        <tr>
+                          <th >
+                            Laptop
+                          </th>
+                            <th >
+                            70
+                          </th>
+                            <th >
+                            19
+                          </th>
+                            <th >
+                            6
+                          </th>
+                            <th >
+                            15
+                          </th>
+                            <th >
+                            47
+                          </th>
+                            <th >
+                            2
+                          </th>
+                            <th >
+                            159
+                          </th>
+                        </tr>
+                        <tr>
+                          <th >
+                            Server
+                          </th>
+                            <th >
+                            2
+                          </th>
+                            <th >
+                            1
+                          </th>
+                            <th >
+                            1
+                          </th>
+                            <th >
+                            1
+                          </th>
+                            <th >
+                            0
+                          </th>
+                            <th >
+                            0
+                          </th>
+                            <th >
+                            5
+                          </th>
+                        </tr>
+                        <tr>
+                          <th >
+                            Total used
+                          </th>
+                            <th >
+                            90
+                          </th>
+                            <th >
+                            80
+                          </th>
+                            <th >
+                            28
+                          </th>
+                            <th >
+                            57
+                          </th>
+                            <th >
+                            47
+                          </th>
+                            <th >
+                            26
+                          </th>
+                            <th >
+                            328
+                          </th>
+                        </tr>
+                      </thead>
+                        <thead>
+                        <td rowspan="3"  >
+                            Spare_Old Workstations
+                        </td>
+                        <tr>
+                          <th >
+                            Desktop
+                          </th>
+                            <th >
+                            1
+                          </th>
+                            <th >
+                            6
+                          </th>
+                            <th >
+                            2
+                          </th>
+                            <th >
+                            0
+                          </th>
+                            <th >
+                            0
+                          </th>
+                            <th >
+                            2
+                          </th>
+                            <th >
+                            11
+                          </th>
+                        </tr>
+                        <tr>
+                          <th >
+                            Laptop
+                          </th>
+                            <th >
+                            2
+                          </th>
+                            <th >
+                            3
+                          </th>
+                            <th >
+                            1
+                          </th>
+                            <th >
+                            0
+                          </th>
+                            <th >
+                            1
+                          </th>
+                            <th >
+                            0
+                          </th>
+                            <th >
+                            7
+                          </th>
+                        </tr>
+                        <td rowspan="4"  >
+                            Spare_New Workstations
+                        </td>
+                        <tr>
+                          <th >
+                            Desktop
+                          </th>
+                            <th >
+                            0
+                          </th>
+                            <th >
+                            1
+                          </th>
+                            <th >
+                            0
+                          </th>
+                            <th >
+                            8
+                          </th>
+                            <th >
+                            0
+                          </th>
+                            <th >
+                            0
+                          </th>
+                            <th >
+                            9
+                          </th>
+                        </tr>
+                        <tr>
+                          <th >
+                            Laptop
+                          </th>
+                            <th >
+                            0
+                          </th>
+                            <th >
+                            0
+                          </th>
+                            <th >
+                            0
+                          </th>
+                            <th >
+                            3
+                          </th>
+                            <th >
+                            4
+                          </th>
+                            <th >
+                            0
+                          </th>
+                            <th >
+                            7
+                          </th>
+                        </tr>
+
+                        <tr>
+                          <th >
+                            Total Spare
+                          </th>
+                            <th >
+                            3
+                          </th>
+                            <th >
+                            10
+                          </th>
+                            <th >
+                            3
+                          </th>
+                            <th >
+                            11
+                          </th>
+                            <th >
+                            5
+                          </th>
+                            <th >
+                            2
+                          </th>
+                            <th >
+                            34
+                          </th>
+                        </tr>
+                        <tr>
+                          <th colspan="2">
+                            Final Total
+                          </th>
+                            <th>
+                            93
+                          </th>
+                            <th >
+                            90
+                          </th>
+                            <th >
+                            31
+                          </th>
+                            <th >
+                            68
+                          </th>
+                            <th >
+                            52
+                          </th>
+                            <th >
+                            28
+                          </th>
+                            <th >
+                            362
+                          </th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+ </div>
+
+{% endif %}
+{% endblock %}

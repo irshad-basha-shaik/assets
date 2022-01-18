@@ -1,0 +1,63 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if user.is_authenticated %}
+ <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Total Operating System Licences</h4>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>
+                            OS Type
+                          </th>
+                          <th>
+                            Volume Licences
+                          </th>
+                          <th>
+                            Available Volume Licences
+                          </th>
+                          <th>
+                            Balance
+                          </th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for form in win %}
+                        <tr>
+                          <td>
+                            {{form.OS}}
+                          </td>
+                          <td>
+                            {{form.VolumeLicence}}
+
+                          </td>
+                          <td>
+                            {{form.Available}}
+                          </td>
+                          <td>
+                           {{form.CurrentAvailableBalance}}&nbsp[ {{form.Balance}}<sup>{{form.OS}}</sup>
+                             {% for form1 in form.BorrowPath %}
+                            &nbsp;+&nbsp;{{form1.BorrowLicence}}<sup>{{form1.LenderVersion}}</sup>
+                            {% endfor %}
+                            ]
+                          </td>
+                        </tr>
+                         {% endfor %}
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- row end -->
+{% endif %}
+{% endblock %}
