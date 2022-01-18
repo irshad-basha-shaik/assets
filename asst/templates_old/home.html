@@ -1,4 +1,8 @@
-
+<style>
+    .table td {
+        padding: .5rem 0.9375rem!important;
+}
+</style>
 {% extends 'base.html' %}
 {% load static %}
 
@@ -8,12 +12,12 @@
             <div class="col-lg-8 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Total Operating System Licences</h4>
+                  <h4 class="card-title">Volume Operating System Licences</h4>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                            <th class="badge-info text-center"> </th>
+
                             <th class="table-info" >
                             OS
                           </th>
@@ -33,11 +37,7 @@
                       <tbody>
                       {% for form in win %}
                         <tr>
-                          {% if forloop.counter0  < 1 %}
-                            <td   rowspan="11"  class="badge-info text-center">
-                            Volume
-                          </td>
-                            {% endif %}
+
                            <td class="table-info">
                             {{form.OS}}
                           </td>
@@ -140,23 +140,18 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                            <th class="badge-success text-center"></th>
                             <th class="table-info" >
                             OS
                           </th>
                           <th class="table-warning">
-                            Total
+                            Live
                           </th>
                         </tr>
                       </thead>
                       <tbody>
                       {% for form in win %}
                         <tr>
-                          {% if forloop.counter0  < 1 %}
-                            <td   rowspan="6"  class="badge-success text-center">
-                            OEM
-                          </td>
-                            {% endif %}
+
                            <td class="table-info">
                             {{form.OS}}
                           </td>
@@ -184,15 +179,14 @@
 
           <!-- row end -->
  <div class="row">
-            <div class="col-lg-8 grid-margin stretch-card">
+            <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Total MS Office Licences</h4>
+                  <h4 class="card-title">MS Office Licences</h4>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                            <th class="badge-info text-center"> </th>
                           <th class="table-info" >
                             MS Office
                           </th>
@@ -212,11 +206,6 @@
                       <tbody>
                       {% for form in MSOFfice %}
                         <tr >
-                       {% if forloop.counter0  < 1 %}
-                            <td   rowspan="5"  class="badge-info text-center">
-                            Volume
-                          </td>
-                            {% endif %}
                           <td class="table-info">
                             {{form.OS}}
                           </td>
