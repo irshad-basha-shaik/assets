@@ -59,7 +59,7 @@ def OSTally():
         if (c4 < 0):
             c5 = True
             c6 = False
-        temp = {"OS": os[1], "VolumeLicence": c1, "OEM": c1, "pos": 0, "Available": c3, "Balance": c4,
+        temp = {"OS": os[1], "VolumeLicence": c1, "OEM": c3, "pos": 0, "Available": c3, "Balance": c4,
                  "CurrentAvailableBalance": c4, "BorrowPath": []}
         if os[1].startswith("Win."):
             b = getOSPosition(os[1])
