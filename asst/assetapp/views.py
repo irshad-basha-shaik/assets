@@ -64,7 +64,7 @@ def OSTally():
         if (c4 < 0):
             c5 = True
             c6 = False
-        temp = {"OS": os[1], "VolumeLicence": c1, "OEM": c3, "pos": 0, "Available": c3, "Balance": c4,
+        temp = {"OS": os[1], "VolumeLicence": c1, "OEM": c2, "pos": 0, "Available": c3, "Balance": c4,
                  "CurrentAvailableBalance": c4, "BorrowPath": []}
         if os[1].startswith("Win."):
             b = getOSPosition(os[1])
@@ -172,6 +172,7 @@ def sum(obj):
     for  x in obj:
         temp["VolumeLicence"]=temp["VolumeLicence"]+x["VolumeLicence"]
         temp["Available"] = temp["Available"] + x["Available"]
+        temp["OEM"] = temp["OEM"] + x["OEM"]
         temp["Balance"] = temp["Balance"] + x["Balance"]
         temp["CurrentAvailableBalance"] = temp["CurrentAvailableBalance"] + x["CurrentAvailableBalance"]
     return temp

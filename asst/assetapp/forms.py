@@ -196,6 +196,9 @@ MS_VERSION =  (
     ('MS Office 365', 'MS Office 365'),
     ('','')
 )
+MS_VERSION1 =  (
+    ('MS Office 365', 'MS Office 365')
+)
 
 OEM_VOLUME = [x for x in range(1990,2021)]
 OS_VERSION = (

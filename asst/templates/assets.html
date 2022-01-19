@@ -70,32 +70,32 @@
                     <table id="example" class="table table-bordered">
                       <thead>
                         <tr>
-                            <th>serial_no</th>
+                            <th>Serial no.</th>
                             <th> Location </th>
-                            <th> Asset_No </th>
-                            <th> Emp_Id </th>
-                            <th> OEM_Volume </th>
-                            <th>usage_type</th>
-                            <th>machine_type</th>
-                            <th>gef_id_number</th>
-                            <th>Domain Workgroup</th>
+                            <th> Asset No </th>
+                            <th> Emp Id </th>
+                            <th> OEM / Volume </th>
+                            <th>Usage type</th>
+                            <th>Machine_Type</th>
+                            <th>Gef_Id</th>
+                            <th>Domain / Workgroup</th>
                             <th>Domain User Name</th>
-                            <th>machine_make</th>
-                            <th>machine_model_no</th>
-                            <th>machine_serial_no</th>
-                            <th>ram</th>
-                            <th>processor</th>
+                            <th>Machine Make</th>
+                            <th>Machine Model No</th>
+                            <th>Machine_Serial_No</th>
+                            <th>RAM</th>
+                            <th>Processor</th>
                             <th>HDD Capacity</th>
                             <th>HDD Serial No</th>
-                            <th>processor_purchase_date</th>
-                            <th>warranty_start_date</th>
-                            <th>warranty_end_date</th>
-                            <th>amc_start_date</th>
-                            <th>amc_end_date</th>
+                            <th>Processor_Purchase_Date</th>
+                            <th>Warranty Start Date</th>
+                            <th>Warranty End Date</th>
+                            <th>AMC Start Date</th>
+                            <th>AMC End_Date</th>
                             <th>OS Version</th>
                             <th>OS</th>
                             <th>Ms Office Version</th>
-                            <th>OEM Volume</th>
+                            <th>OEM / Volume</th>
                             <th>Antivirus</th>
                             <th>AutoCAD</th>
                             <th>Adobe Acrobate</th>
@@ -103,10 +103,10 @@
                             <th>Access</th>
                             <th>SAP</th>
                             <th>SAP_User_ID</th>
-                            <th>status</th>
-                            <th>remarks</th>
-                            <th>user_acceptance_date</th>
-                            <th>user_handed_over_date</th>
+                            <th>Status</th>
+                            <th>Remarks</th>
+                            <th>User_Acceptance_Date</th>
+                            <th>User_Handed over Date</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -114,11 +114,11 @@
                       <tbody>
                             {% for form in list %}
                         <tr>
-                            <td>{{form.serial_no }}<span style="visibility:hidden">{{forloop.counter}}</span></td>
+                            <td>{{form.serial_no}}<span style="visibility:hidden">{{forloop.counter}}</span></td>
                              <td>{{form.location}} </td>
                             <td>{{form.asset_no}}</td>
                             <td>{{form.emp_id}}</td>
-                            <td>{{form.OEM_Volume}}</td>
+                            <td>{% if form.OEM_Volume %}OEM {% else %}Volume{% endif %}</td>
                             <td>{{form.usage_type}}</td>
                             <td>{{form.machine_type}}</td>
                             <td>{{form.gef_id_number}}</td>
