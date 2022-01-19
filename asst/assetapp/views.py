@@ -29,7 +29,12 @@ def new(request):
     return render(request,"assets_entry.html",context)
 def it_assets(request):
     list = getAssets()
-    return render(request, "it_assets.html", {"list": list})
+    r = list['remark']
+    for m in r:
+        m = m['machine']
+        for l in m:
+            l = l['location']
+    return render(request, "it_assets.html", {"list": list,"r":r,"m":m,"l":l})
 def getAssets():
     list = {"remark":[]}
     for r in REMARKS:
