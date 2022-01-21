@@ -3,7 +3,7 @@ from datetime import datetime
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE
+from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE
 from .models import AssetModel,WifiModel,FirewallModel,VCCModel,PrinterModel
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
@@ -19,6 +19,7 @@ def new(request):
     context['form'] = AssetForm()
     if request.method== 'POST':
         form = AssetForm(request.POST)
+        #form = form.upper()
         if form.is_valid():
             student = form.save(commit=False)
             student.save()
@@ -29,23 +30,22 @@ def new(request):
     return render(request,"assets_entry.html",context)
 def it_assets(request):
     list = getAssets()
-    r = list['remark']
-    for m in r:
-        m = m['machine']
-        for l in m:
-            l = l['location']
-    return render(request, "it_assets.html", {"list": list,"r":r,"m":m,"l":l})
+
+
+    return render(request, "it_assets.html", list)
 def getAssets():
     list = {"remark":[]}
-    for r in REMARKS:
-        list1 ={"machine":[] }
+    for r in reversed(USAGE_TYPE):
+        list1 ={"name":"","machine":[] }
+        list1["name"] = r[1]
         for mtypes in MACHINE_TYPE:
-            list2 ={"location":[] }
+            list2 ={"name":"","location":[] }
+            list2["name"] = mtypes[1]
             for l in LOCATION:
                 dat = getAssetCountByLocationRemarksMachineType(l[1],r[1],mtypes[1])
                 list2['location'].append({"LOCATION": l[1],"Machine": mtypes[1],"remark":r[1],"data":dat})
-            list1['machine'].append(list2);
-        list['remark'].append(list1);
+            list1['machine'].append(list2)
+        list['remark'].append(list1)
     return list
 
 def index(request):
