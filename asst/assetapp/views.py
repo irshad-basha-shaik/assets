@@ -11,7 +11,7 @@ import json
 from django.core import serializers
 from django.http import JsonResponse
 from django.http import HttpResponse
-
+log=""
 @csrf_exempt
 
 def new(request):
@@ -25,7 +25,10 @@ def new(request):
             student.save()
             return index(request)
         else:
+            print("---error---start---")
+            print(request.POST)
             print(form.errors)
+            print("---error---end---")
 
     return render(request,"assets_entry.html",context)
 def it_assets(request):
