@@ -27,32 +27,34 @@
                 <div class="card-body">
                   <h4 class="card-title">My IT Asset's</h4>
                   <div class="table-responsive">
-                    <table class="table table-striped">
+                    <!--table class="table table-striped">
                       <thead>
 
                       </thead>
-                      <tbody>
+                      <tbody-->
 
                       {% for form in remark %}
-                      <tr>
+                      <!--tr>
                         <td>{{form.name}}</td>
-                        <Td>
-                          <table>
+                        <Td-->
+                          <table class="table table-striped">
                           {% for form1 in form.machine %}
                            <tr>
+                             {% forloop.parentloop.counter0 = 0 %}
+                             <td rowspan="4">{{form.name}}</td>
+                                {% endif %}
                         <td>{{form1.name}}</td>
-
                           {% for form2 in form1.location %}
                         <td  style="width:50px"><span>{{form2.data}}</span></td>
                           {% endfor %}
-                        </tr>
+                        </td>
                           {% endfor %}
                           </table>
-                        </Td>
-                      </tr>
+                        <!--/Td>
+                      </tr-->
                          {% endfor %}
-                      </tbody>
-                    </table>
+                      <!--/tbody>
+                    </table-->
                   </div>
                 </div>
               </div>

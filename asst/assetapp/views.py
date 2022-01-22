@@ -33,8 +33,6 @@ def new(request):
     return render(request,"assets_entry.html",context)
 def it_assets(request):
     list = getAssets()
-
-
     return render(request, "it_assets.html", list)
 def getAssets():
     list = {"remark":[]}
