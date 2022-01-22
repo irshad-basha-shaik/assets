@@ -289,8 +289,8 @@ OS = (
 )
 AVAILABLE_LICENCE={
     'Win.7': 56,
-    'Win.8': 60,
-    'Win.10': 145,
+    'Win.8': 85,
+    'Win.10': 188,
     'Win.11': 0,
     'Ser.2012': 9,
     'Ser.2016': 1,
@@ -299,8 +299,8 @@ AVAILABLE_LICENCE={
     'MS Office Standard 2010': 55,
     'MS Office Standard 2013': 85,
     'MS Office Standard 2016':130,
-    'MS Office Standard 2019': 0,
-    'MS Office 365': 0
+    'MS Office Standard 2019': 40,
+    'MS Office 365': 28
 }
 AVAILABLE_LICENCE_ORDER={
     'Win.7': 1.2,
