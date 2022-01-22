@@ -27,32 +27,38 @@
                 <div class="card-body">
                   <h4 class="card-title">My IT Asset's</h4>
                   <div class="table-responsive">
-                    <!--table class="table table-striped">
-                      <thead>
-
+                    <table class="table table-striped">
+    <thead>
+<tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    {% for x,y in LOCATION %}
+    <td>{{x}}</td>
+    {% endfor %}
+</tr>
                       </thead>
-                      <tbody-->
-
                       {% for form in remark %}
                       <!--tr>
                         <td>{{form.name}}</td>
                         <Td-->
-                          <table class="table table-striped">
+
                           {% for form1 in form.machine %}
                            <tr>
-                             {% forloop.parentloop.counter0 = 0 %}
-                             <td rowspan="4">{{form.name}}</td>
+          {% if forloop.counter0 == 0 %}
+                             <td rowspan="5">{{form.name}}</td>
                                 {% endif %}
                         <td>{{form1.name}}</td>
                           {% for form2 in form1.location %}
-                        <td  style="width:50px"><span>{{form2.data}}</span></td>
+                        <td  style="width:50px"><span {% if form2.data == 'Total' %} style="font" {% endif %} >{{form2.data}}</span></td>
                           {% endfor %}
+                           </tr>
                         </td>
                           {% endfor %}
-                          </table>
+
                         <!--/Td>
                       </tr-->
                          {% endfor %}
+          </table>
                       <!--/tbody>
                     </table-->
                   </div>

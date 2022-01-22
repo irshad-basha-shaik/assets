@@ -35,18 +35,35 @@ def it_assets(request):
     list = getAssets()
     return render(request, "it_assets.html", list)
 def getAssets():
-    list = {"remark":[]}
-    for r in reversed(USAGE_TYPE):
+    list = {"remark":[],"LOCATION":LOCATION}
+
+    for i in range(len(REMARKS)):
+        r=REMARKS[i]
         list1 ={"name":"","machine":[] }
         list1["name"] = r[1]
+        total = [0, 0, 0, 0, 0, 0, 0, 0]
         for mtypes in MACHINE_TYPE:
-            list2 ={"name":"","location":[] }
+            list2 ={"name":"Total","location":[] }
             list2["name"] = mtypes[1]
-            for l in LOCATION:
+
+            for l1 in  range(len(LOCATION)):
+                l= LOCATION[l1]
+
                 dat = getAssetCountByLocationRemarksMachineType(l[1],r[1],mtypes[1])
                 list2['location'].append({"LOCATION": l[1],"Machine": mtypes[1],"remark":r[1],"data":dat})
+                td = total[l1]
+                td = td+dat
+                total[l1]=td
             list1['machine'].append(list2)
+
+        tot={"name":"Total","location":[]}
         list['remark'].append(list1)
+
+
+        for x in range(len(list1['machine'][0]['location'])):
+            tot['location'].append({"name":"total","data":total[x]})
+
+        list1['machine'].append(tot)
     return list
 
 def index(request):
@@ -143,7 +160,7 @@ def getAvailableLicence(obj):
 
     return s
 def getAssetCountByLocationRemarksMachineType(l,r,m):
-    list = AssetModel.objects.all().filter(location=l, usage_type=r, machine_type=m)
+    list = AssetModel.objects.all().filter(location=l, Remarks=r, machine_type=m)
     return len(list)
 
 def getAssetCount(os,oem):
