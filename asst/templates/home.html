@@ -64,8 +64,8 @@
                           </td>
                         </tr>
                          {% endfor %}
-
-                      <tr>
+<tr><td>&nbsp;</td></tr>
+                      <!--tr>
                           <td  style="font-weight: bold">Total</td>
                               <td  style="font-weight: bold">{{winSum.VolumeLicence}}</td>
                               <td  style="font-weight: bold" >{{winSum.Available}}</td>
@@ -78,7 +78,7 @@
                                   <label class="badge badge-success">{{winSum.CurrentAvailableBalance}}</label>
                                   {% endif %}
                               </td>
-                      </tr>
+                      </tr-->
 
 {% for form in server %}
                         <tr>
@@ -110,7 +110,7 @@
                         </tr>
                          {% endfor %}
 
-                         <tr>
+                         <!--tr>
 
                           <td  style="font-weight: bold">Total</td>
                              <td  style="font-weight: bold">{{serverVolumeSum.VolumeLicence}}</td>
@@ -124,7 +124,7 @@
                               <label class="badge badge-success">{{serverVolumeSum.CurrentAvailableBalance}}</label>
                               {% endif %}</td>
 
-                      </tr>
+                      </tr-->
 
                       </tbody>
                     </table>
@@ -207,14 +207,14 @@
                       {% for form in MSOFfice %}
                         <tr >
                           <td >
-                            {{form.OS}}
+                            {% if form.OS == 'MS Office 365' %}<span style="font-weight: bold;font-size: x-large;">MS Office 365 Business Essential </span> {% else %} {{form.OS}}{% endif %}
                           </td>
                           <td >
-                            {{form.VolumeLicence}}
+                             {% if form.OS == 'MS Office 365' %}<span style="font-weight: bold;font-size: x-large;">{{form.VolumeLicence}} </span> {% else %} {{form.VolumeLicence}}{% endif %}
 
                           </td>
                           <td >
-                            {{form.Available}}
+                            {% if form.OS == 'MS Office 365' %}<span style="font-weight: bold;font-size: x-large;">{{form.Available}} </span> {% else %} {{form.Available}}{% endif %}
                           </td>
                           <td >
                            {% if form.CurrentAvailableBalance < 0 %}
@@ -232,7 +232,7 @@
                           </td>
                         </tr>
                          {% endfor %}
-                       <tr>
+                       <!--tr>
                           <td  style="font-weight: bold">Total</td>
                               <td  style="font-weight: bold">{{MSOFficeSum.VolumeLicence}}</td>
                               <td  style="font-weight: bold">{{MSOFficeSum.Available}}</td>
@@ -245,7 +245,7 @@
                               <label class="badge badge-success">{{MSOFficeSum.CurrentAvailableBalance}}</label>
                               {% endif %}
                           </td>
-                      </tr>
+                      </tr-->
                       </tbody>
                     </table>
                   </div>
