@@ -35,35 +35,55 @@ def it_assets(request):
     list = getAssets()
     return render(request, "it_assets.html", list)
 def getAssets():
-    list = {"remark":[],"LOCATION":LOCATION}
-
-    for i in range(len(REMARKS)):
-        r=REMARKS[i]
-        list1 ={"name":"","machine":[] }
-        list1["name"] = r[1]
+    list = {"remark":[],"LOCATION":LOCATION,"gtotal":[]}
+    REM = [ ("Used Workstations",["Desktop","Laptop", "Server"],4,"Total Used") ,
+            ("Spare_Old Workstations",["Desktop","Laptop"],3,"Total Old Spare"),
+            ("Spare_New  Workstations",["Desktop","Laptop"],3,"Total New spare")]
+    grand_total = [0, 0, 0, 0, 0, 0, 0]
+    for i in range(len(REM)):
+        r=REM[i][0]
+        MTYP=REM[i][1]
+        TTYPE=REM[i][3]
+        list1 ={"name":"","machine":[],"SUBCOUNT":(REM[i][2]) }
+        list1["name"] = r
         total = [0, 0, 0, 0, 0, 0, 0, 0]
-        for mtypes in MACHINE_TYPE:
-            list2 ={"name":"Total","location":[] }
-            list2["name"] = mtypes[1]
+        gct = 0
+        for mtypes in MTYP:
+            list2 ={"name":"Total","location":[],"ALLLocationSUM":0 }
+            list2["name"] = mtypes
 
+           # list2["ALLLocationSUM"] = mtypes
             for l1 in  range(len(LOCATION)):
                 l= LOCATION[l1]
-
-                dat = getAssetCountByLocationRemarksMachineType(l[1],r[1],mtypes[1])
+                dat = getAssetCountByLocationRemarksMachineType(l[1],r,mtypes)
                 list2['location'].append({"LOCATION": l[1],"Machine": mtypes[1],"remark":r[1],"data":dat})
                 td = total[l1]
                 td = td+dat
                 total[l1]=td
+                tdd = grand_total[l1]
+                tdd=tdd+dat
+                grand_total[l1]=tdd
+                ltd = list2["ALLLocationSUM"]
+                ltd = ltd + dat
+                list2["ALLLocationSUM"] = ltd
+
+
             list1['machine'].append(list2)
-
-        tot={"name":"Total","location":[]}
+        gltt=0
+        tot={"name":TTYPE,"location":[]}
         list['remark'].append(list1)
-
-
         for x in range(len(list1['machine'][0]['location'])):
             tot['location'].append({"name":"total","data":total[x]})
-
+        gct=0
+        for x in tot['location']:
+            gct = gct + x['data']
+        tot['location'].append({"name": "typetotaltotal", "data": gct})
         list1['machine'].append(tot)
+    ggct = 0
+    for x in grand_total:
+        ggct = ggct + x
+    grand_total.append(ggct)
+    list["gtotal"]=grand_total
     return list
 
 def index(request):
@@ -160,7 +180,13 @@ def getAvailableLicence(obj):
 
     return s
 def getAssetCountByLocationRemarksMachineType(l,r,m):
-    list = AssetModel.objects.all().filter(location=l, Remarks=r, machine_type=m)
+
+    if r == 'Used Workstations' :
+        list = AssetModel.objects.all().filter(usage_type='Live', machine_type=m, location=l)
+    elif r == 'Spare_Old Workstations' :
+        list = AssetModel.objects.all().filter(user_name__iexact='Spare Old',machine_type=m, location=l).exclude(Status='Not working')
+    elif r == 'Spare_New  Workstations' :
+        list = AssetModel.objects.all().filter(user_name__iexact='Spare New',machine_type=m, location=l).exclude(Status='Not working')
     return len(list)
 
 def getAssetCount(os,oem):
