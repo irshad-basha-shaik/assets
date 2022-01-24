@@ -32,14 +32,14 @@
                   <h4 class="card-title">My IT Asset's</h4>
                   <div class="table-responsive">
                     <table class="table table-striped">
-    <thead>
-<tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    {% for x,y in LOCATION %}
-    <td>{{x}}</td>
-    {% endfor %}
-</tr>
+                    <thead>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            {% for x,y in LOCATION %}
+                            <td>{{x}}</td>
+                            {% endfor %}
+                        </tr>
                       </thead>
                       {% for form in remark %}
                       <!--tr>
@@ -48,7 +48,7 @@
 
                           {% for form1 in form.machine %}
                            <tr>
-          {% if forloop.counter0 == 0 %}
+                        {% if forloop.counter0 == 0 %}
                              <td rowspan="{{form.SUBCOUNT}}">{{form.name}}</td>
                                 {% endif %}
                         <td {% if 'Total' in form1.name %} class="total" {% endif %}>{{form1.name}}</td>
@@ -60,8 +60,6 @@
 
                           {% endfor %}
 
-                        <!--/Td>
-                      </tr-->
                          {% endfor %}
                         <tr>
                              <td class="total"  style="text-align: -webkit-center;" colspan="2">Final Total</td>
@@ -69,8 +67,36 @@
                         <td  class="total" >{{form3}}</td>
                         {% endfor %}
                         </tr>
+                        <tr>
+                             {% for form in remark %}
+                      <tr>
+
+                          {% for form1 in form.vol %}
+                           <tr>
+                        {% if forloop.counter0 == 0 %}
+                             <td rowspan="{{form.SUBCOUNT}}">{{form1.name}}</td>
+                                {% endif %}
+                        <td {% if 'Total' in form1.name %} class="total" {% endif %}>{{form1.name}}</td>
+                          {% for form2 in form1.location %}
+                        <td  style="width:50px"><span {% if 'Total' in form1.name %} class="total" {% endif %} >{{form2.data}}</span></td>
+                          {% endfor %}
+                        <td  style="width:50px"><span class="total"  >{{form1.ALLLocationSUM}}</span></td>
+                           </tr>
+
+                          {% endfor %}
+
+                         {% endfor %}
+                        <tr>
+                             <td class="total"  style="text-align: -webkit-center;" colspan="2">Final Total</td>
+                         {% for form3 in gtotal %}
+                        <td  class="total" >{{form3}}</td>
+                        {% endfor %}
+                        </tr>
+                        </tr>
+
 
           </table>
+
                       <!--/tbody>
                     </table-->
                   </div>

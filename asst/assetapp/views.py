@@ -33,7 +33,60 @@ def new(request):
     return render(request,"assets_entry.html",context)
 def it_assets(request):
     list = getAssets()
+    list4 = getAssetsByLocation()
+    list['vol']= list4
     return render(request, "it_assets.html", list)
+def getAssetsByLocation():
+    list = {"remark":[],"LOCATION":LOCATION,"gtotal":[]}
+    REM = [ ("OS Details (Volume)",["Win.XP", "Win.7","Win.8", "Win.10", "Ser.2012", "Ser.2016"],7,"Total") ,
+            ("OS Details (OEM)",["Win.7","Win.8", "Win.10"],4,"Total"),
+            ("MS Office Details",["2010","2013","2016","2019"],5,"Total")]
+    grand_total = [0, 0, 0, 0, 0, 0, 0]
+    for i in range(len(REM)):
+        r=REM[i][0]
+        MTYP=REM[i][1]
+        TTYPE=REM[i][3]
+        list1 ={"name":"","machine":[],"SUBCOUNT":(REM[i][2]) }
+        list1["name"] = r
+        total = [0, 0, 0, 0, 0, 0, 0, 0]
+        gct = 0
+        for mtypes in MTYP:
+            list2 ={"name":"Total","location":[],"ALLLocationSUM":0 }
+            list2["name"] = mtypes
+
+           # list2["ALLLocationSUM"] = mtypes
+            for l1 in  range(len(LOCATION)):
+                l= LOCATION[l1]
+                dat = getAssetCountByLocationRemarksOS(l[1],r,mtypes)
+                list2['location'].append({"LOCATION": l[1],"Machine": mtypes[1],"remark":r[1],"data":dat})
+                td = total[l1]
+                td = td+dat
+                total[l1]=td
+                tdd = grand_total[l1]
+                tdd=tdd+dat
+                grand_total[l1]=tdd
+                ltd = list2["ALLLocationSUM"]
+                ltd = ltd + dat
+                list2["ALLLocationSUM"] = ltd
+
+
+            list1['machine'].append(list2)
+        gltt=0
+        tot={"name":TTYPE,"location":[]}
+        list['remark'].append(list1)
+        for x in range(len(list1['machine'][0]['location'])):
+            tot['location'].append({"name":"total","data":total[x]})
+        gct=0
+        for x in tot['location']:
+            gct = gct + x['data']
+        tot['location'].append({"name": "typetotaltotal", "data": gct})
+        list1['machine'].append(tot)
+    ggct = 0
+    for x in grand_total:
+        ggct = ggct + x
+    grand_total.append(ggct)
+    list["gtotal"]=grand_total
+    return list
 def getAssets():
     list = {"remark":[],"LOCATION":LOCATION,"gtotal":[]}
     REM = [ ("Used Workstations",["Desktop","Laptop", "Server"],4,"Total Used") ,
@@ -187,6 +240,21 @@ def getAssetCountByLocationRemarksMachineType(l,r,m):
         list = AssetModel.objects.all().filter(user_name__iexact='Spare Old',machine_type=m, location=l).exclude(Status='Not working')
     elif r == 'Spare_New  Workstations' :
         list = AssetModel.objects.all().filter(user_name__iexact='Spare New',machine_type=m, location=l).exclude(Status='Not working')
+    return len(list)
+
+def getAssetCountByLocationRemarksOS(l,r,m):
+    ms = ["2010","2013","2016","2019"]
+    r1= False
+    if r=='OS Details (Volume)':
+        r1 = False
+    else:
+        r1=True
+    if r == 'OS Details (Volume)' :
+        list = AssetModel.objects.all().filter(OEM_Volume=r1, machine_type=m, location=l).exclude(user_name__iexact='Spare')
+    elif r == 'OS Details (OEM)' :
+        list = AssetModel.objects.all().filter(OEM_Volume=r1, machine_type=m, location=l).exclude(user_name__iexact='Spare Old')
+    elif r == 'MS Office Details' :
+        list = AssetModel.objects.all().filter(ms_office_version=ms,machine_type=m, location=l)
     return len(list)
 
 def getAssetCount(os,oem):
