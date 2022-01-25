@@ -40,7 +40,7 @@ def getAssetsByLocation():
     list = {"remark":[],"LOCATION":LOCATION,"gtotal":[]}
     REM = [ ("OS Details (Volume)",["Win.XP", "Win.7","Win.8", "Win.10", "Ser.2012", "Ser.2016"],7,"Total") ,
             ("OS Details (OEM)",["Win.7","Win.8", "Win.10"],4,"Total"),
-            ("MS Office Details",["2010","2013","2016","2019"],5,"Total")]
+            ("MS Office Details",["MS Office Standard 2010","MS Office Standard 2013","MS Office Standard 2016","MS Office Standard 2019","MS Office 365"],6,"Total")]
     grand_total = [0, 0, 0, 0, 0, 0, 0]
     for i in range(len(REM)):
         r=REM[i][0]
@@ -247,14 +247,13 @@ def getAssetCountByLocationRemarksOS(l,r,m):
     r1= False
     if r=='OS Details (Volume)':
         r1 = False
+        list = AssetModel.objects.all().filter(OEM_Volume=r1, OS=m, location=l).exclude(user_name__iexact='Spare')
+    elif r == 'OS Details (OEM)':
+        r1 = True
+        list = AssetModel.objects.all().filter(OEM_Volume=r1, OS=m, location=l).exclude(user_name__iexact='Spare Old')
     else:
-        r1=True
-    if r == 'OS Details (Volume)' :
-        list = AssetModel.objects.all().filter(OEM_Volume=r1, machine_type=m, location=l).exclude(user_name__iexact='Spare')
-    elif r == 'OS Details (OEM)' :
-        list = AssetModel.objects.all().filter(OEM_Volume=r1, machine_type=m, location=l).exclude(user_name__iexact='Spare Old')
-    elif r == 'MS Office Details' :
-        list = AssetModel.objects.all().filter(ms_office_version=ms,machine_type=m, location=l)
+        r1 = True
+        list = AssetModel.objects.all().filter(ms_office=r1, ms_office_version=m, location=l)
     return len(list)
 
 def getAssetCount(os,oem):
