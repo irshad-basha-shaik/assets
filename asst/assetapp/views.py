@@ -6,14 +6,14 @@ from django.http import HttpResponseRedirect
 from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE
 from .models import AssetModel,WifiModel,FirewallModel,VCCModel,PrinterModel
 from django.views.decorators.csrf import csrf_exempt
-# Create your views here.
-import json
-from django.core import serializers
 from django.http import JsonResponse
-from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 log=""
+
+
 @csrf_exempt
 
+@login_required
 def new(request):
     context = {}
     context['form'] = AssetForm()
@@ -35,6 +35,8 @@ def it_assets(request):
     list = getAssets()
     list4 = getAssetsByLocation()
     list['vol']= list4
+    if request.content_type == 'application/json':
+        return JsonResponse(list)
     return render(request, "it_assets.html", list)
 def getAssetsByLocation():
     list = {"remark":[],"LOCATION":LOCATION,"gtotal":[]}
@@ -141,6 +143,8 @@ def getAssets():
 
 def index(request):
     list = AssetModel.objects.all()
+    if request.content_type == 'application/json':
+        return JsonResponse(list)
     return render(request,"assets.html",{"list":list})
 def OSTally():
     win_live = []
@@ -275,7 +279,8 @@ def home(request):
     context['MSOFfice'] = c
     context['MSOFficeSum'] = sum(c)
     context['now'] = now
-
+    if request.content_type == 'application/json':
+        return JsonResponse(context)
     return render(request, "home.html", context)
 def sum(obj):
     temp = { "VolumeLicence":  0, "OEM": 0,"Available": 0, "Balance": 0,
@@ -287,6 +292,7 @@ def sum(obj):
         temp["Balance"] = temp["Balance"] + x["Balance"]
         temp["CurrentAvailableBalance"] = temp["CurrentAvailableBalance"] + x["CurrentAvailableBalance"]
     return temp
+@login_required
 def edit(request,id):
     obj = get_object_or_404(AssetModel, pk=id)
     context = {}
@@ -299,6 +305,7 @@ def edit(request,id):
             return index(request)
     context['form'] = form
     return render(request,"assets_edit.html",context)
+@login_required
 def delete(request,id):
     context = {}
     obj = get_object_or_404(AssetModel, id=id)
