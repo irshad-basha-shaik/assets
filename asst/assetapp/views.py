@@ -35,9 +35,28 @@ def it_assets(request):
     list = getAssets()
     list4 = getAssetsByLocation()
     list['vol']= list4
+    list5 = getAssetsByLocationAntivirus()
+    list['antivirus'] = list5
     if request.content_type == 'application/json':
         return JsonResponse(list)
     return render(request, "it_assets.html", list)
+def getAssetsByLocationAntivirus():
+    list = { "location": [],"data": []}
+    r = "Antivirus"
+    total = 0
+    for l1 in range(len(LOCATION)):
+        l = LOCATION[l1]
+        dat = getAssetCountByLocationAntivirus(l[1], r)
+        total = total+dat
+        list['location'].append({"LOCATION": l[1], "data": dat})
+    list['location'].append({"Total": total})
+    return list
+def getAssetCountByLocationAntivirus(l,r):
+    r1 = False
+    if r == 'Antivirus':
+        r1 = True
+        list = AssetModel.objects.all().filter(Antivirus=r1, location=l)
+    return len(list)
 def getAssetsByLocation():
     list = {"remark":[],"LOCATION":LOCATION,"gtotal":[]}
     REM = [ ("OS Details (Volume)",["Win.XP", "Win.7","Win.8", "Win.10", "Ser.2012", "Ser.2016"],7,"Total") ,

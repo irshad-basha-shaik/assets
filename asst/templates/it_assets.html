@@ -63,13 +63,42 @@
                         <td  class="total" >{{form3}}</td>
                         {% endfor %}
                         </tr>
+
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Antivirus</td>
+
+                            {% for form in antivirus.location %}
+                                {% if 'Total' in form %}
+                                <td style="width:50px"><span class="total" >{{form.Total}}</span></td>
+                                        {% endif %}
+                                <td>{{ form.data }}</td>
+                            {% endfor %}
+
+
+                        </tr>
+
+
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
                         <tr>
 
                             <td>&nbsp;</td>
                             <td>OS Type&nbsp;</td>
-                            {% for x,y in LOCATION %}
+                            <!--{% for x,y in LOCATION %}
                             <td>{{x}}</td>
-                            {% endfor %}
+                            {% endfor %}-->
                         </tr>
 
                         {% for v in vol.remark %}
