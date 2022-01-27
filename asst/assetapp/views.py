@@ -13,7 +13,7 @@ log=""
 
 @csrf_exempt
 
-#@login_required
+@login_required
 def new(request):
     context = {}
     context['form'] = AssetForm()
@@ -59,9 +59,10 @@ def getAssetCountByLocationAntivirus(l,r):
     return len(list)
 def getAssetsByLocation():
     list = {"remark":[],"LOCATION":LOCATION,"gtotal":[]}
-    REM = [ ("OS Details (Volume)",["Win.XP", "Win.7","Win.8", "Win.10", "Ser.2012", "Ser.2016"],7,"Total") ,
-            ("OS Details (OEM)",["Win.7","Win.8", "Win.10"],4,"Total"),
-            ("MS Office Details",["MS Office Standard 2010","MS Office Standard 2013","MS Office Standard 2016","MS Office Standard 2019","MS Office 365"],6,"Total")]
+    REM = [("OS Details (Volume)", ["Win.XP", "Win.7", "Win.8", "Win.10", "Win.11", "Ser.2012", "Ser.2016", "Ser.2019"], 8, "Total"),
+        ("OS Details (OEM)", ["Win.7", "Win.8", "Win.10", "Win.11"], 5, "Total"),
+        ("MS Office Details",["MS Office Standard 2010", "MS Office Standard 2013", "MS Office Standard 2016", "MS Office Standard 2019",
+          "MS Office 365"], 6, "Total")]
     grand_total = [0, 0, 0, 0, 0, 0, 0, 0]
     for i in range(len(REM)):
         r=REM[i][0]
@@ -113,14 +114,14 @@ def getAssets():
     REM = [ ("Used Workstations",["Desktop","Laptop", "Server"],4,"Total Used") ,
             ("Spare_Old Workstations",["Desktop","Laptop"],3,"Total Old Spare"),
             ("Spare_New  Workstations",["Desktop","Laptop"],3,"Total New spare")]
-    grand_total = [0, 0, 0, 0, 0, 0, 0]
+    grand_total = [0, 0, 0, 0, 0, 0, 0, 0]
     for i in range(len(REM)):
         r=REM[i][0]
         MTYP=REM[i][1]
         TTYPE=REM[i][3]
         list1 ={"name":"","machine":[],"SUBCOUNT":(REM[i][2]) }
         list1["name"] = r
-        total = [0, 0, 0, 0, 0, 0, 0]
+        total = [0, 0, 0, 0, 0, 0, 0, 0]
         gct = 0
         for mtypes in MTYP:
             list2 ={"name":"Total","location":[],"ALLLocationSUM":0 }
@@ -140,8 +141,6 @@ def getAssets():
                 ltd = list2["ALLLocationSUM"]
                 ltd = ltd + dat
                 list2["ALLLocationSUM"] = ltd
-
-
             list1['machine'].append(list2)
         gltt=0
         tot={"name":TTYPE,"location":[]}
@@ -320,7 +319,7 @@ def edit(request,id):
         form = AssetForm(request.POST)
         if form.is_valid():
             #AssetModel.objects.filter(pk=id).update(location=form.cleaned_data['location'],asset_no=form.cleaned_data['asset_no'],emp_id=form.cleaned_data['emp_id'],usage_type=form.cleaned_data['usage_type'],machine_type=form.cleaned_data['machine_type'],gef_id_number=form.cleaned_data['gef_id_number'],domain_workgoup=form.cleaned_data['domain_workgoup'],machine_make=form.cleaned_data['machine_make'],machine_model_no=form.cleaned_data['machine_model_no'],machine_serial_no=form.cleaned_data['machine_serial_no'],hdd=form.cleaned_data['hdd'],hdd_make=form.cleaned_data['hdd_make'],hdd_model=form.cleaned_data['hdd_model'],hdd_serial_no=form.cleaned_data['hdd_serial_no'],ram=form.cleaned_data['ram'])
-            AssetModel.objects.filter(pk=id).update(user_name=form.cleaned_data['user_name'],location=form.cleaned_data['location'],asset_no=form.cleaned_data['asset_no'],user_email=form.cleaned_data['user_email'], emp_id=form.cleaned_data['emp_id'],usage_type=form.cleaned_data['usage_type'],machine_type=form.cleaned_data['machine_type'],gef_id_number=form.cleaned_data['gef_id_number'],domain_workgroup=form.cleaned_data['domain_workgroup'],machine_make=form.cleaned_data['machine_make'],machine_model_no=form.cleaned_data['machine_model_no'],machine_serial_no=form.cleaned_data['machine_serial_no'],hdd=form.cleaned_data['hdd'],hdd_make=form.cleaned_data['hdd_make'],hdd_model=form.cleaned_data['hdd_model'],hdd_serial_no=form.cleaned_data['hdd_serial_no'],ram=form.cleaned_data['ram'],processor=form.cleaned_data['processor'],processor_purchase_date=form.cleaned_data['processor_purchase_date'],warranty_start_date=form.cleaned_data['warranty_start_date'],warranty_end_date=form.cleaned_data['warranty_end_date'],amc_start_date=form.cleaned_data['amc_start_date'],amc_end_date=form.cleaned_data['amc_end_date'],user_acceptance_date=form.cleaned_data['user_acceptance_date'],user_handed_over_date=form.cleaned_data['user_handed_over_date'],ms_office=form.cleaned_data['ms_office'],ms_office_version=form.cleaned_data['ms_office_version'],OEM_Volume=form.cleaned_data['OEM_Volume'],Operating_System_Version=form.cleaned_data['Operating_System_Version'],OS=form.cleaned_data['OS'],Antivirus=form.cleaned_data['Antivirus'],AutoCAD=form.cleaned_data['AutoCAD'],Adobe_acrobate=form.cleaned_data['Adobe_acrobate'],Visio=form.cleaned_data['Visio'],Access=form.cleaned_data['Access'],SAP_User_ID=form.cleaned_data['SAP_User_ID'],SAP=form.cleaned_data['SAP'],Status=form.cleaned_data['Status'],Remarks=form.cleaned_data['Remarks'])
+            AssetModel.objects.filter(pk=id).update(user_name=form.cleaned_data['user_name'],location=form.cleaned_data['location'],asset_no=form.cleaned_data['asset_no'],user_email=form.cleaned_data['user_email'], emp_id=form.cleaned_data['emp_id'],usage_type=form.cleaned_data['usage_type'],machine_type=form.cleaned_data['machine_type'],gef_id_number=form.cleaned_data['gef_id_number'],domain_workgroup=form.cleaned_data['domain_workgroup'],machine_make=form.cleaned_data['machine_make'],machine_model_no=form.cleaned_data['machine_model_no'],machine_serial_no=form.cleaned_data['machine_serial_no'],hdd=form.cleaned_data['hdd'],hdd_make=form.cleaned_data['hdd_make'],hdd_model=form.cleaned_data['hdd_model'],hdd_serial_no=form.cleaned_data['hdd_serial_no'],ram=form.cleaned_data['ram'],processor=form.cleaned_data['processor'],processor_purchase_date=form.cleaned_data['processor_purchase_date'],warranty_start_date=form.cleaned_data['warranty_start_date'],warranty_end_date=form.cleaned_data['warranty_end_date'],amc_start_date=form.cleaned_data['amc_start_date'],amc_end_date=form.cleaned_data['amc_end_date'],user_acceptance_date=form.cleaned_data['user_acceptance_date'],user_handed_over_date=form.cleaned_data['user_handed_over_date'],ms_office=form.cleaned_data['ms_office'],ms_office_version=form.cleaned_data['ms_office_version'],OEM_Volume=form.cleaned_data['OEM_Volume'],Operating_System_Version=form.cleaned_data['Operating_System_Version'],OS=form.cleaned_data['OS'],Antivirus=form.cleaned_data['Antivirus'],AutoCAD=form.cleaned_data['AutoCAD'],Adobe_acrobate=form.cleaned_data['Adobe_acrobate'],Visio=form.cleaned_data['Visio'],Access=form.cleaned_data['Access'],ms_visio=form.cleaned_data['ms_visio'],ms_access=form.cleaned_data['ms_access'],SAP_User_ID=form.cleaned_data['SAP_User_ID'],SAP=form.cleaned_data['SAP'],Status=form.cleaned_data['Status'],Remarks=form.cleaned_data['Remarks'])
             return index(request)
     context['form'] = form
     return render(request,"assets_edit.html",context)
