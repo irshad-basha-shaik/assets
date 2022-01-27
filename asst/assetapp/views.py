@@ -33,13 +33,41 @@ def new(request):
     return render(request,"assets_entry.html",context)
 def it_assets(request):
     list = getAssets()
+    a, b = OSTally()
+    now = datetime.today()
+    list['win'] = a
+    list['winSum'] = sum(a)
+    list['server'] = b
+    list['serverVolumeSum'] = sum(b)
     list4 = getAssetsByLocation()
     list['vol']= list4
     list5 = getAssetsByLocationAntivirus()
     list['antivirus'] = list5
+    list6 = getAssetsByLocationDomain()
+    list['cal'] = list6
     if request.content_type == 'application/json':
         return JsonResponse(list)
     return render(request, "it_assets.html", list)
+def getAssetsByLocationDomain():
+    list = {"location": [], "data": []}
+    r = "Domain / Workgoup"
+    total = 0
+    for l1 in range(len(LOCATION)):
+        l = LOCATION[l1]
+        dat = getAssetCountByLocationDomain(l[1], r)
+        total = total + dat
+        list['location'].append({"LOCATION": l[1], "data": dat})
+    list['location'].append({"Total": total})
+    return list
+
+
+def getAssetCountByLocationDomain(l, r):
+
+    if r == 'Domain / Workgoup':
+
+        list = AssetModel.objects.all().filter(domain_workgroup='Domain', location=l)
+    return len(list)
+
 def getAssetsByLocationAntivirus():
     list = { "location": [],"data": []}
     r = "Antivirus"
@@ -59,18 +87,17 @@ def getAssetCountByLocationAntivirus(l,r):
     return len(list)
 def getAssetsByLocation():
     list = {"remark":[],"LOCATION":LOCATION,"gtotal":[]}
-    REM = [("OS Details (Volume)", ["Win.XP", "Win.7", "Win.8", "Win.10", "Win.11", "Ser.2012", "Ser.2016", "Ser.2019"], 8, "Total"),
+    REM = [("OS Details (Volume)", ["Win.XP", "Win.7", "Win.8", "Win.10", "Win.11", "Ser.2012", "Ser.2016", "Ser.2019"], 9, "Total"),
         ("OS Details (OEM)", ["Win.7", "Win.8", "Win.10", "Win.11"], 5, "Total"),
-        ("MS Office Details",["MS Office Standard 2010", "MS Office Standard 2013", "MS Office Standard 2016", "MS Office Standard 2019",
-          "MS Office 365"], 6, "Total")]
-    grand_total = [0, 0, 0, 0, 0, 0, 0, 0]
+        ("MS Office Details",["MS Office Standard 2010", "MS Office Standard 2013", "MS Office Standard 2016", "MS Office Standard 2019", "MS Office 365"], 6, "Total")]
+    grand_total = [0, 0, 0, 0, 0, 0, 0]
     for i in range(len(REM)):
         r=REM[i][0]
         MTYP=REM[i][1]
         TTYPE=REM[i][3]
         list1 ={"name":"","machine":[],"SUBCOUNT":(REM[i][2]) }
         list1["name"] = r
-        total = [0, 0, 0, 0, 0, 0, 0, 0]
+        total = [0, 0, 0, 0, 0, 0, 0]
         gct = 0
         for mtypes in MTYP:
             list2 ={"name":"Total","location":[],"ALLLocationSUM":0 }
@@ -114,14 +141,14 @@ def getAssets():
     REM = [ ("Used Workstations",["Desktop","Laptop", "Server"],4,"Total Used") ,
             ("Spare_Old Workstations",["Desktop","Laptop"],3,"Total Old Spare"),
             ("Spare_New  Workstations",["Desktop","Laptop"],3,"Total New spare")]
-    grand_total = [0, 0, 0, 0, 0, 0, 0, 0]
+    grand_total = [0, 0, 0, 0, 0, 0]
     for i in range(len(REM)):
         r=REM[i][0]
         MTYP=REM[i][1]
         TTYPE=REM[i][3]
         list1 ={"name":"","machine":[],"SUBCOUNT":(REM[i][2]) }
         list1["name"] = r
-        total = [0, 0, 0, 0, 0, 0, 0, 0]
+        total = [0, 0, 0, 0, 0, 0]
         gct = 0
         for mtypes in MTYP:
             list2 ={"name":"Total","location":[],"ALLLocationSUM":0 }

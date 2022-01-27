@@ -211,12 +211,17 @@ PROCESSOR = [
 ]
 YEARS= [x for x in range(1940,2021)]
 
+Email_Type = (
+    ('O365', 'O365'),
+    ('Zimbra', 'Zimbra'),
+    ('Public', 'Public'),
+)
+
 MS_VERSION =  (
     ('MS Office Standard 2010', 'MS Office Standard 2010'),
     ('MS Office Standard 2013', 'MS Office Standard 2013'),
     ('MS Office Standard 2016', 'MS Office Standard 2016'),
     ('MS Office Standard 2019', 'MS Office Standard 2019'),
-    ('MS Office 365', 'MS Office 365'),
     ('','')
 )
 VISIO_VERSION =  (
@@ -348,6 +353,7 @@ class AssetForm(forms.ModelForm):
     OS = forms.ChoiceField(choices=OS,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_office = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     ms_office_version = forms.ChoiceField(choices=MS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    Email_Type = forms.ChoiceField(choices=Email_Type,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_visio = forms.ChoiceField(choices=VISIO_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_access = forms.ChoiceField(choices=ACCESS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     OEM_Volume = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)

@@ -36,17 +36,16 @@
                           <th >
                             Balance
                           </th>
-
-
                         </tr>
                       </thead>
                       <tbody>
                       {% for form in win %}
                         <tr>
-
                            <td >
                             {{form.OS}}
                           </td>
+                            <td></td>
+                            <td></td>
                           <td >
                             {{form.VolumeLicence}}
 
@@ -70,7 +69,7 @@
                           </td>
                         </tr>
                          {% endfor %}
-<tr><td>&nbsp;</td></tr>
+                    <tr><td>&nbsp;</td></tr>
                       <!--tr>
                           <td  style="font-weight: bold">Total</td>
                               <td  style="font-weight: bold">{{winSum.VolumeLicence}}</td>
@@ -87,10 +86,11 @@
                       </tr-->
 
 {% for form in server %}
-                        <tr>
+                      <tr>
                           <td >
                             {{form.OS}}
                           </td>
+                      <td></td><td></td>
                           <td >
                             {{form.VolumeLicence}}
 

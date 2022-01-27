@@ -58,10 +58,30 @@
 
                          {% endfor %}
                         <tr>
-                             <td class="total"  style="text-align: -webkit-center;" colspan="2">Final Total</td>
+                            <td class="total"  style="text-align: -webkit-center;" colspan="2">Grand Total</td>
                          {% for form3 in gtotal %}
                         <td  class="total" >{{form3}}</td>
                         {% endfor %}
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>CAL</td>
+
+                            {% for form in cal.location %}
+                                {% if 'Total' in form %}
+                                <td style="width:50px"><span class="total" >{{form.Total}}</span></td>
+                                        {% endif %}
+                                <td>{{ form.data }}</td>
+                            {% endfor %}
+
+
                         </tr>
 
                         <tr>

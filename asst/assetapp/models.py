@@ -35,6 +35,7 @@ class AssetModel(models.Model):
     OEM_Volume = models.BooleanField(default='1')
     ms_office = models.BooleanField(default='1')
     ms_office_version = models.CharField(max_length=100, default='1')
+    Email_Type = models.CharField(max_length=100, default='1')
     ms_visio = models.CharField(max_length=100, default='1')
     ms_access = models.CharField(max_length=100, default='1')
     Antivirus = models.BooleanField(default='1')
