@@ -19,44 +19,14 @@ LOCATION = [
     ('KAKINADA', 'KAKINADA'),
     ('KAKINADA-3', 'KAKINADA-3'),
     ('MARKETING', 'MARKETING'),
-    ('DEPOT', 'DEPOT'),
-    ('Depot', 'Depot')
+    ('DEPOT', 'DEPOT')
 
-]
-Desktop = [
-    ('HYDERABAD', '18'),
-    ('KRISHNAPATNAM', '60'),
-    ('KAKINADA', '21'),
-    ('KAKINADA-3', '41'),
-    ('MARKETING', '0'),
-    ('DEPOT', '24'),
-    ('Total/Live', '164')
-
-]
-Server = [
-    ('HYDERABAD', '2'),
-    ('KRISHNAPATNAM', '1'),
-    ('KAKINADA', '1'),
-    ('KAKINADA-3', '1'),
-    ('MARKETING', '0'),
-    ('DEPOT', '0'),
-    ('Total/Live', '5')
-]
-Laptop = [
-    ('HYDERABAD', '70'),
-    ('KRISHNAPATNAM', '19'),
-    ('KAKINADA', '6'),
-    ('KAKINADA-3', '15'),
-    ('MARKETING', '47'),
-    ('DEPOT', '2'),
-    ('Total/Live', '159')
 ]
 
 MACHINE_TYPE = [
     ('Laptop','Laptop'),
     ('Desktop','Desktop'),
     ('Server','Server'),
-    ('Workstations','Workstations'),
 
 ]
 HDD = [
@@ -242,7 +212,6 @@ PROCESSOR = [
 YEARS= [x for x in range(1940,2021)]
 
 MS_VERSION =  (
-
     ('MS Office Standard 2010', 'MS Office Standard 2010'),
     ('MS Office Standard 2013', 'MS Office Standard 2013'),
     ('MS Office Standard 2016', 'MS Office Standard 2016'),
@@ -250,30 +219,44 @@ MS_VERSION =  (
     ('MS Office 365', 'MS Office 365'),
     ('','')
 )
+VISIO_VERSION =  (
+    ('MS Visio 2010', 'MS Visio 2010'),
+    ('MS Visio 2013', 'MS Visio 2013'),
+    ('MS Visio 2016', 'MS Visio 2016'),
+    ('MS Visio 2019', 'MS Visio 2019'),
+    ('','')
+)
+ACCESS_VERSION =  (
+    ('MS Access 2010', 'MS Access 2010'),
+    ('MS Access 2013', 'MS Access 2013'),
+    ('MS Access 2016', 'MS Access 2016'),
+    ('MS Access 2019', 'MS Access 2019'),
+    ('','')
+)
 OEM_VOLUME = [x for x in range(1990,2021)]
 OS_VERSION = (
-('',''),
-('Win-7 Pro.32 Bit','Win-7 Pro.32 Bit'),
-('Win-Server-2012','Win-Server-2012'),
-('Win-10 Pro 64 Bit','Win-10 Pro 64 Bit'),
-('Win-8.1 Pro.32 Bit','Win-8.1 Pro.32 Bit'),
-('Win-8.1 Pro 64 Bit','Win-8.1 Pro 64 Bit'),
-('Win-10 Pro. 32 Bit','Win-10 Pro. 32 Bit'),
-('Win-7 Pro.64 Bit','Win-7 Pro.64 Bit'),
-('Win.10 pro. 64 Bit','Win.10 pro. 64 Bit'),
-('Win-8.1pro 64 Bit','Win-8.1pro 64 Bit'),
-('Win-8.1 Pro 32 Bit','Win-8.1 Pro 32 Bit'),
-('windows 10Pro.64bit','windows 10Pro.64bit'),
-('Win- 8.1Pro.64bit','Win- 8.1Pro.64bit'),
-('Win- 8.1 Pro 64 Bit','Win- 8.1 Pro 64 Bit'),
-('Win-8.1 Pro.64 Bit','Win-8.1 Pro.64 Bit'),
-('Windows 10Pro.64bit','Windows 10Pro.64bit'),
-('Windows Xp Pro.','Windows Xp Pro.'),
-('Win-8.1Pro 32 Bit','Win-8.1Pro 32 Bit'),
-('Windows 10 Pro 64 Bit','Windows 10 Pro 64 Bit'),
-('Win-Server-2016 Std','Win-Server-2016 Std'),
-('Win-10 Home Single Lan.','Win-10 Home Single Lan.'),
-('Win-10 Pro 64 bit','Win-10 Pro 64 bit'),
+    ('',''),
+    ('Win-7 Pro.32 Bit','Win-7 Pro.32 Bit'),
+    ('Win-Server-2012','Win-Server-2012'),
+    ('Win-10 Pro 64 Bit','Win-10 Pro 64 Bit'),
+    ('Win-8.1 Pro.32 Bit','Win-8.1 Pro.32 Bit'),
+    ('Win-8.1 Pro 64 Bit','Win-8.1 Pro 64 Bit'),
+    ('Win-10 Pro. 32 Bit','Win-10 Pro. 32 Bit'),
+    ('Win-7 Pro.64 Bit','Win-7 Pro.64 Bit'),
+    ('Win.10 pro. 64 Bit','Win.10 pro. 64 Bit'),
+    ('Win-8.1pro 64 Bit','Win-8.1pro 64 Bit'),
+    ('Win-8.1 Pro 32 Bit','Win-8.1 Pro 32 Bit'),
+    ('windows 10Pro.64bit','windows 10Pro.64bit'),
+    ('Win- 8.1Pro.64bit','Win- 8.1Pro.64bit'),
+    ('Win- 8.1 Pro 64 Bit','Win- 8.1 Pro 64 Bit'),
+    ('Win-8.1 Pro.64 Bit','Win-8.1 Pro.64 Bit'),
+    ('Windows 10Pro.64bit','Windows 10Pro.64bit'),
+    ('Windows Xp Pro.','Windows Xp Pro.'),
+    ('Win-8.1Pro 32 Bit','Win-8.1Pro 32 Bit'),
+    ('Windows 10 Pro 64 Bit','Windows 10 Pro 64 Bit'),
+    ('Win-Server-2016 Std','Win-Server-2016 Std'),
+    ('Win-10 Home Single Lan.','Win-10 Home Single Lan.'),
+    ('Win-10 Pro 64 bit','Win-10 Pro 64 bit'),
 
 )
 OS = (
@@ -318,15 +301,13 @@ AVAILABLE_LICENCE_ORDER={
 }
 DOMAIN_WORKGROUP = (
     ('Domain','Domain'),
-    ('Domian','Domian'),
-    ('workgroup','workgroup'),
-    ('', ''),
-    ('Workgroup','Workgroup')
+    ('Workgroup','Workgroup'),
+    ('', '')
+
 )
 REMARKS = (
     ('Spare','Spare'),
     ('Used','Used'),
-    ('used','used'),
     ('Not Working','Not Working')
 )
 DEVICES = (

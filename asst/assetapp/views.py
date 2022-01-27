@@ -13,7 +13,7 @@ log=""
 
 @csrf_exempt
 
-@login_required
+#@login_required
 def new(request):
     context = {}
     context['form'] = AssetForm()
@@ -62,7 +62,7 @@ def getAssetsByLocation():
     REM = [ ("OS Details (Volume)",["Win.XP", "Win.7","Win.8", "Win.10", "Ser.2012", "Ser.2016"],7,"Total") ,
             ("OS Details (OEM)",["Win.7","Win.8", "Win.10"],4,"Total"),
             ("MS Office Details",["MS Office Standard 2010","MS Office Standard 2013","MS Office Standard 2016","MS Office Standard 2019","MS Office 365"],6,"Total")]
-    grand_total = [0, 0, 0, 0, 0, 0, 0]
+    grand_total = [0, 0, 0, 0, 0, 0, 0, 0]
     for i in range(len(REM)):
         r=REM[i][0]
         MTYP=REM[i][1]
@@ -120,7 +120,7 @@ def getAssets():
         TTYPE=REM[i][3]
         list1 ={"name":"","machine":[],"SUBCOUNT":(REM[i][2]) }
         list1["name"] = r
-        total = [0, 0, 0, 0, 0, 0, 0, 0]
+        total = [0, 0, 0, 0, 0, 0, 0]
         gct = 0
         for mtypes in MTYP:
             list2 ={"name":"Total","location":[],"ALLLocationSUM":0 }
