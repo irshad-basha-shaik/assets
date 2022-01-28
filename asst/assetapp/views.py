@@ -87,9 +87,10 @@ def getAssetCountByLocationAntivirus(l,r):
     return len(list)
 def getAssetsByLocation():
     list = {"remark":[],"LOCATION":LOCATION,"gtotal":[]}
-    REM = [("OS Details (Volume)", ["Win.XP", "Win.7", "Win.8", "Win.10", "Win.11", "Ser.2012", "Ser.2016", "Ser.2019"], 9, "Total"),
-        ("OS Details (OEM)", ["Win.7", "Win.8", "Win.10", "Win.11"], 5, "Total"),
-        ("MS Office Details",["MS Office Standard 2010", "MS Office Standard 2013", "MS Office Standard 2016", "MS Office Standard 2019", "MS Office 365"], 6, "Total")]
+    REM = [("OS Windows Details (Volume)", ["Win.XP", "Win.7", "Win.8", "Win.10", "Win.11"], 6, "Total"),
+           ("OS Server Details (Volume)", ["Ser.2012", "Ser.2016", "Ser.2019"], 4, "Total"),
+           ("OS Details (OEM)", ["Win.7", "Win.8", "Win.10", "Win.11"], 5, "Total"),
+        ("MS Office Details",["MS Office Standard 2010", "MS Office Standard 2013", "MS Office Standard 2016", "MS Office Standard 2019", "MS Office 365"], 6, "Total"),("MS Office 365",["MS Office 365"], 2, "Total")]
     grand_total = [0, 0, 0, 0, 0, 0, 0]
     for i in range(len(REM)):
         r=REM[i][0]
@@ -117,8 +118,6 @@ def getAssetsByLocation():
                 ltd = list2["ALLLocationSUM"]
                 ltd = ltd + dat
                 list2["ALLLocationSUM"] = ltd
-
-
             list1['machine'].append(list2)
         gltt=0
         tot={"name":TTYPE,"location":[]}
@@ -191,6 +190,32 @@ def index(request):
     if request.content_type == 'application/json':
         return JsonResponse(list)
     return render(request,"assets.html",{"list":list})
+def win_server(request):
+    win_live = []
+    ser_live = []
+    for os in mTypes:
+        c1 = getAssetCount(os[1], False)
+        c2 = getAssetCount(os[1], True)
+        c3 = getAvailableLicence(os[1])
+        c4 = c3 - c1
+        c5 = False
+        c6 = True
+        if (c4 < 0):
+            c5 = True
+            c6 = False
+        temp = {"OS": os[1], "VolumeLicence": c1, "OEM": c2, "pos": 0, "Available": c3, "Balance": c4,
+                 "CurrentAvailableBalance": c4, "BorrowPath": []}
+        if os[1].startswith("Win."):
+            b = getOSPosition(os[1])
+            temp['pos'] = b
+            win_live.append(temp)
+        elif os[1].startswith("Ser."):
+            b = getOSPosition(os[1])
+            temp['pos'] = b
+            ser_live.append(temp)
+    win_live = generateCarryForward(win_live)
+    ser_live = generateCarryForward(ser_live)
+    return win_live,ser_live
 def OSTally():
     win_live = []
     ser_live = []
@@ -294,7 +319,10 @@ def getAssetCountByLocationRemarksMachineType(l,r,m):
 def getAssetCountByLocationRemarksOS(l,r,m):
     ms = ["2010","2013","2016","2019"]
     r1= False
-    if r=='OS Details (Volume)':
+    if r=='OS Windows Details (Volume)':
+        r1 = False
+        list = AssetModel.objects.all().filter(OEM_Volume=r1, OS=m, location=l).exclude(user_name__iexact='Spare')
+    elif r == 'OS Server Details (Volume)':
         r1 = False
         list = AssetModel.objects.all().filter(OEM_Volume=r1, OS=m, location=l).exclude(user_name__iexact='Spare')
     elif r == 'OS Details (OEM)':
