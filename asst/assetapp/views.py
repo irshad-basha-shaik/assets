@@ -184,33 +184,9 @@ def index(request):
     if request.content_type == 'application/json':
         return JsonResponse(list)
     return render(request,"assets.html",{"list":list})
-def win_server(request):
-    win_live = []
-    ser_live = []
-    for os in mTypes:
-        c1 = getAssetCount(os[1], False)
-        c2 = getAssetCount(os[1], True)
-        c3 = getAvailableLicence(os[1])
-        c4 = c3 - c1
-        c5 = False
-        c6 = True
-        if (c4 < 0):
-            c5 = True
-            c6 = False
-        temp = {"OS": os[1], "VolumeLicence": c1, "OEM": c2, "pos": 0, "Available": c3, "Balance": c4,
-                 "CurrentAvailableBalance": c4, "BorrowPath": []}
-        if os[1].startswith("Win."):
-            b = getOSPosition(os[1])
-            temp['pos'] = b
-            win_live.append(temp)
-        elif os[1].startswith("Ser."):
-            b = getOSPosition(os[1])
-            temp['pos'] = b
-            ser_live.append(temp)
-    win_live = generateCarryForward(win_live)
-    ser_live = generateCarryForward(ser_live)
-    return win_live,ser_live
+
 def OSTally():
+    win_live = []
     win_live = []
     ser_live = []
     for os in OS:
