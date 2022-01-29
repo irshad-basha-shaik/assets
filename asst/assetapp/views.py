@@ -33,12 +33,6 @@ def new(request):
     return render(request,"assets_entry.html",context)
 def it_assets(request):
     list = getAssets()
-    a, b = OSTally()
-    now = datetime.today()
-    list['win'] = a
-    list['winSum'] = sum(a)
-    list['server'] = b
-    list['serverVolumeSum'] = sum(b)
     list4 = getAssetsByLocation()
     list['vol']= list4
     list5 = getAssetsByLocationAntivirus()
