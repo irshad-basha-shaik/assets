@@ -13,7 +13,7 @@ log=""
 
 @csrf_exempt
 
-#@login_required
+@login_required
 def new(request):
     context = {}
     context['form'] = AssetForm()

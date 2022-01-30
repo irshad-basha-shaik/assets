@@ -257,7 +257,6 @@ OS_VERSION = (
 
 )
 OS = (
-    ('', ''),
     ('Win.XP', 'Win.XP'),
     ('Win.7', 'Win.7'),
     ('Win.8', 'Win.8'),
@@ -266,6 +265,7 @@ OS = (
     ('Ser.2012', 'Ser.2012'),
     ('Ser.2016', 'Ser.2016'),
     ('Ser.2019', 'Ser.2019'),
+    ('', ''),
 )
 AVAILABLE_LICENCE={
     'Win.7': 56,
