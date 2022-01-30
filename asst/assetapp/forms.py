@@ -216,6 +216,10 @@ MS_VERSION =  (
     ('MS Office Standard 2019', 'MS Office Standard 2019'),
     ('','')
 )
+MS_365 =  (
+    ('MS Office 365', 'MS Office 365'),
+    ('','')
+)
 VISIO_VERSION =  (
     ('MS Visio 2010', 'MS Visio 2010'),
     ('MS Visio 2013', 'MS Visio 2013'),
@@ -232,7 +236,6 @@ ACCESS_VERSION =  (
 )
 OEM_VOLUME = [x for x in range(1990,2021)]
 OS_VERSION = (
-    ('',''),
     ('Win-7 Pro.32 Bit','Win-7 Pro.32 Bit'),
     ('Win-Server-2012','Win-Server-2012'),
     ('Win-10 Pro 64 Bit','Win-10 Pro 64 Bit'),
@@ -254,6 +257,7 @@ OS_VERSION = (
     ('Win-Server-2016 Std','Win-Server-2016 Std'),
     ('Win-10 Home Single Lan.','Win-10 Home Single Lan.'),
     ('Win-10 Pro 64 bit','Win-10 Pro 64 bit'),
+    ('',''),
 
 )
 OS = (
@@ -345,6 +349,7 @@ class AssetForm(forms.ModelForm):
     OS = forms.ChoiceField(choices=OS,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_office = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     ms_office_version = forms.ChoiceField(choices=MS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    ms_365 = forms.ChoiceField(choices=MS_365,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     Email_Type = forms.ChoiceField(choices=Email_Type,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_visio = forms.ChoiceField(choices=VISIO_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_access = forms.ChoiceField(choices=ACCESS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
