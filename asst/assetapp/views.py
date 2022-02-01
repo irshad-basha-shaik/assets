@@ -3,7 +3,7 @@ from datetime import datetime
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE,MS_365
+from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE,Email_Type
 from .models import AssetModel,WifiModel,FirewallModel,VCCModel,PrinterModel
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
@@ -56,9 +56,7 @@ def getAssetsByLocationDomain():
 
 
 def getAssetCountByLocationDomain(l, r):
-
     if r == 'Domain / Workgoup':
-
         list = AssetModel.objects.all().filter(domain_workgroup='Domain', location=l)
     return len(list)
 
@@ -84,7 +82,7 @@ def getAssetsByLocation():
     REM = [("OS Windows Details (Volume)", ["Win.XP", "Win.7", "Win.8", "Win.10", "Win.11"], 6, "Total"),
            ("OS Server Details (Volume)", ["Ser.2012", "Ser.2016", "Ser.2019"], 4, "Total"),
            ("OS Details (OEM)", ["Win.7", "Win.8", "Win.10", "Win.11"], 5, "Total"),
-        ("MS Office Details",["MS Office Standard 2010", "MS Office Standard 2013", "MS Office Standard 2016", "MS Office Standard 2019"], 5, "Total"),
+            ("MS Office Details",["MS Office Standard 2010", "MS Office Standard 2013", "MS Office Standard 2016", "MS Office Standard 2019"], 5, "Total"),
            ("MS Office 365",["MS Office 365"], 2, "Total")]
     grand_total = [0, 0, 0, 0, 0, 0, 0]
     for i in range(len(REM)):
@@ -214,7 +212,6 @@ def OSTally():
     return win_live,ser_live
 def MSOFfice():
     win_live = []
-    ser_live = []
     for os in MS_VERSION:
         c1 = getMSOfficeCount(os[1])
         c3 = getAvailableLicence(os[1])
@@ -236,8 +233,9 @@ def MSOFfice():
 
 def MS365():
     MS365 = []
-    for os in MS_365:
+    for os in Email_Type:
         c1 = getMS365Count(os[1])
+        c2 = getAssetCount(os[1], True)
         c3 = getAvailableLicence(os[1])
         c4 = c3 - c1
         c5 = False
@@ -245,14 +243,15 @@ def MS365():
         if (c4 < 0):
             c5 = True
             c6 = False
-        temp = {"OS": os[1], "VolumeLicence": c1, "OEM": 0, "pos": 0, "Available": c3, "Balance": c4,
-                 "CurrentAvailableBalance": c4, "BorrowPath": []}
-        b = getOSPosition(os[1])
-        temp['pos'] = b
-        if temp["OS"]!='':
+        temp = {"O365": os[1], "VolumeLicence": c1, "OEM": c2, "pos": 0, "Available": c3, "Balance": c4,
+                "CurrentAvailableBalance": c4, "BorrowPath": []}
+        if os[1].startswith("MS Office 365"):
+            b = getOSPosition(os[1])
+            temp['pos'] = b
             MS365.append(temp)
 
     MS365 = generateCarryForward(MS365)
+
     return MS365
 def fetchBalance(need1,x,list):
     need=need1*-1
@@ -327,14 +326,14 @@ def getAssetCountByLocationRemarksOS(l,r,m):
     return len(list)
 
 def getAssetCount(os,oem):
-    list = AssetModel.objects.all().filter(OS=os,OEM_Volume=oem,usage_type='Live')
+    list = AssetModel.objects.all().filter(ms_365=os,OEM_Volume=oem,usage_type='Live')
     return len(list)
 
 def getMSOfficeCount(oem):
     list = AssetModel.objects.all().filter(ms_office_version=oem,usage_type='Live')
     return len(list)
 def getMS365Count(oem):
-    list = AssetModel.objects.all().filter(ms_365=oem,usage_type='Live')
+    list = AssetModel.objects.all().filter(ms_365=oem)
     return len(list)
 def home(request):
     context = {}
