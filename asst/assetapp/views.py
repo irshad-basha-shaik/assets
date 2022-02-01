@@ -246,9 +246,9 @@ def MSOFfice():
     win_live = generateCarryForward(win_live)
     return win_live
 
-"""def MS365():
+def MS365():
     MS365 = []
-    for os in Email_Type:
+    for os in EmailType:
         c1 = getMS365Count(os[1])
         c2 = getAssetCount(os[1], True)
         c3 = getAvailableLicence(os[1])
@@ -267,7 +267,7 @@ def MSOFfice():
 
     MS365 = generateCarryForward(MS365)
 
-    return MS365"""
+    return MS365
 def fetchBalance(need1,x,list):
     need=need1*-1
     for y in list:
@@ -337,11 +337,8 @@ def getAssetCountByLocationRemarksOS(l,r,m):
         list = AssetModel.objects.all().filter(ms_office=r1, ms_office_version=m, location=l)
     return len(list)
 def getAssetCountByLocationO365(l,r):
-
     if r=='MS Office 365':
-
         list = AssetModel.objects.all().filter(email_type=r, location=l)
-
     return len(list)
 def getAssetCount(os,oem):
     list = AssetModel.objects.all().filter(OS=os,OEM_Volume=oem,usage_type='Live')
@@ -350,9 +347,9 @@ def getAssetCount(os,oem):
 def getMSOfficeCount(oem):
     list = AssetModel.objects.all().filter(ms_office_version=oem,usage_type='Live')
     return len(list)
-"""def getMS365Count(oem):
-    list = AssetModel.objects.all().filter(ms_365=oem)
-    return len(list)"""
+def getMS365Count(oem):
+    list = AssetModel.objects.all().filter(email_type=oem)
+    return len(list)
 def home(request):
     context = {}
     a,b=OSTally()
@@ -364,9 +361,9 @@ def home(request):
     c = MSOFfice()
     context['MSOFfice'] = c
     context['MSOFficeSum'] = sum(c)
-    """d = MS365()
+    d = MS365()
     context['MS365'] = d
-    context['MS365Sum'] = sum(d)"""
+    context['MS365Sum'] = sum(d)
     context['now'] = now
     if request.content_type == 'application/json':
         return JsonResponse(context)
