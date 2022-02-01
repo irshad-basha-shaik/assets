@@ -134,20 +134,19 @@
                        <td  style="width:50px"><span class="total"  >{{form1.ALLLocationSUM}}</span></td>
                            </tr>
                         {% endfor %}{% endfor %}
-                         <!--{% for form in server %}
-                        {% for v in vol.remark %}
-                            {% for form1 in v.machine %}
+
+
                         <tr>
-                        {% if forloop.counter0 == 0 %}
-                             <td rowspan="{{v.SUBCOUNT}}">{{v.name}}</td>
-                                {% endif %}
-                        <td {% if 'Total' in form1.name %} class="total" {% endif %}>{{form1.name}}</td>
-                          {% for form2 in form1.location %}
-                        <td  style="width:50px"><span {% if 'Total' in form1.name %} class="total" {% endif %} >{{form2.data}}</span></td>
-                          {% endfor %}
-                       <td  style="width:50px"><span class="total"  >{{form1.ALLLocationSUM}}</span></td>
-                           </tr>
-                        {% endfor %}{% endfor %}{% endfor %}-->
+                            <td>MS Office 365</td>
+                            <td>MS Office 365</td>
+                        {% for form in O365.location %}
+                                    {% if 'Total' in form %}
+                                <td style="width:50px"><span class="total" >{{form.Total}}</span></td>
+                                        {% endif %}
+                                <td>{{ form.data }}</td>
+                        {% endfor %}
+                        </tr>
+
 
 
 

@@ -4,6 +4,7 @@ from datetime import date
 
 class AssetModel(models.Model):
     user_name = models.CharField(max_length=100, default='1')
+    email_type = models.CharField(max_length=100,default='')
     user_email = models.EmailField(max_length=100,default='1')
     location = models.CharField(max_length=100)
     asset_no = models.CharField(max_length=100, default='1')
@@ -40,7 +41,7 @@ class AssetModel(models.Model):
     ms_access = models.CharField(max_length=100, default='1')
     Antivirus = models.BooleanField(default='1')
     AutoCAD = models.BooleanField(default='1')
-    Installed_Softwares = models.CharField(max_length=1000, default='1')
+    Installed_Softwares = models.CharField(max_length=1000, default='')
     Adobe_acrobate = models.BooleanField(default='1')
     Visio = models.BooleanField(default='1')
     Access = models.BooleanField(default='1')

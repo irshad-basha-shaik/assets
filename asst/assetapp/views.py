@@ -3,7 +3,7 @@ from datetime import datetime
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE,Email_Type
+from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE,EmailType
 from .models import AssetModel,WifiModel,FirewallModel,VCCModel,PrinterModel
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
@@ -22,6 +22,8 @@ def new(request):
         #form = form.upper()
         if form.is_valid():
             student = form.save(commit=False)
+            student.email_type=form.cleaned_data['email_type']
+            student.Installed_Softwares = form.cleaned_data['Installed_Softwares']
             student.save()
             return index(request)
         else:
@@ -39,9 +41,22 @@ def it_assets(request):
     list['antivirus'] = list5
     list6 = getAssetsByLocationDomain()
     list['cal'] = list6
+    list7 = getAssetsByLocationMs365()
+    list['O365'] = list7
     if request.content_type == 'application/json':
         return JsonResponse(list)
     return render(request, "it_assets.html", list)
+def getAssetsByLocationMs365():
+    list = {"location": [], "data": []}
+    r = "MS Office 365"
+    total = 0
+    for l1 in range(len(LOCATION)):
+        l = LOCATION[l1]
+        dat = getAssetCountByLocationO365(l[1], r)
+        total = total + dat
+        list['location'].append({"LOCATION": l[1], "data": dat})
+    list['location'].append({"Total": total})
+    return list
 def getAssetsByLocationDomain():
     list = {"location": [], "data": []}
     r = "Domain / Workgoup"
@@ -82,8 +97,8 @@ def getAssetsByLocation():
     REM = [("OS Windows Details (Volume)", ["Win.XP", "Win.7", "Win.8", "Win.10", "Win.11"], 6, "Total"),
            ("OS Server Details (Volume)", ["Ser.2012", "Ser.2016", "Ser.2019"], 4, "Total"),
            ("OS Details (OEM)", ["Win.7", "Win.8", "Win.10", "Win.11"], 5, "Total"),
-            ("MS Office Details",["MS Office Standard 2010", "MS Office Standard 2013", "MS Office Standard 2016", "MS Office Standard 2019"], 5, "Total"),
-           ("MS Office 365",["MS Office 365"], 2, "Total")]
+            ("MS Office Details",["MS Office Standard 2010", "MS Office Standard 2013", "MS Office Standard 2016", "MS Office Standard 2019"], 5, "Total")]
+
     grand_total = [0, 0, 0, 0, 0, 0, 0]
     for i in range(len(REM)):
         r=REM[i][0]
@@ -231,7 +246,7 @@ def MSOFfice():
     win_live = generateCarryForward(win_live)
     return win_live
 
-def MS365():
+"""def MS365():
     MS365 = []
     for os in Email_Type:
         c1 = getMS365Count(os[1])
@@ -252,7 +267,7 @@ def MS365():
 
     MS365 = generateCarryForward(MS365)
 
-    return MS365
+    return MS365"""
 def fetchBalance(need1,x,list):
     need=need1*-1
     for y in list:
@@ -317,24 +332,27 @@ def getAssetCountByLocationRemarksOS(l,r,m):
     elif r == 'OS Details (OEM)':
         r1 = True
         list = AssetModel.objects.all().filter(OEM_Volume=r1, OS=m, location=l).exclude(user_name__iexact='Spare Old')
-    elif r == 'MS Office 365':
-        r1 = True
-        list = AssetModel.objects.all().filter(ms_office=r1, ms_office_version=m, location=l).exclude(user_name__iexact='Spare Old')
     else:
         r1 = True
         list = AssetModel.objects.all().filter(ms_office=r1, ms_office_version=m, location=l)
     return len(list)
+def getAssetCountByLocationO365(l,r):
 
+    if r=='MS Office 365':
+
+        list = AssetModel.objects.all().filter(email_type=r, location=l)
+
+    return len(list)
 def getAssetCount(os,oem):
-    list = AssetModel.objects.all().filter(ms_365=os,OEM_Volume=oem,usage_type='Live')
+    list = AssetModel.objects.all().filter(OS=os,OEM_Volume=oem,usage_type='Live')
     return len(list)
 
 def getMSOfficeCount(oem):
     list = AssetModel.objects.all().filter(ms_office_version=oem,usage_type='Live')
     return len(list)
-def getMS365Count(oem):
+"""def getMS365Count(oem):
     list = AssetModel.objects.all().filter(ms_365=oem)
-    return len(list)
+    return len(list)"""
 def home(request):
     context = {}
     a,b=OSTally()
@@ -346,9 +364,9 @@ def home(request):
     c = MSOFfice()
     context['MSOFfice'] = c
     context['MSOFficeSum'] = sum(c)
-    d = MS365()
+    """d = MS365()
     context['MS365'] = d
-    context['MS365Sum'] = sum(d)
+    context['MS365Sum'] = sum(d)"""
     context['now'] = now
     if request.content_type == 'application/json':
         return JsonResponse(context)

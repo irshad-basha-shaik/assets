@@ -203,11 +203,11 @@ PROCESSOR = [
 ]
 YEARS= [x for x in range(1940,2021)]
 
-Email_Type = (
+EmailType = [
     ('MS Office 365', 'MS Office 365'),
     ('Zimbra', 'Zimbra'),
     ('Public', 'Public'),
-)
+]
 
 MS_VERSION =  (
     ('MS Office Standard 2010', 'MS Office Standard 2010'),
@@ -316,6 +316,7 @@ DEVICES = (
 
 class AssetForm(forms.ModelForm):
     user_name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
+    email_type = forms.ChoiceField(choices=EmailType,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     user_email = forms.EmailField(max_length=100,widget=forms.EmailInput(attrs={'class': 'form-control'}),required=False)
     location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     asset_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
@@ -346,7 +347,7 @@ class AssetForm(forms.ModelForm):
     OS = forms.ChoiceField(choices=OS,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_office = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     ms_office_version = forms.ChoiceField(choices=MS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
-    ms_365 = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=Email_Type))
+    ms_365 = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=EmailType),required=False)
     ms_visio = forms.ChoiceField(choices=VISIO_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_access = forms.ChoiceField(choices=ACCESS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     OEM_Volume = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
