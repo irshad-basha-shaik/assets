@@ -16,6 +16,7 @@ class AssetModel(models.Model):
     domain_workgroup = models.CharField(max_length=100, default='1')
     Domain_User_Name = models.CharField(max_length=100, default='1')
     machine_make = models.CharField(max_length=100, default='1')
+    machine_age = models.CharField(max_length=100, default='')
     machine_model_no = models.CharField(max_length=100, default='1')
     machine_serial_no = models.CharField(max_length=100, default='1')
     hdd = models.CharField(max_length=100, default='1')

@@ -59,19 +59,19 @@ body {
                     {% csrf_token %}
                       <div class="tabs">
                   <ul id="tabs-nav">
-                    <li class=""><a href="#tab1">Asset Info</a></li>
+                    <!--li class=""><a href="#tab1">Asset Info</a></li-->
                     <li class=""><a href="#tab2">Employee Info</a></li>
-                    <li class=""><a href="#tab4">CPU</a></li>
-                      <li class=""><a href="#tab5">HDD</a></li>
-                    <li class=""><a href="#tab6">Machine Details</a></li>
-                    <li class=""><a href="#tab7">OS Details</a></li>
-                    <li class=""><a href="#tab8">MS Office</a></li>
+                    <!--li class=""><a href="#tab4">CPU</a></li>
+                      <li class=""><a href="#tab5">HDD</a></li-->
+                    <li class=""><a href="#tab6">Hardware Details</a></li>
+                    <!--li class=""><a href="#tab7">OS Details</a></li-->
+                    <li class=""><a href="#tab8">Software Details</a></li>
                       <li class=""><a href="#tab9">Warranty Details</a></li>
                     <!--  <li class=""><a href="#tab3">Installed Softwares</a></li-->
 
                   </ul> <!-- END tabs-nav -->
                   <div id="tabs-content">
-                    <div id="tab1" class="tab-content" style="display: none;">
+                    <!--div id="tab1" class="tab-content" style="display: none;">
                       <h3>Asset Info</h3>
                     <div class="row">
                      <div class="col-md-12">
@@ -101,7 +101,7 @@ body {
                         </div>
                        </div>
                     </div>
-                    </div>
+                    </div-->
                       <div id="tab2" class="tab-content" style="display: none;">
                       <h3>Employee Info</h3>
                                 <div class="row">
@@ -114,6 +114,34 @@ body {
                                           </div>
                                         </div>
                                        </div>
+
+                                     <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-4 col-form-label">Asset No</label>
+                                          <div class="col-sm-8">
+                                            {{ form.asset_no}}
+                                          </div>
+                                        </div>
+                                     </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                              <label class="col-sm-4 col-form-label">Asset Location</label>
+                                              <div class="col-sm-8">
+                                                {{ form.location}}
+                                              </div>
+                                            </div>
+                                        </div>
+
+                                      <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-4 col-form-label">Asset Type</label>
+                                          <div class="col-sm-8">
+                                            {{ form.machine_type}}
+                                          </div>
+                                        </div>
+                                       </div>
+
 
                                       <div class="col-md-6">
                                         <div class="form-group row">
@@ -159,14 +187,14 @@ body {
                                         </div>
                                        </div>
 
-                                    <div class="col-md-6">
+                                    <!--div class="col-md-6">
                                         <div class="form-group row">
                                           <label class="col-sm-4 col-form-label">Employee ID</label>
                                           <div class="col-sm-8">
                                             {{ form.emp_id}}
                                           </div>
                                         </div>
-                                       </div>
+                                       </div-->
 
 
                                     <div class="col-md-6">
@@ -190,11 +218,11 @@ body {
                                        </div>
                                 </div>
                       </div>
-                      <div id="tab4" class="tab-content" style="display: none;">
+                      <!--div id="tab4" class="tab-content" style="display: none;">
                       <h3>CPU Info</h3>
                         <div class="row">
 
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group row">
                                           <label class="col-sm-3 col-form-label">Processor </label>
                                           <div class="col-sm-9" >
@@ -203,7 +231,8 @@ body {
                                         </div>
                                        </div>
 
-                                      <div class="col-md-12">
+
+                                      <div class="col-md-6">
                                         <div class="form-group row">
                                           <label class="col-sm-3 col-form-label">RAM</label>
                                           <div class="col-sm-9">
@@ -211,7 +240,9 @@ body {
                                           </div>
                                         </div>
                                        </div>
-                                     <div class="col-md-12">
+                            </div>
+                          <div class="row">
+                                     <div class="col-md-6">
                                         <div class="form-group row">
                                           <label class="col-sm-3 col-form-label">HDD</label>
                                           <div class="col-sm-9">
@@ -219,8 +250,36 @@ body {
                                           </div>
                                         </div>
                                        </div>
+
+                                     <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-3 col-form-label">HDD Model</label>
+                                          <div class="col-sm-9">
+                                           {{ form.hdd_model}}
+                                          </div>
+                                        </div>
+                                       </div>
                                     </div>
-                          </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-3 col-form-label">HDD Serial No</label>
+                                          <div class="col-sm-9">
+                                           {{ form.hdd_serial_no}}
+                                          </div>
+                                        </div>
+                                       </div>
+
+                                      <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-3 col-form-label">HDD Make</label>
+                                          <div class="col-sm-9">
+                                           {{ form.hdd_make}}
+                                          </div>
+                                        </div>
+                                       </div>
+                                    </div>
+                                      </div>
                       <div id="tab5" class="tab-content" style="display: none;">
                       <h3>HDD Info</h3>
                                 <div class="row">
@@ -258,12 +317,71 @@ body {
 
 
 
-                                      </div>
+                                      </div-->
                       <div id="tab6" class="tab-content" style="display: none;">
-                      <h3>Machine Details</h3>
+                      <h3>Machine Hardware Details</h3>
+                          <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-3 col-form-label">Processor </label>
+                                          <div class="col-sm-9" >
+                                           {{ form.processor}}
+                                          </div>
+                                        </div>
+                                       </div>
+
+
+                                      <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-3 col-form-label">RAM</label>
+                                          <div class="col-sm-9">
+                                           {{ form.ram}}
+                                          </div>
+                                        </div>
+                                       </div>
+                            </div>
+                          <div class="row">
+                                     <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-3 col-form-label">HDD</label>
+                                          <div class="col-sm-9">
+                                           {{ form.hdd}}
+                                          </div>
+                                        </div>
+                                       </div>
+
+                                     <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-3 col-form-label">HDD Model</label>
+                                          <div class="col-sm-9">
+                                           {{ form.hdd_model}}
+                                          </div>
+                                        </div>
+                                       </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-3 col-form-label">HDD Serial No</label>
+                                          <div class="col-sm-9">
+                                           {{ form.hdd_serial_no}}
+                                          </div>
+                                        </div>
+                                       </div>
+
+                                      <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-3 col-form-label">HDD Make</label>
+                                          <div class="col-sm-9">
+                                           {{ form.hdd_make}}
+                                          </div>
+                                        </div>
+                                       </div>
+                                    </div>
                         <div class="row">
 
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group row">
                                           <label class="col-sm-3 col-form-label">Machine Model No</label>
                                           <div class="col-sm-9">
@@ -272,7 +390,7 @@ body {
                                         </div>
                                        </div>
 
-                                      <div class="col-md-12">
+                                      <div class="col-md-6">
                                         <div class="form-group row">
                                           <label class="col-sm-3 col-form-label">Machine Serial No</label>
                                           <div class="col-sm-9">
@@ -280,7 +398,9 @@ body {
                                           </div>
                                         </div>
                                        </div>
-                                     <div class="col-md-12">
+                        </div>
+                            <div class="row">
+                                     <div class="col-md-6">
                                         <div class="form-group row">
                                           <label class="col-sm-3 col-form-label">Machine Make</label>
                                           <div class="col-sm-9">
@@ -288,7 +408,7 @@ body {
                                           </div>
                                         </div>
                                        </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group row">
                                           <label class="col-sm-3 col-form-label">Usage Type</label>
                                           <div class="col-sm-9">
@@ -296,12 +416,14 @@ body {
                                           </div>
                                         </div>
                                        </div>
-                                    </div>
-                          </div>
-                      <div id="tab7" class="tab-content" style="display: none;">
+
+                            </div>
+
+                      </div>
+                      <!--div id="tab7" class="tab-content" style="display: none;">
                       <h3>OS Details</h3>
                                     <div class="row">
-                                     <div class="col-md-12">
+                                     <div class="col-md-6">
                                         <div class="form-group row">
                                           <label class="col-sm-3 col-form-check"> OS Type - OEM </label>
                                           <div class="col-sm-9" type="checkbox" >
@@ -309,9 +431,8 @@ body {
                                           </div>
                                         </div>
                                        </div>
-                                    </div>
-                                <div class="row">
-                                    <div class="col-md-12">
+
+                                    <div class="col-md-6">
                                         <div class="form-group row">
                                           <label class="col-sm-3 col-form-label">Operating System </label>
                                           <div class="col-sm-9" >
@@ -319,10 +440,8 @@ body {
                                           </div>
                                         </div>
                                        </div>
-                                 </div>
 
-                                    <div class="row">
-                                      <div class="col-md-12">
+                                      <div class="col-md-6">
                                         <div class="form-group row">
                                           <label class="col-sm-3 col-form-label">Operating System Version </label>
                                           <div class="col-sm-9" >
@@ -330,60 +449,37 @@ body {
                                           </div>
                                         </div>
                                        </div>
-                                    </div>
-                                      </div>
+
+                                      </div-->
                       <div id="tab8" class="tab-content" style="display: none;">
-                      <h3>MS Office</h3>
+                      <h3>Machine Software Details</h3>
                                 <div class="row">
-                                    <div class="col-md-12">
+
+                                    <div class="col-md-6">
                                         <div class="form-group row">
-                                          <label class="col-sm-3 col-form-check">MS Office </label>
-                                          <div class="col-sm-9" type="checkbox">
+                                          <label class="col-sm-4 col-form-check">MS Office </label>
+                                          <div class="col-sm-8" type="checkbox">
                                            {{ form.ms_office}}
                                           </div>
                                         </div>
                                        </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group row">
-                                          <label class="col-sm-3 col-form-check">Visio </label>
-                                          <div class="col-sm-9" type="checkbox">
+                                          <label class="col-sm-4 col-form-check">Visio </label>
+                                          <div class="col-sm-8" type="checkbox">
                                            {{ form.Visio}}
                                           </div>
                                         </div>
                                        </div>
-                                     <div class="col-md-12">
+                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                          <label class="col-sm-3 col-form-check"> Access </label>
-                                          <div class="col-sm-9" type="checkbox">
+                                          <label class="col-sm-4 col-form-check"> Access </label>
+                                          <div class="col-sm-8" type="checkbox">
                                            {{ form.Access }}
                                           </div>
                                         </div>
                                        </div>
-                                      <div class="col-md-12">
-                                        <div class="form-group row">
-                                          <label class="col-sm-3 col-form-label">Ms Office Version </label>
-                                          <div class="col-sm-9" >
-                                           {{ form.ms_office_version}}
-                                          </div>
-                                        </div>
-                                       </div>
-                                     <div class="col-md-12">
-                                        <div class="form-group row">
-                                          <label class="col-sm-3 col-form-check"> MS Visio Version </label>
-                                          <div class="col-sm-9" type="checkbox">
-                                           {{ form.ms_visio}}
-                                          </div>
-                                        </div>
-                                       </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group row">
-                                          <label class="col-sm-3 col-form-check"> MS Access Version </label>
-                                          <div class="col-sm-9" type="checkbox">
-                                           {{ form.ms_access }}
-                                          </div>
-                                        </div>
-                                       </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group row">
                                           <label class="col-sm-3 col-form-check"> Email Type</label>
                                           <div class="col-sm-9">
@@ -391,7 +487,57 @@ body {
                                           </div>
                                         </div>
                                        </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-4 col-form-check"> OS Type - OEM </label>
+                                          <div class="col-sm-8" type="checkbox" >
+                                           {{ form.OEM_Volume}}
+                                          </div>
+                                        </div>
+                                       </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-3 col-form-label">Operating System </label>
+                                          <div class="col-sm-9" >
+                                           {{ form.OS}}
+                                          </div>
+                                        </div>
+                                       </div>
+
+                                      <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-3 col-form-label">Operating System Version </label>
+                                          <div class="col-sm-9" >
+                                           {{ form.Operating_System_Version}}
+                                          </div>
+                                        </div>
+                                       </div>
+                                      <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-3 col-form-label">Ms Office Version </label>
+                                          <div class="col-sm-9" >
+                                           {{ form.ms_office_version}}
+                                          </div>
+                                        </div>
+                                       </div>
+                                     <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-3 col-form-check"> MS Visio Version </label>
+                                          <div class="col-sm-9" type="checkbox">
+                                           {{ form.ms_visio}}
+                                          </div>
+                                        </div>
+                                       </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-3 col-form-check"> MS Access Version </label>
+                                          <div class="col-sm-9" type="checkbox">
+                                           {{ form.ms_access }}
+                                          </div>
+                                        </div>
+                                       </div>
+
+                                    <div class="col-md-6">
                                         <div class="form-group row">
                                           <label class="col-sm-3 col-form-check"> Installed Softwares </label>
                                           <div class="col-sm-9">
@@ -465,8 +611,11 @@ body {
                                        </div>
 
 
+                            </div>
+
+
                                     </div>
-                          </div>
+
                      <!-- <div id="tab3" class="tab-content" style="display: none;">
                         <h3>Installed Softwares</h3>
                                 <div class="row">

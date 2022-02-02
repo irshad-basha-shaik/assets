@@ -328,6 +328,7 @@ class AssetForm(forms.ModelForm):
     domain_workgroup = forms.ChoiceField(choices=DOMAIN_WORKGROUP,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     Domain_User_Name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     machine_make = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    machine_age = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     machine_model_no = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     machine_serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd = forms.ChoiceField(choices=HDD,widget=forms.Select(attrs={'class': 'form-control'}),required=False)

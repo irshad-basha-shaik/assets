@@ -83,6 +83,7 @@
                             <td style ="font-weight: bold;">Machine Make</td>
                             <td style ="font-weight: bold;">Machine Model.No</td>
                             <td style ="font-weight: bold;">Machine Si.No</td>
+                            <td style ="font-weight: bold;">Machine Age</td>
                             <td style ="font-weight: bold;">RAM</td>
                             <td style ="font-weight: bold;">Processor</td>
                             <td style ="font-weight: bold;">HDD Capacity</td>
@@ -128,6 +129,7 @@
                             <td>{{form.machine_make}}</td>
                             <td>{{form.machine_model_no}}</td>
                             <td>{{form.machine_serial_no}}</td>
+                            <td>{% if form.machine_age %} {{form.machine_age}} {% else %}{% endif %}</td>
                             <td>{{form.ram}}</td>
                             <td>{{form.processor}}</td>
                             <td>{{form.hdd}}</td>

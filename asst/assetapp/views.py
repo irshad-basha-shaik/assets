@@ -1,5 +1,4 @@
-from datetime import datetime
-
+from datetime import datetime,date
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
@@ -22,6 +21,7 @@ def new(request):
         #form = form.upper()
         if form.is_valid():
             student = form.save(commit=False)
+            student.machine_age = getMachineAge(form.cleaned_data['processor_purchase_date'])
             student.email_type=form.cleaned_data['email_type']
             student.Installed_Softwares = form.cleaned_data['Installed_Softwares']
             student.save()
@@ -46,6 +46,11 @@ def it_assets(request):
     if request.content_type == 'application/json':
         return JsonResponse(list)
     return render(request, "it_assets.html", list)
+def getMachineAge(purchasedate):
+    days_in_year = 365.2425
+    age = int((date.today() - purchasedate).days / days_in_year)
+    return age
+
 def getAssetsByLocationMs365():
     list = {"location": [], "data": []}
     r = "MS Office 365"
