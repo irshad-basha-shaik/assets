@@ -276,7 +276,7 @@ AVAILABLE_LICENCE={
     'Ser.2012': 9,
     'Ser.2016': 1,
     'Ser.2019': 0,
-    'Win.XP': 5,
+    'Win.XP': 0,
     'MS Office Standard 2010': 55,
     'MS Office Standard 2013': 85,
     'MS Office Standard 2016':130,
