@@ -21,8 +21,9 @@ def new(request):
         #form = form.upper()
         if form.is_valid():
             student = form.save(commit=False)
-            student.machine_age = getMachineAge(form.cleaned_data['processor_purchase_date'])
-            student.email_type=form.cleaned_data['email_type']
+            a = form.cleaned_data['processor_purchase_date']
+            student.machine_age = getMachineAge(a)
+            student.email_type=form.cleaned_data['ms_365']
             student.Installed_Softwares = form.cleaned_data['Installed_Softwares']
             student.save()
             return index(request)
