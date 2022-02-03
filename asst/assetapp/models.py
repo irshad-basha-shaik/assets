@@ -4,7 +4,6 @@ from datetime import date
 
 class AssetModel(models.Model):
     user_name = models.CharField(max_length=100, default='1')
-    email_type = models.CharField(max_length=100,default='')
     user_email = models.EmailField(max_length=100,default='1')
     location = models.CharField(max_length=100)
     asset_no = models.CharField(max_length=100, default='1')

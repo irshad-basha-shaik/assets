@@ -21,10 +21,10 @@ def new(request):
         #form = form.upper()
         if form.is_valid():
             student = form.save(commit=False)
-            a = form.cleaned_data['processor_purchase_date']
-            student.machine_age = getMachineAge(a)
+            #a = form.cleaned_data['processor_purchase_date']
+            """student.machine_age = getMachineAge(form.cleaned_data['processor_purchase_date'])
             student.email_type=form.cleaned_data['ms_365']
-            student.Installed_Softwares = form.cleaned_data['Installed_Softwares']
+            student.Installed_Softwares = form.cleaned_data['Installed_Softwares']"""
             student.save()
             return index(request)
         else:
@@ -274,6 +274,50 @@ def MS365():
     MS365 = generateCarryForward(MS365)
 
     return MS365
+def MS365():
+    MS365 = []
+    for os in EmailType:
+        c1 = getMS365Count(os[1])
+        c2 = getAssetCount(os[1], True)
+        c3 = getAvailableLicence(os[1])
+        c4 = c3 - c1
+        c5 = False
+        c6 = True
+        if (c4 < 0):
+            c5 = True
+            c6 = False
+        temp = {"O365": os[1], "VolumeLicence": c1, "OEM": c2, "pos": 0, "Available": c3, "Balance": c4,
+                "CurrentAvailableBalance": c4, "BorrowPath": []}
+        if os[1].startswith("MS Office 365"):
+            b = getOSPosition(os[1])
+            temp['pos'] = b
+            MS365.append(temp)
+
+    MS365 = generateCarryForward(MS365)
+
+    return MS365
+def Cal():
+    Cal = []
+    for os in EmailType:
+        c1 = getMS365Count(os[1])
+        c2 = getAssetCount(os[1], True)
+        c3 = getAvailableLicence(os[1])
+        c4 = c3 - c1
+        c5 = False
+        c6 = True
+        if (c4 < 0):
+            c5 = True
+            c6 = False
+        temp = {"O365": os[1], "VolumeLicence": c1, "OEM": c2, "pos": 0, "Available": c3, "Balance": c4,
+                "CurrentAvailableBalance": c4, "BorrowPath": []}
+        if os[1].startswith("MS Office 365"):
+            b = getOSPosition(os[1])
+            temp['pos'] = b
+            MS365.append(temp)
+
+    MS365 = generateCarryForward(MS365)
+
+    return MS365
 def fetchBalance(need1,x,list):
     need=need1*-1
     for y in list:
@@ -370,6 +414,12 @@ def home(request):
     d = MS365()
     context['MS365'] = d
     context['MS365Sum'] = sum(d)
+    e = MS365()
+    context['CAL'] = e
+    context['CALSum'] = sum(d)
+    f = MS365()
+    context['Antivirus'] = f
+    context['AntivirusSum'] = sum(d)
     context['now'] = now
     if request.content_type == 'application/json':
         return JsonResponse(context)
@@ -393,7 +443,7 @@ def edit(request,id):
         form = AssetForm(request.POST)
         if form.is_valid():
             #AssetModel.objects.filter(pk=id).update(location=form.cleaned_data['location'],asset_no=form.cleaned_data['asset_no'],emp_id=form.cleaned_data['emp_id'],usage_type=form.cleaned_data['usage_type'],machine_type=form.cleaned_data['machine_type'],gef_id_number=form.cleaned_data['gef_id_number'],domain_workgoup=form.cleaned_data['domain_workgoup'],machine_make=form.cleaned_data['machine_make'],machine_model_no=form.cleaned_data['machine_model_no'],machine_serial_no=form.cleaned_data['machine_serial_no'],hdd=form.cleaned_data['hdd'],hdd_make=form.cleaned_data['hdd_make'],hdd_model=form.cleaned_data['hdd_model'],hdd_serial_no=form.cleaned_data['hdd_serial_no'],ram=form.cleaned_data['ram'])
-            AssetModel.objects.filter(pk=id).update(user_name=form.cleaned_data['user_name'],location=form.cleaned_data['location'],asset_no=form.cleaned_data['asset_no'],user_email=form.cleaned_data['user_email'], emp_id=form.cleaned_data['emp_id'],usage_type=form.cleaned_data['usage_type'],machine_type=form.cleaned_data['machine_type'],gef_id_number=form.cleaned_data['gef_id_number'],domain_workgroup=form.cleaned_data['domain_workgroup'],machine_make=form.cleaned_data['machine_make'],machine_model_no=form.cleaned_data['machine_model_no'],machine_serial_no=form.cleaned_data['machine_serial_no'],hdd=form.cleaned_data['hdd'],hdd_make=form.cleaned_data['hdd_make'],hdd_model=form.cleaned_data['hdd_model'],hdd_serial_no=form.cleaned_data['hdd_serial_no'],ram=form.cleaned_data['ram'],processor=form.cleaned_data['processor'],processor_purchase_date=form.cleaned_data['processor_purchase_date'],warranty_start_date=form.cleaned_data['warranty_start_date'],warranty_end_date=form.cleaned_data['warranty_end_date'],amc_start_date=form.cleaned_data['amc_start_date'],amc_end_date=form.cleaned_data['amc_end_date'],user_acceptance_date=form.cleaned_data['user_acceptance_date'],user_handed_over_date=form.cleaned_data['user_handed_over_date'],ms_office=form.cleaned_data['ms_office'],ms_office_version=form.cleaned_data['ms_office_version'],OEM_Volume=form.cleaned_data['OEM_Volume'],Operating_System_Version=form.cleaned_data['Operating_System_Version'],OS=form.cleaned_data['OS'],Antivirus=form.cleaned_data['Antivirus'],AutoCAD=form.cleaned_data['AutoCAD'],Adobe_acrobate=form.cleaned_data['Adobe_acrobate'],Visio=form.cleaned_data['Visio'],Access=form.cleaned_data['Access'],ms_visio=form.cleaned_data['ms_visio'],ms_access=form.cleaned_data['ms_access'],SAP_User_ID=form.cleaned_data['SAP_User_ID'],SAP=form.cleaned_data['SAP'],email_type=form.cleaned_data['email_type'],Installed_Softwares=form.cleaned_data['Installed_Softwares'], Status=form.cleaned_data['Status'],Remarks=form.cleaned_data['Remarks'])
+            AssetModel.objects.filter(pk=id).update(user_name=form.cleaned_data['user_name'],location=form.cleaned_data['location'],asset_no=form.cleaned_data['asset_no'],user_email=form.cleaned_data['user_email'], emp_id=form.cleaned_data['emp_id'],usage_type=form.cleaned_data['usage_type'],machine_type=form.cleaned_data['machine_type'],machine_age=form.cleaned_data['machine_age'],gef_id_number=form.cleaned_data['gef_id_number'],domain_workgroup=form.cleaned_data['domain_workgroup'],machine_make=form.cleaned_data['machine_make'],machine_model_no=form.cleaned_data['machine_model_no'],machine_serial_no=form.cleaned_data['machine_serial_no'],hdd=form.cleaned_data['hdd'],hdd_make=form.cleaned_data['hdd_make'],hdd_model=form.cleaned_data['hdd_model'],hdd_serial_no=form.cleaned_data['hdd_serial_no'],ram=form.cleaned_data['ram'],processor=form.cleaned_data['processor'],processor_purchase_date=form.cleaned_data['processor_purchase_date'],warranty_start_date=form.cleaned_data['warranty_start_date'],warranty_end_date=form.cleaned_data['warranty_end_date'],amc_start_date=form.cleaned_data['amc_start_date'],amc_end_date=form.cleaned_data['amc_end_date'],user_acceptance_date=form.cleaned_data['user_acceptance_date'],user_handed_over_date=form.cleaned_data['user_handed_over_date'],ms_office=form.cleaned_data['ms_office'],ms_office_version=form.cleaned_data['ms_office_version'],OEM_Volume=form.cleaned_data['OEM_Volume'],Operating_System_Version=form.cleaned_data['Operating_System_Version'],OS=form.cleaned_data['OS'],Antivirus=form.cleaned_data['Antivirus'],AutoCAD=form.cleaned_data['AutoCAD'],Adobe_acrobate=form.cleaned_data['Adobe_acrobate'],Visio=form.cleaned_data['Visio'],Access=form.cleaned_data['Access'],ms_visio=form.cleaned_data['ms_visio'],ms_access=form.cleaned_data['ms_access'],SAP_User_ID=form.cleaned_data['SAP_User_ID'],SAP=form.cleaned_data['SAP'],ms_365=form.cleaned_data['ms_365'],Installed_Softwares=form.cleaned_data['Installed_Softwares'], Status=form.cleaned_data['Status'],Remarks=form.cleaned_data['Remarks'])
             return index(request)
     context['form'] = form
     return render(request,"assets_edit.html",context)

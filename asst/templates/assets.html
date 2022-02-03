@@ -101,7 +101,9 @@
                             <td style ="font-weight: bold;">AutoCAD</td>
                             <!--td style ="font-weight: bold;">Adobe Acrobat</td-->
                             <td style ="font-weight: bold;">MS Visio</td>
+                            <td style ="font-weight: bold;">Visio Version</td>
                             <td style ="font-weight: bold;">MS Access</td>
+                            <td style ="font-weight: bold;">Access Version</td>
                             <!--td style ="font-weight: bold;">SAP GUI</td-->
                             <td style ="font-weight: bold;">SAP User Id</td>
                             <td style ="font-weight: bold;">User_Acceptance Date</td>
@@ -129,7 +131,7 @@
                             <td>{{form.machine_make}}</td>
                             <td>{{form.machine_model_no}}</td>
                             <td>{{form.machine_serial_no}}</td>
-                            <td>{% if form.machine_age %} {{form.machine_age}} {% endif %}</td>
+                            <td>{{form.machine_age}} </td>
                             <td>{{form.ram}}</td>
                             <td>{{form.processor}}</td>
                             <td>{{form.hdd}}</td>
@@ -142,12 +144,14 @@
                             <td>{{form.Operating_System_Version}}</td>
                             <td>{{form.OS}}</td>
                             <td>{{form.ms_office_version}}</td>
-                            <td>{{form.email_type}}</td>
+                            <td>{{form.ms_365}}</td>
                             <td>{% if form.Antivirus %} Manage {% else %} Un Manage{% endif %}</td>
                             <td>{% if form.AutoCAD %} Yes {% else %}{% endif %}</td>
                             <!--td>{% if form.Adobe_acrobate %} Open Source {% endif %}</td-->
                             <td>{% if form.Visio %} Yes {% endif %}</td>
+                            <td>{{form.ms_visio }}</td>
                             <td>{% if form.Access %} Yes {% endif %}</td>
+                            <td>{{form.ms_access }}</td>
                             <!--td>{% if form.SAP %} Yes {% endif %}</td-->
                             <td>{{form.SAP_User_ID}}</td>
                             <td>{{form.user_acceptance_date}}</td>
