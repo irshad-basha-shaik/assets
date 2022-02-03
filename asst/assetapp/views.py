@@ -274,7 +274,7 @@ def MS365():
     MS365 = generateCarryForward(MS365)
 
     return MS365
-def MS365():
+def Zimbra():
     MS365 = []
     for os in EmailType:
         c1 = getMS365Count(os[1])
@@ -388,7 +388,7 @@ def getAssetCountByLocationRemarksOS(l,r,m):
     return len(list)
 def getAssetCountByLocationO365(l,r):
     if r=='MS Office 365':
-        list = AssetModel.objects.all().filter(email_type=r, location=l)
+        list = AssetModel.objects.all().filter(ms_365=r, location=l)
     return len(list)
 def getAssetCount(os,oem):
     list = AssetModel.objects.all().filter(OS=os,OEM_Volume=oem,usage_type='Live')
@@ -398,7 +398,7 @@ def getMSOfficeCount(oem):
     list = AssetModel.objects.all().filter(ms_office_version=oem,usage_type='Live')
     return len(list)
 def getMS365Count(oem):
-    list = AssetModel.objects.all().filter(email_type=oem)
+    list = AssetModel.objects.all().filter(ms_365=oem)
     return len(list)
 def home(request):
     context = {}
