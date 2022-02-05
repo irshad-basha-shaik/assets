@@ -309,20 +309,7 @@
                           </td>
                         </tr>
                          {% endfor %}
-                       <!--tr>
-                          <td  style="font-weight: bold">Total</td>
-                              <td  style="font-weight: bold">{{MSOFficeSum.VolumeLicence}}</td>
-                              <td  style="font-weight: bold">{{MSOFficeSum.Available}}</td>
-                          <td  style="font-weight: bold">
-                              {% if MSOFficeSum.CurrentAvailableBalance < 0 %}
-                              <label  class="badge badge-danger">{{MSOFficeSum.CurrentAvailableBalance}} </label>
-                             {% elif MSOFficeSum.CurrentAvailableBalance == 0 %}
-                              <label  class="badge badge-info">{{MSOFficeSum.CurrentAvailableBalance}}</label>
-                              {% elif MSOFficeSum.CurrentAvailableBalance > 0 %}
-                              <label class="badge badge-success">{{MSOFficeSum.CurrentAvailableBalance}}</label>
-                              {% endif %}
-                          </td>
-                      </tr-->
+
                       </tbody>
                     </table>
                   </div>
@@ -339,7 +326,7 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th >
+                          <th rowspan="2">
 
                           </th>
                            <th >
@@ -356,10 +343,9 @@
                         </tr>
                       </thead>
                       <tbody>
-                      {% for form in MS365 %}
+                      {% for form in Zimbra %}
                         <tr >
-                            <td>
-                            </td>
+
                           <td >
                             {% if form.O365 == 'Zimbra' %}<span >Zimbra </span> {% endif %}
                           </td>

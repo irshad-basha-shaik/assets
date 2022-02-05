@@ -305,47 +305,13 @@ def Zimbra():
     return MS365
 def CAL():
     Cal = []
-    for os in EmailType:
-        c1 = getMS365Count(os[1])
-        c2 = getAssetCount(os[1], True)
-        c3 = getAvailableLicence(os[1])
-        c4 = c3 - c1
-        c5 = False
-        c6 = True
-        if (c4 < 0):
-            c5 = True
-            c6 = False
-        temp = {"O365": os[1], "VolumeLicence": c1, "OEM": c2, "pos": 0, "Available": c3, "Balance": c4,
-                "CurrentAvailableBalance": c4, "BorrowPath": []}
-        if os[1].startswith("MS Office 365"):
-            b = getOSPosition(os[1])
-            temp['pos'] = b
-            MS365.append(temp)
 
-    MS365 = generateCarryForward(MS365)
 
-    return MS365
+    return Cal
 
 def Antivirus():
     Antivirus = []
-    for os in EmailType:
-        c1 = getMS365Count(os[1])
-        c2 = getAssetCount(os[1], True)
-        c3 = getAvailableLicence(os[1])
-        c4 = c3 - c1
-        c5 = False
-        c6 = True
-        if (c4 < 0):
-            c5 = True
-            c6 = False
-        temp = {"Antivirus": os[1], "VolumeLicence": c1, "OEM": c2, "pos": 0, "Available": c3, "Balance": c4,
-                "CurrentAvailableBalance": c4, "BorrowPath": []}
-        if os[1].startswith("MS Office 365"):
-            b = getOSPosition(os[1])
-            temp['pos'] = b
-            Antivirus.append(temp)
 
-    Antivirus = generateCarryForward(Antivirus)
 
     return Antivirus
 
@@ -428,6 +394,9 @@ def getAssetCount(os,oem):
 def getMSOfficeCount(oem):
     list = AssetModel.objects.all().filter(ms_office_version=oem,usage_type='Live')
     return len(list)
+def getCALCount(domain_workgroup):
+    list = AssetModel.objects.all().filter(domain_workgroup='Domain')
+    return len(list)
 def getMS365Count(oem):
     list = AssetModel.objects.all().filter(ms_365=oem)
     return len(list)
@@ -442,15 +411,17 @@ def home(request):
     c = MSOFfice()
     context['MSOFfice'] = c
     context['MSOFficeSum'] = sum(c)
-    d,g = MS365()
-    context['MS365'] = d
-    context['MS365Sum'] = sum(d)
+    d = MS365()
+    context['MS365'] = d[0]
+    context['MS365Sum'] = sum(d[0])
+    context['Zimbra'] = d[1]
+    context['ZimbraSum'] = sum(d[1])
     e = CAL()
     context['CAL'] = e
-    context['CALSum'] = sum(d)
+    #context['CALSum'] = sum(d)
     f = Antivirus()
     context['Antivirus'] = f
-    context['AntivirusSum'] = sum(d)
+    #context['AntivirusSum'] = sum(d)
     context['now'] = now
     if request.content_type == 'application/json':
         return JsonResponse(context)
