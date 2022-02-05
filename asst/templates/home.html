@@ -358,6 +358,8 @@
                       <tbody>
                       {% for form in MS365 %}
                         <tr >
+                            <td>
+                            </td>
                           <td >
                             {% if form.O365 == 'Zimbra' %}<span >Zimbra </span> {% endif %}
                           </td>
@@ -377,7 +379,7 @@
                                       {% elif form.CurrentAvailableBalance > 0 %}
                                       <label class="badge badge-success">{{form.CurrentAvailableBalance}}</label>
                                       {% endif %}
-                                      &nbsp[ {{form.Balance}}<sup><div class="badge badge-success badge-pill">{{form.OS}}</div></sup>
+                                      &nbsp[ {{form.Balance}}<sup><div class="badge badge-success badge-pill">{{form.O365}}</div></sup>
                                      {% for form1 in form.BorrowPath %}
                                     &nbsp;+&nbsp;{{form1.BorrowLicence}}<sup><div class="badge badge-info badge-pill">{{form1.LenderVersion}}</div></sup>
                                     {% endfor %}

@@ -254,6 +254,7 @@ def MSOFfice():
 
 def MS365():
     MS365 = []
+
     for os in EmailType:
         c1 = getMS365Count(os[1])
         c2 = getAssetCount(os[1], True)
@@ -271,13 +272,15 @@ def MS365():
             temp['pos'] = b
             MS365.append(temp)
 
+
     MS365 = generateCarryForward(MS365)
 
+
     return MS365
-def Zimbra():
-    MS365 = []
-    for os in EmailType:
-        c1 = getMS365Count(os[1])
+"""def Antivirus():
+    Antivirus = []
+    for os in LOCATION:
+        c1 = getAntivirusCount(os[1])
         c2 = getAssetCount(os[1], True)
         c3 = getAvailableLicence(os[1])
         c4 = c3 - c1
@@ -288,18 +291,16 @@ def Zimbra():
             c6 = False
         temp = {"O365": os[1], "VolumeLicence": c1, "OEM": c2, "pos": 0, "Available": c3, "Balance": c4,
                 "CurrentAvailableBalance": c4, "BorrowPath": []}
-        if os[1].startswith("MS Office 365"):
+        if os[1].startswith("Antivirus"):
             b = getOSPosition(os[1])
             temp['pos'] = b
             MS365.append(temp)
-
-    MS365 = generateCarryForward(MS365)
-
-    return MS365
-def Cal():
+        MS365 = generateCarryForward(MS365)
+    return Antivirus
+def CAL():
     Cal = []
-    for os in EmailType:
-        c1 = getMS365Count(os[1])
+    for os in LOCATION:
+        c1 = getCalCount(os[1])
         c2 = getAssetCount(os[1], True)
         c3 = getAvailableLicence(os[1])
         c4 = c3 - c1
@@ -314,10 +315,8 @@ def Cal():
             b = getOSPosition(os[1])
             temp['pos'] = b
             MS365.append(temp)
-
-    MS365 = generateCarryForward(MS365)
-
-    return MS365
+        MS365 = generateCarryForward(MS365)
+    return Cal"""
 def fetchBalance(need1,x,list):
     need=need1*-1
     for y in list:
@@ -400,6 +399,16 @@ def getMSOfficeCount(oem):
 def getMS365Count(oem):
     list = AssetModel.objects.all().filter(ms_365=oem)
     return len(list)
+"""def getAntivirusCount(oem):
+    list = []
+    for x in LOCATION:
+        list = AssetModel.objects.all().filter(Antivirus=oem)
+    return len(list)
+def getCalCount(oem):
+    list = []
+    for x in LOCATION:
+        list = AssetModel.objects.all().filter(domain_workgroup='Domain')
+    return len(list)"""
 def home(request):
     context = {}
     a,b=OSTally()
@@ -414,12 +423,12 @@ def home(request):
     d = MS365()
     context['MS365'] = d
     context['MS365Sum'] = sum(d)
-    e = MS365()
+    """e = CAL()
     context['CAL'] = e
     context['CALSum'] = sum(d)
-    f = MS365()
+    f = Antivirus()
     context['Antivirus'] = f
-    context['AntivirusSum'] = sum(d)
+    context['AntivirusSum'] = sum(d)"""
     context['now'] = now
     if request.content_type == 'application/json':
         return JsonResponse(context)
