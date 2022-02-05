@@ -304,17 +304,17 @@ def Zimbra():
 
     return MS365
 def CAL():
-
+    Cal = []
 
 
     return Cal
 
 def Antivirus():
+    a = getAssetsByLocationAntivirus()['location']
+    return a
+def getAntivirusCount(os):
     Antivirus = []
-
-
     return Antivirus
-
 def fetchBalance(need1,x,list):
     need=need1*-1
     for y in list:
