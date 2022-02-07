@@ -281,7 +281,9 @@ AVAILABLE_LICENCE={
     'MS Office Standard 2013': 85,
     'MS Office Standard 2016':130,
     'MS Office Standard 2019': 40,
-    'MS Office 365': 28
+    'MS Office 365': 28,
+    'Domain': 232,
+    'Antivirus': 346
 }
 AVAILABLE_LICENCE_ORDER={
     'Win.7': 1.2,
