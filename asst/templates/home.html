@@ -207,7 +207,7 @@
                       {% for form in MSOFfice %}
                         <tr >
                           <td >
-                            {% if form.OS == 'MS Office 365' %}<span style="font-weight: bold;font-size: x-large;">MS Office 365 Business Essential </span> {% else %} {{form.OS}}{% endif %}
+                            {% if form.OS == 'MS Office 365' %}<span style="font-weight: bold;font-size: x-large;">O365 Business Essential </span> {% else %} {{form.OS}}{% endif %}
                           </td>
                           <td >
                              {% if form.OS == 'MS Office 365' %}<span style="font-weight: bold;font-size: x-large;">{{form.VolumeLicence}} </span> {% else %} {{form.VolumeLicence}}{% endif %}
@@ -232,20 +232,7 @@
                           </td>
                         </tr>
                          {% endfor %}
-                       <!--tr>
-                          <td  style="font-weight: bold">Total</td>
-                              <td  style="font-weight: bold">{{MSOFficeSum.VolumeLicence}}</td>
-                              <td  style="font-weight: bold">{{MSOFficeSum.Available}}</td>
-                          <td  style="font-weight: bold">
-                              {% if MSOFficeSum.CurrentAvailableBalance < 0 %}
-                              <label  class="badge badge-danger">{{MSOFficeSum.CurrentAvailableBalance}} </label>
-                             {% elif MSOFficeSum.CurrentAvailableBalance == 0 %}
-                              <label  class="badge badge-info">{{MSOFficeSum.CurrentAvailableBalance}}</label>
-                              {% elif MSOFficeSum.CurrentAvailableBalance > 0 %}
-                              <label class="badge badge-success">{{MSOFficeSum.CurrentAvailableBalance}}</label>
-                              {% endif %}
-                          </td>
-                      </tr-->
+
                       </tbody>
                     </table>
                   </div>
@@ -282,7 +269,7 @@
                       {% for form in MS365 %}
                         <tr >
                           <td >
-                            {% if form.O365 == 'MS Office 365' %}<span >MS Office 365 Business Essential </span> {% endif %}
+                            {% if form.O365 == 'MS Office 365' %}<span >O365 Business Essential </span> {% endif %}
                           </td>
                           <td >
                              {% if form.O365 == 'MS Office 365' %}<span >{{form.VolumeLicence}} </span> {% endif %}
@@ -326,7 +313,7 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th rowspan="2">
+                          <th >
 
                           </th>
                            <th >
@@ -411,17 +398,17 @@
                       {% for form in Antivirus %}
                         <tr >
                           <td >
-                            {% if form.O365 == 'MS Office 365' %}<span >MS Office 365 Business Essential </span> {% endif %}
+                            {% if form.Anti == 'Antivirus' %}<span >Antivirus </span> {% endif %}
                           </td>
                           <td >
-                             {% if form.O365 == 'MS Office 365' %}<span >{{form.VolumeLicence}} </span> {% endif %}
+                             {% if form.Anti == 'Antivirus' %}<span >{{form.VolumeLicence}} </span> {% endif %}
 
                           </td>
                           <td >
-                            {% if form.O365 == 'MS Office 365' %}<span >{{form.Available}} </span> {% endif %}
+                            {% if form.Anti == 'Antivirus' %}<span >{{form.Available}} </span> {% endif %}
                           </td>
                           <td >
-                              {% if form.O365 == 'MS Office 365' %}
+                              {% if form.Anti == 'Antivirus' %}
                                    {% if form.CurrentAvailableBalance < 0 %}
                                       <label class="badge badge-danger">{{form.CurrentAvailableBalance}} </label>
                                      {% elif form.CurrentAvailableBalance == 0 %}
@@ -429,7 +416,71 @@
                                       {% elif form.CurrentAvailableBalance > 0 %}
                                       <label class="badge badge-success">{{form.CurrentAvailableBalance}}</label>
                                       {% endif %}
-                                      &nbsp[ {{form.Balance}}<sup><div class="badge badge-success badge-pill">{{form.OS}}</div></sup>
+                                      &nbsp[ {{form.Balance}}<sup><div class="badge badge-success badge-pill">{{form.Anti}}</div></sup>
+                                     {% for form1 in form.BorrowPath %}
+                                    &nbsp;+&nbsp;{{form1.BorrowLicence}}<sup><div class="badge badge-info badge-pill">{{form1.LenderVersion}}</div></sup>
+                                    {% endfor %}
+                                    ]
+                              {% endif %}
+                          </td>
+                        </tr>
+                         {% endfor %}
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+    </div>
+<div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">CAL</h4>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th >
+
+                          </th>
+                           <th >
+                            Live
+                          </th>
+                          <th >
+                            Available
+                          </th>
+                          <th >
+                            Balance
+                          </th>
+
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for form in CAL %}
+                        <tr >
+                          <td >
+                            {% if form.CAL == 'Domain' %}<span > CAL </span> {% endif %}
+                          </td>
+                          <td >
+                             {% if form.CAL == 'Domain' %}<span >{{form.VolumeLicence}} </span> {% endif %}
+
+                          </td>
+                          <td >
+                            {% if form.CAL == 'Domain' %}<span >{{form.Available}} </span> {% endif %}
+                          </td>
+                          <td >
+                              {% if form.CAL == 'Domain' %}
+                                   {% if form.CurrentAvailableBalance < 0 %}
+                                      <label class="badge badge-danger">{{form.CurrentAvailableBalance}} </label>
+                                     {% elif form.CurrentAvailableBalance == 0 %}
+                                      <label class="badge badge-info">{{form.CurrentAvailableBalance}}</label>
+                                      {% elif form.CurrentAvailableBalance > 0 %}
+                                      <label class="badge badge-success">{{form.CurrentAvailableBalance}}</label>
+                                      {% endif %}
+                                      &nbsp[ {{form.Balance}}<sup><div class="badge badge-success badge-pill">{{form.CAL}}</div></sup>
                                      {% for form1 in form.BorrowPath %}
                                     &nbsp;+&nbsp;{{form1.BorrowLicence}}<sup><div class="badge badge-info badge-pill">{{form1.LenderVersion}}</div></sup>
                                     {% endfor %}

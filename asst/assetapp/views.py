@@ -303,18 +303,51 @@ def Zimbra():
     MS365 = generateCarryForward(MS365)
 
     return MS365
-def CAL():
-    Cal = []
+def CALDomain():
+    CAL = []
+    os = 'Domain'
+    c1 = getCALCount(os)
+    c3 = getAvailableLicence(os)
+    c4 = c3 - c1
+    c5 = False
+    c6 = True
+    if (c4 < 0):
+        c5 = True
+        c6 = False
+    temp = {"CAL": os, "VolumeLicence": c1, "OEM": 0, "pos": 0, "Available": c3, "Balance": c4,
+            "CurrentAvailableBalance": c4, "BorrowPath": []}
+    if os.startswith("Domain"):
+        b = getOSPosition(os)
+        temp['pos'] = b
+        CAL.append(temp)
 
+    CAL = generateCarryForward(CAL)
 
-    return Cal
+    return CAL
 
 def Antivirus():
-    a = getAssetsByLocationAntivirus()['location']
-    return a
+    Anti = []
+    os = 'Antivirus'
+    c1 = getAntivirusCount(os)
+    c3 = getAvailableLicence(os)
+    c4 = c3 - c1
+    c5 = False
+    c6 = True
+    if (c4 < 0):
+        c5 = True
+        c6 = False
+    temp = {"Anti": os, "VolumeLicence": c1, "OEM": 0, "pos": 0, "Available": c3, "Balance": c4,
+            "CurrentAvailableBalance": c4, "BorrowPath": []}
+    if os.startswith("Antivirus"):
+        b = getOSPosition(os)
+        temp['pos'] = b
+        Anti.append(temp)
+
+    Anti = generateCarryForward(Anti)
+    return Anti
 def getAntivirusCount(os):
-    Antivirus = []
-    return Antivirus
+    list = AssetModel.objects.all().filter(Antivirus='True')
+    return len(list)
 def fetchBalance(need1,x,list):
     need=need1*-1
     for y in list:
@@ -416,12 +449,12 @@ def home(request):
     context['MS365Sum'] = sum(d[0])
     context['Zimbra'] = d[1]
     context['ZimbraSum'] = sum(d[1])
-    e = CAL()
+    e = CALDomain()
     context['CAL'] = e
-    #context['CALSum'] = sum(d)
+    context['CALSum'] = sum(e)
     f = Antivirus()
     context['Antivirus'] = f
-    #context['AntivirusSum'] = sum(d)
+    context['AntivirusSum'] = sum(f)
     context['now'] = now
     if request.content_type == 'application/json':
         return JsonResponse(context)
