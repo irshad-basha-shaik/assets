@@ -318,6 +318,7 @@ DEVICES = (
 
 class AssetForm(forms.ModelForm):
     user_name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
+    user_contact = forms.CharField(max_length=100,widget=forms.NumberInput(attrs={'class': 'form-control'}),required=False)
     user_email = forms.EmailField(max_length=100,widget=forms.EmailInput(attrs={'class': 'form-control'}))
     location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     asset_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
@@ -366,7 +367,7 @@ class AssetForm(forms.ModelForm):
 
     class Meta:
         model = AssetModel
-        fields = ['user_name','user_email','location','asset_no','serial_no','emp_id','usage_type','machine_type','gef_id_number','domain_workgroup','Domain_User_Name','machine_make','machine_model_no','machine_serial_no','hdd','hdd_make','hdd_model','hdd_serial_no','ram','processor','processor_purchase_date','warranty_start_date','warranty_end_date','amc_start_date','amc_end_date','user_acceptance_date','user_handed_over_date','ms_office','ms_office_version','OEM_Volume','Operating_System_Version','OS','Antivirus','AutoCAD','Adobe_acrobate','Visio','Access','SAP','SAP_User_ID','Status','Remarks','ms_365','Installed_Softwares','ms_access','ms_visio','machine_age']
+        fields = ['user_name','user_email','user_contact','location','asset_no','serial_no','emp_id','usage_type','machine_type','gef_id_number','domain_workgroup','Domain_User_Name','machine_make','machine_model_no','machine_serial_no','hdd','hdd_make','hdd_model','hdd_serial_no','ram','processor','processor_purchase_date','warranty_start_date','warranty_end_date','amc_start_date','amc_end_date','user_acceptance_date','user_handed_over_date','ms_office','ms_office_version','OEM_Volume','Operating_System_Version','OS','Antivirus','AutoCAD','Adobe_acrobate','Visio','Access','SAP','SAP_User_ID','Status','Remarks','ms_365','Installed_Softwares','ms_access','ms_visio','machine_age']
 
 class WifiForm(forms.ModelForm):
     Location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}))
