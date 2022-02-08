@@ -2,7 +2,7 @@ from datetime import datetime,date
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE,EmailType
+from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE,EmailType,Softwares
 from .models import AssetModel,WifiModel,FirewallModel,VCCModel,PrinterModel
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
@@ -327,26 +327,61 @@ def CALDomain():
 
 def Antivirus():
     Anti = []
-    os = 'Antivirus'
-    c1 = getAntivirusCount(os)
-    c3 = getAvailableLicence(os)
-    c4 = c3 - c1
-    c5 = False
-    c6 = True
-    if (c4 < 0):
-        c5 = True
-        c6 = False
-    temp = {"Anti": os, "VolumeLicence": c1, "OEM": 0, "pos": 0, "Available": c3, "Balance": c4,
-            "CurrentAvailableBalance": c4, "BorrowPath": []}
-    if os.startswith("Antivirus"):
-        b = getOSPosition(os)
-        temp['pos'] = b
-        Anti.append(temp)
-
+    Coral_Draw = []
+    Autocad = []
+    Pdf_Writer = []
+    Winzip = []
+    for os in Softwares:
+        c1 = getSoftwaresCount(os[1], False)
+        c2 = getAssetCount(os[1], True)
+        c3 = getAvailableLicence(os[1])
+        c4 = c3 - c1
+        c5 = False
+        c6 = True
+        if (c4 < 0):
+            c5 = True
+            c6 = False
+        temp = {"Softwares": os[1], "VolumeLicence": c1, "OEM": c2, "pos": 0, "Available": c3, "Balance": c4,
+                "CurrentAvailableBalance": c4, "BorrowPath": []}
+        if os[1].startswith("Antivirus"):
+            b = getOSPosition(os[1])
+            temp['pos'] = b
+            Anti.append(temp)
+        elif os[1].startswith("Coral draw"):
+            b = getOSPosition(os[1])
+            temp['pos'] = b
+            Coral_Draw.append(temp)
+        elif os[1].startswith("Autocad"):
+            b = getOSPosition(os[1])
+            temp['pos'] = b
+            Autocad.append(temp)
+        elif os[1].startswith("Pdf Writer"):
+            b = getOSPosition(os[1])
+            temp['pos'] = b
+            Pdf_Writer.append(temp)
+        else:
+            b = getOSPosition(os[1])
+            temp['pos'] = b
+            Winzip.append(temp)
     Anti = generateCarryForward(Anti)
+    Coral_Draw = generateCarryForward(Coral_Draw)
+    Autocad = generateCarryForward(Autocad)
+    Pdf_Writer = generateCarryForward(Pdf_Writer)
+    Winzip = generateCarryForward(Winzip)
     return Anti
-def getAntivirusCount(os):
-    list = AssetModel.objects.all().filter(Antivirus='True')
+
+
+def getSoftwaresCount(os,F):
+    if os =='Antivirus':
+        list = AssetModel.objects.all().filter(Antivirus='True')
+    elif os =='Coral draw':
+        list = AssetModel.objects.all().filter(Coral_draw='True')
+    elif os =='Autocad':
+        list = AssetModel.objects.all().filter(Autocad='True')
+    elif os =='Pdf Writer':
+        list = AssetModel.objects.all().filter(Pdf_Writer='True')
+    else:
+        list = AssetModel.objects.all().filter(Winzip='True')
     return len(list)
 def fetchBalance(need1,x,list):
     need=need1*-1

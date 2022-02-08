@@ -208,7 +208,13 @@ EmailType = [
     ('Zimbra', 'Zimbra'),
     ('Public', 'Public'),
 ]
-
+Softwares = [
+    ('Antvirus', 'Antvirus'),
+    ('Coral draw', 'Coral draw'),
+    ('Autocad', 'Autocad'),
+    ('Pdf Writer', 'Pdf Writer'),
+    ('Winzip', 'Winzip'),
+]
 MS_VERSION =  (
     ('MS Office Standard 2010', 'MS Office Standard 2010'),
     ('MS Office Standard 2013', 'MS Office Standard 2013'),
