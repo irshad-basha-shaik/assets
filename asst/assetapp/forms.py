@@ -209,7 +209,7 @@ EmailType = [
     ('Public', 'Public'),
 ]
 Softwares = [
-    ('Antvirus', 'Antvirus'),
+    ('Antivirus', 'Antivirus'),
     ('Coral draw', 'Coral draw'),
     ('Autocad', 'Autocad'),
     ('Pdf Writer', 'Pdf Writer'),
@@ -362,6 +362,9 @@ class AssetForm(forms.ModelForm):
     OEM_Volume = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     Antivirus = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     AutoCAD = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
+    Coral_Draw = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}), required=False)
+    Pdf_Writer = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}), required=False)
+    Winzip = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}), required=False)
     Adobe_acrobate = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     Installed_Softwares = forms.CharField(max_length=1000,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     Visio = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
