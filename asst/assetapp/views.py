@@ -523,7 +523,7 @@ def delete(request,id):
     obj = get_object_or_404(AssetModel, id=id)
     obj.delete()
     return HttpResponseRedirect("/")
-
+    Cal = []
 
 def wifi(request):
     context = {}
