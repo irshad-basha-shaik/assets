@@ -203,6 +203,11 @@ PROCESSOR = [
 ]
 YEARS= [x for x in range(1940,2200)]
 
+HddType = [
+    ('SATA', 'SATA'),
+    ('SSD', 'SSD'),
+    ('SATA+SSD', 'SATA+SSD'),
+]
 EmailType = [
     ('MS Office 365', 'MS Office 365'),
     ('Zimbra', 'Zimbra'),
@@ -340,6 +345,7 @@ class AssetForm(forms.ModelForm):
     machine_model_no = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     machine_serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd = forms.ChoiceField(choices=HDD,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    hdd_type =forms.CharField(label='Gender', widget=forms.RadioSelect(choices=HddType),required=False)
     hdd_make = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd_model = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd_serial_no =forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
