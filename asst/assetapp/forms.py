@@ -45,8 +45,9 @@ HDD = [
     ('1 TB  SSD', '1 TB SSD'),
     ('1 TB+256 SSD', '1 TB+256 SSD'),
     ('1TB+256GB', '1 TB+256 SSD'),
+    ('1 TB 256 SSD', '1 TB 256 SSD'),
     ('1 TB+256 GB SSD', '1 TB+256 GB SSD'),
-    ('1 TB 256 GB SSD', '1 TB+256 GB SSD'),
+    ('1 TB 256 GB SSD', '1 TB 256 GB SSD'),
     ('256 SSD+1 TB', '256 SSD+1 TB'),
     ('2 TB', '2 TB'),
     ('2 TB SSD', '2 TB SSD'),
@@ -208,6 +209,44 @@ EmailType = [
     ('Zimbra', 'Zimbra'),
     ('Public', 'Public'),
 ]
+HDD_Type = [
+    ('SATA', 'SATA'),
+    ('SSD', 'SSD'),
+    ('SATA+SSD', 'SATA+SSD'),
+]
+
+HDD_SATA = [
+    ('160 GB', '160 GB'),
+    ('240 GB', '240 GB'),
+    ('250 GB', '250 GB'),
+    ('320 GB', '320 GB'),
+    ('350 GB', '350 GB'),
+    ('500 GB', '500 GB'),
+    ('512 GB', '512 GB'),
+    ('1 TB', '1 TB'),
+    ('2 TB', '2 TB'),
+    ('2TB+4TB', '2TB+4TB'),
+    ('', ''),
+]
+HDD_SSD = [
+    ('128 GB', '128 GB'),
+    ('256 GB SSD', '256 GB SSD'),
+    ('512 GB SSD', '512 GB SSD'),
+    ('1 TB SSD', '1 TB SSD'),
+    ('2 TB SSD', '2 TB SSD'),
+    ('', ''),
+]
+HDD_SATASSD = [
+    ('1 TB+256 SSD', '1 TB+256 SSD'),
+    ('1TB+256GB', '1TB+256 SSD'),
+    ('1 TB+256 GB SSD', '1 TB+256 GB SSD'),
+    ('1 TB 256 GB SSD', '1 TB 256 GB SSD'),
+    ('256 SSD+1 TB', '256 SSD+1 TB'),
+    ('2 TB', '2 TB'),
+    ('2 TB SSD', '2 TB SSD'),
+    ('', ''),
+
+]
 Softwares = [
     ('Antivirus', 'Antivirus'),
     ('Coral draw', 'Coral draw'),
@@ -340,6 +379,7 @@ class AssetForm(forms.ModelForm):
     machine_model_no = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     machine_serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd = forms.ChoiceField(choices=HDD,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    hdd_type = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=HDD_Type),required=False)
     hdd_make = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd_model = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd_serial_no =forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)

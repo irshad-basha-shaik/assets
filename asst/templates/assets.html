@@ -88,6 +88,7 @@
                             <td style ="font-weight: bold;">Machine Age</td>
                             <td style ="font-weight: bold;">RAM</td>
                             <td style ="font-weight: bold;">Processor</td>
+                            <td style ="font-weight: bold;">HDD Type</td>
                             <td style ="font-weight: bold;">HDD Capacity</td>
                             <td style ="font-weight: bold;">HDD Si.No</td>
                             <td style ="font-weight: bold;">Purchase Date</td>
@@ -135,9 +136,10 @@
                             <td>{{form.machine_make}}</td>
                             <td>{{form.machine_model_no}}</td>
                             <td>{{form.machine_serial_no}}</td>
-                            <td>{{form.machine_age}} </td>
+                            <td>{% if form.processor_purchase_date %}{{form.machine_age}}{% endif %}</td>
                             <td>{{form.ram}}</td>
                             <td>{{form.processor}}</td>
+                            <td>{{ form.hdd_type}}</td>
                             <td>{{form.hdd}}</td>
                             <td>{{form.hdd_serial_no}}</td>
                             <td>{{form.processor_purchase_date}}</td>
@@ -184,5 +186,15 @@ setTimeout(function(){
     } );
 } );
 },500);
+
+{% for form in list %}
+function calculateAge({{form.processor_purchase_date}}})
+{
+  const now = new Date();
+  const diff = Math.abs(now - date );
+  const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+  return age.document.getElementById('birth_date')
+}
+{% endfor %}
 </script>
 {% endblock %}

@@ -20,6 +20,7 @@ class AssetModel(models.Model):
     machine_model_no = models.CharField(max_length=100, default='1')
     machine_serial_no = models.CharField(max_length=100, default='1')
     hdd = models.CharField(max_length=100, default='1')
+    hdd_type = models.CharField(max_length=100, default='1')
     hdd_make = models.CharField(max_length=100, default='1')
     hdd_model = models.CharField(max_length=100, default='1')
     hdd_serial_no = models.CharField(max_length=100, default='1')

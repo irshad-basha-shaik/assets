@@ -2,7 +2,7 @@ from datetime import datetime,date
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE,EmailType,Softwares
+from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE,EmailType,Softwares,HDD_Type,HDD_SATA,HDD_SSD,HDD_SATASSD
 from .models import AssetModel,WifiModel,FirewallModel,VCCModel,PrinterModel
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
@@ -14,18 +14,24 @@ log=""
 
 @login_required
 def new(request):
+
     context = {}
     context['form'] = AssetForm()
+    #context['hdd'] = AssetForm()
     if request.method== 'POST':
         form = AssetForm(request.POST)
+
+        """for x in HDD_Type:
+            if x[0] =='SATA':
+                form.hdd = form.cleaned_data['hdd']
+                return form.hdd
+"""
         #form = form.upper()
         if form.is_valid():
             form.machine_age = getMachineAge(form.cleaned_data['processor_purchase_date'])
             student = form.save(commit=False)
             #a = form.cleaned_data['processor_purchase_date']
-            """student.machine_age = getMachineAge(form.cleaned_data['processor_purchase_date'])
-            student.email_type=form.cleaned_data['ms_365']
-            student.Installed_Softwares = form.cleaned_data['Installed_Softwares']"""
+
             student.save()
             return index(request)
         else:
