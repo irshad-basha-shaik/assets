@@ -325,42 +325,41 @@ def CALDomain():
 
     return CAL
 
-def Antivirus():
+def SoftWares():
     Anti = []
     Coral_Draw = []
     Autocad = []
     Pdf_Writer = []
     Winzip = []
-    for os in Softwares:
-        c1 = getSoftwaresCount(os[1], False)
-        c2 = getAssetCount(os[1], True)
-        c3 = getAvailableLicence(os[1])
+    for soft in Softwares:
+        c1 = getSoftwaresCount(soft[1], False)
+        c3 = getAvailableLicence(soft[1])
         c4 = c3 - c1
         c5 = False
         c6 = True
         if (c4 < 0):
             c5 = True
             c6 = False
-        temp = {"Softwares": os[1], "VolumeLicence": c1, "OEM": c2, "pos": 0, "Available": c3, "Balance": c4,
+        temp = {"Softwares": soft[1], "VolumeLicence": c1, "OEM": 0, "pos": 0, "Available": c3, "Balance": c4,
                 "CurrentAvailableBalance": c4, "BorrowPath": []}
-        if os[1].startswith("Antivirus"):
-            b = getOSPosition(os[1])
+        if soft[1].startswith("Antivirus"):
+            b = getOSPosition(soft[1])
             temp['pos'] = b
             Anti.append(temp)
-        elif os[1].startswith("Coral draw"):
-            b = getOSPosition(os[1])
+        elif soft[1].startswith("Coral draw"):
+            b = getOSPosition(soft[1])
             temp['pos'] = b
             Coral_Draw.append(temp)
-        elif os[1].startswith("Autocad"):
-            b = getOSPosition(os[1])
+        elif soft[1].startswith("Autocad"):
+            b = getOSPosition(soft[1])
             temp['pos'] = b
             Autocad.append(temp)
-        elif os[1].startswith("Pdf Writer"):
-            b = getOSPosition(os[1])
+        elif soft[1].startswith("Pdf Writer"):
+            b = getOSPosition(soft[1])
             temp['pos'] = b
             Pdf_Writer.append(temp)
-        else:
-            b = getOSPosition(os[1])
+        elif soft[1].startswith("Winzip"):
+            b = getOSPosition(soft[1])
             temp['pos'] = b
             Winzip.append(temp)
     Anti = generateCarryForward(Anti)
@@ -368,20 +367,27 @@ def Antivirus():
     Autocad = generateCarryForward(Autocad)
     Pdf_Writer = generateCarryForward(Pdf_Writer)
     Winzip = generateCarryForward(Winzip)
-    return Anti
+    return Anti,Coral_Draw,Autocad,Pdf_Writer,Winzip
 
 
 def getSoftwaresCount(os,F):
+    list = []
+    r = F
     if os =='Antivirus':
-        list = AssetModel.objects.all().filter(Antivirus='True')
+        r = True
+        list = AssetModel.objects.all().filter(Antivirus=r)
     elif os =='Coral draw':
-        list = AssetModel.objects.all().filter(Coral_draw='True')
+        r = True
+        list = AssetModel.objects.all().filter(Coral_Draw=r)
     elif os =='Autocad':
-        list = AssetModel.objects.all().filter(Autocad='True')
+        r = True
+        list = AssetModel.objects.all().filter(Autocad=r)
     elif os =='Pdf Writer':
-        list = AssetModel.objects.all().filter(Pdf_Writer='True')
-    else:
-        list = AssetModel.objects.all().filter(Winzip='True')
+        r = True
+        list = AssetModel.objects.all().filter(Pdf_Writer=r)
+    elif os =='Winzip':
+        r = True
+        list = AssetModel.objects.all().filter(Winzip=r)
     return len(list)
 def fetchBalance(need1,x,list):
     need=need1*-1
@@ -487,9 +493,10 @@ def home(request):
     e = CALDomain()
     context['CAL'] = e
     context['CALSum'] = sum(e)
-    f = Antivirus()
+    f = SoftWares()
     context['Antivirus'] = f
     context['AntivirusSum'] = sum(f)
+
     context['now'] = now
     if request.content_type == 'application/json':
         return JsonResponse(context)
@@ -523,7 +530,7 @@ def delete(request,id):
     obj = get_object_or_404(AssetModel, id=id)
     obj.delete()
     return HttpResponseRedirect("/")
-
+    Cal = []
 
 def wifi(request):
     context = {}
