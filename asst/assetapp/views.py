@@ -381,7 +381,7 @@ def getSoftwaresCount(os,F):
         list = AssetModel.objects.all().filter(Coral_Draw=r)
     elif os =='Autocad':
         r = True
-        list = AssetModel.objects.all().filter(Autocad=r)
+        list = AssetModel.objects.all().filter(AutoCAD=r)
     elif os =='Pdf Writer':
         r = True
         list = AssetModel.objects.all().filter(Pdf_Writer=r)
@@ -494,8 +494,16 @@ def home(request):
     context['CAL'] = e
     context['CALSum'] = sum(e)
     f = SoftWares()
-    context['Antivirus'] = f
-    context['AntivirusSum'] = sum(f)
+    context['Antivirus'] = f[0]
+    context['AntivirusSum'] = sum(f[0])
+    context['Coraldraw'] = f[1]
+    context['CoraldrawSum'] = sum(f[1])
+    context['Autocad'] = f[2]
+    context['AutocadSum'] = sum(f[2])
+    context['PdfWriter'] = f[3]
+    context['PdfWriterSum'] = sum(f[3])
+    context['Winzip'] = f[4]
+    context['WinzipSum'] = sum(f[4])
 
     context['now'] = now
     if request.content_type == 'application/json':
