@@ -55,7 +55,7 @@ body {
         <div class="content-wrapper">
 
                   <h4 class="card-title">Edit Assets Form</h4>
-                  <form class="form-sample" method="post">
+                 <form class="form-sample" method="post">
                     {% csrf_token %}
                       <div class="tabs">
                   <ul id="tabs-nav">
@@ -219,8 +219,17 @@ body {
                                         </div>
                                        </div>
                             </div>
-                          <div class="row">
-                                     <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-3 col-form-label">HDD Type</label>
+                                          <div class="col-sm-9">
+                                           {{ form.hdd_type}}
+                                          </div>
+                                        </div>
+                                       </div>
+
+                                    <div class="col-md-6">
                                         <div class="form-group row">
                                           <label class="col-sm-3 col-form-label">HDD</label>
                                           <div class="col-sm-9">
