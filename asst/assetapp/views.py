@@ -2,7 +2,7 @@ from datetime import datetime,date
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE,EmailType,Softwares
+from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE,EmailType,Softwares,HDD_Type,HDD_SATA,HDD_SSD,HDD_SATASSD
 from .models import AssetModel,WifiModel,FirewallModel,VCCModel,PrinterModel
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
@@ -14,17 +14,24 @@ log=""
 
 @login_required
 def new(request):
+
     context = {}
     context['form'] = AssetForm()
+    #context['hdd'] = AssetForm()
     if request.method== 'POST':
         form = AssetForm(request.POST)
+
+        """for x in HDD_Type:
+            if x[0] =='SATA':
+                form.hdd = form.cleaned_data['hdd']
+                return form.hdd
+"""
         #form = form.upper()
         if form.is_valid():
+            form.machine_age = getMachineAge(form.cleaned_data['processor_purchase_date'])
             student = form.save(commit=False)
             #a = form.cleaned_data['processor_purchase_date']
-            """student.machine_age = getMachineAge(form.cleaned_data['processor_purchase_date'])
-            student.email_type=form.cleaned_data['ms_365']
-            student.Installed_Softwares = form.cleaned_data['Installed_Softwares']"""
+
             student.save()
             return index(request)
         else:
@@ -381,7 +388,7 @@ def getSoftwaresCount(os,F):
         list = AssetModel.objects.all().filter(Coral_Draw=r)
     elif os =='Autocad':
         r = True
-        list = AssetModel.objects.all().filter(Autocad=r)
+        list = AssetModel.objects.all().filter(AutoCAD=r)
     elif os =='Pdf Writer':
         r = True
         list = AssetModel.objects.all().filter(Pdf_Writer=r)
@@ -494,8 +501,16 @@ def home(request):
     context['CAL'] = e
     context['CALSum'] = sum(e)
     f = SoftWares()
-    context['Antivirus'] = f
-    context['AntivirusSum'] = sum(f)
+    context['Antivirus'] = f[0]
+    context['AntivirusSum'] = sum(f[0])
+    context['Coraldraw'] = f[1]
+    context['CoraldrawSum'] = sum(f[1])
+    context['Autocad'] = f[2]
+    context['AutocadSum'] = sum(f[2])
+    context['PdfWriter'] = f[3]
+    context['PdfWriterSum'] = sum(f[3])
+    context['Winzip'] = f[4]
+    context['WinzipSum'] = sum(f[4])
 
     context['now'] = now
     if request.content_type == 'application/json':
@@ -521,7 +536,7 @@ def edit(request,id):
         if form.is_valid():
             #AssetModel.objects.filter(pk=id).update(location=form.cleaned_data['location'],asset_no=form.cleaned_data['asset_no'],emp_id=form.cleaned_data['emp_id'],usage_type=form.cleaned_data['usage_type'],machine_type=form.cleaned_data['machine_type'],gef_id_number=form.cleaned_data['gef_id_number'],domain_workgoup=form.cleaned_data['domain_workgoup'],machine_make=form.cleaned_data['machine_make'],machine_model_no=form.cleaned_data['machine_model_no'],machine_serial_no=form.cleaned_data['machine_serial_no'],hdd=form.cleaned_data['hdd'],hdd_make=form.cleaned_data['hdd_make'],hdd_model=form.cleaned_data['hdd_model'],hdd_serial_no=form.cleaned_data['hdd_serial_no'],ram=form.cleaned_data['ram'])
             AssetModel.objects.filter(pk=id).update(user_name=form.cleaned_data['user_name'],user_contact=form.cleaned_data['user_contact'],location=form.cleaned_data['location'],asset_no=form.cleaned_data['asset_no'],user_email=form.cleaned_data['user_email'], emp_id=form.cleaned_data['emp_id'],usage_type=form.cleaned_data['usage_type'],machine_type=form.cleaned_data['machine_type'],machine_age=form.cleaned_data['machine_age'],gef_id_number=form.cleaned_data['gef_id_number'],domain_workgroup=form.cleaned_data['domain_workgroup'],machine_make=form.cleaned_data['machine_make'],machine_model_no=form.cleaned_data['machine_model_no'],machine_serial_no=form.cleaned_data['machine_serial_no'],hdd=form.cleaned_data['hdd'],hdd_make=form.cleaned_data['hdd_make'],hdd_model=form.cleaned_data['hdd_model'],hdd_serial_no=form.cleaned_data['hdd_serial_no'],ram=form.cleaned_data['ram'],processor=form.cleaned_data['processor'],processor_purchase_date=form.cleaned_data['processor_purchase_date'],warranty_start_date=form.cleaned_data['warranty_start_date'],warranty_end_date=form.cleaned_data['warranty_end_date'],amc_start_date=form.cleaned_data['amc_start_date'],amc_end_date=form.cleaned_data['amc_end_date'],user_acceptance_date=form.cleaned_data['user_acceptance_date'],user_handed_over_date=form.cleaned_data['user_handed_over_date'],ms_office=form.cleaned_data['ms_office'],ms_office_version=form.cleaned_data['ms_office_version'],OEM_Volume=form.cleaned_data['OEM_Volume'],Operating_System_Version=form.cleaned_data['Operating_System_Version'],OS=form.cleaned_data['OS'],Antivirus=form.cleaned_data['Antivirus'],AutoCAD=form.cleaned_data['AutoCAD'],Adobe_acrobate=form.cleaned_data['Adobe_acrobate'],Visio=form.cleaned_data['Visio'],Access=form.cleaned_data['Access'],ms_visio=form.cleaned_data['ms_visio'],ms_access=form.cleaned_data['ms_access'],SAP_User_ID=form.cleaned_data['SAP_User_ID'],SAP=form.cleaned_data['SAP'],ms_365=form.cleaned_data['ms_365'],Installed_Softwares=form.cleaned_data['Installed_Softwares'], Status=form.cleaned_data['Status'],Remarks=form.cleaned_data['Remarks'])
-            return new(request)
+            return index(request)
     context['form'] = form
     return render(request,"assets_edit.html",context)
 @login_required
@@ -530,7 +545,6 @@ def delete(request,id):
     obj = get_object_or_404(AssetModel, id=id)
     obj.delete()
     return HttpResponseRedirect("/")
-    Cal = []
 
 def wifi(request):
     context = {}
