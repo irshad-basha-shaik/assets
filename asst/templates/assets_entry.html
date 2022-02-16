@@ -69,7 +69,7 @@ body {
         <div class="content-wrapper">
 
                   <h4 class="card-title">New Asset Form</h4>
-                  <form class="form-sample" method="post">
+                  <form class="form-sample" name ="myForm" method="post">
                     {% csrf_token %}
                       <div class="tabs">
                   <ul id="tabs-nav">
@@ -85,7 +85,7 @@ body {
                   <div id="tabs-content">
 
                       <div id="tab1" class="tab-content tab-pane" style="display: none;" role="tabpanel">
-                      <h3>Employee Info</h3>
+                        <h3>Employee Info</h3>
                                 <div class="row">
 
                                     <div class="col-md-6">
@@ -521,9 +521,9 @@ body {
                 </div>
 
 
-                            <span id="btnPrevious" class="previous-tab">previous</span>
-		                    <span id="btnNext" class="next-tab">next</span>
-                            <input class="btn btn-primary btn-rounded btn-fw" type = "submit" value="Save">
+                            <!--span id="btnPrevious" class="previous-tab">previous</span>
+		                    <span id="btnNext" class="next-tab">next</span-->
+                            <input class="btn btn-primary btn-rounded btn-fw" type = "submit" onclick="GEEKFORGEEKS()" value="Save">
 
                   </form>
                 </div>
@@ -536,6 +536,74 @@ $('.tab-content').hide();
 $('.tab-content:first').show();
 
 // Click function
+function GEEKFORGEEKS() {
+		var name = document.forms["myForm"]["Name"];
+		var email = document.forms["myForm"]["EMail"];
+		var phone = document.forms["myForm"]["Telephone"];
+		var age = document.forms["myForm"]["age"];
+		var password = document.forms["myForm"]["Password"];
+		var address = document.forms["myForm"]["Address"];
+		var dob = document.forms["myForm"]["dob"];
+
+		if (name.value == "") {
+			window.alert("Please enter your name.");
+			name.focus();
+			return false;
+		}
+		if (email.value == "") {
+			window.alert(
+			"Please enter a valid e-mail address.");
+			email.focus();
+			return false;
+		}
+		{
+
+	$( "#home" ).removeClass( "tab-pane fade in active" );
+    	$( "#home" ).addClass( "tab-pane fade" );
+    	$( "#menu1" ).removeClass( "tab-pane fade" ).addClass( "tab-pane fade in active" );
+    	}
+
+
+		if (phone.value == "") {
+			window.alert(
+			"Please enter your telephone number.");
+			phone.focus();
+			return false;
+		}
+
+		if (password.value == "") {
+			window.alert("Please enter your password");
+			password.focus();
+			return false;
+		}
+		{
+	$( "#menu1" ).removeClass( "tab-pane fade in active" );
+    	$( "#menu1" ).addClass( "tab-pane fade" );
+    	$( "#menu2" ).removeClass( "tab-pane fade" ).addClass( "tab-pane fade in active" );
+    	}
+
+		if (age.value == "") {
+			alert("Please enter your age.");
+			age.focus();
+			return false;
+		}{
+	$( "#menu2" ).removeClass( "tab-pane fade in active" );
+    	$( "#menu2" ).addClass( "tab-pane fade" );
+    	$( "#menu3" ).removeClass( "tab-pane fade" ).addClass( "tab-pane fade in active" );
+    	}
+		if (address.value == "") {
+			window.alert("Please enter your address.");
+			address.focus();
+			return false;
+		}
+		if (dob.value == "") {
+			window.alert("Please enter your DOB.");
+			dob.focus();
+			return false;
+		}
+
+		return true;
+	}
 $('#tabs-nav li').click(function () {
   $('#tabs-nav li').removeClass('active');
   $(this).addClass('active');

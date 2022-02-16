@@ -1,6 +1,8 @@
 
 from django.db import models
 from datetime import date
+import datetime
+from django.utils.timesince import timesince
 
 class AssetModel(models.Model):
     user_name = models.CharField(max_length=100, default='')
@@ -54,6 +56,9 @@ class AssetModel(models.Model):
     SAP_User_ID =models.CharField(max_length=100, default='')
     Status = models.CharField(max_length=100, default='')
     Remarks = models.CharField(max_length=100, default='')
+
+    def get_time_diff(self):
+        return timesince(self.processor_purchase_date)
 
 class WifiModel(models.Model):
     Location = models.CharField(max_length=100)

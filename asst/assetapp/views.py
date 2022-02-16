@@ -28,7 +28,7 @@ def new(request):
 """
         #form = form.upper()
         if form.is_valid():
-            form.machine_age = getMachineAge(form.cleaned_data['processor_purchase_date'])
+            #form.machine_age = getMachineAge(form.cleaned_data['processor_purchase_date'])
             student = form.save(commit=False)
             #a = form.cleaned_data['processor_purchase_date']
 

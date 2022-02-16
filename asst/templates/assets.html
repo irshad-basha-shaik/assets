@@ -136,7 +136,7 @@
                             <td>{{form.machine_make}}</td>
                             <td>{{form.machine_model_no}}</td>
                             <td>{{form.machine_serial_no}}</td>
-                            <td>{% if form.processor_purchase_date %}{{form.machine_age}}{% endif %}</td>
+                            <td>{{form.get_time_diff }}</td>
                             <td>{{form.ram}}</td>
                             <td>{{form.processor}}</td>
                             <td>{{ form.hdd_type}}</td>
