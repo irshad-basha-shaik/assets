@@ -74,17 +74,17 @@ body {
                       <div class="tabs">
                   <ul id="tabs-nav">
 
-                    <li class="active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Employee Info</a></li>
+                    <li id="tab1" class="active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Employee Info</a></li>
 
-                    <li class=""><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Hardware Details</a></li>
-                    <li class=""><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Software Details</a></li>
-                      <li class=""><a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Warranty Details</a></li>
+                    <li id="tab2" class=""><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Hardware Details</a></li>
+                    <li id="tab3" class=""><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Software Details</a></li>
+                      <li id="tab4" class=""><a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Warranty Details</a></li>
 
                   </ul>
                           <!-- END tabs-nav -->
                   <div id="tabs-content">
 
-                      <div id="tab1" class="tab-content tab-pane" style="display: none;" role="tabpanel">
+                      <div id="tab11" class="tab-content tab-pane" style="display: none;" role="tabpanel">
                         <h3>Employee Info</h3>
                                 <div class="row">
 
@@ -210,7 +210,7 @@ body {
 
                       </div>
 
-                      <div id="tab2" class="tab-content tab-pane" style="display: none;" role="tabpanel" >
+                      <div id="tab22" class="tab-content tab-pane" style="display: none;" role="tabpanel" >
                       <h3>Machine Hardware Details</h3>
                           <div class="row">
 
@@ -322,7 +322,7 @@ body {
 
                       </div>
 
-                      <div id="tab3" class="tab-content tab-pane" style="display: none;" role="tabpanel" >
+                      <div id="tab33" class="tab-content tab-pane" style="display: none;" role="tabpanel" >
                       <h3>Machine Software Details</h3>
                                 <div class="row">
 
@@ -430,7 +430,7 @@ body {
 
                           </div>
 
-                      <div id="tab4" class="tab-content tab-pane" role="tabpanel" style="display: none;">
+                      <div id="tab44" class="tab-content tab-pane" role="tabpanel" style="display: none;">
                       <h3>Warranty Details</h3>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -519,10 +519,6 @@ body {
 
                   </div>
                 </div>
-
-
-                            <!--span id="btnPrevious" class="previous-tab">previous</span>
-		                    <span id="btnNext" class="next-tab">next</span-->
                             <input class="btn btn-primary btn-rounded btn-fw" type = "submit" onclick="GEEKFORGEEKS()" value="Save">
 
                   </form>
@@ -530,80 +526,73 @@ body {
               </div>
 
 <script>
-   setTimeout(function() {
-  $('#tabs-nav li:first-child').addClass('active');
-$('.tab-content').hide();
-$('.tab-content:first').show();
-
-// Click function
 function GEEKFORGEEKS() {
-		var name = document.forms["myForm"]["Name"];
-		var email = document.forms["myForm"]["EMail"];
-		var phone = document.forms["myForm"]["Telephone"];
-		var age = document.forms["myForm"]["age"];
-		var password = document.forms["myForm"]["Password"];
-		var address = document.forms["myForm"]["Address"];
-		var dob = document.forms["myForm"]["dob"];
 
-		if (name.value == "") {
-			window.alert("Please enter your name.");
-			name.focus();
-			return false;
-		}
-		if (email.value == "") {
+		var user_name = document.forms["myForm"]["user_name"];
+		var machine_make = document.forms["myForm"]["machine_make"];
+		var ms_office_version = document.forms["myForm"]["ms_office_version"];
+		var OEM_Volume = document.forms["myForm"]["OEM_Volume"];
+		var Status = document.forms["myForm"]["Status"];
+
+
+		if (user_name.value == "") {
 			window.alert(
-			"Please enter a valid e-mail address.");
-			email.focus();
+			"Please enter a valid User Name");
+			user_name.focus();
 			return false;
 		}
 		{
 
-	$( "#home" ).removeClass( "tab-pane fade in active" );
-    	$( "#home" ).addClass( "tab-pane fade" );
-    	$( "#menu1" ).removeClass( "tab-pane fade" ).addClass( "tab-pane fade in active" );
-    	}
+		$( "#tab1" ).removeClass( "active" );
+	    	$( "#tab1" ).addClass( " " );
+	    	$( "#tab11" ).hide();
+	    	$( "#tab2" ).removeClass( " " ).addClass( "active" );
+	    	$( "#tab22" ).show();
+		if (machine_make.value == "") {
+			window.alert("Please enter Machine Make");
+			machine_make.focus();
+			return false;
+		}
 
+		}
+		{
+		$( "#tab2" ).removeClass( "active" );
+	    	$( "#tab2" ).addClass( " " );
+	    	$( "#tab22" ).hide();
+	    	$( "#tab3" ).removeClass( " " ).addClass( "active" );
+	    	$( "#tab33" ).show();
+	    	}
 
-		if (phone.value == "") {
+		if (ms_office_version.value == "") {
+			alert("Please select ms_office_version");
+			ms_office_version.focus();
+			return false;
+		}
+
+		{
+		$( "#tab3" ).removeClass( "active" );
+	    	$( "#tab3" ).addClass( " " );
+	    	$( "#tab33" ).hide();
+	    	$( "#tab4" ).removeClass( " " ).addClass( "active" );
+	    	$( "#tab44" ).show();
+	    	}
+
+		if (Status.value == "") {
 			window.alert(
-			"Please enter your telephone number.");
+			"Please enter the Status.");
 			phone.focus();
-			return false;
-		}
-
-		if (password.value == "") {
-			window.alert("Please enter your password");
-			password.focus();
-			return false;
-		}
-		{
-	$( "#menu1" ).removeClass( "tab-pane fade in active" );
-    	$( "#menu1" ).addClass( "tab-pane fade" );
-    	$( "#menu2" ).removeClass( "tab-pane fade" ).addClass( "tab-pane fade in active" );
-    	}
-
-		if (age.value == "") {
-			alert("Please enter your age.");
-			age.focus();
-			return false;
-		}{
-	$( "#menu2" ).removeClass( "tab-pane fade in active" );
-    	$( "#menu2" ).addClass( "tab-pane fade" );
-    	$( "#menu3" ).removeClass( "tab-pane fade" ).addClass( "tab-pane fade in active" );
-    	}
-		if (address.value == "") {
-			window.alert("Please enter your address.");
-			address.focus();
-			return false;
-		}
-		if (dob.value == "") {
-			window.alert("Please enter your DOB.");
-			dob.focus();
 			return false;
 		}
 
 		return true;
 	}
+
+   setTimeout(function() {
+  $('#tabs-nav li:first-child').addClass('active');
+$('.tab-content').hide();
+$('.tab-content:first').show();
+
+
 $('#tabs-nav li').click(function () {
   $('#tabs-nav li').removeClass('active');
   $(this).addClass('active');
