@@ -526,8 +526,27 @@ body {
               </div>
 
 <script>
-function GEEKFORGEEKS() {
+setTimeout(function() {
+$('#tabs-nav li:first-child').addClass('active');
+$('.tab-content').hide();
+$('.tab-content:first').show();
+$('#tabs-nav li').click(function () {
+  $('#tabs-nav li').removeClass('active');
+  $(this).addClass('active');
+  $('.tab-content').hide();
 
+  var activeTab = $(this).find('a').attr('href');
+
+  $(activeTab).fadeIn();
+  return false;
+});
+
+}, 1000);
+
+
+
+
+function GEEKFORGEEKS() {
 		var user_name = document.forms["myForm"]["user_name"];
 		var machine_make = document.forms["myForm"]["machine_make"];
 		var ms_office_version = document.forms["myForm"]["ms_office_version"];
@@ -561,21 +580,21 @@ function GEEKFORGEEKS() {
 	    	$( "#tab22" ).hide();
 	    	$( "#tab3" ).removeClass( " " ).addClass( "active" );
 	    	$( "#tab33" ).show();
-	    	}
+
 
 		if (ms_office_version.value == "") {
 			alert("Please select ms_office_version");
 			ms_office_version.focus();
 			return false;
 		}
-
+        }
 		{
 		$( "#tab3" ).removeClass( "active" );
 	    	$( "#tab3" ).addClass( " " );
 	    	$( "#tab33" ).hide();
 	    	$( "#tab4" ).removeClass( " " ).addClass( "active" );
 	    	$( "#tab44" ).show();
-	    	}
+
 
 		if (Status.value == "") {
 			window.alert(
@@ -583,27 +602,10 @@ function GEEKFORGEEKS() {
 			phone.focus();
 			return false;
 		}
-
+        }
 		return true;
 	}
 
-   setTimeout(function() {
-  $('#tabs-nav li:first-child').addClass('active');
-$('.tab-content').hide();
-$('.tab-content:first').show();
-
-
-$('#tabs-nav li').click(function () {
-  $('#tabs-nav li').removeClass('active');
-  $(this).addClass('active');
-  $('.tab-content').hide();
-
-  var activeTab = $(this).find('a').attr('href');
-  $(activeTab).fadeIn();
-  return false;
-});
-
-}, 100);
 
 
 </script>
