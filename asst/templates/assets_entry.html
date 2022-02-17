@@ -9,6 +9,7 @@
 /* Tabs */
 .tabs {
   width: 1000px;
+  display: block;
   background-color: #223e9c;
   border-radius: 5px 5px 5px 5px;
 }
@@ -74,11 +75,11 @@ body {
                       <div class="tabs">
                   <ul id="tabs-nav">
 
-                    <li id="tab1" class="active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Employee Info</a></li>
+                    <li id="tab1" class="active"><a href="#tab11" onclick="TABS()">Employee Info</a></li>
 
-                    <li id="tab2" class=""><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Hardware Details</a></li>
-                    <li id="tab3" class=""><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Software Details</a></li>
-                      <li id="tab4" class=""><a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Warranty Details</a></li>
+                    <li id="tab2" class=""><a href="#tab22" onclick="TABS()">Hardware Details</a></li>
+                    <li id="tab3" class=""><a href="#tab33" onclick="TABS()">Software Details</a></li>
+                      <li id="tab4" class=""><a href="#tab44" onclick="TABS()">Warranty Details</a></li>
 
                   </ul>
                           <!-- END tabs-nav -->
@@ -541,8 +542,19 @@ $('#tabs-nav li').click(function () {
   return false;
 });
 
-}, 1000);
+}, 100);
+function TABS() {
+		$('#tabs-nav li').click(function () {
+		  $('#tabs-nav li').removeClass('active');
+		  $(this).addClass('active');
+		  $('.tab-content').hide();
 
+		  var activeTab = $(this).find('a').attr('href');
+		  $(activeTab).fadeIn();
+		  return false;
+		});
+		return true;
+		}
 
 
 
