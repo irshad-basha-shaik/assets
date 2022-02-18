@@ -14,18 +14,10 @@ log=""
 
 @login_required
 def new(request):
-
     context = {}
     context['form'] = AssetForm()
-    #context['hdd'] = AssetForm()
     if request.method== 'POST':
         form = AssetForm(request.POST)
-
-        """for x in HDD_Type:
-            if x[0] =='SATA':
-                form.hdd = form.cleaned_data['hdd']
-                return form.hdd
-"""
         #form = form.upper()
         if form.is_valid():
             #form.machine_age = getMachineAge(form.cleaned_data['processor_purchase_date'])
@@ -54,10 +46,7 @@ def it_assets(request):
     if request.content_type == 'application/json':
         return JsonResponse(list)
     return render(request, "it_assets.html", list)
-def getMachineAge(purchasedate):
-    days_in_year = 365.2425
-    age = int((date.today() - purchasedate).days / days_in_year)
-    return age
+
 
 def getAssetsByLocationMs365():
     list = {"location": [], "data": []}

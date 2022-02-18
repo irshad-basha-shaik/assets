@@ -379,7 +379,7 @@ class AssetForm(forms.ModelForm):
     machine_model_no = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     machine_serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd = forms.ChoiceField(choices=HDD,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
-    hdd_type = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=HDD_Type),required=False)
+    hdd_type = forms.ChoiceField(label='Gender', widget=forms.RadioSelect(choices=HDD_Type),required=False)
     hdd_make = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd_model = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd_serial_no =forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
