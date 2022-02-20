@@ -2,7 +2,7 @@ from datetime import datetime,date
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE,EmailType,Softwares,HDD_Type,HDD_SATA,HDD_SSD,HDD_SATASSD
+from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE,EmailType,Softwares,HDD_Type
 from .models import AssetModel,WifiModel,FirewallModel,VCCModel,PrinterModel
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
@@ -20,9 +20,9 @@ def new(request):
         form = AssetForm(request.POST)
         #form = form.upper()
         if form.is_valid():
-            #form.machine_age = getMachineAge(form.cleaned_data['processor_purchase_date'])
+
             student = form.save(commit=False)
-            #a = form.cleaned_data['processor_purchase_date']
+
 
             student.save()
             return index(request)

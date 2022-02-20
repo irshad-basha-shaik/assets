@@ -31,7 +31,7 @@ MACHINE_TYPE = [
 ]
 HDD = [
     ('160 GB', '160 GB'),
-    ('120 SSD', '120 SSD'),
+    ('128 GB SSD', '128 GB SSD'),
     ('240 GB', '240 GB'),
     ('250 GB', '250 GB'),
     ('256 SSD', '256 SSD'),
@@ -52,7 +52,14 @@ HDD = [
     ('2 TB', '2 TB'),
     ('2 TB SSD', '2 TB SSD'),
     ('2TB+4TB', '2TB+4TB'),
-    ('', ''),
+    ('256 GB SSD', '256 GB SSD'),
+    ('1 TB SATA+256 GB SSD', '1 TB SATA+256 GB SSD'),
+    ('1 TB SATA+500 GB SSD', '1 TB SATA+500 GB SSD'),
+    ('1 TB SATA+1 TB SSD', '1 TB SATA+1 TB SSD'),
+    ('2 TB SATA+256 GB SSD', '2 TB SATA+256 GB SSD'),
+    ('2 TB SATA+500 GB SSD', '2 TB SATA+500 GB SSD'),
+    ('2 TB SATA+1 TB SSD', '2 TB SATA+1 TB SSD'),
+    ('', ''),('', ''),('', ''),('', ''),('', ''),('', ''),
 
 ]
 HDD_CAPACITY = (
@@ -215,38 +222,6 @@ HDD_Type = [
     ('SATA+SSD', 'SATA+SSD'),
 ]
 
-HDD_SATA = [
-    ('160 GB', '160 GB'),
-    ('240 GB', '240 GB'),
-    ('250 GB', '250 GB'),
-    ('320 GB', '320 GB'),
-    ('350 GB', '350 GB'),
-    ('500 GB', '500 GB'),
-    ('512 GB', '512 GB'),
-    ('1 TB', '1 TB'),
-    ('2 TB', '2 TB'),
-    ('2TB+4TB', '2TB+4TB'),
-    ('', ''),
-]
-HDD_SSD = [
-    ('128 GB', '128 GB'),
-    ('256 GB SSD', '256 GB SSD'),
-    ('512 GB SSD', '512 GB SSD'),
-    ('1 TB SSD', '1 TB SSD'),
-    ('2 TB SSD', '2 TB SSD'),
-    ('', ''),
-]
-HDD_SATASSD = [
-    ('1 TB+256 SSD', '1 TB+256 SSD'),
-    ('1TB+256GB', '1TB+256 SSD'),
-    ('1 TB+256 GB SSD', '1 TB+256 GB SSD'),
-    ('1 TB 256 GB SSD', '1 TB 256 GB SSD'),
-    ('256 SSD+1 TB', '256 SSD+1 TB'),
-    ('2 TB', '2 TB'),
-    ('2 TB SSD', '2 TB SSD'),
-    ('', ''),
-
-]
 Softwares = [
     ('Antivirus', 'Antivirus'),
     ('Coral draw', 'Coral draw'),
@@ -296,8 +271,10 @@ OS_VERSION = (
     ('Windows Xp Pro.','Windows Xp Pro.'),
     ('Win-8.1Pro 32 Bit','Win-8.1Pro 32 Bit'),
     ('Windows 10 Pro 64 Bit','Windows 10 Pro 64 Bit'),
-    ('Win-Server-2016 Std','Win-Server-2016 Std'),
+    ('Win-Server-2016','Win-Server-2016'),
+    ('Win-Server-2019','Win-Server-2019'),
     ('Win-10 Home Single Lan.','Win-10 Home Single Lan.'),
+    ('Win-10 Home Single Lan','Win-10 Home Single Lan'),
     ('Win-10 Pro 64 bit','Win-10 Pro 64 bit'),
     ('',''),
 
@@ -308,9 +285,7 @@ OS = (
     ('Win.8', 'Win.8'),
     ('Win.10', 'Win.10'),
     ('Win.11', 'Win.11'),
-    ('Ser.2012', 'Ser.2012'),
-    ('Ser.2016', 'Ser.2016'),
-    ('Ser.2019', 'Ser.2019'),
+    ('Win-Server', 'Win-Server'),
     ('', ''),
 )
 AVAILABLE_LICENCE={
@@ -379,7 +354,7 @@ class AssetForm(forms.ModelForm):
     machine_model_no = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     machine_serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd = forms.ChoiceField(choices=HDD,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
-    hdd_type = forms.ChoiceField(label='Gender', widget=forms.RadioSelect(choices=HDD_Type),required=False)
+    hdd_type = forms.ChoiceField(choices=HDD_Type,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     hdd_make = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd_model = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd_serial_no =forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
