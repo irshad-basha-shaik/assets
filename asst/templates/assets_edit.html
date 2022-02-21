@@ -234,13 +234,11 @@ body {
                                         </div>
                                        </div>
 
-                                    <div class="col-md-6">
+                                     <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">HDD Type:</label>
                                           <div class="col-sm-9">
-                                           <select name="hdd_type" id="hdd_type">
-                                                <option value="" selected="selected"></option>
-                                              </select>
+                                                {{form.hdd_type}}
                                           </div>
                                         </div>
                                        </div>
@@ -249,9 +247,7 @@ body {
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">HDD Capacity:</label>
                                           <div class="col-sm-9">
-                                           <select name="hdd" id="hdd">
-                                                <option value="" selected="selected"></option>
-                                              </select>
+                                               {{form.hdd}}
                                           </div>
                                         </div>
                                        </div>
@@ -388,9 +384,7 @@ body {
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Operating System:</label>
                                           <div class="col-sm-9">
-                                           <select name="OS" id="OS">
-                                                <option value="" selected="selected"></option>
-                                              </select>
+                                           {{form.OS}}
                                           </div>
                                         </div>
                                        </div>
@@ -398,11 +392,9 @@ body {
                                       <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Operating System Version:</label>
-                                          <div class="col-sm-9">
-                                           <select name="Operating_System_Version" id="Operating_System_Version">
-                                                <option value="" selected="selected"></option>
-                                              </select>
-                                          </div>
+                                            <div class="col-sm-9">
+                                                {{form.Operating_System_Version}}
+                                            </div>
                                         </div>
                                        </div>
                                       <div class="col-md-6">
