@@ -92,10 +92,11 @@
                             <td style ="font-weight: bold;">HDD Capacity</td>
                             <td style ="font-weight: bold;">HDD Si.No</td>
                             <td style ="font-weight: bold;">Purchase Date</td>
-                            <td style ="font-weight: bold;">Warranty Start Date</td>
-                            <td style ="font-weight: bold;">Warranty End Date</td>
-                            <td style ="font-weight: bold;">AMC Start Date</td>
-                            <td style ="font-weight: bold;">AMC End Date</td>
+                            <td style ="font-weight: bold;">Warranty / AMC</td>
+                            <!--td style ="font-weight: bold;">Warranty Start Date</td>
+                            <td style ="font-weight: bold;">Warranty End Date</td-->
+                            <td style ="font-weight: bold;">Service Start Date</td>
+                            <td style ="font-weight: bold;">Service End Date</td>
                             <td style ="font-weight: bold;">OS Version</td>
                             <td style ="font-weight: bold;">OS</td>
                             <td style ="font-weight: bold;">MS Office Version</td>
@@ -143,8 +144,9 @@
                             <td>{{form.hdd}}</td>
                             <td>{{form.hdd_serial_no}}</td>
                             <td>{{form.processor_purchase_date}}</td>
-                            <td>{{form.warranty_start_date}}</td>
-                            <td>{{form.warranty_end_date}}</td>
+                            <td>{% if form.date_type %} {{form.date_type}}{% else %}  {% endif %}</td>
+                            <!--td>{{form.warranty_start_date}}</td>
+                            <td>{{form.warranty_end_date}}</td-->
                             <td>{{form.amc_start_date}}</td>
                             <td>{{form.amc_end_date}}</td>
                             <td>{{form.Operating_System_Version}}</td>

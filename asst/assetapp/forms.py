@@ -59,7 +59,7 @@ HDD = [
     ('2 TB SATA+256 GB SSD', '2 TB SATA+256 GB SSD'),
     ('2 TB SATA+500 GB SSD', '2 TB SATA+500 GB SSD'),
     ('2 TB SATA+1 TB SSD', '2 TB SATA+1 TB SSD'),
-    ('', ''),('', ''),('', ''),('', ''),('', ''),('', ''),
+    ('', '')
 
 ]
 HDD_CAPACITY = (
@@ -219,9 +219,12 @@ EmailType = [
 HDD_Type = [
     ('SATA', 'SATA'),
     ('SSD', 'SSD'),
-    ('SATA+SSD', 'SATA+SSD'),
+    ('SSD+SATA', 'SSD+SATA'),
 ]
-
+Date_Type = [
+    ('Warranty', 'Warranty'),
+    ('AMC', 'AMC'),
+]
 Softwares = [
     ('Antivirus', 'Antivirus'),
     ('Coral draw', 'Coral draw'),
@@ -276,6 +279,7 @@ OS_VERSION = (
     ('Win-10 Home Single Lan.','Win-10 Home Single Lan.'),
     ('Win-10 Home Single Lan','Win-10 Home Single Lan'),
     ('Win-10 Pro 64 bit','Win-10 Pro 64 bit'),
+    ('Win-11 Pro 64 bit','Win-11 Pro 64 bit'),
     ('',''),
 
 )
@@ -359,14 +363,13 @@ class AssetForm(forms.ModelForm):
     hdd_model = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd_serial_no =forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     ram =forms.ChoiceField(choices=RAM,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
-    processor_purchase_date = forms.DateField(label='Processor Purchase Date', widget=forms.SelectDateWidget(years=YEARS))
+    processor_purchase_date = forms.DateField(label='Processor Purchase Date', widget=forms.SelectDateWidget(years=YEARS),required=False)
     processor = forms.ChoiceField(choices=PROCESSOR,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
-    warranty_start_date = forms.DateField(label='Warranty Start Date', widget=forms.SelectDateWidget(years=YEARS))
-    warranty_end_date = forms.DateField(label='Warranty End Date', widget=forms.SelectDateWidget(years=YEARS))
-    amc_start_date = forms.DateField(label='AMC Start Date', widget=forms.SelectDateWidget(years=YEARS))
-    amc_end_date = forms.DateField(label='AMC End Date', widget=forms.SelectDateWidget(years=YEARS))
-    user_acceptance_date = forms.DateField(label='User Acceptance Date', widget=forms.SelectDateWidget(years=YEARS))
-    user_handed_over_date = forms.DateField(label='User Handed Over Date', widget=forms.SelectDateWidget(years=YEARS))
+    date_type = forms.ChoiceField(choices=Date_Type,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    amc_start_date = forms.DateField(label='AMC Start Date', widget=forms.SelectDateWidget(years=YEARS),required=False)
+    amc_end_date = forms.DateField(label='AMC End Date', widget=forms.SelectDateWidget(years=YEARS),required=False)
+    user_acceptance_date = forms.DateField(label='User Acceptance Date', widget=forms.SelectDateWidget(years=YEARS),required=False)
+    user_handed_over_date = forms.DateField(label='User Handed Over Date', widget=forms.SelectDateWidget(years=YEARS),required=False)
     Operating_System_Version = forms.ChoiceField(choices=OS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     OS = forms.ChoiceField(choices=OS,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_office = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
