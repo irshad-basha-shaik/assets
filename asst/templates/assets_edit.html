@@ -246,8 +246,30 @@ body {
                                     <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">HDD Capacity:</label>
-                                          <div class="col-sm-9">
-                                               {{form.hdd}}
+                                          <div class="col-sm-9" name="hdd" id="hdd">
+
+                                                {{form.hdd}}
+
+                                          </div>
+                                        </div>
+                                       </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">HDD Capacity:</label>
+                                          <div class="col-sm-9" name="hdd1" id="hdd1">
+
+                                                {{form.hdd}}
+
+                                          </div>
+                                        </div>
+                                       </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">HDD Capacity:</label>
+                                          <div class="col-sm-9" name="hdd2" id="hdd2">
+
+                                                {{form.hdd}}
+
                                           </div>
                                         </div>
                                        </div>
@@ -534,23 +556,6 @@ body {
 
 
 <script>
-setTimeout(function() {
-$('#tabs-nav li:first-child').addClass('active');
-$('.tab-content').hide();
-$('.tab-content:first').show();
-$('#tabs-nav li').click(function () {
-  $('#tabs-nav li').removeClass('active');
-  $(this).addClass('active');
-  $('.tab-content').hide();
-
-  var activeTab = $(this).find('a').attr('href');
-
-  $(activeTab).fadeIn();
-  return false;
-});
-
-}, 100);
-
 var hdd_typeObject = {
   "SSD": ["128 GB SSD","256 GB SSD","512 GB SSD","1 TB SSD","2 TB SSD"," "],
     "SATA": ["160 GB","240 GB","250 GB","320 GB","350 GB","500 GB","512 GB","1 TB","2 TB","2TB+4TB"," "],
@@ -598,6 +603,26 @@ window.onload = function() {
     }
   }
 }
+
+
+
+setTimeout(function() {
+$('#tabs-nav li:first-child').addClass('active');
+$('.tab-content').hide();
+$('.tab-content:first').show();
+$('#tabs-nav li').click(function () {
+  $('#tabs-nav li').removeClass('active');
+  $(this).addClass('active');
+  $('.tab-content').hide();
+
+  var activeTab = $(this).find('a').attr('href');
+
+  $(activeTab).fadeIn();
+  return false;
+});
+
+}, 100);
+
 
 function TABS() {
 		$('#tabs-nav li').click(function () {

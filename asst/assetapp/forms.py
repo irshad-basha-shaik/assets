@@ -60,8 +60,39 @@ HDD = [
     ('2 TB SATA+500 GB SSD', '2 TB SATA+500 GB SSD'),
     ('2 TB SATA+1 TB SSD', '2 TB SATA+1 TB SSD'),
     ('', '')
-
 ]
+
+SATA = [
+    ('160 GB', '160 GB'),
+    ('240 GB', '240 GB'),
+    ('250 GB', '250 GB'),
+    ('320 GB', '320 GB'),
+    ('350 GB', '350 GB'),
+    ('500 GB', '500 GB'),
+    ('512 GB', '512 GB'),
+    ('1 TB', '1 TB'),
+    ('2 TB', '2 TB'),
+    ('2TB+4TB', '2TB+4TB'),
+    ('', '')
+    ]
+SSD = [
+    ('128 GB SSD', '128 GB SSD'),
+    ('256 GB SSD', '256 GB SSD'),
+    ('512 GB SSD', '512 GB SSD'),
+    ('1 TB SSD', '1 TB SSD'),
+    ('2 TB SSD', '2 TB SSD'),
+    ('', '')
+    ]
+SSDSATA = [
+    ('1 TB SATA+256 GB SSD', '1 TB SATA+256 GB SSD'),
+    ('1 TB SATA+500 GB SSD', '1 TB SATA+500 GB SSD'),
+    ('1 TB SATA+1 TB SSD', '1 TB SATA+1 TB SSD'),
+    ('2 TB SATA+256 GB SSD', '2 TB SATA+256 GB SSD'),
+    ('2 TB SATA+500 GB SSD', '2 TB SATA+500 GB SSD'),
+    ('2 TB SATA+1 TB SSD', '2 TB SATA+1 TB SSD'),
+    ('', '')
+    ]
+
 HDD_CAPACITY = (
     ('500MB','500MB'),
     ('120GB', '120GB'),
@@ -219,7 +250,7 @@ EmailType = [
 HDD_Type = [
     ('SATA', 'SATA'),
     ('SSD', 'SSD'),
-    ('SSD+SATA', 'SSD+SATA'),
+    ('SSDSATA', 'SSDSATA'),
 ]
 Date_Type = [
     ('Warranty', 'Warranty'),
@@ -357,7 +388,9 @@ class AssetForm(forms.ModelForm):
     machine_age = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     machine_model_no = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     machine_serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
-    hdd = forms.ChoiceField(choices=HDD,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    hdd = forms.ChoiceField(choices=SATA,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    hdd = forms.ChoiceField(choices=SSD, widget=forms.Select(attrs={'class': 'form-control'}), required=False)
+    hdd = forms.ChoiceField(choices=SSDSATA, widget=forms.Select(attrs={'class': 'form-control'}), required=False)
     hdd_type = forms.ChoiceField(choices=HDD_Type,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     hdd_make = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd_model = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
@@ -368,8 +401,8 @@ class AssetForm(forms.ModelForm):
     date_type = forms.ChoiceField(choices=Date_Type,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     amc_start_date = forms.DateField(label='AMC Start Date', widget=forms.SelectDateWidget(years=YEARS),required=False)
     amc_end_date = forms.DateField(label='AMC End Date', widget=forms.SelectDateWidget(years=YEARS),required=False)
-    user_acceptance_date = forms.DateField(label='User Acceptance Date', widget=forms.SelectDateWidget(years=YEARS),required=False)
-    user_handed_over_date = forms.DateField(label='User Handed Over Date', widget=forms.SelectDateWidget(years=YEARS),required=False)
+    user_acceptance_date = forms.DateField(initial='N/A',label='User Acceptance Date', widget=forms.SelectDateWidget(years=YEARS),required=False)
+    user_handed_over_date = forms.DateField(initial='N/A',label='User Handed Over Date', widget=forms.SelectDateWidget(years=YEARS),required=False)
     Operating_System_Version = forms.ChoiceField(choices=OS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     OS = forms.ChoiceField(choices=OS,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_office = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
