@@ -141,7 +141,7 @@
                             <td>{{form.ram}}</td>
                             <td>{{form.processor}}</td>
                             <td>{{ form.hdd_type}}</td>
-                            <td>{{form.hdd}}</td>
+                            <td>{% if form.hdd %}{{form.hdd}}{% endif %}</td>
                             <td>{{form.hdd_serial_no}}</td>
                             <td>{{form.processor_purchase_date}}</td>
                             <td>{% if form.date_type %} {{form.date_type}}{% else %}  {% endif %}</td>

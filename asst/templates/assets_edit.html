@@ -234,42 +234,36 @@ body {
                                         </div>
                                        </div>
 
-                                     <div class="col-md-6">
-                                        <div class="form-group row">
+                                    <div class="col-md-6" >
+                                        <div class="form-group row" name="hdd_type" id="hdd_type">
                                             <label class="col-sm-3 col-form-label">HDD Type:</label>
+                                          <div class="col-sm-9" >
+                                              {{form.hdd_type}}
+                                          </div>
+                                        </div>
+                                       </div>
+
+                                    <div class="col-md-6" >
+                                        <div class="form-group row" name="hdd" id="hdd">
+                                            <label class="col-sm-3 col-form-label">HDD Capacity:</label>
+                                          <div class="col-sm-9" >
+                                           {{form.hdd}}
+                                          </div>
+                                        </div>
+                                       </div>
+                                    <div class="col-md-6" >
+                                        <div class="form-group row" name="hdd1" id="hdd1">
+                                            <label class="col-sm-3 col-form-label">HDD Capacity:</label>
                                           <div class="col-sm-9">
-                                                {{form.hdd_type}}
+                                           {{form.hdd1}}
                                           </div>
                                         </div>
                                        </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
+                                    <div class="col-md-6" >
+                                        <div class="form-group row" name="hdd2" id="hdd2">
                                             <label class="col-sm-3 col-form-label">HDD Capacity:</label>
-                                          <div class="col-sm-9" name="hdd" id="hdd">
-
-                                                {{form.hdd}}
-
-                                          </div>
-                                        </div>
-                                       </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">HDD Capacity:</label>
-                                          <div class="col-sm-9" name="hdd1" id="hdd1">
-
-                                                {{form.hdd}}
-
-                                          </div>
-                                        </div>
-                                       </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">HDD Capacity:</label>
-                                          <div class="col-sm-9" name="hdd2" id="hdd2">
-
-                                                {{form.hdd}}
-
+                                          <div class="col-sm-9">
+                                           {{form.hdd2}}
                                           </div>
                                         </div>
                                        </div>
@@ -406,7 +400,9 @@ body {
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Operating System:</label>
                                           <div class="col-sm-9">
-                                              {{form.OS}}
+                                           <select name="OS" id="OS">
+                                                <option value="" selected="selected"></option>
+                                              </select>
                                           </div>
                                         </div>
                                        </div>
@@ -414,9 +410,11 @@ body {
                                       <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Operating System Version:</label>
-                                            <div class="col-sm-9">
-                                                {{form.Operating_System_Version}}
-                                            </div>
+                                          <div class="col-sm-9">
+                                           <select name="Operating_System_Version" id="Operating_System_Version">
+                                                <option value="" selected="selected"></option>
+                                              </select>
+                                          </div>
                                         </div>
                                        </div>
                                       <div class="col-md-6">
@@ -556,56 +554,6 @@ body {
 
 
 <script>
-var hdd_typeObject = {
-  "SSD": ["128 GB SSD","256 GB SSD","512 GB SSD","1 TB SSD","2 TB SSD"," "],
-    "SATA": ["160 GB","240 GB","250 GB","320 GB","350 GB","500 GB","512 GB","1 TB","2 TB","2TB+4TB"," "],
-    "SSD+SATA": ["1 TB SATA+256 GB SSD","1 TB SATA+500 GB SSD","1 TB SATA+1 TB SSD","2 TB SATA+256 GB SSD","2 TB SATA+500 GB SSD","2 TB SATA+1 TB SSD"," "]
-}
-var OSObject = {
-    "Win.XP": ["Windows Xp Pro.","Windows Xp Home"," "],
-    "Win.7": ["Win-7 Pro.32 Bit","Win-7 Pro.64 Bit"," "],
-    "Win.8": ["Win-8.1 Pro.32 Bit","Win-8.1 Pro 64 Bit"," "],
-    "Win.10": ["Win-10 Pro 32 bit","Win-10 Pro 64 bit","Win-10 Home Single Lan"," "],
-    "Win.11": ["Win-11 Pro 64 bit"," "],
-    "Win-Server": ["Win-Server-2012","Win-Server-2016","Win-Server-2019"," "],
-
-}
-window.onload = function() {
-  var HDD_TypeSel = document.getElementById("hdd_type");
-  var HDDSel = document.getElementById("hdd");
-  var winSel = document.getElementById("OS");
-  var winVerSel = document.getElementById("Operating_System_Version");
-
-
-  for (var x in hdd_typeObject) {
-    HDD_TypeSel.options[HDD_TypeSel.options.length] = new Option(x, x);
-  }
-
-  HDD_TypeSel.onchange = function() {
-
-     HDDSel.length = 1;
-
-    var y = hdd_typeObject[HDD_TypeSel.value];
-    for (var i = 0; i < y.length; i++) {
-      HDDSel.options[HDDSel.options.length] = new Option(y[i], y[i]);
-    }
-  }
-  for (var x in OSObject) {
-    winSel.options[winSel.options.length] = new Option(x, x);
-  }
-  winSel.onchange = function() {
-
-     winVerSel.length = 1;
-
-    var y = OSObject[winSel.value];
-    for (var i = 0; i < y.length; i++) {
-      winVerSel.options[winVerSel.options.length] = new Option(y[i], y[i]);
-    }
-  }
-}
-
-
-
 setTimeout(function() {
 $('#tabs-nav li:first-child').addClass('active');
 $('.tab-content').hide();
@@ -622,6 +570,49 @@ $('#tabs-nav li').click(function () {
 });
 
 }, 100);
+
+
+var hdd_typeObject = {
+  "SSD": ["128 GB SSD","256 GB SSD","512 GB SSD","1 TB SSD","2 TB SSD"," "],
+    "SATA": ["160 GB","240 GB","250 GB","320 GB","350 GB","500 GB","512 GB","1 TB","2 TB","2TB+4TB"," "],
+    "SSDSATA": ["1 TB SATA+256 GB SSD","1 TB SATA+500 GB SSD","1 TB SATA+1 TB SSD","2 TB SATA+256 GB SSD","2 TB SATA+500 GB SSD","2 TB SATA+1 TB SSD"," "]
+    }
+
+
+var OSObject = {
+    "Win.XP": ["Windows Xp Pro.","Windows Xp Home"," "],
+    "Win.7": ["Win-7 Pro.32 Bit","Win-7 Pro.64 Bit"," "],
+    "Win.8": ["Win-8.1 Pro.32 Bit","Win-8.1 Pro 64 Bit"," "],
+    "Win.10": ["Win-10 Pro 32 bit","Win-10 Pro 64 bit","Win-10 Home Single Lan"," "],
+    "Win.11": ["Win-11 Pro 64 bit"," "],
+    "Win-Server": ["Win-Server-2012","Win-Server-2016","Win-Server-2019"," "],
+
+}
+window.onload = function() {
+  $("#hdd1").parent('div').hide();
+  $("#hdd2").parent('div').hide();
+  $('#id_hdd_type').on('change', function() {
+    if (this.value == "SSD"){
+        $("#hdd").parent('div').hide();
+        $("#hdd2").parent('div').hide();
+		$('#hdd1').parent('div').show();
+		return false;
+		}
+    if (this.value == "SATA"){
+        $("#hdd1").parent('div').hide();
+        $("#hdd2").parent('div').hide();
+		$('#hdd').parent('div').show();
+		return false;
+		}
+	if (this.value == "SSDSATA"){
+	    $("#hdd").parent('div').hide();
+        $("#hdd1").parent('div').hide();
+		$('#hdd2').parent('div').show();
+		return false;
+		}
+    return true;
+})
+  }
 
 
 function TABS() {
