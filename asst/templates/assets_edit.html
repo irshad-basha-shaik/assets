@@ -267,6 +267,14 @@ body {
                                           </div>
                                         </div>
                                        </div>
+                                    <div class="col-md-6" >
+                                        <div class="form-group row" name="hdd3" id="hdd3">
+                                            <label class="col-sm-3 col-form-label">HDD Capacity:</label>
+                                          <div class="col-sm-9">
+                                           {{form.hdd3}}
+                                          </div>
+                                        </div>
+                                       </div>
 
                                      <div class="col-md-6">
                                         <div class="form-group row">
@@ -591,23 +599,27 @@ var OSObject = {
 window.onload = function() {
   $("#hdd1").parent('div').hide();
   $("#hdd2").parent('div').hide();
+  $("#hdd3").parent('div').hide();
   $('#id_hdd_type').on('change', function() {
     if (this.value == "SSD"){
         $("#hdd").parent('div').hide();
+        $("#hdd1").parent('div').hide();
+        $("#hdd3").parent('div').hide();
+		$('#hdd2').parent('div').show();
+		return false;
+		}
+    if (this.value == "SATA"){
+        $("#hdd").parent('div').hide();
+        $("#hdd3").parent('div').hide();
         $("#hdd2").parent('div').hide();
 		$('#hdd1').parent('div').show();
 		return false;
 		}
-    if (this.value == "SATA"){
-        $("#hdd1").parent('div').hide();
-        $("#hdd2").parent('div').hide();
-		$('#hdd').parent('div').show();
-		return false;
-		}
 	if (this.value == "SSDSATA"){
 	    $("#hdd").parent('div').hide();
+	    $("#hdd2").parent('div').hide();
         $("#hdd1").parent('div').hide();
-		$('#hdd2').parent('div').show();
+		$('#hdd3').parent('div').show();
 		return false;
 		}
     return true;

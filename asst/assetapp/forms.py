@@ -248,6 +248,7 @@ EmailType = [
     ('Public', 'Public'),
 ]
 HDD_Type = [
+    ('HDD', 'HDD'),
     ('SATA', 'SATA'),
     ('SSD', 'SSD'),
     ('SSDSATA', 'SSDSATA'),
@@ -388,9 +389,10 @@ class AssetForm(forms.ModelForm):
     machine_age = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     machine_model_no = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     machine_serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
-    hdd = forms.ChoiceField(choices=SATA,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
-    hdd1 = forms.ChoiceField(choices=SSD, widget=forms.Select(attrs={'class': 'form-control'}), required=False)
-    hdd2 = forms.ChoiceField(choices=SSDSATA, widget=forms.Select(attrs={'class': 'form-control'}), required=False)
+    hdd = forms.ChoiceField(choices=HDD,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    hdd1 = forms.ChoiceField(choices=SATA, widget=forms.Select(attrs={'class': 'form-control'}), required=False)
+    hdd2 = forms.ChoiceField(choices=SSD, widget=forms.Select(attrs={'class': 'form-control'}), required=False)
+    hdd3 = forms.ChoiceField(choices=SSDSATA, widget=forms.Select(attrs={'class': 'form-control'}), required=False)
     hdd_type = forms.ChoiceField(choices=HDD_Type,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     hdd_make = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd_model = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
@@ -429,6 +431,8 @@ class AssetForm(forms.ModelForm):
         model = AssetModel
         fields = ['user_name','user_contact','user_email','location','asset_no','serial_no','emp_id','usage_type','machine_type','gef_id_number','domain_workgroup','Domain_User_Name','machine_make','machine_age','machine_model_no','machine_serial_no','hdd','hdd_type','hdd_make','hdd_model','hdd_serial_no','ram','processor','processor_purchase_date','date_type','amc_start_date','amc_end_date','user_acceptance_date','user_handed_over_date','Operating_System_Version','OS','OEM_Volume','ms_office','ms_office_version','ms_365','ms_visio','ms_access','Antivirus','AutoCAD','Coral_Draw','Pdf_Writer','Winzip','Installed_Softwares','Adobe_acrobate','Visio','Access','SAP','SAP_User_ID','Status','Remarks']
 
+        def __str__(self):
+            return self.hdd
 class WifiForm(forms.ModelForm):
     Location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}))
     Old_Asst_No = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
