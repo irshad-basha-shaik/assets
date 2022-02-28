@@ -2,7 +2,7 @@ from datetime import datetime,date
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE,EmailType,Softwares,HDD_Type
+from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE,EmailType,Softwares,HDD_Type,OS_VERSIONS,HDDS
 from .models import AssetModel,WifiModel,FirewallModel,VCCModel,PrinterModel
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
@@ -14,21 +14,32 @@ log=""
 
 @login_required
 def new(request):
-    #hdd = ["hdd1","hdd2","hdd3"]
+    k = 0
     context = {}
     context['form'] = AssetForm()
     if request.method== 'POST':
         form = AssetForm(request.POST)
-        """for z in hdd:
-            if request.POST[z] != '':
-                form.cleaned_data['hdd'] = request.POST['z']"""
+
         #form.cleaned_data['hdd'] = request.POST['hdd3']
         #form = form.upper()
         if form.is_valid():
-
             student = form.save(commit=False)
+            try:
+                for z in HDDS:
+                    if request.POST[z[0]] != '':
+                        student.hdd = request.POST[z[0]]
 
+            except:
+                if request.POST[z[0]] == '':
+                    student.hdd = request.POST[z[0]]
+            try:
+                for z in OS_VERSIONS:
+                    if request.POST[z[0]] != '':
+                        student.Operating_System_Version = request.POST[z[0]]
 
+            except:
+                if request.POST[z[0]] == '':
+                    student.Operating_System_Version = request.POST[z[0]]
             student.save()
             return index(request)
         else:
@@ -522,15 +533,19 @@ def sum(obj):
     return temp
 @login_required
 def edit(request,id):
-    hdd = ["hdd1","hdd2","hdd3"]
     obj = get_object_or_404(AssetModel, pk=id)
     context = {}
     form = AssetForm(instance=obj)
     if request.method == 'POST':
         form = AssetForm(request.POST)
-        """for (z in hdd; request.POST[z] != ''):
-            form.cleaned_data['hdd'] = request.POST['z']"""
+
         if form.is_valid():
+            if request.POST['hdd1'] !='':
+                form.cleaned_data['hdd'] = request.POST['hdd1']
+            elif request.POST['hdd2'] !='':
+                form.cleaned_data['hdd'] = request.POST['hdd2']
+            elif request.POST['hdd3'] !='':
+                form.cleaned_data['hdd'] = request.POST['hdd3']
             #AssetModel.objects.filter(pk=id).update(location=form.cleaned_data['location'],asset_no=form.cleaned_data['asset_no'],emp_id=form.cleaned_data['emp_id'],usage_type=form.cleaned_data['usage_type'],machine_type=form.cleaned_data['machine_type'],gef_id_number=form.cleaned_data['gef_id_number'],domain_workgoup=form.cleaned_data['domain_workgoup'],machine_make=form.cleaned_data['machine_make'],machine_model_no=form.cleaned_data['machine_model_no'],machine_serial_no=form.cleaned_data['machine_serial_no'],hdd=form.cleaned_data['hdd'],hdd_make=form.cleaned_data['hdd_make'],hdd_model=form.cleaned_data['hdd_model'],hdd_serial_no=form.cleaned_data['hdd_serial_no'],ram=form.cleaned_data['ram'])
             AssetModel.objects.filter(pk=id).update(user_name=form.cleaned_data['user_name'],user_contact=form.cleaned_data['user_contact'],location=form.cleaned_data['location'],asset_no=form.cleaned_data['asset_no'],user_email=form.cleaned_data['user_email'],emp_id=form.cleaned_data['emp_id'],usage_type=form.cleaned_data['usage_type'],machine_type=form.cleaned_data['machine_type'],machine_age=form.cleaned_data['machine_age'],gef_id_number=form.cleaned_data['gef_id_number'],domain_workgroup=form.cleaned_data['domain_workgroup'],machine_make=form.cleaned_data['machine_make'],machine_model_no=form.cleaned_data['machine_model_no'],machine_serial_no=form.cleaned_data['machine_serial_no'],hdd_type=form.cleaned_data['hdd_type'],hdd=form.cleaned_data['hdd'],hdd_make=form.cleaned_data['hdd_make'],hdd_model=form.cleaned_data['hdd_model'],hdd_serial_no=form.cleaned_data['hdd_serial_no'],ram=form.cleaned_data['ram'],processor=form.cleaned_data['processor'],processor_purchase_date=form.cleaned_data['processor_purchase_date'],amc_start_date=form.cleaned_data['amc_start_date'],amc_end_date=form.cleaned_data['amc_end_date'],user_acceptance_date=form.cleaned_data['user_acceptance_date'],user_handed_over_date=form.cleaned_data['user_handed_over_date'],ms_office=form.cleaned_data['ms_office'],ms_office_version=form.cleaned_data['ms_office_version'],OEM_Volume=form.cleaned_data['OEM_Volume'],Operating_System_Version=form.cleaned_data['Operating_System_Version'],OS=form.cleaned_data['OS'],Antivirus=form.cleaned_data['Antivirus'],AutoCAD=form.cleaned_data['AutoCAD'],Adobe_acrobate=form.cleaned_data['Adobe_acrobate'],Visio=form.cleaned_data['Visio'],Access=form.cleaned_data['Access'],ms_visio=form.cleaned_data['ms_visio'],ms_access=form.cleaned_data['ms_access'],SAP_User_ID=form.cleaned_data['SAP_User_ID'],SAP=form.cleaned_data['SAP'],ms_365=form.cleaned_data['ms_365'],Installed_Softwares=form.cleaned_data['Installed_Softwares'], Status=form.cleaned_data['Status'],Remarks=form.cleaned_data['Remarks'])
             return index(request)

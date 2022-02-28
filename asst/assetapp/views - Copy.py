@@ -17,6 +17,7 @@ def new(request):
     context = {}
     context['form'] = AssetForm()
     if request.method== 'POST':
+
         form = AssetForm(request.POST)
         #form = form.upper()
         if form.is_valid():

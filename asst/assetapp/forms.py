@@ -247,6 +247,12 @@ EmailType = [
     ('Zimbra', 'Zimbra'),
     ('Public', 'Public'),
 ]
+HDDS = [
+    ('hdd', 'hdd'),
+    ('hdd1', 'hdd1'),
+    ('hdd2', 'hdd2'),
+    ('hdd3', 'hdd3'),
+]
 HDD_Type = [
     ('HDD', 'HDD'),
     ('SATA', 'SATA'),
@@ -287,6 +293,15 @@ ACCESS_VERSION =  (
     ('','')
 )
 OEM_VOLUME = [x for x in range(1990,2021)]
+OS_VERSIONS = (
+    ("Operating_System_Version","Operating_System_Version"),
+    ("Operating_System_Version1","Operating_System_Version1"),
+    ("Operating_System_Version2","Operating_System_Version2"),
+    ("Operating_System_Version3","Operating_System_Version3"),
+    ("Operating_System_Version4","Operating_System_Version4"),
+    ("Operating_System_Version5","Operating_System_Version5"),
+    ("Operating_System_Version6","Operating_System_Version6")
+    )
 OS_VERSION = (
     ('Win-7 Pro.32 Bit','Win-7 Pro.32 Bit'),
     ('Win-Server-2012','Win-Server-2012'),
@@ -312,6 +327,44 @@ OS_VERSION = (
     ('Win-10 Home Single Lan','Win-10 Home Single Lan'),
     ('Win-10 Pro 64 bit','Win-10 Pro 64 bit'),
     ('Win-11 Pro 64 bit','Win-11 Pro 64 bit'),
+    ('',''),
+
+)
+OS_VERSION1 = (
+    ('Windows Xp Pro 32 Bit','Windows Xp Pro 32 Bit'),
+    ('Windows Xp Pro 64 Bit','Windows Xp Pro 64 Bit'),
+    ('',''),
+
+)
+OS_VERSION2 = (
+    ('Win-7 Pro.32 Bit','Win-7 Pro.32 Bit'),
+    ('Win-7 Pro.64 Bit','Win-7 Pro.64 Bit'),
+    ('',''),
+
+)
+OS_VERSION3 = (
+    ('Win-8.1 Pro.32 Bit','Win-8.1 Pro.32 Bit'),
+    ('Win-8.1 Pro 64 Bit','Win-8.1 Pro 64 Bit'),
+    ('',''),
+
+)
+OS_VERSION4 = (
+    ('Win-10 Pro 32 Bit','Win-10 Pro 32 Bit'),
+    ('Win-10 Pro 64 Bit','Win-10 Pro 64 Bit'),
+    ('Win-10 Home Single Lan','Win-10 Home Single Lan'),
+    ('',''),
+
+)
+OS_VERSION5 = (
+    ('Win-11 Pro 32 bit','Win-11 Pro 32 bit'),
+    ('Win-11 Pro 64 bit','Win-11 Pro 64 bit'),
+    ('',''),
+
+)
+OS_VERSION6 = (
+    ('Win-Server-2012','Win-Server-2012'),
+    ('Win-Server-2016','Win-Server-2016'),
+    ('Win-Server-2019','Win-Server-2019'),
     ('',''),
 
 )
@@ -398,14 +451,20 @@ class AssetForm(forms.ModelForm):
     hdd_model = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd_serial_no =forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     ram =forms.ChoiceField(choices=RAM,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
-    processor_purchase_date = forms.DateField(label='Processor Purchase Date', widget=forms.SelectDateWidget(years=YEARS),required=False)
+    processor_purchase_date = forms.DateField(label='Processor Purchase Date', widget=forms.NumberInput(attrs={'type': 'date'}),required=False)
     processor = forms.ChoiceField(choices=PROCESSOR,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     date_type = forms.ChoiceField(choices=Date_Type,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
-    amc_start_date = forms.DateField(label='AMC Start Date', widget=forms.SelectDateWidget(years=YEARS),required=False)
-    amc_end_date = forms.DateField(label='AMC End Date', widget=forms.SelectDateWidget(years=YEARS),required=False)
-    user_acceptance_date = forms.DateField(initial='N/A',label='User Acceptance Date', widget=forms.SelectDateWidget(years=YEARS),required=False)
-    user_handed_over_date = forms.DateField(initial='N/A',label='User Handed Over Date', widget=forms.SelectDateWidget(years=YEARS),required=False)
+    amc_start_date = forms.DateField(label='AMC Start Date', widget=forms.NumberInput(attrs={'type': 'date'}),required=False)
+    amc_end_date = forms.DateField(label='AMC End Date', widget=forms.NumberInput(attrs={'type': 'date'}),required=False)
+    user_acceptance_date = forms.DateField(initial='N/A',label='User Acceptance Date', widget=forms.NumberInput(attrs={'type': 'date'}),required=False)
+    user_handed_over_date = forms.DateField(initial='N/A',label='User Handed Over Date', widget=forms.NumberInput(attrs={'type': 'date'}),required=False)
     Operating_System_Version = forms.ChoiceField(choices=OS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    Operating_System_Version1 = forms.ChoiceField(choices=OS_VERSION1,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    Operating_System_Version2 = forms.ChoiceField(choices=OS_VERSION2,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    Operating_System_Version3 = forms.ChoiceField(choices=OS_VERSION3,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    Operating_System_Version4 = forms.ChoiceField(choices=OS_VERSION4,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    Operating_System_Version5 = forms.ChoiceField(choices=OS_VERSION5,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    Operating_System_Version6 = forms.ChoiceField(choices=OS_VERSION6,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     OS = forms.ChoiceField(choices=OS,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_office = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     ms_office_version = forms.ChoiceField(choices=MS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}))
@@ -431,8 +490,6 @@ class AssetForm(forms.ModelForm):
         model = AssetModel
         fields = ['user_name','user_contact','user_email','location','asset_no','serial_no','emp_id','usage_type','machine_type','gef_id_number','domain_workgroup','Domain_User_Name','machine_make','machine_age','machine_model_no','machine_serial_no','hdd','hdd_type','hdd_make','hdd_model','hdd_serial_no','ram','processor','processor_purchase_date','date_type','amc_start_date','amc_end_date','user_acceptance_date','user_handed_over_date','Operating_System_Version','OS','OEM_Volume','ms_office','ms_office_version','ms_365','ms_visio','ms_access','Antivirus','AutoCAD','Coral_Draw','Pdf_Writer','Winzip','Installed_Softwares','Adobe_acrobate','Visio','Access','SAP','SAP_User_ID','Status','Remarks']
 
-        def __str__(self):
-            return self.hdd
 class WifiForm(forms.ModelForm):
     Location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}))
     Old_Asst_No = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))

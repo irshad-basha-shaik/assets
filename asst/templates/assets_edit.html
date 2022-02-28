@@ -405,23 +405,67 @@ body {
                                         </div>
                                        </div>
                                     <div class="col-md-6">
-                                        <div class="form-group row">
+                                        <div class="form-group row" name="OS" id="OS">
                                             <label class="col-sm-3 col-form-label">Operating System:</label>
                                           <div class="col-sm-9">
-                                           <select name="OS" id="OS">
-                                                <option value="" selected="selected"></option>
-                                              </select>
+                                           {{form.OS}}
                                           </div>
                                         </div>
                                        </div>
 
                                       <div class="col-md-6">
-                                        <div class="form-group row">
+                                        <div class="form-group row" name="Operating_System_Version" id="Operating_System_Version">
                                             <label class="col-sm-3 col-form-label">Operating System Version:</label>
                                           <div class="col-sm-9">
-                                           <select name="Operating_System_Version" id="Operating_System_Version">
-                                                <option value="" selected="selected"></option>
-                                              </select>
+                                              {{form.Operating_System_Version}}
+                                          </div>
+                                        </div>
+                                       </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row" name="Operating_System_Version1" id="Operating_System_Version1">
+                                            <label class="col-sm-3 col-form-label">Operating System Version:</label>
+                                          <div class="col-sm-9">
+                                              {{form.Operating_System_Version1}}
+                                          </div>
+                                        </div>
+                                       </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row" name="Operating_System_Version2" id="Operating_System_Version2">
+                                            <label class="col-sm-3 col-form-label">Operating System Version:</label>
+                                          <div class="col-sm-9">
+                                              {{form.Operating_System_Version2}}
+                                          </div>
+                                        </div>
+                                       </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row" name="Operating_System_Version3" id="Operating_System_Version3">
+                                            <label class="col-sm-3 col-form-label">Operating System Version:</label>
+                                          <div class="col-sm-9">
+                                              {{form.Operating_System_Version3}}
+                                          </div>
+                                        </div>
+                                       </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row" name="Operating_System_Version4" id="Operating_System_Version4">
+                                            <label class="col-sm-3 col-form-label">Operating System Version:</label>
+                                          <div class="col-sm-9">
+                                              {{form.Operating_System_Version4}}
+                                          </div>
+                                        </div>
+                                       </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row" name="Operating_System_Version5" id="Operating_System_Version5">
+                                            <label class="col-sm-3 col-form-label">Operating System Version:</label>
+                                          <div class="col-sm-9">
+                                              {{form.Operating_System_Version5}}
+                                          </div>
+                                        </div>
+                                       </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row" name="Operating_System_Version6" id="Operating_System_Version6">
+                                            <label class="col-sm-3 col-form-label">Operating System Version:</label>
+                                          <div class="col-sm-9">
+                                              {{form.Operating_System_Version6}}
                                           </div>
                                         </div>
                                        </div>
@@ -579,14 +623,6 @@ $('#tabs-nav li').click(function () {
 
 }, 100);
 
-
-var hdd_typeObject = {
-  "SSD": ["128 GB SSD","256 GB SSD","512 GB SSD","1 TB SSD","2 TB SSD"," "],
-    "SATA": ["160 GB","240 GB","250 GB","320 GB","350 GB","500 GB","512 GB","1 TB","2 TB","2TB+4TB"," "],
-    "SSDSATA": ["1 TB SATA+256 GB SSD","1 TB SATA+500 GB SSD","1 TB SATA+1 TB SSD","2 TB SATA+256 GB SSD","2 TB SATA+500 GB SSD","2 TB SATA+1 TB SSD"," "]
-    }
-
-
 var OSObject = {
     "Win.XP": ["Windows Xp Pro.","Windows Xp Home"," "],
     "Win.7": ["Win-7 Pro.32 Bit","Win-7 Pro.64 Bit"," "],
@@ -596,10 +632,81 @@ var OSObject = {
     "Win-Server": ["Win-Server-2012","Win-Server-2016","Win-Server-2019"," "],
 
 }
+
 window.onload = function() {
   $("#hdd1").parent('div').hide();
   $("#hdd2").parent('div').hide();
   $("#hdd3").parent('div').hide();
+  $("#Operating_System_Version2").parent('div').hide();
+  $("#Operating_System_Version3").parent('div').hide();
+  $("#Operating_System_Version4").parent('div').hide();
+  $("#Operating_System_Version5").parent('div').hide();
+  $("#Operating_System_Version6").parent('div').hide();
+  $('#Operating_System_Version1').parent('div').hide();
+
+  $('#id_OS').on('change', function() {
+    if (this.value == "Win.XP"){
+        $("#Operating_System_Version").parent('div').hide();
+        $("#Operating_System_Version2").parent('div').hide();
+        $("#Operating_System_Version3").parent('div').hide();
+        $("#Operating_System_Version4").parent('div').hide();
+        $("#Operating_System_Version5").parent('div').hide();
+        $("#Operating_System_Version6").parent('div').hide();
+		$('#Operating_System_Version1').parent('div').show();
+		return false;
+		}
+    if (this.value == "Win.7"){
+        $("#Operating_System_Version").parent('div').hide();
+        $("#Operating_System_Version1").parent('div').hide();
+        $("#Operating_System_Version3").parent('div').hide();
+        $("#Operating_System_Version4").parent('div').hide();
+        $("#Operating_System_Version5").parent('div').hide();
+        $("#Operating_System_Version6").parent('div').hide();
+		$('#Operating_System_Version2').parent('div').show();
+		return false;
+		}
+	if (this.value == "Win.8"){
+	    $("#Operating_System_Version").parent('div').hide();
+        $("#Operating_System_Version2").parent('div').hide();
+        $("#Operating_System_Version1").parent('div').hide();
+        $("#Operating_System_Version4").parent('div').hide();
+        $("#Operating_System_Version5").parent('div').hide();
+        $("#Operating_System_Version6").parent('div').hide();
+		$('#Operating_System_Version3').parent('div').show();
+		return false;
+		}
+	if (this.value == "Win.10"){
+        $("#Operating_System_Version").parent('div').hide();
+        $("#Operating_System_Version2").parent('div').hide();
+        $("#Operating_System_Version3").parent('div').hide();
+        $("#Operating_System_Version1").parent('div').hide();
+        $("#Operating_System_Version5").parent('div').hide();
+        $("#Operating_System_Version6").parent('div').hide();
+		$('#Operating_System_Version4').parent('div').show();
+		return false;
+		}
+    if (this.value == "Win.11"){
+        $("#Operating_System_Version").parent('div').hide();
+        $("#Operating_System_Version2").parent('div').hide();
+        $("#Operating_System_Version3").parent('div').hide();
+        $("#Operating_System_Version4").parent('div').hide();
+        $("#Operating_System_Version1").parent('div').hide();
+        $("#Operating_System_Version6").parent('div').hide();
+		$('#Operating_System_Version5').parent('div').show();
+		return false;
+		}
+	if (this.value == "Win-Server"){
+	    $("#Operating_System_Version").parent('div').hide();
+        $("#Operating_System_Version2").parent('div').hide();
+        $("#Operating_System_Version3").parent('div').hide();
+        $("#Operating_System_Version4").parent('div').hide();
+        $("#Operating_System_Version5").parent('div').hide();
+        $("#Operating_System_Version1").parent('div').hide();
+		$('#Operating_System_Version6').parent('div').show();
+		return false;
+		}
+    return true;
+})
   $('#id_hdd_type').on('change', function() {
     if (this.value == "SSD"){
         $("#hdd").parent('div').hide();
@@ -623,7 +730,8 @@ window.onload = function() {
 		return false;
 		}
     return true;
-})
+    });
+
   }
 
 
