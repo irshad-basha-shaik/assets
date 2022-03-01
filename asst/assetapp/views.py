@@ -24,22 +24,22 @@ def new(request):
         #form = form.upper()
         if form.is_valid():
             student = form.save(commit=False)
-            try:
-                for z in HDDS:
-                    if request.POST[z[0]] != '':
-                        student.hdd = request.POST[z[0]]
-
-            except:
-                if request.POST[z[0]] == '':
+            for z in HDDS:
+                if request.POST[z[0]] != '':
                     student.hdd = request.POST[z[0]]
-            try:
-                for z in OS_VERSIONS:
-                    if request.POST[z[0]] != '':
-                        student.Operating_System_Version = request.POST[z[0]]
-
-            except:
-                if request.POST[z[0]] == '':
+            for z in OS_VERSIONS:
+                if request.POST[z[0]] != '':
                     student.Operating_System_Version = request.POST[z[0]]
+            if request.POST['processor_purchase_date'] =='':
+                student.processor_purchase_date = "1111-11-11"
+            if request.POST['amc_start_date'] =='':
+                student.amc_start_date = "1111-11-11"
+            if request.POST['amc_end_date'] =='':
+                student.amc_end_date = "1111-11-11"
+            if request.POST['user_acceptance_date'] =='':
+                student.user_acceptance_date = "1111-11-11"
+            if request.POST['user_handed_over_date'] =='':
+                student.user_handed_over_date = "1111-11-11"
             student.save()
             return index(request)
         else:

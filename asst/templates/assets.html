@@ -147,8 +147,8 @@
                             <td>{% if form.date_type %} {{form.date_type}}{% else %}  {% endif %}</td-->
                             <!--td>{{form.warranty_start_date}}</td>
                             <td>{{form.warranty_end_date}}</td-->
-                            <td>{{form.amc_start_date}}</td>
-                            <td>{{form.amc_end_date}}</td>
+                            <td>{% if form.amc_start_date %}{{form.amc_start_date}}{% else %}N/A{% endif %}</td>
+                            <td>{% if form.amc_end_date %}{{form.amc_end_date}}{% else %}N/A{% endif %}</td>
                             <td>{{form.Operating_System_Version}}</td>
                             <td>{{form.OS}}</td>
                             <td>{{form.ms_office_version}}</td>

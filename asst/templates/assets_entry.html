@@ -621,20 +621,16 @@ $('#tabs-nav li').click(function () {
 
 }, 100);
 
-var OSObject = {
-    "Win.XP": ["Windows Xp Pro.","Windows Xp Home"," "],
-    "Win.7": ["Win-7 Pro.32 Bit","Win-7 Pro.64 Bit"," "],
-    "Win.8": ["Win-8.1 Pro.32 Bit","Win-8.1 Pro 64 Bit"," "],
-    "Win.10": ["Win-10 Pro 32 bit","Win-10 Pro 64 bit","Win-10 Home Single Lan"," "],
-    "Win.11": ["Win-11 Pro 64 bit"," "],
-    "Win-Server": ["Win-Server-2012","Win-Server-2016","Win-Server-2019"," "],
-
-}
-
 window.onload = function() {
   $("#hdd1").parent('div').hide();
   $("#hdd2").parent('div').hide();
   $("#hdd3").parent('div').hide();
+  $("#Operating_System_Version1").parent('div').hide();
+  $("#Operating_System_Version2").parent('div').hide();
+  $("#Operating_System_Version3").parent('div').hide();
+  $("#Operating_System_Version4").parent('div').hide();
+  $("#Operating_System_Version5").parent('div').hide();
+  $("#Operating_System_Version6").parent('div').hide();
   $('#id_hdd_type').on('change', function() {
     if (this.value == "SSD"){
         $("#hdd").parent('div').hide();
@@ -742,10 +738,11 @@ function TABS() {
 
 
 function GEEKFORGEEKS() {
-		var user_name = document.forms["myForm"]["user_name"];
-		var machine_make = document.forms["myForm"]["machine_make"];
-		var ms_office_version = document.forms["myForm"]["ms_office_version"];
-		var OEM_Volume = document.forms["myForm"]["OEM_Volume"];
+		var asset_no = document.forms["myForm"]["asset_no"];
+		var gef_id_number = document.forms["myForm"]["gef_id_number"];
+		var machine_model_no = document.forms["myForm"]["machine_model_no"];
+		var machine_serial_no = document.forms["myForm"]["machine_serial_no"];
+		var ms_365 = document.forms["myForm"]["ms_365"];
 		var Status = document.forms["myForm"]["Status"];
 
         {
@@ -757,9 +754,14 @@ function GEEKFORGEEKS() {
 	    	$( "#tab44" ).hide();
 	    	$( "#tab1" ).removeClass( " " ).addClass( "active" );
 	    	$( "#tab11" ).show();
-		if (user_name.value == "") {
-			window.alert("Please enter a valid User Name");
-			user_name.focus();
+		if (asset_no.value == "") {
+			window.alert("Please enter a valid Asset No");
+			asset_no.focus();
+			return false;
+		}
+		if (gef_id_number.value == "") {
+			window.alert("Please enter a valid GEF id");
+			gef_id_number.focus();
 			return false;
 		}
 		}
@@ -772,9 +774,14 @@ function GEEKFORGEEKS() {
 	    	$( "#tab44" ).hide();
 	    	$( "#tab2" ).removeClass( " " ).addClass( "active" );
 	    	$( "#tab22" ).show();
-		if (machine_make.value == "") {
-			window.alert("Please enter Machine Make");
-			machine_make.focus();
+		if (machine_model_no.value == "") {
+			window.alert("Please enter Machine Model");
+			machine_model_no.focus();
+			return false;
+		}
+		if (machine_serial_no.value == "") {
+			window.alert("Please enter Machine Serial No");
+			machine_serial_no.focus();
 			return false;
 		}
 
@@ -789,9 +796,9 @@ function GEEKFORGEEKS() {
 	    	$( "#tab33" ).show();
 
 
-		if (ms_office_version.value == "") {
-			alert("Please select ms_office_version");
-			ms_office_version.focus();
+		if (ms_365.value == "") {
+			alert("Please select Email Type");
+			ms_365.focus();
 			return false;
 		}
         }
