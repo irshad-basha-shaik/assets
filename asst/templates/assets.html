@@ -93,8 +93,8 @@
                             <td style ="font-weight: bold;">HDD Si.No</td>
                             <td style ="font-weight: bold;">Purchase Date</td>
                             <td style ="font-weight: bold;">Warranty / AMC</td>
-                            <td style ="font-weight: bold;">Warranty Start Date</td>
-                            <td style ="font-weight: bold;">Warranty End Date</td>
+                            <!--td style ="font-weight: bold;">Warranty Start Date</td>
+                            <td style ="font-weight: bold;">Warranty End Date</td-->
                             <td style ="font-weight: bold;">Service Start Date</td>
                             <td style ="font-weight: bold;">Service End Date</td>
                             <td style ="font-weight: bold;">OS Version</td>
@@ -108,8 +108,8 @@
                             <td style ="font-weight: bold;">Visio Version</td>
                             <td style ="font-weight: bold;">MS Access</td>
                             <td style ="font-weight: bold;">Access Version</td>
-                            <td style ="font-weight: bold;">SAP GUI</td>
-                            <td style ="font-weight: bold;">SAP User Id</td>
+                            <!--td style ="font-weight: bold;">SAP GUI</td>
+                            <td style ="font-weight: bold;">SAP User Id</td-->
                             <td style ="font-weight: bold;">User_Acceptance Date</td>
                             <td style ="font-weight: bold;">User_Handed Over Date</td>
                             <td style ="font-weight: bold;">Other Installed Softwares</td>
@@ -145,10 +145,10 @@
                             <td>{{form.hdd_serial_no}}</td>
                             <td>{{form.processor_purchase_date}}</td>
                             <td>{% if form.date_type %} {{form.date_type}}{% else %}  {% endif %}</td>
-                            <td>{{form.warranty_start_date}}</td>
-                            <td>{{form.warranty_end_date}}</td>
-                            <td>{% if form.amc_start_date == '1111-11-11' %}N/A{% else %}{{form.amc_start_date}}{% endif %}</td>
-                            <td>{% if form.amc_end_date == '1111-11-11' %}N/A{% else %}{{form.amc_end_date}}{% endif %}</td>
+                            <!--td>{{form.warranty_start_date}}</td>
+                            <td>{{form.warranty_end_date}}</td-->
+                            <td>{{form.amc_start_date}}</td>
+                            <td>{{form.amc_end_date}}</td>
                             <td>{{form.Operating_System_Version}}</td>
                             <td>{{form.OS}}</td>
                             <td>{{form.ms_office_version}}</td>
@@ -160,8 +160,8 @@
                             <td>{{form.ms_visio }}</td>
                             <td>{% if form.Access %} Yes {% endif %}</td>
                             <td>{{form.ms_access }}</td>
-                            <td>{% if form.SAP %} Yes {% endif %}</td>
-                            <td>{{form.SAP_User_ID}}</td>
+                            <!--td>{% if form.SAP %} Yes {% endif %}</td>
+                            <td>{{form.SAP_User_ID}}</td-->
                             <td>{{form.user_acceptance_date}}</td>
                             <td>{{form.user_handed_over_date}}</td>
                             <td>{{form.Installed_Softwares}}</td>
