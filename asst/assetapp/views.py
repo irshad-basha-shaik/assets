@@ -30,7 +30,7 @@ def new(request):
             for z in OS_VERSIONS:
                 if request.POST[z[0]] != '':
                     student.Operating_System_Version = request.POST[z[0]]
-            if request.POST['processor_purchase_date'] =='':
+            """if request.POST['processor_purchase_date'] =='':
                 student.processor_purchase_date = "1111-11-11"
             if request.POST['amc_start_date'] =='':
                 student.amc_start_date = "1111-11-11"
@@ -39,7 +39,7 @@ def new(request):
             if request.POST['user_acceptance_date'] =='':
                 student.user_acceptance_date = "1111-11-11"
             if request.POST['user_handed_over_date'] =='':
-                student.user_handed_over_date = "1111-11-11"
+                student.user_handed_over_date = "1111-11-11"""
             student.save()
             return index(request)
         else:

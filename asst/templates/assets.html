@@ -71,11 +71,11 @@
                       <thead>
                         <tr>
                             <td style ="font-weight: bold;">Serial No </td>
-                            <!--td style ="font-weight: bold;"> Location </td>
+                            <td style ="font-weight: bold;"> Location </td>
                             <td style ="font-weight: bold;"> Asset No </td>
                             <td style ="font-weight: bold;"> Emp Id </td>
-                            <td style ="font-weight: bold;"> OEM / Volume </td-->
-                            <!--td style ="font-weight: bold;">Usage Type</td>
+                            <td style ="font-weight: bold;"> OEM / Volume </td>
+                            <td style ="font-weight: bold;">Usage Type</td>
                             <td style ="font-weight: bold;">Machine Type</td>
                             <td style ="font-weight: bold;">GEF_Id</td>
                             <td style ="font-weight: bold;">Domain / Workgroup</td>
@@ -87,34 +87,34 @@
                             <td style ="font-weight: bold;">Machine Si.No</td>
                             <td style ="font-weight: bold;">Machine Age</td>
                             <td style ="font-weight: bold;">RAM</td>
-                            <td style ="font-weight: bold;">Processor</td-->
+                            <td style ="font-weight: bold;">Processor</td>
                             <td style ="font-weight: bold;">HDD Type</td>
                             <td style ="font-weight: bold;">HDD Capacity</td>
-                            <!--td style ="font-weight: bold;">HDD Si.No</td>
+                            <td style ="font-weight: bold;">HDD Si.No</td>
                             <td style ="font-weight: bold;">Purchase Date</td>
-                            <td style ="font-weight: bold;">Warranty / AMC</td-->
-                            <!--td style ="font-weight: bold;">Warranty Start Date</td>
-                            <td style ="font-weight: bold;">Warranty End Date</td-->
+                            <td style ="font-weight: bold;">Warranty / AMC</td>
+                            <td style ="font-weight: bold;">Warranty Start Date</td>
+                            <td style ="font-weight: bold;">Warranty End Date</td>
                             <td style ="font-weight: bold;">Service Start Date</td>
                             <td style ="font-weight: bold;">Service End Date</td>
                             <td style ="font-weight: bold;">OS Version</td>
                             <td style ="font-weight: bold;">OS</td>
                             <td style ="font-weight: bold;">MS Office Version</td>
-                            <!--td style ="font-weight: bold;">O365/Zimbra/Public</td>
+                            <td style ="font-weight: bold;">O365/Zimbra/Public</td>
                             <td style ="font-weight: bold;">Antivirus</td>
                             <td style ="font-weight: bold;">AutoCAD</td>
-                            <td style ="font-weight: bold;">Adobe Acrobat</td-->
-                            <!--td style ="font-weight: bold;">MS Visio</td>
+                            <td style ="font-weight: bold;">Adobe Acrobat</td>
+                            <td style ="font-weight: bold;">MS Visio</td>
                             <td style ="font-weight: bold;">Visio Version</td>
                             <td style ="font-weight: bold;">MS Access</td>
-                            <td-- style ="font-weight: bold;">Access Version</td-->
-                            <!--td style ="font-weight: bold;">SAP GUI</td-->
-                            <!--td style ="font-weight: bold;">SAP User Id</td>
+                            <td style ="font-weight: bold;">Access Version</td>
+                            <td style ="font-weight: bold;">SAP GUI</td>
+                            <td style ="font-weight: bold;">SAP User Id</td>
                             <td style ="font-weight: bold;">User_Acceptance Date</td>
                             <td style ="font-weight: bold;">User_Handed Over Date</td>
                             <td style ="font-weight: bold;">Other Installed Softwares</td>
                             <td style ="font-weight: bold;">Status</td>
-                            <td style ="font-weight: bold;">Remarks</td-->
+                            <td style ="font-weight: bold;">Remarks</td>
                             <td style ="font-weight: bold;">Edit</td>
                             <td style ="font-weight: bold;">Delete</td>
                         </tr>
@@ -123,11 +123,11 @@
                             {% for form in list %}
                         <tr>
                             <td>{{form.serial_no}}<span style="visibility:hidden">{{forloop.counter}}</span></td>
-                             <!--td>{{form.location}} </td>
+                             <td>{{form.location}} </td>
                             <td>{{form.asset_no}}</td>
                             <td>{{form.emp_id}}</td>
-                            <td>{% if form.OEM_Volume %}OEM {% else %}Volume{% endif %}</td-->
-                            <!--td>{{form.usage_type}}</td>
+                            <td>{% if form.OEM_Volume %}OEM {% else %}Volume{% endif %}</td>
+                            <td>{{form.usage_type}}</td>
                             <td>{{form.machine_type}}</td>
                             <td>{{form.gef_id_number}}</td>
                             <td>{{form.domain_workgroup}}</td>
@@ -139,40 +139,44 @@
                             <td>{{form.machine_serial_no}}</td>
                             <td>{{form.get_time_diff }}</td>
                             <td>{{form.ram}}</td>
-                            <td>{{form.processor}}</td-->
+                            <td>{{form.processor}}</td>
                             <td>{{form.hdd_type}}</td>
                             <td>{{form.hdd}}</td>
-                            <!--td>{{form.hdd_serial_no}}</td>
+                            <td>{{form.hdd_serial_no}}</td>
                             <td>{{form.processor_purchase_date}}</td>
-                            <td>{% if form.date_type %} {{form.date_type}}{% else %}  {% endif %}</td-->
-                            <!--td>{{form.warranty_start_date}}</td>
-                            <td>{{form.warranty_end_date}}</td-->
-                            <td>{% if form.amc_start_date %}{{form.amc_start_date}}{% else %}N/A{% endif %}</td>
-                            <td>{% if form.amc_end_date %}{{form.amc_end_date}}{% else %}N/A{% endif %}</td>
+                            <td>{% if form.date_type %} {{form.date_type}}{% else %}  {% endif %}</td>
+                            <td>{{form.warranty_start_date}}</td>
+                            <td>{{form.warranty_end_date}}</td>
+                            <td>{% if form.amc_start_date == '1111-11-11' %}N/A{% else %}{{form.amc_start_date}}{% endif %}</td>
+                            <td>{% if form.amc_end_date == '1111-11-11' %}N/A{% else %}{{form.amc_end_date}}{% endif %}</td>
                             <td>{{form.Operating_System_Version}}</td>
                             <td>{{form.OS}}</td>
                             <td>{{form.ms_office_version}}</td>
-                            <!--td>{{form.ms_365}}</td>
+                            <td>{{form.ms_365}}</td>
                             <td>{% if form.Antivirus %} Manage {% else %} {% endif %}</td>
                             <td>{% if form.AutoCAD %} Yes {% else %}{% endif %}</td>
-                            <td>{% if form.Adobe_acrobate %} Open Source {% endif %}</td-->
-                            <!--td>{% if form.Visio %} Yes {% endif %}</td>
+                            <td>{% if form.Adobe_acrobate %} Open Source {% endif %}</td>
+                            <td>{% if form.Visio %} Yes {% endif %}</td>
                             <td>{{form.ms_visio }}</td>
                             <td>{% if form.Access %} Yes {% endif %}</td>
-                            <td>{{form.ms_access }}</td-->
-                            <!--td>{% if form.SAP %} Yes {% endif %}</td-->
-                            <!--td>{{form.SAP_User_ID}}</td>
+                            <td>{{form.ms_access }}</td>
+                            <td>{% if form.SAP %} Yes {% endif %}</td>
+                            <td>{{form.SAP_User_ID}}</td>
                             <td>{{form.user_acceptance_date}}</td>
                             <td>{{form.user_handed_over_date}}</td>
                             <td>{{form.Installed_Softwares}}</td>
                             <td>{{form.Status}}</td>
-                            <td>{{form.Remarks}}</td-->
+                            <td>{{form.Remarks}}</td>
                             <td><a href="/assets_edit/{{form.id}}">Edit</a></td>
                             <td><a href="/assets_delete/{{form.id}}">Delete</a></td>
                         </tr>
                         {% endfor %}
                       </tbody>
                     </table>
+                    <button>
+                       <span class="glyphicon glyphicon-download" id="tblStocks"></span>
+                       Download list
+                    </button>
                   </div>
                 </div>
               </div>
