@@ -2,8 +2,103 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4de185a6-5b75-4118-b986-abbe321a38ef" name="Default Changelist" comment="changes in export data to excel">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/assets.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/asst.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0003_acategory_astatus.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0004_auto_20211030_1021.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0005_auto_20211030_1255.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0006_auto_20211030_1301.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0007_auto_20211030_1615.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0008_ops_ms_office_version.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0009_alter_ops_ms_office_version.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0010_auto_20211103_1113.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0011_auto_20211103_1127.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0012_auto_20211116_0714.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0013_auto_20211116_0803.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0014_auto_20211116_0824.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0015_auto_20211116_0836.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0016_auto_20211116_0845.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0017_auto_20211116_0911.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0018_remove_assetmodel_antivirus.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0019_assetmodel_antivirus.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0020_delete_assetmodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0021_assetmodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0022_auto_20211118_1448.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0023_auto_20211119_0845.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0024_auto_20211119_0858.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0025_auto_20211119_1021.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0026_alter_assetmodel_processor_purchase_date.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0027_alter_assetmodel_processor_purchase_date.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0028_alter_assetmodel_processor_purchase_date.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0029_alter_assetmodel_processor_purchase_date.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0030_auto_20211119_1143.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0031_assetmodel_processor_purchase_date.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0032_assetmodel_processor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0033_auto_20211120_0810.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0034_rename_warranty_wnd_date_assetmodel_warranty_end_date.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0035_auto_20211120_0906.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0036_alter_assetmodel_oem_volume.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0037_auto_20211120_1037.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0038_auto_20211120_1047.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0039_auto_20211120_1109.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0040_auto_20211120_1137.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0041_auto_20211120_1150.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0042_assetmodel_user_name.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0043_assetmodel_serial_no.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0044_rename_domain_workgoup_assetmodel_domain_workgroup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0045_assetmodel_user_email.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0046_auto_20211122_0700.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0047_wifi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0048_auto_20211122_1041.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0049_access_control_bio_metric_cameras_cctv_camera_cctv_hdd_epbex_ext_dvd_ext_hdd_firewallmodel_jackpanne.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0050_projectors_machine_number1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0051_rename_printers_printermodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0052_rename_ups_upsmodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0053_rename_switches_switchemodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0054_rename_nvr_dvr_nvr_dvrmodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0055_rename_projectors_projectormodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0056_rename_cctv_camera_cctv_cameramodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0057_rename_cctv_hdd_cctv_hddmodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0058_rename_ext_hdd_ext_hddmodel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0059_auto_20211123_0748.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0060_auto_20211123_1158.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0061_assetmodel_ms_access_assetmodel_ms_visio.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0062_assetmodel_email_type.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0063_assetmodel_ms_365.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0064_remove_assetmodel_email_type.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0065_assetmodel_installed_softwares.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0066_assetmodel_e_type.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0067_remove_assetmodel_e_type_assetmodel_email_type.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0068_alter_assetmodel_email_type.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0069_remove_assetmodel_email_type_assetmodel_coral_draw_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0070_alter_assetmodel_ms_access_alter_assetmodel_ms_visio_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0071_alter_assetmodel_installed_softwares_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0072_assetmodel_hdd_type.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0073_alter_assetmodel_access_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0074_remove_assetmodel_warranty_end_date_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0075_alter_assetmodel_amc_end_date_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0076_alter_assetmodel_amc_end_date_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0077_alter_assetmodel_amc_end_date_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0078_alter_assetmodel_amc_end_date_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0079_alter_assetmodel_amc_end_date_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0080_alter_assetmodel_emp_id_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0081_alter_assetmodel_emp_id.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0082_alter_assetmodel_emp_id.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/assets.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/assets.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -356,7 +451,21 @@
       <option name="project" value="LOCAL" />
       <updated>1646221418502</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="changes in export data to excel">
+      <created>1646281621413</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1646281621413</updated>
+    </task>
+    <task id="LOCAL-00033" summary="changes in export data to excel">
+      <created>1646281830106</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1646281830106</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -389,48 +498,13 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
-          <line>549</line>
-          <option name="timeStamp" value="79" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/assetapp/views - Copy.py</url>
           <line>20</line>
           <option name="timeStamp" value="81" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/assetapp/views.py</url>
-          <line>541</line>
-          <option name="timeStamp" value="88" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
-          <line>550</line>
-          <option name="timeStamp" value="113" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
-          <line>543</line>
-          <option name="timeStamp" value="120" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
-          <line>545</line>
-          <option name="timeStamp" value="122" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
-          <line>547</line>
-          <option name="timeStamp" value="123" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
-          <line>43</line>
-          <option name="timeStamp" value="157" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
-          <line>42</line>
+          <line>31</line>
           <option name="timeStamp" value="158" />
         </line-breakpoint>
       </breakpoints>
@@ -445,8 +519,13 @@
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="request.POST[z[0]]" language="Python" />
-        <watch expression="student.z[0]" language="Python" />
+        <watch expression="student.user_handed_over_date" language="Python" />
         <watch expression="z[0]" language="Python" />
+        <watch expression="student.processor_purchase_date" language="Python" />
+        <watch expression="student.user_acceptance_date" language="Python" />
+        <watch expression="form.cleaned_data['processor_purchase_date']" language="Python" />
+        <watch expression="student.amc_end_date" language="Python" />
+        <watch expression="str(request.POST[z[0]])" language="Python" />
       </configuration>
     </watches-manager>
   </component>

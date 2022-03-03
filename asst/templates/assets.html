@@ -262,12 +262,12 @@
                             <td>{{form.hdd_type}}</td>
                             <td>{{form.hdd}}</td>
                             <td>{{form.hdd_serial_no}}</td>
-                            <td>{{form.processor_purchase_date}}</td>
+                            <td>"{{form.processor_purchase_date}}"</td>
                             <td>{% if form.date_type %} {{form.date_type}}{% else %}  {% endif %}</td>
                             <!--td>{{form.warranty_start_date}}</td>
                             <td>{{form.warranty_end_date}}</td-->
-                            <td>{{form.amc_start_date}}</td>
-                            <td>{{form.amc_end_date}}</td>
+                            <td>"{{form.amc_start_date}}"</td>
+                            <td>"{{form.amc_end_date}}"</td>
                             <td>{{form.Operating_System_Version}}</td>
                             <td>{{form.OS}}</td>
                             <td>{{form.ms_office_version}}</td>
@@ -281,8 +281,8 @@
                             <td>{{form.ms_access }}</td>
                             <!--td>{% if form.SAP %} Yes {% endif %}</td>
                             <td>{{form.SAP_User_ID}}</td-->
-                            <td>{{form.user_acceptance_date}}</td>
-                            <td>{{form.user_handed_over_date}}</td>
+                            <td>"{{form.user_acceptance_date}}"</td>
+                            <td>"{{form.user_handed_over_date}}"</td>
                             <td>{{form.Installed_Softwares}}</td>
                             <td>{{form.Status}}</td>
                             <td>{{form.Remarks}}</td>

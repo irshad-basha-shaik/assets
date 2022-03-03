@@ -28,12 +28,12 @@ class AssetModel(models.Model):
     hdd_serial_no = models.CharField(max_length=100, default='')
     ram = models.CharField(max_length=100, default='')
     processor = models.CharField(max_length=100, default='')
-    processor_purchase_date = models.DateField(default=date(1111, 11, 11))
+    processor_purchase_date = models.DateField(default=date(1111, 11, 11),null=True,blank=True)
     date_type = models.CharField(max_length=100, default='')
-    amc_start_date = models.DateField(null=True)
-    amc_end_date = models.DateField(null=True)
-    user_acceptance_date = models.DateField(null=True)
-    user_handed_over_date = models.DateField(null=True)
+    amc_start_date = models.DateField(null=True,blank=True)
+    amc_end_date = models.DateField(null=True,blank=True)
+    user_acceptance_date = models.DateField(null=True,blank=True)
+    user_handed_over_date = models.DateField(null=True,blank=True)
     Operating_System_Version = models.CharField(max_length=100, default='')
     OS = models.CharField(max_length=100, default='')
     OEM_Volume = models.BooleanField(default='')
@@ -57,8 +57,12 @@ class AssetModel(models.Model):
     Remarks = models.CharField(max_length=100, default='')
 
     def get_time_diff(self):
-        return timesince(self.processor_purchase_date)
-
+        if self.processor_purchase_date==None:
+            self.processor_purchase_date = date.today()
+            return str(timesince(self.processor_purchase_date))
+        else:
+            return str(timesince(self.processor_purchase_date))
+'''
 class WifiModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asst_No = models.CharField(max_length=100)
@@ -461,6 +465,6 @@ class ShredderModel(models.Model):
     Warranty_Details = models.DateField(default=date(1111, 11, 11))
     AMC_Date = models.DateField(default=date(1111, 11, 11))
     Remarks = models.CharField(max_length=100)
-
+'''
 
 

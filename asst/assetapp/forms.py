@@ -6,7 +6,7 @@ from django import forms
 
 
 # creating a form
-from .models import AssetModel,WifiModel,FirewallModel,VCCModel
+from .models import AssetModel
 
 USAGE_TYPE = [
     ('Spare_Old', 'Spare_Old'),
@@ -263,6 +263,7 @@ Date_Type = [
     ('Warranty', 'Warranty'),
     ('AMC', 'AMC'),
 ]
+
 Softwares = [
     ('Antivirus', 'Antivirus'),
     ('Coral draw', 'Coral draw'),
@@ -423,7 +424,13 @@ DEVICES = (
     ('Access Point','Access Point'),
     ('Wifi','Wifi')
 )
-
+Warranty = [
+    ('processor_purchase_date', 'processor_purchase_date'),
+    ('amc_start_date', 'amc_start_date'),
+    ('amc_end_date', 'amc_end_date'),
+    ('user_acceptance_date', 'user_acceptance_date'),
+    ('user_handed_over_date', 'user_handed_over_date'),
+]
 
 class AssetForm(forms.ModelForm):
     user_name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
@@ -489,10 +496,7 @@ class AssetForm(forms.ModelForm):
     class Meta:
         model = AssetModel
         fields = ['user_name','user_contact','user_email','location','asset_no','serial_no','emp_id','usage_type','machine_type','gef_id_number','domain_workgroup','Domain_User_Name','machine_make','machine_age','machine_model_no','machine_serial_no','hdd','hdd_type','hdd_make','hdd_model','hdd_serial_no','ram','processor','processor_purchase_date','date_type','amc_start_date','amc_end_date','user_acceptance_date','user_handed_over_date','Operating_System_Version','OS','OEM_Volume','ms_office','ms_office_version','ms_365','ms_visio','ms_access','Antivirus','AutoCAD','Coral_Draw','Pdf_Writer','Winzip','Installed_Softwares','Adobe_acrobate','Visio','Access','SAP','SAP_User_ID','Status','Remarks']
-
-        def __init__(self, *args, **kwargs):
-            super(AssetForm, self).__init__(*args, **kwargs)
-            self.fields['processor_purchase_date','amc_start_date','amc_end_date','user_acceptance_date','user_handed_over_date'].initial = 'N/A'
+'''
 class WifiForm(forms.ModelForm):
     Location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}))
     Old_Asst_No = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -910,7 +914,7 @@ class ShredderForm(forms.ModelForm):
     Warranty_Details = forms.DateField(label='Warranty_Details', widget=forms.SelectDateWidget(years=YEARS))
     AMC_Date = forms.DateField(label='AMC_Date', widget=forms.SelectDateWidget(years=YEARS))
     Remarks = forms.ChoiceField(choices=REMARKS,widget=forms.Select(attrs={'class': 'form-control'}))
-
+'''
 
 '''('Cal','Cal'),
     ('Firewall','Firewall'),

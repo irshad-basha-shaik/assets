@@ -2,8 +2,8 @@ from datetime import datetime,date
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm,WifiForm,FirewallForm,VCCForm,PrintersForm,AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE,EmailType,Softwares,HDD_Type,OS_VERSIONS,HDDS
-from .models import AssetModel,WifiModel,FirewallModel,VCCModel,PrinterModel
+from .forms import AssetForm, AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE,EmailType,Softwares,HDD_Type,OS_VERSIONS,HDDS,Warranty
+from .models import AssetModel #,WifiModel,FirewallModel,VCCModel,PrinterModel
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
@@ -19,7 +19,6 @@ def new(request):
     context['form'] = AssetForm()
     if request.method== 'POST':
         form = AssetForm(request.POST)
-
         #form.cleaned_data['hdd'] = request.POST['hdd3']
         #form = form.upper()
         if form.is_valid():
@@ -30,16 +29,6 @@ def new(request):
             for z in OS_VERSIONS:
                 if request.POST[z[0]] != '':
                     student.Operating_System_Version = request.POST[z[0]]
-            """if request.POST['processor_purchase_date'] =='':
-                student.processor_purchase_date = "1111-11-11"
-            if request.POST['amc_start_date'] =='':
-                student.amc_start_date = "1111-11-11"
-            if request.POST['amc_end_date'] =='':
-                student.amc_end_date = "1111-11-11"
-            if request.POST['user_acceptance_date'] =='':
-                student.user_acceptance_date = "1111-11-11"
-            if request.POST['user_handed_over_date'] =='':
-                student.user_handed_over_date = "1111-11-11"""
             student.save()
             return index(request)
         else:
@@ -557,7 +546,7 @@ def delete(request,id):
     obj = get_object_or_404(AssetModel, id=id)
     obj.delete()
     return HttpResponseRedirect("/")
-
+'''
 def wifi(request):
     context = {}
     context['form'] = WifiForm()
@@ -698,3 +687,4 @@ def printer_delete(request,id):
     obj = get_object_or_404(PrinterModel, id=id)
     obj.delete()
     return HttpResponseRedirect("/")
+'''
