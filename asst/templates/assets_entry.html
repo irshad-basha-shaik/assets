@@ -70,7 +70,7 @@ body {
         <div class="content-wrapper">
 
                   <h4 class="card-title">New Asset Form</h4>
-                  <form class="form-sample" name ="myForm" method="post">
+                  <form class="form-sample" name ="myForm" method="post" onclick="datetostring()">
                     {% csrf_token %}
                       <div class="tabs">
                   <ul id="tabs-nav">
@@ -89,11 +89,11 @@ body {
                         <h3>Employee Info</h3>
                                 <div class="row">
 
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
+                                    <div class="col-md-6" onfocusout="checkexist()">
+                                        <div class="form-group row" id="serial_no" name="serial_no">
                                           <label class="col-sm-4 col-form-label">S.No</label>
                                           <div class="col-sm-8">
-                                            {{ form.serial_no}}<span style="visibility:hidden">{{forloop.counter}}</span>
+                                            {{ form.serial_no}}<span style="visibility:hidden" >{{forloop.counter}}</span>
                                           </div>
                                         </div>
                                        </div>
@@ -605,6 +605,7 @@ body {
 
 <script>
 setTimeout(function() {
+
 $('#tabs-nav li:first-child').addClass('active');
 $('.tab-content').hide();
 $('.tab-content:first').show();
@@ -612,7 +613,6 @@ $('#tabs-nav li').click(function () {
   $('#tabs-nav li').removeClass('active');
   $(this).addClass('active');
   $('.tab-content').hide();
-
   var activeTab = $(this).find('a').attr('href');
 
   $(activeTab).fadeIn();
@@ -720,7 +720,10 @@ window.onload = function() {
     return true;
 })
   }
+function checkexist() {
+		$('#serial_no').load("http://localhost:8000/assets");
 
+		}
 
 function TABS() {
 		$('#tabs-nav li').click(function () {
@@ -734,8 +737,6 @@ function TABS() {
 		});
 		return true;
 		}
-
-
 
 function GEEKFORGEEKS() {
 		var asset_no = document.forms["myForm"]["asset_no"];

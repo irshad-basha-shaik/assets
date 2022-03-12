@@ -2,7 +2,10 @@
 from django.db import models
 from datetime import date
 import datetime
+from django.conf import settings
+from django.utils import dateformat
 from django.utils.timesince import timesince
+#import tensorflow as tf
 
 class AssetModel(models.Model):
     user_name = models.CharField(max_length=100, default='')
@@ -59,9 +62,19 @@ class AssetModel(models.Model):
     def get_time_diff(self):
         if self.processor_purchase_date==None:
             self.processor_purchase_date = date.today()
-            return str(timesince(self.processor_purchase_date))
+            return timesince(self.processor_purchase_date)
         else:
-            return str(timesince(self.processor_purchase_date))
+            return timesince(self.processor_purchase_date)
+
+    def convert(self,DateField):
+        format = '%b %d %Y'  # The format
+        self.processor_purchase_date = datetime.datetime.strptime(DateField, format)
+        self.amc_end_date = datetime.datetime.strptime(DateField, format)
+        self.amc_start_date = datetime.datetime.strptime(DateField, format)
+        self.user_acceptance_date = datetime.datetime.strptime(DateField, format)
+        self.user_handed_over_date = datetime.datetime.strptime(DateField, format)
+
+        return self.processor_purchase_date,self.amc_end_date,self.amc_start_date,self.user_acceptance_date,self.user_handed_over_date
 '''
 class WifiModel(models.Model):
     Location = models.CharField(max_length=100)

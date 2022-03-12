@@ -6,18 +6,28 @@ from .forms import AssetForm, AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATIO
 from .models import AssetModel #,WifiModel,FirewallModel,VCCModel,PrinterModel
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
+
+
+#import tensorflow as tf
 from django.contrib.auth.decorators import login_required
 log=""
 
-
+def checkSerialNumber(request):
+    serial = request.GET['serial']
+    try:
+        k1 = AssetModel.objects.get(serial_no=serial)
+        k = {"id": "", "response": True}
+    except:
+        k = {"id": "", "response": False}
+    return JsonResponse(k)
 @csrf_exempt
-
 @login_required
 def new(request):
-    k = 0
+    k = []
     context = {}
     context['form'] = AssetForm()
-    if request.method== 'POST':
+    k = AssetModel.objects.all()
+    if request.method == 'POST':
         form = AssetForm(request.POST)
         #form.cleaned_data['hdd'] = request.POST['hdd3']
         #form = form.upper()
@@ -38,6 +48,8 @@ def new(request):
             print("---error---end---")
 
     return render(request,"assets_entry.html",context)
+
+
 def it_assets(request):
     list = getAssets()
     list4 = getAssetsByLocation()
