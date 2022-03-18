@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="4de185a6-5b75-4118-b986-abbe321a38ef" name="Default Changelist" comment="changes in export data to excel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assetapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assetapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assetapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/assets.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/assets.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/assets_entry.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/assets_entry.html" afterDir="false" />
@@ -38,7 +38,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/lbry" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.manage">

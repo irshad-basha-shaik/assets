@@ -345,6 +345,20 @@ function tryParseDateFromString(dateStringCandidateValue, format = "ymd") {
 }
 
 },100);
+$connect = sqlite3_connect("localhost","root","demo");
+if(!empty($_POST["serial_no"])){
+    $query = "SELECT * FROM users WHERE serial_no='" .$_POST[""serial_no"]."'";
+    $result = sqlite3_query($connect,$query);
+    $count = sqlite3_num_rows($result);
+    if($count>0){
+        echo "<span style='color:red'> Sorry Serial No already exist</span>";
+        echo "<script>$('submit').prop('disabled', true);</>script>";
+    }else{
+        echo "<span style='color:green'> </span>";
+        echo "<script>$('submit').prop('disabled', false);</>script>";
+    }
+
+}
 
 function exportData(){
     /* Get the HTML data using Element by Id */

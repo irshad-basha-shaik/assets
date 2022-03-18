@@ -597,7 +597,7 @@ body {
 
                   </div>
                 </div>
-                            <input class="btn btn-primary btn-rounded btn-fw" type = "submit" onclick="GEEKFORGEEKS()" value="Save">
+                            <input class="btn btn-primary btn-rounded btn-fw" id="submit" type = "submit" onclick="GEEKFORGEEKS()" value="Save">
 
                   </form>
                 </div>
@@ -721,9 +721,16 @@ window.onload = function() {
 })
   }
 function checkexist() {
-		$('#serial_no').load("http://localhost:8000/assets");
-
-		}
+   jQuery.ajax({
+   url:"assets.html",
+   data:'serial_no='+$("#serial_no").val()
+   //type:"POST",
+   //success:function(data){
+    //$("#check-serial_no").html(data);
+   //},
+   //error:function(){}
+   });
+   }
 
 function TABS() {
 		$('#tabs-nav li').click(function () {
