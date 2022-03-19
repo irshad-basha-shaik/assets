@@ -12,6 +12,7 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 log=""
 
+@login_required
 def checkSerialNumber(request):
     serial = request.GET['serial']
     try:

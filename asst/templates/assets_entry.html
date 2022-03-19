@@ -721,15 +721,14 @@ window.onload = function() {
 })
   }
 function checkexist() {
+    var serial_no = $("#id_serial_no").val();
    jQuery.ajax({
-   url:"assets.html",
-   data:'serial_no='+$("#serial_no").val()
-   //type:"POST",
-   //success:function(data){
-    //$("#check-serial_no").html(data);
-   //},
-   //error:function(){}
-   });
+   url:"http://localhost:8000/checkSerialNumber?serial="+serial_no,
+   }).then(function(data) {
+       alert("Serial No already exist:")
+       $("#id_serial_no").val("");
+    });
+
    }
 
 function TABS() {
