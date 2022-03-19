@@ -256,18 +256,18 @@
                             <td>{{form.machine_make}}</td>
                             <td>{{form.machine_model_no}}</td>
                             <td>{{form.machine_serial_no}}</td>
-                            <td>{{form.get_time_diff }}</td>
+                            <td>"{{form.get_time_diff }}"</td>
                             <td>{{form.ram}}</td>
                             <td>{{form.processor}}</td>
                             <td>{{form.hdd_type}}</td>
                             <td>{{form.hdd}}</td>
                             <td>{{form.hdd_serial_no}}</td>
-                            <td id="result4">{{form.processor_purchase_date}}</td>
+                            <td >"{{form.processor_purchase_date}}"</td>
                             <td>{% if form.date_type %} {{form.date_type}}{% else %}  {% endif %}</td>
                             <!--td>{{form.warranty_start_date}}</td>
                             <td>{{form.warranty_end_date}}</td-->
-                            <td id="result2">"{{form.amc_start_date}}"</td>
-                            <td id="result3">"{{form.amc_end_date}}"</td>
+                            <td >"{{form.amc_start_date}}"</td>
+                            <td >"{{form.amc_end_date}}"</td>
                             <td>{{form.Operating_System_Version}}</td>
                             <td>{{form.OS}}</td>
                             <td>{{form.ms_office_version}}</td>
@@ -281,8 +281,8 @@
                             <td>{{form.ms_access }}</td>
                             <!--td>{% if form.SAP %} Yes {% endif %}</td>
                             <td>{{form.SAP_User_ID}}</td-->
-                            <td id="result">"{{form.user_acceptance_date}}"</td>
-                            <td id="result1">"{{form.user_handed_over_date}}"</td>
+                            <td >"{{form.user_acceptance_date}}"</td>
+                            <td >"{{form.user_handed_over_date}}"</td>
                             <td>{{form.Installed_Softwares}}</td>
                             <td>{{form.Status}}</td>
                             <td>{{form.Remarks}}</td>
@@ -309,56 +309,8 @@ setTimeout(function(){
         "scrollX": true
     } );
 } );
-var result = document.querySelector('#result');
-
-result.textContent =
-  `*Fixed\ndateString2Date('01-01-2016 00:03:44'):\n => ${
-    dateString2Date('01-01-2016 00:03:44')}`;
-
-function dateString2Date(dateString) {
-  var dt  = dateString.split(/\-|\s/);
-  return new Date(dt.slice(0,3).reverse().join('-') + ' ' + dt[3]);
-}
-
-// multiple formats (e.g. yyyy/mm/dd or mm-dd-yyyy etc.)
-function tryParseDateFromString(dateStringCandidateValue, format = "ymd") {
-  if (!dateStringCandidateValue) { return null; }
-  let mapFormat = format
-          .split("")
-          .reduce(function (a, b, i) { a[b] = i; return a;}, {});
-  const dateStr2Array = dateStringCandidateValue.split(/[ :\-\/]/g);
-  const datePart = dateStr2Array.slice(0, 3);
-  let datePartFormatted = [
-          +datePart[mapFormat.y],
-          +datePart[mapFormat.m]-1,
-          +datePart[mapFormat.d] ];
-  if (dateStr2Array.length > 3) {
-      dateStr2Array.slice(3).forEach(t => datePartFormatted.push(+t));
-  }
-  // test date validity according to given [format]
-  const dateTrial = new Date(Date.UTC.apply(null, datePartFormatted));
-  return dateTrial && dateTrial.getFullYear() === datePartFormatted[0] &&
-         dateTrial.getMonth() === datePartFormatted[1] &&
-         dateTrial.getDate() === datePartFormatted[2]
-            ? dateTrial :
-            null;
-}
 
 },100);
-$connect = sqlite3_connect("localhost","root","demo");
-if(!empty($_POST["serial_no"])){
-    $query = "SELECT * FROM users WHERE serial_no='" .$_POST[""serial_no"]."'";
-    $result = sqlite3_query($connect,$query);
-    $count = sqlite3_num_rows($result);
-    if($count>0){
-        echo "<span style='color:red'> Sorry Serial No already exist</span>";
-        echo "<script>$('submit').prop('disabled', true);</>script>";
-    }else{
-        echo "<span style='color:green'> </span>";
-        echo "<script>$('submit').prop('disabled', false);</>script>";
-    }
-
-}
 
 function exportData(){
     /* Get the HTML data using Element by Id */
@@ -368,7 +320,7 @@ function exportData(){
     var rows =[];
 
       //iterate through rows of table
-    for(var i=0,row; row = table.rows[i];i++){
+    for(var i=0,row; row = table.rows[i]; i++){
         //rows would be accessed using the "row" variable assigned in the for loop
         //Get each cell value/column from the row
         column1 = row.cells[0].innerText;
@@ -462,7 +414,7 @@ function exportData(){
 
         }
         csvContent = "data:text/csv;charset=utf-8,\n";
-        column24 = column24.split(",");
+
          /* add the column delimiter as comma(,) and each row splitted by new line character (\n) */
         rows.forEach(function(rowArray){
             row = rowArray.join("     ;");
