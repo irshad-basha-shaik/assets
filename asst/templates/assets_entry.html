@@ -723,13 +723,15 @@ window.onload = function() {
 function checkexist() {
     var serial_no = $("#id_serial_no").val();
    jQuery.ajax({
-   url:"http://localhost:8000/checkSerialNumber?serial="+serial_no,
+   url:"\checkSerialNumber?serial="+serial_no,
    }).then(function(data) {
-       alert("Serial No already exist:")
+        if(data.response) {
+       alert("Serial No already exist:");
        $("#id_serial_no").val("");
+       }
     });
 
-   }
+   };
 
 function TABS() {
 		$('#tabs-nav li').click(function () {
