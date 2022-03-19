@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4de185a6-5b75-4118-b986-abbe321a38ef" name="Default Changelist" comment="export excel sheet.">
+    <list default="true" id="4de185a6-5b75-4118-b986-abbe321a38ef" name="Default Changelist" comment="export serial no exist indication">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/assets_entry.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/assets_entry.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -418,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647670810981</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="export serial no exist indication">
+      <created>1647672875495</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1647672875495</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -446,7 +452,8 @@
     <MESSAGE value="changes in export data to excel" />
     <MESSAGE value="serial no exist or not" />
     <MESSAGE value="export excel sheet." />
-    <option name="LAST_COMMIT_MESSAGE" value="export excel sheet." />
+    <MESSAGE value="export serial no exist indication" />
+    <option name="LAST_COMMIT_MESSAGE" value="export serial no exist indication" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
