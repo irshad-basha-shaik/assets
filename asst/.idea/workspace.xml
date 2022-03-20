@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4de185a6-5b75-4118-b986-abbe321a38ef" name="Default Changelist" comment="export serial no exist indication">
+      <change afterPath="$PROJECT_DIR$/templates/pingmodel_create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pingmodel_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pingmodel_update.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +45,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.manage">
     <configuration name="forms" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -424,7 +439,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647672875495</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="export serial no exist indication">
+      <created>1647673349028</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1647673349028</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -462,6 +484,21 @@
           <url>file://$PROJECT_DIR$/assetapp/views - Copy.py</url>
           <line>20</line>
           <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
+          <line>43</line>
+          <option name="timeStamp" value="135" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
+          <line>42</line>
+          <option name="timeStamp" value="136" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
+          <line>55</line>
+          <option name="timeStamp" value="139" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

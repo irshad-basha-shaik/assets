@@ -2,10 +2,16 @@ from datetime import datetime,date
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm, AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE,EmailType,Softwares,HDD_Type,OS_VERSIONS,HDDS,Warranty
-from .models import AssetModel #,WifiModel,FirewallModel,VCCModel,PrinterModel
+from .forms import AssetForm,PingForm, AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE,EmailType,Softwares,HDD_Type,OS_VERSIONS,HDDS,Warranty
+from .models import AssetModel,PingModel #,WifiModel,FirewallModel,VCCModel,PrinterModel
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
+from django.views import View
+from django.urls import reverse_lazy
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 
 
 #import tensorflow as tf
@@ -21,8 +27,47 @@ def checkSerialNumber(request):
     except:
         k = {"id": "", "response": False}
     return JsonResponse(k)
+
+class PingModelBase(View):
+    model = PingModel
+    fields = '__all__'
+    success_url = reverse_lazy('pingModel:all')
+def connection(request):
+   list = PingModel.objects.all()
+   if request.content_type == 'application/json':
+      return JsonResponse(list)
+   return render(request, "pingmodel_list.html", {"list": list})
+
+
+def connection_new(request):
+    k = PingModel.objects.all()
+    context = {}
+    context['form'] = PingForm()
+    if request.method == 'POST':
+        form = PingForm(request.POST)
+        if form.is_valid():
+            student = form.save(commit=False)
+            student.save()
+            return connection(request)
+    return render(request, "pingmodel_create.html", context)
+
+class PingModelUpdate(PingModelBase, UpdateView):
+    def connection_edit(request):
+        context = {}
+        obj = get_object_or_404(PingModel, id=id)
+        obj.delete()
+        return render(request, "pingmodel_update.html", context)
+
+class PingModelDelete(PingModelBase, DeleteView):
+    def connection_delete(request):
+        context = {}
+        obj = get_object_or_404(PingModel, id=id)
+        obj.delete()
+        return render(request, "pingmodel_list.html", context)
+
 @csrf_exempt
 @login_required
+
 def new(request):
     k = []
     context = {}

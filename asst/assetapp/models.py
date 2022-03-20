@@ -1,5 +1,6 @@
 
 from django.db import models
+from django.urls import reverse
 from datetime import date
 import datetime
 from django.conf import settings
@@ -65,16 +66,17 @@ class AssetModel(models.Model):
             return timesince(self.processor_purchase_date)
         else:
             return timesince(self.processor_purchase_date)
+class PingModel(models.Model):
+    Ip_Address = models.CharField(max_length=100)
+    Name = models.CharField(max_length=100)
+    Status = models.CharField(max_length=100)
+    Alert_Range = models.CharField(max_length=100)
 
-    def convert(self,DateField):
-        format = '%b %d %Y'  # The format
-        self.processor_purchase_date = datetime.datetime.strptime(DateField, format)
-        self.amc_end_date = datetime.datetime.strptime(DateField, format)
-        self.amc_start_date = datetime.datetime.strptime(DateField, format)
-        self.user_acceptance_date = datetime.datetime.strptime(DateField, format)
-        self.user_handed_over_date = datetime.datetime.strptime(DateField, format)
+    def __str__(self):
+        return self.Ip_Address,self.Name,self.Status,self.Alert_Range
 
-        return self.processor_purchase_date,self.amc_end_date,self.amc_start_date,self.user_acceptance_date,self.user_handed_over_date
+    def get_absolute_url(self):
+        return reverse('pingModel-detail', kwargs={'pk': self.pk})
 '''
 class WifiModel(models.Model):
     Location = models.CharField(max_length=100)
