@@ -51,21 +51,15 @@ def connection_new(request):
             return connection(request)
     return render(request, "pingmodel_create.html", context)
 
-class PingModelUpdate(PingModelBase, UpdateView):
+class PingModelUpdate(UpdateView):
     model = PingModel
-    def connection_edit(request):
-        context = {}
-        obj = get_object_or_404(PingModel, id=id)
-        obj.delete()
-        return render(request, "pingmodel_edit.html", context)
+    fields = ['Ip_Address','Name','Status','Alert_Range']
+    template_name_suffix = '_update_form'
 
-class PingModelDelete(PingModelBase, DeleteView):
+@login_required
+class PingModelDelete(DeleteView):
     model = PingModel
-    def connection_delete(request):
-        context = {}
-        obj = get_object_or_404(PingModel, id=id)
-        obj.delete()
-        return render(request, "pingmodel_list.html", context)
+    success_url = reverse_lazy('pingmodel-list')
 
 @csrf_exempt
 @login_required

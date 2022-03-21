@@ -13,8 +13,8 @@ urlpatterns = [
     path('connection', views.connection, name='connection'),
     path('pingmodelbase', views.PingModelBase.as_view(), name='pingmodel_base'),
     path('create', views.connection_new, name='connection_new'),
-    path('update/<int:pk>', views.PingModelUpdate.as_view(template_name="pingmodel_edit.html"), name='PingModel_update'),
-    path('delete/<int:pk>', views.PingModelDelete.as_view(template_name="pingmodel_confirm_delete.html"), name='PingModel_delete'),
+    path('update/<int:pk>', views.PingModelUpdate.as_view() , name='pingmodel-detail'),
+    path('delete/<int:pk>', views.PingModelDelete.as_view()),
 
 ]
 

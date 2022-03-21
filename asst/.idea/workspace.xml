@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4de185a6-5b75-4118-b986-abbe321a38ef" name="Default Changelist" comment="export serial no exist indication">
-      <change afterPath="$PROJECT_DIR$/templates/pingmodel_confirm_delete.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assetapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assetapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assetapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assetapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pingmodel_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pingmodel_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pingmodel_confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pingmodel_confirm_delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pingmodel_edit.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,10 +134,10 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.forms" />
-      <item itemvalue="Python.makemigrations" />
       <item itemvalue="Python.manage" />
+      <item itemvalue="Python.makemigrations" />
       <item itemvalue="Python.migrate" />
+      <item itemvalue="Python.forms" />
     </list>
     <recent_temporary>
       <list>
@@ -450,7 +448,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647758818088</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="export serial no exist indication">
+      <created>1647854895312</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1647854895312</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -488,41 +493,6 @@
           <url>file://$PROJECT_DIR$/assetapp/views - Copy.py</url>
           <line>20</line>
           <option name="timeStamp" value="81" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
-          <line>56</line>
-          <option name="timeStamp" value="147" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
-          <line>57</line>
-          <option name="timeStamp" value="148" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
-          <line>58</line>
-          <option name="timeStamp" value="149" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
-          <line>59</line>
-          <option name="timeStamp" value="150" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
-          <line>64</line>
-          <option name="timeStamp" value="151" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
-          <line>65</line>
-          <option name="timeStamp" value="152" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
-          <line>66</line>
-          <option name="timeStamp" value="153" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
