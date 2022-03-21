@@ -9,8 +9,10 @@ from django.http import JsonResponse
 from django.views import View
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
+from django.utils import timezone
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 
 
 
@@ -32,14 +34,21 @@ class PingModelBase(View):
     model = PingModel
     fields = '__all__'
     success_url = reverse_lazy('PingModel:all')
-def connection(request):
+"""def connection(request):
    list = PingModel.objects.all()
    if request.content_type == 'application/json':
       return JsonResponse(list)
-   return render(request, "pingmodel_list.html", {"list": list})
+   return render(request, "pingmodel_list.html", {"list": list})"""
+class PingModelList(ListView):
+    model = PingModel
+    paginate_by = 100  # if pagination is desired
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context
 
-def connection_new(request):
+"""def connection_new(request):
     k = PingModel.objects.all()
     context = {}
     context['form'] = PingForm()
@@ -49,7 +58,10 @@ def connection_new(request):
             student = form.save(commit=False)
             student.save()
             return connection(request)
-    return render(request, "pingmodel_create.html", context)
+    return render(request, "pingmodel_create.html", context)"""
+class PingModelCreate(CreateView):
+    model = PingModel
+    fields = ['Ip_Address','Name','Status','Alert_Range']
 
 class PingModelUpdate(UpdateView):
     model = PingModel
