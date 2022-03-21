@@ -10,11 +10,11 @@ urlpatterns = [
     path('assets_edit/<int:id>',views.edit,name='edit'),
     path('assets_delete/<int:id>',views.delete,name='delete'),
     path('it_assets', views.it_assets, name='it_assets'),
-    path('connection', views.connection, name='connection'),
+    path('connection', views.connection, name='pingmodel-list'),
     path('pingmodelbase', views.PingModelBase.as_view(), name='pingmodel_base'),
     path('create', views.connection_new, name='connection_new'),
-    path('update/<int:pk>', views.PingModelUpdate.as_view() , name='pingmodel-detail'),
-    path('delete/<int:pk>', views.PingModelDelete.as_view()),
+    path('update/<int:pk>', views.PingModelUpdate.as_view(), name='pingmodel-detail'),
+    path('delete/<int:pk>', views.PingModelDelete.as_view(), name='pingmodel-list'),
 
 ]
 
