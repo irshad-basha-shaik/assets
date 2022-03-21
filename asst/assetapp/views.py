@@ -31,7 +31,7 @@ def checkSerialNumber(request):
 class PingModelBase(View):
     model = PingModel
     fields = '__all__'
-    success_url = reverse_lazy('pingModel:all')
+    success_url = reverse_lazy('PingModel:all')
 def connection(request):
    list = PingModel.objects.all()
    if request.content_type == 'application/json':
@@ -52,13 +52,15 @@ def connection_new(request):
     return render(request, "pingmodel_create.html", context)
 
 class PingModelUpdate(PingModelBase, UpdateView):
+    model = PingModel
     def connection_edit(request):
         context = {}
         obj = get_object_or_404(PingModel, id=id)
         obj.delete()
-        return render(request, "pingmodel_update.html", context)
+        return render(request, "pingmodel_edit.html", context)
 
 class PingModelDelete(PingModelBase, DeleteView):
+    model = PingModel
     def connection_delete(request):
         context = {}
         obj = get_object_or_404(PingModel, id=id)

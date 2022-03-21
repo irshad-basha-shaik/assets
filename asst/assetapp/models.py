@@ -72,11 +72,12 @@ class PingModel(models.Model):
     Status = models.CharField(max_length=100)
     Alert_Range = models.CharField(max_length=100)
 
+
     def __str__(self):
         return self.Ip_Address,self.Name,self.Status,self.Alert_Range
 
     def get_absolute_url(self):
-        return reverse('pingModel-detail', kwargs={'pk': self.pk})
+        return reverse('pingmodel-detail', kwargs={'pk': self.pk})
 '''
 class WifiModel(models.Model):
     Location = models.CharField(max_length=100)
