@@ -500,7 +500,7 @@ class AssetForm(forms.ModelForm):
 class PingForm(forms.ModelForm):
     Ip_Address = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     Name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
-    Status = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    Status = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     Alert_Range = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     class Meta:
         model = PingModel

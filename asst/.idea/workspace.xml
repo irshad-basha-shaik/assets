@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4de185a6-5b75-4118-b986-abbe321a38ef" name="Default Changelist" comment="export serial no exist indication">
-      <change afterPath="$PROJECT_DIR$/templates/assetapp/pingmodel_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/assetapp/pingmodel_base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assetapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assetapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pingmodel_create.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pingmodel_list.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -472,7 +470,21 @@
       <option name="project" value="LOCAL" />
       <updated>1647866043388</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="export serial no exist indication">
+      <created>1647867385546</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1647867385546</updated>
+    </task>
+    <task id="LOCAL-00047" summary="export serial no exist indication">
+      <created>1647933178086</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1647933178086</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

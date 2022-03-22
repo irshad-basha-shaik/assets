@@ -33,7 +33,7 @@ def checkSerialNumber(request):
 class PingModelBase(View):
     model = PingModel
     fields = '__all__'
-    success_url = reverse_lazy('PingModel:all')
+    #success_url = reverse_lazy('PingModel:all')
 """def connection(request):
    list = PingModel.objects.all()
    if request.content_type == 'application/json':
@@ -61,11 +61,12 @@ class PingModelList(ListView):
     return render(request, "pingmodel_create.html", context)"""
 class PingModelCreate(CreateView):
     model = PingModel
-    fields = ['Ip_Address','Name','Status','Alert_Range']
+    fields = ['Ip_Address','Name','Alert_Range']
+
 
 class PingModelUpdate(UpdateView):
     model = PingModel
-    fields = ['Ip_Address','Name','Status','Alert_Range']
+    fields = ['Ip_Address','Name','Alert_Range']
     template_name_suffix = '_update_form'
 
 
