@@ -417,7 +417,7 @@ function exportData(){
 
          /* add the column delimiter as comma(,) and each row splitted by new line character (\n) */
         rows.forEach(function(rowArray){
-            row = rowArray.join("     ;");
+            row = rowArray.join("     ,");
             csvContent += row + "\r\n";
         });
 
