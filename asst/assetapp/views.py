@@ -10,7 +10,6 @@ from django.views import View
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from django.utils import timezone
-from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 
@@ -30,10 +29,6 @@ def checkSerialNumber(request):
         k = {"id": "", "response": False}
     return JsonResponse(k)
 
-class PingModelBase(View):
-    model = PingModel
-    fields = '__all__'
-    success_url = reverse_lazy('PingModel:all')
 """def connection(request):
    list = PingModel.objects.all()
    if request.content_type == 'application/json':
