@@ -33,7 +33,7 @@ def checkSerialNumber(request):
 class PingModelBase(View):
     model = PingModel
     fields = '__all__'
-    #success_url = reverse_lazy('PingModel:all')
+    success_url = reverse_lazy('PingModel:all')
 """def connection(request):
    list = PingModel.objects.all()
    if request.content_type == 'application/json':
@@ -43,10 +43,10 @@ class PingModelList(ListView):
     model = PingModel
     paginate_by = 100  # if pagination is desired
 
-    def get_context_data(self, **kwargs):
+    """def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['now'] = timezone.now()
-        return context
+        return context"""
 
 """def connection_new(request):
     k = PingModel.objects.all()
