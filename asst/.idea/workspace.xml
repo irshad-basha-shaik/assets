@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4de185a6-5b75-4118-b986-abbe321a38ef" name="Default Changelist" comment="connections using class base views (CBV) method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,13 +151,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1644299402827</updated>
-    </task>
-    <task id="LOCAL-00001" summary="changf">
-      <created>1644317154750</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1644317154750</updated>
     </task>
     <task id="LOCAL-00002" summary="changf">
       <created>1644317195272</created>
@@ -494,7 +488,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648010535973</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="connections using class base views (CBV) method">
+      <created>1648010611405</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1648010611406</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
