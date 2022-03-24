@@ -108,10 +108,19 @@ body {
                                      </div>
 
                                         <div class="col-md-6">
-                                            <div class="form-group row">
+                                            <div class="form-group row" name="location" id="location">
                                               <label class="col-sm-4 col-form-label">Asset Location</label>
                                               <div class="col-sm-8">
                                                 {{ form.location}}
+                                              </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group row" name="sub_location" id="sub_location">
+                                              <label class="col-sm-4 col-form-label">Sub Location</label>
+                                              <div class="col-sm-8">
+                                                {{ form.sub_location}}
                                               </div>
                                             </div>
                                         </div>
@@ -622,6 +631,7 @@ $('#tabs-nav li').click(function () {
 }, 100);
 
 window.onload = function() {
+  $("#sub_location").parent('div').hide();
   $("#hdd1").parent('div').hide();
   $("#hdd2").parent('div').hide();
   $("#hdd3").parent('div').hide();

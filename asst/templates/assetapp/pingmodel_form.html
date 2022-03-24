@@ -64,7 +64,7 @@ body {
 }
 
 </style>
-{% if user.is_authenticated %}
+
 
             <div class="col-md-24 grid-margin stretch-card">
               <div class="card">
@@ -75,9 +75,9 @@ body {
                   </p>
                   <form class="forms-sample" method="POST"> {% csrf_token %}
                     <div class="col-md-12">
-                      <div class="form-group row">
+                      <div class="form-group row" id="Ip_Address" >
                        <label class="col-sm-4 col-form-label">IP Address</label>
-                       <div class="col-sm-8">
+                       <div class="col-sm-8" >
                          {{form.Ip_Address}}
                        </div>
                       </div>
@@ -107,5 +107,26 @@ body {
                 </div>
               </div>
             </div>
-{% endif %}
+<script>
+setTimeout(function() {
+
+    $("#submit").click(function (value) {
+          // Using Regex expression for validating IPv4
+          var ipaddress =
+            /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/;
+          var content = $("#id_Ip_Address").val();
+
+          if (ipaddress.test(content)) {
+            $("#demo").html("Ipaddress is Valid");
+          } else {
+          $("#id_Ip_Address").val("");
+            alert("Ipaddress is invalid");
+          }
+        });
+
+}, 2000);
+
+
+</script>
+
 {% endblock %}

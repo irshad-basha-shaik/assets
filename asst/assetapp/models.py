@@ -13,6 +13,7 @@ class AssetModel(models.Model):
     user_contact = models.CharField(max_length=100, default='')
     user_email = models.EmailField(max_length=100,default='')
     location = models.CharField(max_length=100)
+    sub_location = models.CharField(max_length=100,default='')
     asset_no = models.CharField(max_length=100, default='')
     serial_no = models.CharField(max_length=100, default='')
     emp_id = models.CharField(max_length=100, default='')
@@ -78,6 +79,8 @@ class PingModel(models.Model):
 
     def get_absolute_url(self):
         return reverse('pingmodel-detail', kwargs={'pk': self.pk})
+
+
 '''
 class WifiModel(models.Model):
     Location = models.CharField(max_length=100)

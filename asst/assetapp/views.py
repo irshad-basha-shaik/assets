@@ -58,7 +58,6 @@ class PingModelCreate(CreateView):
     model = PingModel
     fields = ['Ip_Address','Name','Alert_Range']
 
-
 class PingModelUpdate(UpdateView):
     model = PingModel
     fields = ['Ip_Address','Name','Alert_Range']
