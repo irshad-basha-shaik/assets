@@ -1,15 +1,14 @@
-from datetime import datetime,date
+from datetime import datetime
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm,PingForm, AVAILABLE_LICENCE,AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, REMARKS, MACHINE_TYPE,USAGE_TYPE,EmailType,Softwares,HDD_Type,OS_VERSIONS,HDDS,Warranty
+from .forms import AssetForm, AVAILABLE_LICENCE, AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, EmailType, Softwares, OS_VERSIONS, HDDS
 from .models import AssetModel,PingModel #,WifiModel,FirewallModel,VCCModel,PrinterModel
+from .cron import my_cron_job
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-from django.views import View
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
-from django.utils import timezone
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 
@@ -18,6 +17,14 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 #import tensorflow as tf
 from django.contrib.auth.decorators import login_required
 log=""
+"""def my_cron_job(request):
+    ip_list = ['127.0.0.1','10.162.10.254', '103.140.18.78', '192.168.1.102',  '192.168.1.180']
+    for ip in ip_list:
+        response = os.popen(f"ping {ip}").read()
+        if "Received = 4" in response:
+            print(f"UP {ip} Ping Successful")
+        else:
+            print(f"DOWN {ip} Ping Unsuccessful")"""
 
 @login_required
 def checkSerialNumber(request):
@@ -35,6 +42,7 @@ def checkSerialNumber(request):
       return JsonResponse(list)
    return render(request, "pingmodel_list.html", {"list": list})"""
 class PingModelList(ListView):
+
     model = PingModel
     paginate_by = 100  # if pagination is desired
 
@@ -75,6 +83,7 @@ def new(request):
     k = []
     context = {}
     context['form'] = AssetForm()
+    context['cron'] = my_cron_job()
     k = AssetModel.objects.all()
     if request.method == 'POST':
         form = AssetForm(request.POST)
