@@ -4,15 +4,14 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from .forms import AssetForm, AVAILABLE_LICENCE, AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, EmailType, Softwares, OS_VERSIONS, HDDS
 from .models import AssetModel,PingModel #,WifiModel,FirewallModel,VCCModel,PrinterModel
-from .cron import my_cron_job
+from threading import Timer
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.urls import reverse_lazy
+from django.views.generic import TemplateView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-
-
-
+from datetime import datetime
 
 #import tensorflow as tf
 from django.contrib.auth.decorators import login_required
@@ -62,6 +61,19 @@ class PingModelList(ListView):
             student.save()
             return connection(request)
     return render(request, "pingmodel_create.html", context)"""
+
+def my_job():
+    now = datetime.now()
+    current_time = now.strftime("%H:%M:%S")
+    k = PingModel.objects.all()
+    for i in k:
+        print(i.Ip_Address+"<<>>"+i.Name)
+    print("Current Time =", current_time)
+    return shedule()
+def shedule():
+    delay = 5
+    Timer(delay, my_job, ()).start()
+nextDay = shedule()
 class PingModelCreate(CreateView):
     model = PingModel
     fields = ['Ip_Address','Name','Alert_Range']
@@ -83,7 +95,6 @@ def new(request):
     k = []
     context = {}
     context['form'] = AssetForm()
-    context['cron'] = my_cron_job()
     k = AssetModel.objects.all()
     if request.method == 'POST':
         form = AssetForm(request.POST)
@@ -105,7 +116,7 @@ def new(request):
             print(form.errors)
             print("---error---end---")
 
-    return render(request,"assets_entry.html",context)
+    return render(request,"assets_entry.html",context,k)
 
 
 def it_assets(request):

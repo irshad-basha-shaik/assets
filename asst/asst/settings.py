@@ -37,11 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'assetapp',
-    'django_crontab',
+
 ]
-CRONJOBS = [
-    ('5 * * * *', 'assetapp.cron.my_cron_job')
-]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

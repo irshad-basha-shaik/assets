@@ -1,9 +1,6 @@
 from django import forms
 
-
 from django import forms
-
-
 
 # creating a form
 from .models import AssetModel,PingModel
