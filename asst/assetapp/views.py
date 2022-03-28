@@ -8,7 +8,8 @@ from threading import Timer
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView
+import platform    # For getting the operating system name
+import subprocess  # For executing a shell command
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from datetime import datetime
@@ -61,14 +62,21 @@ class PingModelList(ListView):
             student.save()
             return connection(request)
     return render(request, "pingmodel_create.html", context)"""
+def ping(host):
+    now = datetime.now()
+    current_time = now.strftime("%H:%M:%S")
+    param = '-n' if platform.system().lower()=='windows' else '-c'
+    command = ['ping', param, '1', host]
+    return current_time,subprocess.call(command) == 0
 
 def my_job():
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     k = PingModel.objects.all()
     for i in k:
-        print(i.Ip_Address+"<<>>"+i.Name)
-    print("Current Time =", current_time)
+        host = ping(i.Ip_Address)
+        #print(i.Ip_Address+"<<>>"+i.Name)
+    #print("Current Time =", current_time)
     return shedule()
 def shedule():
     delay = 5

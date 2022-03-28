@@ -14,7 +14,7 @@ urlpatterns = [
     path('create', views.PingModelCreate.as_view(), name='pingmodel-list'),
     path('update/<int:pk>', views.PingModelUpdate.as_view(), name='pingmodel-detail'),
     path('delete/<int:pk>', views.PingModelDelete.as_view(), name='pingmodel-list'),
-    path('search', views.SearchView.as_view(), name='SearchView'),
+
 
 ]
 
