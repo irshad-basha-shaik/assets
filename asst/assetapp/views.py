@@ -13,6 +13,10 @@ import subprocess  # For executing a shell command
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from datetime import datetime
+import os
+
+
+
 
 #import tensorflow as tf
 from django.contrib.auth.decorators import login_required
@@ -63,20 +67,34 @@ class PingModelList(ListView):
             return connection(request)
     return render(request, "pingmodel_create.html", context)"""
 def ping(host):
-    now = datetime.now()
-    current_time = now.strftime("%H:%M:%S")
-    param = '-n' if platform.system().lower()=='windows' else '-c'
-    command = ['ping', param, '1', host]
-    return current_time,subprocess.call(command) == 0
+
+    #command = ['ping',  'www.google.com', '-c', '1']
+   # directories = os.system("ping  www.google.com -c 1")
+   # print(directories)
+    res ="";
+
+    with os.popen("ping  host -c 1") as f:
+        res= str(f.readlines())
+        rest = res.split('---')
+        result = rest[2]
+        command = ['echo','result','>>host.txt' ]
+        x = subprocess.call(command)
+
+    print(result)
+    #x =  subprocess.call(command)
+    #p = subprocess.run('ping',  'www.google.com', '-c', '1')
+   # p = subprocess.Popen("ping  www.google.com -c 1", stdout=subprocess.PIPE, shell=True)
+   # p.communicate()
+
+    return result
 
 def my_job():
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     k = PingModel.objects.all()
     for i in k:
-        host = ping(i.Ip_Address)
-        #print(i.Ip_Address+"<<>>"+i.Name)
-    #print("Current Time =", current_time)
+        ping(i.Ip_Address)
+
     return shedule()
 def shedule():
     delay = 5
