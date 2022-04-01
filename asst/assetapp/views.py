@@ -12,7 +12,8 @@ import platform    # For getting the operating system name
 import subprocess  # For executing a shell command
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from datetime import datetime
+from datetime import date
+from pathlib import Path
 import os
 
 
@@ -46,14 +47,15 @@ def checkSerialNumber(request):
       return JsonResponse(list)
    return render(request, "pingmodel_list.html", {"list": list})"""
 class PingModelList(ListView):
-
     model = PingModel
     paginate_by = 100  # if pagination is desired
 
-    """def get_context_data(self, **kwargs):
+
+    '''def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['now'] = timezone.now()
-        return context"""
+        context['Status'] = status()
+        return context'''
+
 
 """def connection_new(request):
     k = PingModel.objects.all()
@@ -66,34 +68,68 @@ class PingModelList(ListView):
             student.save()
             return connection(request)
     return render(request, "pingmodel_create.html", context)"""
-def ping(host):
 
-    #command = ['ping',  'www.google.com', '-c', '1']
-   # directories = os.system("ping  www.google.com -c 1")
-   # print(directories)
+def executeSHell(string):
+    try:
+        subprocess.check_call(string, shell=True)
+    except:
+        a=1
+def status(request):
+    a = request.split(",")
+    b = a[2].split("%")
+    active = 100-int(b[0])
+    status = str(active)
+    return status
+def write(request,pk):
+    y = ""
+    now = datetime.now()
+    current_time = now.strftime("%H:%M:%S")
+    request = current_time+request
+    today = str(date.today())
+    x = today + '/' +pk+".txt"
+    y = y+request
+    executeSHell("mkdir "+today)
+    executeSHell("echo "+request+" >> " + x)
+
+
+def ping(host,pk):
     res ="";
-
-    with os.popen("ping  host -c 1") as f:
-        res= str(f.readlines())
-        rest = res.split('---')
-        result = rest[2]
-        command = ['echo','result','>>host.txt' ]
-        x = subprocess.call(command)
-
-    print(result)
-    #x =  subprocess.call(command)
-    #p = subprocess.run('ping',  'www.google.com', '-c', '1')
-   # p = subprocess.Popen("ping  www.google.com -c 1", stdout=subprocess.PIPE, shell=True)
-   # p.communicate()
-
-    return result
+    host = "localhost"
+    y=''
+    if platform.system().lower() == 'windows':
+        with os.popen("ping  "+host+" -n 1") as f:
+            res = str(f.readlines())
+            rest = res.split('---')
+            result = rest[2].replace("\\n", "")
+            result = result.replace("]", "")
+            result = result.replace("\'", "")
+            result = result[1:]
+            pk = str(pk)
+            write(result, pk)
+            y = status(result)
+    else:
+        with os.popen("ping  " + host +" -c 1") as f:
+            res = str(f.readlines())
+            rest = res.split('---')
+            result = rest[2].replace("\\n", "")
+            result = result.replace("]", "")
+            result = result.replace("\'", "")
+            result = result[1:]
+            pk = str(pk)
+            write(result, pk)
+            y = status(result)
+    return y
 
 def my_job():
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     k = PingModel.objects.all()
     for i in k:
-        ping(i.Ip_Address)
+        #print(i.pk)
+        g= ping(i.Ip_Address,i.pk)
+        i.Status=g
+        i.save()
+
 
     return shedule()
 def shedule():
@@ -102,11 +138,11 @@ def shedule():
 nextDay = shedule()
 class PingModelCreate(CreateView):
     model = PingModel
-    fields = ['Ip_Address','Name','Alert_Range']
+    fields = ['Ip_Address','Name','Status','Alert_Range']
 
 class PingModelUpdate(UpdateView):
     model = PingModel
-    fields = ['Ip_Address','Name','Alert_Range']
+    fields = ['Ip_Address','Name','Status','Alert_Range']
     template_name_suffix = '_update_form'
 
 
