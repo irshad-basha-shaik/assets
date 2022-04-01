@@ -500,9 +500,10 @@ class PingForm(forms.ModelForm):
     Name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     Status = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     Alert_Range = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    Last_Updated = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     class Meta:
         model = PingModel
-        fields = ['Ip_Address','Name','Status','Alert_Range']
+        fields = ['Ip_Address','Name','Status','Alert_Range','Last_Updated']
 
 '''
 class WifiForm(forms.ModelForm):

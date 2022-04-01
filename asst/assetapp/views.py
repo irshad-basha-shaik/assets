@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
@@ -22,14 +22,6 @@ import os
 #import tensorflow as tf
 from django.contrib.auth.decorators import login_required
 log=""
-"""def my_cron_job(request):
-    ip_list = ['127.0.0.1','10.162.10.254', '103.140.18.78', '192.168.1.102',  '192.168.1.180']
-    for ip in ip_list:
-        response = os.popen(f"ping {ip}").read()
-        if "Received = 4" in response:
-            print(f"UP {ip} Ping Successful")
-        else:
-            print(f"DOWN {ip} Ping Unsuccessful")"""
 
 @login_required
 def checkSerialNumber(request):
@@ -51,10 +43,6 @@ class PingModelList(ListView):
     paginate_by = 100  # if pagination is desired
 
 
-    '''def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['Status'] = status()
-        return context'''
 
 
 """def connection_new(request):
@@ -84,7 +72,7 @@ def write(request,pk):
     y = ""
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
-    request = current_time+request
+    request = current_time+","+request
     today = str(date.today())
     x = today + '/' +pk+".txt"
     y = y+request
@@ -94,7 +82,7 @@ def write(request,pk):
 
 def ping(host,pk):
     res ="";
-    host = "localhost"
+    #host = "localhost"
     y=''
     if platform.system().lower() == 'windows':
         with os.popen("ping  "+host+" -n 1") as f:
@@ -119,18 +107,43 @@ def ping(host,pk):
             write(result, pk)
             y = status(result)
     return y
+def last_updated_date(request,pk):
+    pk = str(pk)
+    now = datetime.now()
+    today = str(now.date())
+    a = ping(request,pk)
+    if int(a) >0:
+        filename = pk+".txt"
+        date = date_check(filename)
+        #statbuf = os.stat(filename)
+        #now = "Modification time: {}".format(statbuf.st_mtime)
+        # stat_result = filename.stat()
+        # modified = datetime.fromtimestamp(stat_result.st_mtime, tz=timezone.utc)
+        # print('modified', modified)
+    else:
+        print("inactive")
 
+    return now
+def date_check(request):
+
+    return date
 def my_job():
+    #Last_Updated
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     k = PingModel.objects.all()
     for i in k:
         #print(i.pk)
-        g= ping(i.Ip_Address,i.pk)
-        i.Status=g
-        i.save()
-
-
+        try:
+            g= ping(i.Ip_Address,i.pk)
+            d = last_updated_date(i.Ip_Address,i.pk)
+            i.Status,i.Last_Updated=g, d
+            i.save()
+        except:
+            g = 0
+            d = last_updated_date(i.Ip_Address, i.pk)
+            i.Status,i.Last_Updated  = g, d
+            i.save()
     return shedule()
 def shedule():
     delay = 5
@@ -138,11 +151,11 @@ def shedule():
 nextDay = shedule()
 class PingModelCreate(CreateView):
     model = PingModel
-    fields = ['Ip_Address','Name','Status','Alert_Range']
+    fields = ['Ip_Address','Name','Alert_Range']
 
 class PingModelUpdate(UpdateView):
     model = PingModel
-    fields = ['Ip_Address','Name','Status','Alert_Range']
+    fields = ['Ip_Address','Name','Alert_Range']
     template_name_suffix = '_update_form'
 
 

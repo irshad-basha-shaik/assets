@@ -72,6 +72,7 @@ class PingModel(models.Model):
     Name = models.CharField(max_length=100)
     Status = models.CharField(max_length=100)
     Alert_Range = models.CharField(max_length=100)
+    Last_Updated = models.CharField(max_length=100,default="")
 
 
     def __str__(self):
