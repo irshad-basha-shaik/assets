@@ -13,8 +13,9 @@ import subprocess  # For executing a shell command
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from datetime import date
+from os.path import exists
 from pathlib import Path
-import os
+import os, fnmatch
 
 
 
@@ -41,9 +42,6 @@ def checkSerialNumber(request):
 class PingModelList(ListView):
     model = PingModel
     paginate_by = 100  # if pagination is desired
-
-
-
 
 """def connection_new(request):
     k = PingModel.objects.all()
@@ -108,24 +106,40 @@ def ping(host,pk):
             y = status(result)
     return y
 def last_updated_date(request,pk):
+    lr = []
     pk = str(pk)
-    now = datetime.now()
-    today = str(now.date())
-    a = ping(request,pk)
-    if int(a) >0:
-        filename = pk+".txt"
-        date = date_check(filename)
-        #statbuf = os.stat(filename)
-        #now = "Modification time: {}".format(statbuf.st_mtime)
-        # stat_result = filename.stat()
-        # modified = datetime.fromtimestamp(stat_result.st_mtime, tz=timezone.utc)
-        # print('modified', modified)
-    else:
-        print("inactive")
+    fileOfDirectory = (os.listdir('.'))
+    pattern = "*-*-*"
+    for filename1 in fileOfDirectory:
 
-    return now
+        if fnmatch.fnmatch(filename1, pattern):
+            lr.append(filename1)
+    for filename in reversed(sorted(lr)):
+        path_to_file = os.getcwd() + "/" + filename + "/" + pk + ".txt"
+        if exists(path_to_file):
+            with open(path_to_file) as f:
+                contents = f.readlines()
+                for line in reversed(contents):
+                    line = line.split(",")
+                    line1 = line[2].split("received")
+                    if int(line1[0]) != 0:
+                        lud = filename+"  "+line[0]
+                        return lud
+
+
+def check(request,pk):
+    a = request
+    b = PingModel.objects.filter('pk')
+    state = status(a)
+    print(state)
+    if state>0:
+        return
+    return state
 def date_check(request):
-
+    today = datetime.date.today()
+    first = today.replace(day=1)
+    lastMonth = first - datetime.timedelta(days=1)
+    print(lastMonth.strftime("%Y-%m"))
     return date
 def my_job():
     #Last_Updated
@@ -137,7 +151,7 @@ def my_job():
         try:
             g= ping(i.Ip_Address,i.pk)
             d = last_updated_date(i.Ip_Address,i.pk)
-            i.Status,i.Last_Updated=g, d
+            i.Status,i.Last_Updated= g, d
             i.save()
         except:
             g = 0
