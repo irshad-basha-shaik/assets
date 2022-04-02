@@ -111,7 +111,6 @@ def last_updated_date(request,pk):
     fileOfDirectory = (os.listdir('.'))
     pattern = "*-*-*"
     for filename1 in fileOfDirectory:
-
         if fnmatch.fnmatch(filename1, pattern):
             lr.append(filename1)
     for filename in reversed(sorted(lr)):
