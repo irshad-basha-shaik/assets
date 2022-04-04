@@ -1,7 +1,5 @@
 from django import forms
 
-from django import forms
-
 # creating a form
 from .models import AssetModel,PingModel
 
@@ -435,18 +433,18 @@ class AssetForm(forms.ModelForm):
     user_email = forms.EmailField(max_length=100,widget=forms.EmailInput(attrs={'class': 'form-control'}),required=False)
     location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     sub_location = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
-    asset_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    asset_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     emp_id = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     usage_type = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=USAGE_TYPE),required=False)
     machine_type = forms.ChoiceField(choices=MACHINE_TYPE,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
-    gef_id_number = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    gef_id_number = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     domain_workgroup = forms.ChoiceField(choices=DOMAIN_WORKGROUP,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     Domain_User_Name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     machine_make = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     machine_age = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
-    machine_model_no = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    machine_serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    machine_model_no = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
+    machine_serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd = forms.ChoiceField(choices=HDD,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     hdd1 = forms.ChoiceField(choices=SATA, widget=forms.Select(attrs={'class': 'form-control'}), required=False)
     hdd2 = forms.ChoiceField(choices=SSD, widget=forms.Select(attrs={'class': 'form-control'}), required=False)
@@ -473,7 +471,7 @@ class AssetForm(forms.ModelForm):
     OS = forms.ChoiceField(choices=OS,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_office = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     ms_office_version = forms.ChoiceField(choices=MS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
-    ms_365 = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=EmailType))
+    ms_365 = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=EmailType), required=False)
     ms_visio = forms.ChoiceField(choices=VISIO_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_access = forms.ChoiceField(choices=ACCESS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     OEM_Volume = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
@@ -488,7 +486,7 @@ class AssetForm(forms.ModelForm):
     Access = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     SAP = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     SAP_User_ID = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
-    Status = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    Status = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}), required=False)
     Remarks = forms.ChoiceField(choices=REMARKS,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
 
     class Meta:

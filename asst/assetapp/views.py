@@ -126,20 +126,20 @@ def last_updated_date(request,pk):
                         return lud
 
 
-def check(request,pk):
-    a = request
-    b = PingModel.objects.filter('pk')
-    state = status(a)
-    print(state)
-    if state>0:
-        return
-    return state
-def date_check(request):
-    today = datetime.date.today()
-    first = today.replace(day=1)
-    lastMonth = first - datetime.timedelta(days=1)
-    print(lastMonth.strftime("%Y-%m"))
-    return date
+# def check(request,pk):
+#     a = request
+#     b = PingModel.objects.filter('pk')
+#     state = status(a)
+#     print(state)
+#     if state>0:
+#         return
+#     return state
+# def date_check(request):
+#     today = datetime.date.today()
+#     first = today.replace(day=1)
+#     lastMonth = first - datetime.timedelta(days=1)
+#     print(lastMonth.strftime("%Y-%m"))
+#     return date
 def my_job():
     #Last_Updated
     now = datetime.now()
@@ -161,7 +161,7 @@ def my_job():
 def shedule():
     delay = 5
     Timer(delay, my_job, ()).start()
-nextDay = shedule()
+#nextDay = shedule()
 class PingModelCreate(CreateView):
     model = PingModel
     fields = ['Ip_Address','Name','Alert_Range']
@@ -177,17 +177,35 @@ class PingModelDelete(DeleteView):
     success_url = reverse_lazy('pingmodel-list')
 
 @csrf_exempt
-@login_required
+#@login_required
 
+# def new(request):
+#     context = {}
+#     context['form'] = AssetForm()
+#     if request.method == 'POST':
+#         form = AssetForm(request.POST)
+#         if form.is_valid():
+#             student = form.save(commit=False)
+#             for z in HDDS:
+#                 if request.POST[z[0]] != '':
+#                     student.hdd = request.POST[z[0]]
+#             for z in OS_VERSIONS:
+#                 if request.POST[z[0]] != '':
+#                     student.Operating_System_Version = request.POST[z[0]]
+#             student.save()
+#             return index(request)
+#         else:
+#             print("---error---start---")
+#             print(request.POST)
+#             print(form.errors)
+#             print("---error---end---")
+#
+#     return render(request,"assets_entry.html",context)
 def new(request):
-    k = []
     context = {}
     context['form'] = AssetForm()
-    k = AssetModel.objects.all()
     if request.method == 'POST':
         form = AssetForm(request.POST)
-        #form.cleaned_data['hdd'] = request.POST['hdd3']
-        #form = form.upper()
         if form.is_valid():
             student = form.save(commit=False)
             for z in HDDS:
@@ -203,9 +221,7 @@ def new(request):
             print(request.POST)
             print(form.errors)
             print("---error---end---")
-
-    return render(request,"assets_entry.html",context,k)
-
+    return render(request,"assets_entry.html",context)
 
 def it_assets(request):
     list = getAssets()

@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4de185a6-5b75-4118-b986-abbe321a38ef" name="Default Changelist" comment="connections using class base views (CBV) method">
-      <change afterPath="$PROJECT_DIR$/assetapp/cron.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assetapp/scheduleCron.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assetapp/writeDate.py" afterDir="false" />
+    <list default="true" id="4de185a6-5b75-4118-b986-abbe321a38ef" name="Default Changelist" comment="added last updated date.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assetapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asst/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/asst/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -46,9 +44,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/assetapp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -208,48 +207,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1644299402827</updated>
-    </task>
-    <task id="LOCAL-00003" summary="changes in default values">
-      <created>1644382744472</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1644382744472</updated>
-    </task>
-    <task id="LOCAL-00004" summary="changes in default values">
-      <created>1644382817150</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1644382817150</updated>
-    </task>
-    <task id="LOCAL-00005" summary="added software changes to dashboard">
-      <created>1644386314446</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1644386314446</updated>
-    </task>
-    <task id="LOCAL-00006" summary="added software changes to dashboard">
-      <created>1644386504313</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1644386504313</updated>
-    </task>
-    <task id="LOCAL-00007" summary="added software changes to dashboard">
-      <created>1644394877485</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1644394877485</updated>
-    </task>
-    <task id="LOCAL-00008" summary="added software changes to dashboard">
-      <created>1644399142003</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1644399142003</updated>
     </task>
     <task id="LOCAL-00009" summary="added software changes to dashboard">
       <created>1644405696393</created>
@@ -552,7 +509,49 @@
       <option name="project" value="LOCAL" />
       <updated>1648011127526</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="connections using class base views (CBV) method">
+      <created>1648294311261</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1648294311262</updated>
+    </task>
+    <task id="LOCAL-00053" summary="connections">
+      <created>1648466334987</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1648466334988</updated>
+    </task>
+    <task id="LOCAL-00054" summary="connections">
+      <created>1648466990139</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1648466990139</updated>
+    </task>
+    <task id="LOCAL-00055" summary="connections">
+      <created>1648798497088</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1648798497089</updated>
+    </task>
+    <task id="LOCAL-00056" summary="connections">
+      <created>1648812741470</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1648812741470</updated>
+    </task>
+    <task id="LOCAL-00057" summary="added last updated date.">
+      <created>1648894779261</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1648894779262</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -582,7 +581,9 @@
     <MESSAGE value="export excel sheet." />
     <MESSAGE value="export serial no exist indication" />
     <MESSAGE value="connections using class base views (CBV) method" />
-    <option name="LAST_COMMIT_MESSAGE" value="connections using class base views (CBV) method" />
+    <MESSAGE value="connections" />
+    <MESSAGE value="added last updated date." />
+    <option name="LAST_COMMIT_MESSAGE" value="added last updated date." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -591,6 +592,16 @@
           <url>file://$PROJECT_DIR$/assetapp/views - Copy.py</url>
           <line>20</line>
           <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
+          <line>133</line>
+          <option name="timeStamp" value="144" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
+          <line>131</line>
+          <option name="timeStamp" value="146" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -603,12 +614,13 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="len(k)" language="Python" />
-        <watch expression="requst.GET['serial']" language="Python" />
-        <watch expression="srl" language="Python" />
-        <watch expression="AssetModel.g" language="Python" />
-        <watch expression="cursor.fetchone()" language="Python" />
-        <watch expression="sql" language="Python" />
+        <watch expression="list" language="Python" />
+        <watch expression="status" language="Python" />
+        <watch expression="PingModel.objects.filter('Status')" language="Python" />
+        <watch expression="PingModel.objects.all()" language="Python" />
+        <watch expression="path_to_file" language="Python" />
+        <watch expression="lr" language="Python" />
+        <watch expression="{{context}}" language="Python" />
       </configuration>
     </watches-manager>
   </component>
