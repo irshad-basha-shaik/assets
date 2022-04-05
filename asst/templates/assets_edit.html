@@ -635,7 +635,6 @@ $('#tabs-nav li').click(function () {
 
 window.onload = function() {
   $("#sub_location").parent('div').hide();
-
   $("#hdd1").parent('div').hide();
   $("#hdd2").parent('div').hide();
   $("#hdd3").parent('div').hide();
@@ -646,13 +645,27 @@ window.onload = function() {
   $("#Operating_System_Version5").parent('div').hide();
   $("#Operating_System_Version6").parent('div').hide();
   $('#id_location').on('change', function() {
-    if (this.value == "MARKETING"){
-
+    if (this.value == "HYDERABAD"){
+		$('#sub_location').parent('div').hide();
+		return false;
+		}
+    if (this.value == "KRISHNAPATNAM"){
+		$('#sub_location').parent('div').hide();
+		return false;
+		}
+	if (this.value == "KAKINADA"){
+		$('#sub_location').parent('div').hide();
+		return false;
+		}
+    if (this.value == "KAKINADA-3"){
+		$('#sub_location').parent('div').hide();
+		return false;
+		}
+	if (this.value == "MARKETING"){
 		$('#sub_location').parent('div').show();
 		return false;
 		}
     if (this.value == "DEPOT"){
-
 		$('#sub_location').parent('div').show();
 		return false;
 		}
