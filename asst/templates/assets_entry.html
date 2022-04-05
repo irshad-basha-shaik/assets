@@ -124,14 +124,6 @@ body {
                                               </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group row" name="sub_location1" id="sub_location1">
-                                              <label class="col-sm-4 col-form-label">Sub Location</label>
-                                              <div class="col-sm-8">
-                                                {{ form.sub_location}}
-                                              </div>
-                                            </div>
-                                        </div>
 
                                       <div class="col-md-6">
                                         <div class="form-group row">
@@ -640,7 +632,7 @@ $('#tabs-nav li').click(function () {
 
 window.onload = function() {
   $("#sub_location").parent('div').hide();
-  $("#sub_location1").parent('div').hide();
+
   $("#hdd1").parent('div').hide();
   $("#hdd2").parent('div').hide();
   $("#hdd3").parent('div').hide();
@@ -652,13 +644,13 @@ window.onload = function() {
   $("#Operating_System_Version6").parent('div').hide();
   $('#id_location').on('change', function() {
     if (this.value == "MARKETING"){
-        $("#sub_location1").parent('div').hide();
+
 		$('#sub_location').parent('div').show();
 		return false;
 		}
     if (this.value == "DEPOT"){
-        $("#sub_location").parent('div').hide();
-		$('#sub_location1').parent('div').show();
+
+		$('#sub_location').parent('div').show();
 		return false;
 		}
     return true;
