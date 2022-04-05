@@ -14,6 +14,7 @@ class AssetModel(models.Model):
     user_email = models.EmailField(max_length=100,default='')
     location = models.CharField(max_length=100)
     sub_location = models.CharField(max_length=100,default='')
+    sub_location1 = models.CharField(max_length=100, default='')
     asset_no = models.CharField(max_length=100, default='')
     serial_no = models.CharField(max_length=100, default='')
     emp_id = models.CharField(max_length=100, default='')

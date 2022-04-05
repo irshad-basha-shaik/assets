@@ -72,6 +72,7 @@
                         <tr>
                             <td style ="font-weight: bold;">Serial No </td>
                             <td style ="font-weight: bold;"> Location </td>
+                            <td style ="font-weight: bold;"> Sub Location </td>
                             <td style ="font-weight: bold;"> Asset No </td>
                             <td style ="font-weight: bold;"> Emp Id </td>
                             <td style ="font-weight: bold;"> OEM / Volume </td>
@@ -124,6 +125,7 @@
                         <tr>
                             <td>{{form.serial_no}}<span style="visibility:hidden">{{forloop.counter}}</span></td>
                              <td>{{form.location}} </td>
+                            <td>{{form.sub_location}} </td>
                             <td>{{form.asset_no}}</td>
                             <td>{{form.emp_id}}</td>
                             <td>{% if form.OEM_Volume %}OEM {% else %}Volume{% endif %}</td>
@@ -191,6 +193,7 @@
                         <tr>
                             <td style ="font-weight: bold;">Serial No </td>
                             <td style ="font-weight: bold;"> Location </td>
+                            <td style ="font-weight: bold;"> Sub Location </td>
                             <td style ="font-weight: bold;"> Asset No </td>
                             <td style ="font-weight: bold;"> Emp Id </td>
                             <td style ="font-weight: bold;"> OEM / Volume </td>
@@ -243,6 +246,7 @@
                         <tr>
                             <td>{{form.serial_no}}</td>
                              <td>{{form.location}} </td>
+                            <td>{{form.sub_location}} </td>
                             <td>{{form.asset_no}}</td>
                             <td>{{form.emp_id}}</td>
                             <td>{% if form.OEM_Volume %}OEM {% else %}Volume{% endif %}</td>

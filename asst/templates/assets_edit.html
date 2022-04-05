@@ -70,7 +70,7 @@ body {
         <div class="content-wrapper">
 
                   <h4 class="card-title">Edit Assets Form</h4>
-                 <form class="form-sample" name ="myForm" method="post">
+                 <form class="form-sample" name ="myForm" method="post" onclick="datetostring()">
                     {% csrf_token %}
                       <div class="tabs">
                   <ul id="tabs-nav">
@@ -89,11 +89,11 @@ body {
                         <h3>Employee Info</h3>
                                 <div class="row">
 
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
+                                    <div class="col-md-6" onfocusout="checkexist()">
+                                        <div class="form-group row" id="serial_no" name="serial_no">
                                           <label class="col-sm-4 col-form-label">S.No</label>
                                           <div class="col-sm-8">
-                                            {{ form.serial_no}}<span style="visibility:hidden">{{forloop.counter}}</span>
+                                            {{ form.serial_no}}<span style="visibility:hidden" >{{forloop.counter}}</span>
                                           </div>
                                         </div>
                                        </div>
@@ -108,10 +108,27 @@ body {
                                      </div>
 
                                         <div class="col-md-6">
-                                            <div class="form-group row">
+                                            <div class="form-group row" name="location" id="location">
                                               <label class="col-sm-4 col-form-label">Asset Location</label>
                                               <div class="col-sm-8">
                                                 {{ form.location}}
+                                              </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group row" name="sub_location" id="sub_location">
+                                              <label class="col-sm-4 col-form-label">Sub Location</label>
+                                              <div class="col-sm-8">
+                                                {{ form.sub_location}}
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row" name="sub_location1" id="sub_location1">
+                                              <label class="col-sm-4 col-form-label">Sub Location</label>
+                                              <div class="col-sm-8">
+                                                {{ form.sub_location}}
                                               </div>
                                             </div>
                                         </div>
@@ -597,7 +614,7 @@ body {
 
                   </div>
                 </div>
-                            <input class="btn btn-primary btn-rounded btn-fw" type = "submit" onclick="GEEKFORGEEKS()" value="Save">
+                            <input class="btn btn-primary btn-rounded btn-fw" id="submit" type = "submit" onclick="GEEKFORGEEKS()" value="Save">
 
                   </form>
                 </div>
@@ -607,6 +624,7 @@ body {
 
 <script>
 setTimeout(function() {
+
 $('#tabs-nav li:first-child').addClass('active');
 $('.tab-content').hide();
 $('.tab-content:first').show();
@@ -614,7 +632,6 @@ $('#tabs-nav li').click(function () {
   $('#tabs-nav li').removeClass('active');
   $(this).addClass('active');
   $('.tab-content').hide();
-
   var activeTab = $(this).find('a').attr('href');
 
   $(activeTab).fadeIn();
@@ -624,6 +641,8 @@ $('#tabs-nav li').click(function () {
 }, 100);
 
 window.onload = function() {
+  $("#sub_location").parent('div').hide();
+  $("#sub_location1").parent('div').hide();
   $("#hdd1").parent('div').hide();
   $("#hdd2").parent('div').hide();
   $("#hdd3").parent('div').hide();
@@ -633,6 +652,19 @@ window.onload = function() {
   $("#Operating_System_Version4").parent('div').hide();
   $("#Operating_System_Version5").parent('div').hide();
   $("#Operating_System_Version6").parent('div').hide();
+  $('#id_location').on('change', function() {
+    if (this.value == "MARKETING"){
+        $("#sub_location1").parent('div').hide();
+		$('#sub_location').parent('div').show();
+		return false;
+		}
+    if (this.value == "DEPOT"){
+        $("#sub_location").parent('div').hide();
+		$('#sub_location1').parent('div').show();
+		return false;
+		}
+    return true;
+});
   $('#id_hdd_type').on('change', function() {
     if (this.value == "SSD"){
         $("#hdd").parent('div').hide();
@@ -722,7 +754,18 @@ window.onload = function() {
     return true;
 })
   }
+function checkexist() {
+    var serial_no = $("#id_serial_no").val();
+   jQuery.ajax({
+   url:"\checkSerialNumber?serial="+serial_no,
+   }).then(function(data) {
+        if(data.response) {
+       alert("Serial No already exist:");
+       $("#id_serial_no").val("");
+       }
+    });
 
+   };
 
 function TABS() {
 		$('#tabs-nav li').click(function () {
@@ -736,8 +779,6 @@ function TABS() {
 		});
 		return true;
 		}
-
-
 
 function GEEKFORGEEKS() {
 		var asset_no = document.forms["myForm"]["asset_no"];
