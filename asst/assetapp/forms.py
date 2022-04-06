@@ -7,6 +7,8 @@ USAGE_TYPE = [
     ('Spare_Old', 'Spare_Old'),
     ('Spare_New', 'Spare_New'),
     ('Live','Live'),
+    (' ', ' ')
+
 ]
 LOCATION = [
     ('HYDERABAD', 'HYDERABAD'),
@@ -14,7 +16,8 @@ LOCATION = [
     ('KAKINADA', 'KAKINADA'),
     ('KAKINADA-3', 'KAKINADA-3'),
     ('MARKETING', 'MARKETING'),
-    ('DEPOT', 'DEPOT')
+    ('DEPOT', 'DEPOT'),
+    (' ', ' ')
 
 ]
 
@@ -22,6 +25,7 @@ MACHINE_TYPE = [
     ('Laptop','Laptop'),
     ('Desktop','Desktop'),
     ('Server','Server'),
+    (' ', ' ')
 
 ]
 HDD = [
@@ -99,6 +103,7 @@ HDD_CAPACITY = (
     ('1TB', '1TB'),
     ('2TB', '2TB'),
     ('10TB', '10TB'),
+    (' ', ' ')
 )
 RAM = [
     ('2 GB','2 GB'),
@@ -232,7 +237,8 @@ PROCESSOR = [
     ('InteL- 3.10 Ghz', 'InteL- 3.10 Ghz'),
     ('InteL- 3.50 Ghz', 'InteL- 3.50 Ghz'),
     ('Intel®Xeon 3.50GHZ', 'Intel®Xeon 3.50GHZ'),
-    ('P Dualcore-3 GHZ', 'P Dualcore-3 GHZ')
+    ('P Dualcore-3 GHZ', 'P Dualcore-3 GHZ'),
+    (' ', ' ')
 
 ]
 YEARS= [x for x in range(1940,2200)]
@@ -241,6 +247,7 @@ EmailType = [
     ('MS Office 365', 'MS Office 365'),
     ('Zimbra', 'Zimbra'),
     ('Public', 'Public'),
+    (' ', ' ')
 ]
 HDDS = [
     ('hdd', 'hdd'),
@@ -253,6 +260,7 @@ HDD_Type = [
     ('SATA', 'SATA'),
     ('SSD', 'SSD'),
     ('SSDSATA', 'SSDSATA'),
+    (' ', ' ')
 ]
 Date_Type = [
     ('Warranty', 'Warranty'),
@@ -296,7 +304,8 @@ OS_VERSIONS = (
     ("Operating_System_Version3","Operating_System_Version3"),
     ("Operating_System_Version4","Operating_System_Version4"),
     ("Operating_System_Version5","Operating_System_Version5"),
-    ("Operating_System_Version6","Operating_System_Version6")
+    ("Operating_System_Version6","Operating_System_Version6"),
+    (' ', ' ')
     )
 OS_VERSION = (
     ('Win-7 Pro.32 Bit','Win-7 Pro.32 Bit'),
@@ -330,7 +339,6 @@ OS_VERSION1 = (
     ('Windows Xp Pro 32 Bit','Windows Xp Pro 32 Bit'),
     ('Windows Xp Pro 64 Bit','Windows Xp Pro 64 Bit'),
     ('',''),
-
 )
 OS_VERSION2 = (
     ('Win-7 Pro.32 Bit','Win-7 Pro.32 Bit'),
@@ -413,7 +421,8 @@ DOMAIN_WORKGROUP = (
 REMARKS = (
     ('Spare','Spare'),
     ('Used','Used'),
-    ('Not Working','Not Working')
+    ('Not Working','Not Working'),
+    (' ', ' ')
 )
 DEVICES = (
     ('Access Point','Access Point'),
@@ -433,7 +442,7 @@ class AssetForm(forms.ModelForm):
     user_email = forms.EmailField(max_length=100,widget=forms.EmailInput(attrs={'class': 'form-control'}),required=False)
     location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     sub_location = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
-    asset_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
+    asset_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     emp_id = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     usage_type = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=USAGE_TYPE),required=False)
@@ -443,8 +452,8 @@ class AssetForm(forms.ModelForm):
     Domain_User_Name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     machine_make = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     machine_age = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
-    machine_model_no = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
-    machine_serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
+    machine_model_no = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    machine_serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     hdd = forms.ChoiceField(choices=HDD,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     hdd1 = forms.ChoiceField(choices=SATA, widget=forms.Select(attrs={'class': 'form-control'}), required=False)
     hdd2 = forms.ChoiceField(choices=SSD, widget=forms.Select(attrs={'class': 'form-control'}), required=False)
@@ -471,7 +480,7 @@ class AssetForm(forms.ModelForm):
     OS = forms.ChoiceField(choices=OS,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_office = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     ms_office_version = forms.ChoiceField(choices=MS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
-    ms_365 = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=EmailType), required=False)
+    ms_365 = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=EmailType))
     ms_visio = forms.ChoiceField(choices=VISIO_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_access = forms.ChoiceField(choices=ACCESS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     OEM_Volume = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
@@ -486,7 +495,7 @@ class AssetForm(forms.ModelForm):
     Access = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     SAP = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     SAP_User_ID = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
-    Status = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}), required=False)
+    Status = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     Remarks = forms.ChoiceField(choices=REMARKS,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
 
     class Meta:
