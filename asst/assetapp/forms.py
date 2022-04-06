@@ -6,26 +6,26 @@ from .models import AssetModel,PingModel
 USAGE_TYPE = [
     ('Spare_Old', 'Spare_Old'),
     ('Spare_New', 'Spare_New'),
-    ('Live','Live'),
-    (' ', ' ')
+    ('Live','Live')
 
 ]
 LOCATION = [
+    (' ', ' '),
     ('HYDERABAD', 'HYDERABAD'),
     ('KRISHNAPATNAM', 'KRISHNAPATNAM'),
     ('KAKINADA', 'KAKINADA'),
     ('KAKINADA-3', 'KAKINADA-3'),
     ('MARKETING', 'MARKETING'),
-    ('DEPOT', 'DEPOT'),
-    (' ', ' ')
+    ('DEPOT', 'DEPOT')
 
 ]
 
 MACHINE_TYPE = [
+    (' ', ' '),
     ('Laptop','Laptop'),
     ('Desktop','Desktop'),
-    ('Server','Server'),
-    (' ', ' ')
+    ('Server','Server')
+
 
 ]
 HDD = [
@@ -120,6 +120,7 @@ RAM = [
     ('', ''),
 ]
 PROCESSOR = [
+    (' ', ' '),
     ('Core i-3', 'Core i-3'),
     ('Core i-3 2.00 GHz', 'Core i-3 2.00 GHz'),
     ('Core i-3 2.40 GHZ', 'Core i-3 2.40 GHZ'),
@@ -237,8 +238,7 @@ PROCESSOR = [
     ('InteL- 3.10 Ghz', 'InteL- 3.10 Ghz'),
     ('InteL- 3.50 Ghz', 'InteL- 3.50 Ghz'),
     ('Intel®Xeon 3.50GHZ', 'Intel®Xeon 3.50GHZ'),
-    ('P Dualcore-3 GHZ', 'P Dualcore-3 GHZ'),
-    (' ', ' ')
+    ('P Dualcore-3 GHZ', 'P Dualcore-3 GHZ')
 
 ]
 YEARS= [x for x in range(1940,2200)]
@@ -246,8 +246,7 @@ YEARS= [x for x in range(1940,2200)]
 EmailType = [
     ('MS Office 365', 'MS Office 365'),
     ('Zimbra', 'Zimbra'),
-    ('Public', 'Public'),
-    (' ', ' ')
+    ('Public', 'Public')
 ]
 HDDS = [
     ('hdd', 'hdd'),
@@ -260,9 +259,9 @@ HDD_Type = [
     ('SATA', 'SATA'),
     ('SSD', 'SSD'),
     ('SSDSATA', 'SSDSATA'),
-    (' ', ' ')
 ]
 Date_Type = [
+    ('',''),
     ('Warranty', 'Warranty'),
     ('AMC', 'AMC'),
 ]
@@ -304,8 +303,7 @@ OS_VERSIONS = (
     ("Operating_System_Version3","Operating_System_Version3"),
     ("Operating_System_Version4","Operating_System_Version4"),
     ("Operating_System_Version5","Operating_System_Version5"),
-    ("Operating_System_Version6","Operating_System_Version6"),
-    (' ', ' ')
+    ("Operating_System_Version6","Operating_System_Version6")
     )
 OS_VERSION = (
     ('Win-7 Pro.32 Bit','Win-7 Pro.32 Bit'),
@@ -419,10 +417,10 @@ DOMAIN_WORKGROUP = (
 
 )
 REMARKS = (
+    ('',''),
     ('Spare','Spare'),
     ('Used','Used'),
-    ('Not Working','Not Working'),
-    (' ', ' ')
+    ('Not Working','Not Working')
 )
 DEVICES = (
     ('Access Point','Access Point'),
@@ -458,7 +456,7 @@ class AssetForm(forms.ModelForm):
     hdd1 = forms.ChoiceField(choices=SATA, widget=forms.Select(attrs={'class': 'form-control'}), required=False)
     hdd2 = forms.ChoiceField(choices=SSD, widget=forms.Select(attrs={'class': 'form-control'}), required=False)
     hdd3 = forms.ChoiceField(choices=SSDSATA, widget=forms.Select(attrs={'class': 'form-control'}), required=False)
-    hdd_type = forms.ChoiceField(choices=HDD_Type,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    hdd_type = forms.ChoiceField(choices=HDD_Type,widget=forms.Select(attrs={'class': 'form-control'}))
     hdd_make = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd_model = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     hdd_serial_no =forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
