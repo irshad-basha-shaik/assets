@@ -177,7 +177,7 @@ class PingModelDelete(DeleteView):
     success_url = reverse_lazy('pingmodel-list')
 
 @csrf_exempt
-#@login_required
+@login_required
 
 def new(request):
     context = {}
