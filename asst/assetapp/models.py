@@ -33,7 +33,7 @@ class AssetModel(models.Model):
     hdd_serial_no = models.CharField(max_length=100, default='')
     ram = models.CharField(max_length=100, default='')
     processor = models.CharField(max_length=100, default='')
-    processor_purchase_date = models.DateField(default=date(1111, 11, 11),null=True,blank=True)
+    processor_purchase_date = models.DateField(null=True,blank=True)
     date_type = models.CharField(max_length=100, default='')
     amc_start_date = models.DateField(null=True,blank=True)
     amc_end_date = models.DateField(null=True,blank=True)

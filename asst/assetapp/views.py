@@ -184,14 +184,15 @@ def new(request):
     context['form'] = AssetForm()
     if request.method == 'POST':
         form = AssetForm(request.POST)
+        form.save()
         if form.is_valid():
             student = form.save(commit=False)
-            for z in HDDS:
+            """for z in HDDS:
                 if request.POST[z[0]] != '':
                     student.hdd = request.POST[z[0]]
             for z in OS_VERSIONS:
                 if request.POST[z[0]] != '':
-                    student.Operating_System_Version = request.POST[z[0]]
+                    student.Operating_System_Version = request.POST[z[0]]"""
             student.save()
             return index(request)
         else:
