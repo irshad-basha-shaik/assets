@@ -316,6 +316,7 @@ def getAssetsByLocation():
     list["gtotal"]=grand_total
     return list
 def getAssets():
+    LOCATION.pop(1)
     list = {"remark":[],"LOCATION":LOCATION,"gtotal":[]}
     REM = [ ("Used Workstations",["Desktop","Laptop", "Server"],4,"Total Used") ,
             ("Spare_Old Workstations",["Desktop","Laptop"],3,"Total Old Spare"),
