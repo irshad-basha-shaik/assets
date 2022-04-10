@@ -15,9 +15,7 @@ LOCATION = [
     ('KAKINADA', 'KAKINADA'),
     ('KAKINADA-3', 'KAKINADA-3'),
     ('MARKETING', 'MARKETING'),
-    ('DEPOT', 'DEPOT'),
-    ('','')
-
+    ('DEPOT', 'DEPOT')
 ]
 
 MACHINE_TYPE = [
