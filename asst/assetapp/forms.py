@@ -10,7 +10,6 @@ USAGE_TYPE = [
 
 ]
 LOCATION = [
-    (' ', ' '),
     ('HYDERABAD', 'HYDERABAD'),
     ('KRISHNAPATNAM', 'KRISHNAPATNAM'),
     ('KAKINADA', 'KAKINADA'),
