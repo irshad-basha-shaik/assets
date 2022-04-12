@@ -126,20 +126,20 @@ def last_updated_date(request,pk):
                         return lud
 
 
-# def check(request,pk):
-#     a = request
-#     b = PingModel.objects.filter('pk')
-#     state = status(a)
-#     print(state)
-#     if state>0:
-#         return
-#     return state
-# def date_check(request):
-#     today = datetime.date.today()
-#     first = today.replace(day=1)
-#     lastMonth = first - datetime.timedelta(days=1)
-#     print(lastMonth.strftime("%Y-%m"))
-#     return date
+def check(request,pk):
+    a = request
+    b = PingModel.objects.filter('pk')
+    state = status(a)
+    print(state)
+    if state>0:
+        return
+    return state
+def date_check(request):
+    today = datetime.date.today()
+    first = today.replace(day=1)
+    lastMonth = first - datetime.timedelta(days=1)
+    print(lastMonth.strftime("%Y-%m"))
+    return date
 def my_job():
     #Last_Updated
     now = datetime.now()
@@ -316,7 +316,6 @@ def getAssetsByLocation():
     list["gtotal"]=grand_total
     return list
 def getAssets():
-
     list = {"remark":[],"LOCATION":LOCATION,"gtotal":[]}
     REM = [ ("Used Workstations",["Desktop","Laptop", "Server"],4,"Total Used") ,
             ("Spare_Old Workstations",["Desktop","Laptop"],3,"Total Old Spare"),
