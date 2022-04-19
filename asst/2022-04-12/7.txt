@@ -1,0 +1,4 @@
+17:02:42, 1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms,
+17:03:53, 1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms,
+17:11:24, 1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms,
+17:47:41, 1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms,

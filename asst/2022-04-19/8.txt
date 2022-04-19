@@ -1,0 +1,147 @@
+09:58:54, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+10:13:28, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+10:16:37, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1162.859/1162.859/1162.859/0.000 ms
+10:17:59, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+10:23:42, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 0.031/0.031/0.031/0.000 ms
+10:23:47, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 0.033/0.033/0.033/0.000 ms
+10:23:52, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 0.025/0.025/0.025/0.000 ms
+10:23:57, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 0.026/0.026/0.026/0.000 ms
+10:24:03, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 0.030/0.030/0.030/0.000 ms
+10:24:08, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 0.028/0.028/0.028/0.000 ms
+10:24:13, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 0.025/0.025/0.025/0.000 ms
+10:24:18, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 0.027/0.027/0.027/0.000 ms
+10:24:23, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 0.037/0.037/0.037/0.000 ms
+10:24:28, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 0.027/0.027/0.027/0.000 ms
+10:24:34, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 0.042/0.042/0.042/0.000 ms
+10:27:57, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 740.395/740.395/740.395/0.000 ms
+10:29:50, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 818.625/818.625/818.625/0.000 ms
+10:31:30, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 725.482/725.482/725.482/0.000 ms
+10:32:17, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1049.525/1049.525/1049.525/0.000 ms
+10:47:28, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1295.286/1295.286/1295.286/0.000 ms
+10:48:14, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 795.873/795.873/795.873/0.000 ms
+10:49:01, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1613.137/1613.137/1613.137/0.000 ms
+10:49:49, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1952.610/1952.610/1952.610/0.000 ms
+10:50:36, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1076.381/1076.381/1076.381/0.000 ms
+10:51:23, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1377.658/1377.658/1377.658/0.000 ms
+10:52:09, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 663.040/663.040/663.040/0.000 ms
+10:52:57, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1610.719/1610.719/1610.719/0.000 ms
+10:59:33, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+11:00:16, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+11:01:03, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+11:07:59, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 421.992/421.992/421.992/0.000 ms
+11:08:38, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1133.438/1133.438/1133.438/0.000 ms
+11:09:34, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1147.889/1147.889/1147.889/0.000 ms
+11:25:12, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1689.250/1689.250/1689.250/0.000 ms
+11:26:09, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1259.993/1259.993/1259.993/0.000 ms
+11:27:05, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1002.809/1002.809/1002.809/0.000 ms
+11:27:51, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 752.810/752.810/752.810/0.000 ms
+11:28:47, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 853.569/853.569/853.569/0.000 ms
+11:29:44, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1262.350/1262.350/1262.350/0.000 ms
+11:30:40, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1025.298/1025.298/1025.298/0.000 ms
+11:31:36, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1007.587/1007.587/1007.587/0.000 ms
+11:32:33, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1578.159/1578.159/1578.159/0.000 ms
+11:33:38, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1051.673/1051.673/1051.673/0.000 ms
+11:34:43, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 907.560/907.560/907.560/0.000 ms
+11:35:48, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 797.616/797.616/797.616/0.000 ms
+11:36:54, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 888.909/888.909/888.909/0.000 ms
+11:37:59, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 916.290/916.290/916.290/0.000 ms
+11:39:04, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1081.575/1081.575/1081.575/0.000 ms
+11:40:10, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 761.597/761.597/761.597/0.000 ms
+11:41:15, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 936.177/936.177/936.177/0.000 ms
+11:42:20, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 868.858/868.858/868.858/0.000 ms
+11:43:25, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 924.074/924.074/924.074/0.000 ms
+11:44:31, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1094.470/1094.470/1094.470/0.000 ms
+11:45:27, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1022.565/1022.565/1022.565/0.000 ms
+11:46:23, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 701.852/701.852/701.852/0.000 ms
+11:47:19, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 547.382/547.382/547.382/0.000 ms
+11:48:15, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 866.196/866.196/866.196/0.000 ms
+11:49:20, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1044.747/1044.747/1044.747/0.000 ms
+11:50:25, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 786.893/786.893/786.893/0.000 ms
+11:51:31, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1050.325/1050.325/1050.325/0.000 ms
+11:52:36, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 765.201/765.201/765.201/0.000 ms
+11:53:41, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 922.885/922.885/922.885/0.000 ms
+11:54:46, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 888.020/888.020/888.020/0.000 ms
+11:55:52, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 918.132/918.132/918.132/0.000 ms
+11:56:57, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 938.677/938.677/938.677/0.000 ms
+11:58:02, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1165.538/1165.538/1165.538/0.000 ms
+11:59:08, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 873.699/873.699/873.699/0.000 ms
+12:00:13, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 901.626/901.626/901.626/0.000 ms
+12:01:18, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 673.524/673.524/673.524/0.000 ms
+12:02:32, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+12:03:38, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 937.758/937.758/937.758/0.000 ms
+12:04:34, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1019.392/1019.392/1019.392/0.000 ms
+12:05:30, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 845.808/845.808/845.808/0.000 ms
+12:06:27, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 1046.748/1046.748/1046.748/0.000 ms
+12:07:37, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 6158.543/6158.543/6158.543/0.000 ms
+12:08:42, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 896.578/896.578/896.578/0.000 ms
+13:41:31, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+13:42:45, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+13:44:00, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+13:45:14, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+13:46:28, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+13:47:43, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+13:48:57, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+13:50:12, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+13:51:26, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+13:52:40, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+13:53:55, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+13:55:09, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+13:56:23, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+13:57:38, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+13:58:52, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:00:06, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:01:21, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:02:35, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:03:50, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:05:04, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:06:18, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:07:33, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:08:47, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:10:01, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:11:16, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:12:30, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:13:45, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:14:59, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:16:13, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:17:19, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:18:34, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:19:48, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:21:02, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:22:17, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:23:31, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:24:45, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:26:00, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:27:14, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:28:29, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:29:43, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:30:57, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:32:12, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:33:26, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:34:40, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:35:55, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:37:09, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:38:24, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:39:38, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:40:52, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:42:07, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:43:21, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:44:35, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:45:50, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:47:04, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:48:18, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:49:33, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:50:47, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:52:02, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:53:16, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:54:30, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:55:45, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:56:59, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:58:13, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+14:59:46, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+15:01:01, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+15:02:15, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+15:04:00, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+15:07:02, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+15:09:54, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+15:14:23, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,
+15:16:55, 1 packets transmitted, 0 received, 100% packet loss, time 0ms,

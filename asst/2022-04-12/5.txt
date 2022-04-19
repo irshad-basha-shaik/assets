@@ -1,0 +1,5 @@
+17:02:36, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 0.033/0.033/0.033/0.000 ms
+17:03:46, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 0.025/0.025/0.025/0.000 ms
+17:10:38, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 0.026/0.026/0.026/0.000 ms
+17:43:51, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 0.026/0.026/0.026/0.000 ms
+17:47:34, 1 packets transmitted, 1 received, 0% packet loss, time 0ms, rtt min/avg/max/mdev = 0.040/0.040/0.040/0.000 ms

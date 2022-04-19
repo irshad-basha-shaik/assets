@@ -82,8 +82,8 @@ class PingModel(models.Model):
         return reverse('pingmodel-detail', kwargs={'pk': self.pk})
 
 
-'''
-class WifiModel(models.Model):
+
+class Wifi_Model(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asst_No = models.CharField(max_length=100)
     Asst_No = models.CharField(max_length=100)
@@ -98,7 +98,7 @@ class WifiModel(models.Model):
     Remarks = models.CharField(max_length=100)
     Devices = models.CharField(max_length=100,default='1')
 
-
+'''
 class FirewallModel(models.Model):
     Location = models.CharField(max_length=100)
     Old_Asst_No = models.CharField(max_length=100)
