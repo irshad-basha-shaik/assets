@@ -153,7 +153,7 @@ def my_job():
             i.Status,i.Last_Updated= g, d
             i.save()
         except:
-            g < 0
+            g = -1
             d = last_updated_date(i.Ip_Address, i.pk)
             i.Status,i.Last_Updated  = g, d
             i.save()
