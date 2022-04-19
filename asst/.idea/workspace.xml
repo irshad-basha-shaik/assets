@@ -5,6 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4de185a6-5b75-4118-b986-abbe321a38ef" name="Default Changelist" comment="added last updated date.">
+      <change afterPath="$PROJECT_DIR$/2022-04-12/2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2022-04-12/3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2022-04-12/4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2022-04-12/5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2022-04-12/6.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2022-04-12/7.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2022-04-12/8.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2022-04-19/10.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2022-04-19/11.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2022-04-19/12.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2022-04-19/13.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2022-04-19/2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2022-04-19/3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2022-04-19/4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2022-04-19/5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2022-04-19/6.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2022-04-19/7.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2022-04-19/8.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2022-04-19/9.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assetapp/migrations/0008_alter_assetmodel_processor_purchase_date.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assetapp/migrations/0009_wifimodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assetapp/migrations/0010_delete_wifimodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assetapp/migrations/0011_firewallmodel_vccmodel_wifimodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assetapp/migrations/0012_delete_firewallmodel_delete_vccmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assetapp/migrations/0013_wifi_model_delete_wifimodel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assetapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
@@ -55,7 +80,7 @@
       <recent name="$PROJECT_DIR$/templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.migrate">
+  <component name="RunManager" selected="Python.manage">
     <configuration name="cron" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="asst" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -206,13 +231,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1644299402827</updated>
-    </task>
-    <task id="LOCAL-00010" summary="added software changes to dashboard">
-      <created>1644405729256</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1644405729256</updated>
     </task>
     <task id="LOCAL-00011" summary="added software changes to dashboard">
       <created>1644407543374</created>
@@ -550,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650360759540</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="added last updated date.">
+      <created>1650361652261</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1650361652262</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
