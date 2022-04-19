@@ -514,14 +514,16 @@ class PingForm(forms.ModelForm):
         fields = ['Ip_Address','Name','Status','Alert_Range','Last_Updated']
 
 '''
-class WifiForm(forms.ModelForm):
-    Location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}))
-    Old_Asst_No = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
-    Asst_No = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
-    User_name_Location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}))
-    Make = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    Machine_Model_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
-    Machine_Sl_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
+class Wifi_Form(forms.ModelForm):
+    location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}))
+    sub_location = 
+    old_asst_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    asst_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    user_name_location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}))
+    machine_make = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    machine_age = 
+    machine_model_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    machine_serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     Machine_Number = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     Purchase_Date = forms.DateField(label='Purchase Date', widget=forms.SelectDateWidget(years=YEARS))
     Warranty_Details = forms.DateField(label='Warranty End Date', widget=forms.SelectDateWidget(years=YEARS))
@@ -530,8 +532,18 @@ class WifiForm(forms.ModelForm):
     Devices = forms.ChoiceField(choices=DEVICES,widget=forms.Select(attrs={'class': 'form-control'}))
 
     class Meta:
-        model = WifiModel
+        model = Wifi_Model
         fields = '__all__'
+    
+    machine_model_no = models.CharField(max_length=100, default='')
+    machine_serial_no = models.CharField(max_length=100, default='')
+    machine_number = models.CharField(max_length=100)
+    purchase_date = models.DateField(null=True,blank=True)
+    warranty_details = models.DateField(null=True,blank=True)
+    AMC_Date = models.DateField(null=True,blank=True)
+    date_type = models.CharField(max_length=100, default='')
+    Remarks = models.CharField(max_length=100)
+    Devices = models.CharField(max_length=100,default='1')
 
 class FirewallForm(forms.ModelForm):
     Location = forms.ChoiceField(choices=LOCATION, widget=forms.Select(attrs={'class': 'form-control'}), required=False)

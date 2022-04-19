@@ -84,19 +84,26 @@ class PingModel(models.Model):
 
 
 class Wifi_Model(models.Model):
-    Location = models.CharField(max_length=100)
-    Old_Asst_No = models.CharField(max_length=100)
-    Asst_No = models.CharField(max_length=100)
-    User_name_Location = models.CharField(max_length=100)
-    Make = models.CharField(max_length=100)
-    Machine_Model_no = models.CharField(max_length=100)
-    Machine_Sl_no = models.CharField(max_length=100)
-    Machine_Number = models.CharField(max_length=100)
-    Purchase_Date = models.DateField(default=date(1111, 11, 11))
-    Warranty_Details = models.DateField(default=date(1111, 11, 11))
-    AMC_Date = models.DateField(default=date(1111, 11, 11))
+    location = models.CharField(max_length=100)
+    sub_location = models.CharField(max_length=100, default='')
+    old_asst_no = models.CharField(max_length=100)
+    asst_no = models.CharField(max_length=100)
+    user_name_location = models.CharField(max_length=100)
+    machine_make = models.CharField(max_length=100, default='')
+    machine_age = models.CharField(max_length=100, default='')
+    machine_model_no = models.CharField(max_length=100, default='')
+    machine_serial_no = models.CharField(max_length=100, default='')
+    machine_number = models.CharField(max_length=100)
+    purchase_date = models.DateField(null=True,blank=True)
+    warranty_details = models.DateField(null=True,blank=True)
+    AMC_Date = models.DateField(null=True,blank=True)
+    date_type = models.CharField(max_length=100, default='')
     Remarks = models.CharField(max_length=100)
     Devices = models.CharField(max_length=100,default='1')
+
+
+
+
 
 '''
 class FirewallModel(models.Model):
