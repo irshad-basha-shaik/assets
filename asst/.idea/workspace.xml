@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4de185a6-5b75-4118-b986-abbe321a38ef" name="Default Changelist" comment="added last updated date.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assetapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assetapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/assetapp/pingmodel_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/assetapp/pingmodel_list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
