@@ -79,7 +79,7 @@ def write(request,pk):
 
 
 def ping(host,pk):
-    res ="";
+    res =""
     #host = "localhost"
     y=''
     if platform.system().lower() == 'windows':
@@ -153,7 +153,7 @@ def my_job():
             i.Status,i.Last_Updated= g, d
             i.save()
         except:
-            g = 0
+            g < 0
             d = last_updated_date(i.Ip_Address, i.pk)
             i.Status,i.Last_Updated  = g, d
             i.save()
@@ -161,14 +161,14 @@ def my_job():
 def shedule():
     delay = 5
     Timer(delay, my_job, ()).start()
-#nextDay = shedule()
+nextDay = shedule()
 class PingModelCreate(CreateView):
     model = PingModel
     fields = ['Ip_Address','Name','Alert_Range']
 
 class PingModelUpdate(UpdateView):
     model = PingModel
-    fields = ['Ip_Address','Name','Alert_Range']
+    fields = ['Ip_Address','Name','Status','Alert_Range']
     template_name_suffix = '_update_form'
 
 
