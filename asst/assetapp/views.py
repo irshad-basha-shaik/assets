@@ -85,11 +85,14 @@ def ping(host,pk):
     if platform.system().lower() == 'windows':
         with os.popen("ping  "+host+" -n 1") as f:
             res = str(f.readlines())
-            rest = res.split('---')
-            result = rest[2].replace("\\n", "")
-            result = result.replace("]", "")
+            rest = res.split('\\n')
+            result = rest[5].replace("]", "")
             result = result.replace("\'", "")
-            result = result[1:]
+            result1 = result.split(',')
+            result1 = result1[3]
+            result2 = result1.split('=')
+            result2 = result2[1].split('(')
+            result = result2[0]
             pk = str(pk)
             write(result, pk)
             y = status(result)
@@ -105,7 +108,25 @@ def ping(host,pk):
             write(result, pk)
             y = status(result)
     return y
-def last_updated_date(request,pk):
+def win_last_updated_date(request,pk):
+    lr = []
+    pk = str(pk)
+    fileOfDirectory = (os.listdir('.'))
+    pattern = "*-*-*"
+    for filename1 in fileOfDirectory:
+        if fnmatch.fnmatch(filename1, pattern):
+            lr.append(filename1)
+    for filename in reversed(sorted(lr)):
+        path_to_file = os.getcwd() + "/" + filename + "/" + pk + ".txt"
+        if exists(path_to_file):
+            with open(path_to_file) as f:
+                contents = f.readlines()
+                for line in reversed(contents):
+                    line = line.split(",")
+                    if line[0] != 0:
+                        lud = filename+"  "+line[0]
+                        return lud
+def lin_last_updated_date(request,pk):
     lr = []
     pk = str(pk)
     fileOfDirectory = (os.listdir('.'))
@@ -121,7 +142,8 @@ def last_updated_date(request,pk):
                 for line in reversed(contents):
                     line = line.split(",")
                     line1 = line[2].split("received")
-                    if int(line1[0]) != 0:
+                    if int(line[0]) != 0:
+                    #if line[0] != 0:
                         lud = filename+"  "+line[0]
                         return lud
 
@@ -149,12 +171,18 @@ def my_job():
         #print(i.pk)
         try:
             g= ping(i.Ip_Address,i.pk)
-            d = last_updated_date(i.Ip_Address,i.pk)
+            if platform.system().lower() == 'windows':
+                d = win_last_updated_date(i.Ip_Address,i.pk)
+            else:
+                d = lin_last_updated_date(i.Ip_Address, i.pk)
             i.Status,i.Last_Updated= g, d
             i.save()
         except:
             g = -1
-            d = last_updated_date(i.Ip_Address, i.pk)
+            if platform.system().lower() == 'windows':
+                d = win_last_updated_date(i.Ip_Address, i.pk)
+            else:
+                d = lin_last_updated_date(i.Ip_Address, i.pk)
             i.Status,i.Last_Updated  = g, d
             i.save()
     return shedule()
