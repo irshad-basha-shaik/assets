@@ -61,6 +61,11 @@ def executeSHell(string):
     except:
         a=1
 def status(request):
+    result1 = request.split('=')
+    result2 = result1[3].split('(')
+    result = ((1-int(result2[0])))*100
+    return str(result)
+def status1(request):
     a = request.split(",")
     b = a[2].split("%")
     active = 100-int(b[0])
@@ -80,7 +85,7 @@ def write(request,pk):
 
 def ping(host,pk):
     res =""
-    #host = "localhost"
+    # host = "localhost"
     y=''
     if platform.system().lower() == 'windows':
         with os.popen("ping  "+host+" -n 1") as f:
@@ -88,11 +93,12 @@ def ping(host,pk):
             rest = res.split('\\n')
             result = rest[5].replace("]", "")
             result = result.replace("\'", "")
-            result1 = result.split(',')
-            result1 = result1[3]
-            result2 = result1.split('=')
-            result2 = result2[1].split('(')
-            result = result2[0]
+            result = result.replace(",", "")
+            # result1 = result.split(',')
+            # result1 = result1[3]
+            # result2 = result1.split('=')
+            # result2 = result2[1].split('(')
+            # result = result2[0]
             pk = str(pk)
             write(result, pk)
             y = status(result)
@@ -106,7 +112,7 @@ def ping(host,pk):
             result = result[1:]
             pk = str(pk)
             write(result, pk)
-            y = status(result)
+            y = status1(result)
     return y
 def win_last_updated_date(request,pk):
     lr = []
