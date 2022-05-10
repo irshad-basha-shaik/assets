@@ -293,6 +293,39 @@ ACCESS_VERSION =  (
     ('MS Access 2019', 'MS Access 2019'),
     ('','')
 )
+AUTOCAD_VERSION =  (
+    ('    AutoCAD 2000    15    ', '	AutoCAD 2000	15	'),
+    ('    AutoCAD 2002    15.2    ', '	AutoCAD 2002	15.2	'),
+    ('    AutoCAD 2004    16    ', '	AutoCAD 2004	16	'),
+    ('    AutoCAD 2005    16.1    ', '	AutoCAD 2005	16.1	'),
+    ('    AutoCAD 2006    16.2    ', '	AutoCAD 2006	16.2	'),
+    ('    AutoCAD 2007    17    ', '	AutoCAD 2007	17	'),
+    ('    AutoCAD 2008    17.1    ', '	AutoCAD 2008	17.1	'),
+    ('    AutoCAD 2009    17.2    ', '	AutoCAD 2009	17.2	'),
+    ('    AutoCAD 2010    18    ', '	AutoCAD 2010	18	'),
+    ('    AutoCAD 2011    18.1    ', '	AutoCAD 2011	18.1	'),
+    ('    AutoCAD 2012    18.2    ', '	AutoCAD 2012	18.2	'),
+    ('    AutoCAD 2013    19    ', '	AutoCAD 2013	19	'),
+    ('    AutoCAD 2014    19.1    ', '	AutoCAD 2014	19.1	'),
+    ('    AutoCAD 2015    20    ', '	AutoCAD 2015	20	'),
+    ('    AutoCAD 2016    20.1    ', '	AutoCAD 2016	20.1	'),
+    ('    AutoCAD 2017    21    ', '	AutoCAD 2017	21	'),
+    ('    AutoCAD 2018    22    ', '	AutoCAD 2018	22	'),
+    ('    AutoCAD 2019    23    ', '	AutoCAD 2019	23	'),
+    ('    AutoCAD 2020    23.1    ', '	AutoCAD 2020	23.1	'),
+    ('    AutoCAD 2021    24    ', '	AutoCAD 2021	24	'),
+    ('    AutoCAD 2022    24.1    ', '	AutoCAD 2022	24.1	'),
+    ('    AutoCAD 2023    24.2    ', '	AutoCAD 2023	24.2	'),
+
+    ('','')
+)
+ANTIVIRUS_VERSION =  (
+    ('Antivirus 2010', 'Antivirus 2010'),
+    ('Antivirus 2013', 'Antivirus 2013'),
+    ('Antivirus 2016', 'Antivirus 2016'),
+    ('Antivirus 2019', 'Antivirus 2019'),
+    ('','')
+)
 OEM_VOLUME = [x for x in range(1990,2021)]
 OS_VERSIONS = (
     ("Operating_System_Version","Operating_System_Version"),
@@ -482,6 +515,7 @@ class AssetForm(forms.ModelForm):
     OEM_Volume = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     Antivirus = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     AutoCAD = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
+    AutoCAD_version = forms.ChoiceField(choices=AUTOCAD_VERSION, widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     Coral_Draw = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}), required=False)
     Pdf_Writer = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}), required=False)
     Winzip = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}), required=False)

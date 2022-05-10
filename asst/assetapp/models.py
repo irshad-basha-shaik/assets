@@ -49,6 +49,7 @@ class AssetModel(models.Model):
     ms_access = models.CharField(max_length=100, default='')
     Antivirus = models.BooleanField(default='')
     AutoCAD = models.BooleanField(default='')
+    AutoCAD_version = models.CharField(max_length=100, default='')
     Coral_Draw = models.BooleanField(default='')
     Pdf_Writer = models.BooleanField(default='')
     Winzip = models.BooleanField(default='')
