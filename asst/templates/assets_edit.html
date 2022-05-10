@@ -359,45 +359,91 @@ body {
                                 <div class="row">
 
                                     <div class="col-md-6">
-                                        <div class="form-group row">
+                                        <div class="form-group row" name="ms_office" id="ms_office">
                                           <label class="col-sm-4 col-form-check">MS Office </label>
-                                          <div class="col-sm-8" type="checkbox">
+                                          <div class="col-sm-8" type="checkbox" onclick='handleClick(this);'>
                                            {{ form.ms_office}}
                                           </div>
                                         </div>
                                        </div>
                                     <div class="col-md-6">
-                                        <div class="form-group row">
+                                        <div class="form-group row" name="ms_office_version" id="ms_office_version">
+                                          <label class="col-sm-3 col-form-label">Ms Office Version </label>
+                                          <div class="col-sm-9" >
+                                           {{ form.ms_office_version}}
+                                          </div>
+                                        </div>
+                                       </div>
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group row" name = "Visio" id = "Visio">
                                           <label class="col-sm-4 col-form-check">Visio </label>
-                                          <div class="col-sm-8" type="checkbox">
+                                          <div class="col-sm-8" type="checkbox" onclick='handleClick(this);'>
                                            {{ form.Visio}}
                                           </div>
                                         </div>
                                        </div>
                                     <div class="col-md-6">
-                                        <div class="form-group row">
+                                        <div class="form-group row" name = "ms_visio" id = "ms_visio">
+                                          <label class="col-sm-3 col-form-check"> MS Visio Version </label>
+                                          <div class="col-sm-9" type="checkbox">
+                                           {{ form.ms_visio}}
+                                          </div>
+                                        </div>
+                                       </div>
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group row" name = "AutoCAD" id = "AutoCAD">
                                           <label class="col-sm-4 col-form-check">AutoCAD </label>
-                                          <div class="col-sm-8" type="checkbox" >
+                                          <div class="col-sm-8" type="checkbox" onclick='handleClick(this);'>
                                            {{ form.AutoCAD}}
                                           </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row" name = "AutoCAD_version" id = "AutoCAD_version">
+                                          <label class="col-sm-3 col-form-check"> AutoCAD Version </label>
+                                          <div class="col-sm-9" type="checkbox">
+                                           {{ form.AutoCAD_version }}
+                                          </div>
+                                        </div>
+                                       </div>
+
                                      <div class="col-md-6">
-                                        <div class="form-group row">
+                                        <div class="form-group row" name = "Access" id = "Access">
                                           <label class="col-sm-4 col-form-check"> Access </label>
-                                          <div class="col-sm-8" type="checkbox">
+                                          <div class="col-sm-8" type="checkbox" onclick='handleClick(this);'>
                                            {{ form.Access }}
                                           </div>
                                         </div>
                                        </div>
                                     <div class="col-md-6">
-                                        <div class="form-group row">
+                                        <div class="form-group row" name = "ms_access" id = "ms_access">
+                                          <label class="col-sm-3 col-form-check"> MS Access Version </label>
+                                          <div class="col-sm-9" type="checkbox">
+                                           {{ form.ms_access }}
+                                          </div>
+                                        </div>
+                                       </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group row" name = "Antivirus" id = "Antivirus">
                                           <label class="col-sm-4 col-form-check"> Antivirus </label>
-                                          <div class="col-sm-8" type="checkbox">
+                                          <div class="col-sm-8" type="checkbox" onclick='handleClick(this);'>
                                            {{ form.Antivirus }}
                                           </div>
                                         </div>
                                        </div>
+                                    <!--div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-4 col-form-check"> Antivirus Version</label>
+                                          <div class="col-sm-8" >
+                                           {{ form.Antivirus_version }}
+                                          </div>
+                                        </div>
+                                       </div-->
                                     <div class="col-md-6">
                                         <div class="form-group row">
                                           <label class="col-sm-3 col-form-check"> Email Type</label>
@@ -424,7 +470,7 @@ body {
                                        </div>
 
                                       <div class="col-md-6">
-                                        <div class="form-group row" name="Operating_System_Version" id="Operating_System_Version">
+                                        <div class="form-group row" >
                                             <label class="col-sm-3 col-form-label">Operating System Version:</label>
                                           <div class="col-sm-9">
                                               {{form.Operating_System_Version}}
@@ -479,30 +525,7 @@ body {
                                           </div>
                                         </div>
                                        </div>
-                                      <div class="col-md-6">
-                                        <div class="form-group row">
-                                          <label class="col-sm-3 col-form-label">Ms Office Version </label>
-                                          <div class="col-sm-9" >
-                                           {{ form.ms_office_version}}
-                                          </div>
-                                        </div>
-                                       </div>
-                                     <div class="col-md-6">
-                                        <div class="form-group row">
-                                          <label class="col-sm-3 col-form-check"> MS Visio Version </label>
-                                          <div class="col-sm-9" type="checkbox">
-                                           {{ form.ms_visio}}
-                                          </div>
-                                        </div>
-                                       </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                          <label class="col-sm-3 col-form-check"> MS Access Version </label>
-                                          <div class="col-sm-9" type="checkbox">
-                                           {{ form.ms_access }}
-                                          </div>
-                                        </div>
-                                       </div>
+
 
                                     <div class="col-md-6">
                                         <div class="form-group row">
@@ -634,6 +657,10 @@ $('#tabs-nav li').click(function () {
 }, 100);
 
 window.onload = function() {
+  $("#ms_access").parent('div').hide();
+  $("#AutoCAD_version").parent('div').hide();
+  $("#ms_visio").parent('div').hide();
+  $("#ms_office_version").parent('div').hide();
   $("#sub_location").parent('div').hide();
   $("#hdd1").parent('div').hide();
   $("#hdd2").parent('div').hide();
@@ -758,7 +785,67 @@ window.onload = function() {
 		return false;
 		}
     return true;
-})
+});
+    $('#id_ms_office').on('change', function() {
+    if (this.checked == true){
+		$("#ms_office_version").parent('div').show();
+		ms_office_version.focus();
+		return false;
+		}
+    return true;
+});
+    $('#id_AutoCAD').on('change', function() {
+    if (this.checked == true){
+		$("#AutoCAD_version").parent('div').show();
+		AutoCAD_version.focus();
+		return false;
+		}
+    return true;
+});
+    $('#id_Access').on('change', function() {
+    if (this.checked == true){
+		$("#ms_access").parent('div').show();
+		ms_access.focus();
+		return false;
+		}
+    return true;
+});
+    $('#id_Visio').on('change', function() {
+    if (this.checked == true){
+		$("#ms_visio").parent('div').show();
+		ms_visio.focus();
+		return false;
+		}
+    return true;
+});
+    $('#id_ms_office').on('change', function() {
+    if (this.checked == false){
+		$("#ms_office_version").parent('div').hide();
+		return false;
+		}
+    return true;
+});
+    $('#id_AutoCAD').on('change', function() {
+    if (this.checked == false){
+		$("#AutoCAD_version").parent('div').hide();
+		return false;
+		}
+    return true;
+});
+    $('#id_Access').on('change', function() {
+    if (this.checked == false){
+		$("#ms_access").parent('div').hide();
+		return false;
+		}
+    return true;
+});
+    $('#id_Visio').on('change', function() {
+    if (this.checked == false){
+		$("#ms_visio").parent('div').hide();
+		return false;
+		}
+    return true;
+});
   }
 function checkexist() {
     var serial_no = $("#id_serial_no").val();

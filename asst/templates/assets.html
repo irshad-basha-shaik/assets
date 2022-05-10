@@ -104,6 +104,7 @@
                             <td style ="font-weight: bold;">O365/Zimbra/Public</td>
                             <td style ="font-weight: bold;">Antivirus</td>
                             <td style ="font-weight: bold;">AutoCAD</td>
+                            <td style ="font-weight: bold;">AutoCAD Version</td>
                             <td style ="font-weight: bold;">Adobe Acrobat</td>
                             <td style ="font-weight: bold;">MS Visio</td>
                             <td style ="font-weight: bold;">Visio Version</td>
@@ -157,6 +158,7 @@
                             <td>{{form.ms_365}}</td>
                             <td>{% if form.Antivirus %} Manage {% else %} {% endif %}</td>
                             <td>{% if form.AutoCAD %} Yes {% else %}{% endif %}</td>
+                            <td>{{ form.AutoCAD_version }} </td>
                             <td>{% if form.Adobe_acrobate %} Open Source {% endif %}</td>
                             <td>{% if form.Visio %} Yes {% endif %}</td>
                             <td>{{form.ms_visio }}</td>
