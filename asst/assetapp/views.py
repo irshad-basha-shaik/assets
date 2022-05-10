@@ -71,11 +71,11 @@ def status1(request):
     active = 100-int(b[0])
     status = str(active)
     return status
-def write(request,pk):
+def write(host,request,pk):
     y = ""
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
-    request = current_time+","+request
+    request =current_time+","+request+ host
     today = str(date.today())
     x = today + '/' +pk+".txt"
     y = y+request
@@ -100,7 +100,8 @@ def ping(host,pk):
             # result2 = result2[1].split('(')
             # result = result2[0]
             pk = str(pk)
-            write(result, pk)
+            # write(result, pk)
+            write(host,result, pk)
             y = status(result)
     else:
         with os.popen("ping  " + host +" -c 1") as f:
@@ -111,7 +112,8 @@ def ping(host,pk):
             result = result.replace("\'", "")
             result = result[1:]
             pk = str(pk)
-            write(result, pk)
+            #write(result, pk)
+            write(host, result, pk)
             y = status1(result)
     return y
 def win_last_updated_date(request,pk):
@@ -148,10 +150,15 @@ def lin_last_updated_date(request,pk):
                 for line in reversed(contents):
                     line = line.split(",")
                     line1 = line[2].split("received")
-                    if int(line[0]) != 0:
-                    #if line[0] != 0:
-                        lud = filename+"  "+line[0]
-                        return lud
+                    try:
+                        #if int(line[0]) != 0:
+                        if line[0] != 0:
+                            lud = filename+"  "+line[0]
+                            return lud
+                    except:
+                        #int(line[0]) == 0
+                        line[0] == 0
+
 
 
 def check(request,pk):
