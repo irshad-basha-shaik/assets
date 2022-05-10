@@ -507,6 +507,7 @@ class AssetForm(forms.ModelForm):
     Operating_System_Version5 = forms.ChoiceField(choices=OS_VERSION5,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     Operating_System_Version6 = forms.ChoiceField(choices=OS_VERSION6,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     OS = forms.ChoiceField(choices=OS,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    OS_type = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     ms_office = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     ms_office_version = forms.ChoiceField(choices=MS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_365 = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=EmailType))

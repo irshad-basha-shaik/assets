@@ -41,6 +41,7 @@ class AssetModel(models.Model):
     user_handed_over_date = models.DateField(null=True,blank=True)
     Operating_System_Version = models.CharField(max_length=100, default='')
     OS = models.CharField(max_length=100, default='')
+    OS_type = models.CharField(max_length=100, default='')
     OEM_Volume = models.BooleanField(default='')
     ms_office = models.BooleanField(default='')
     ms_office_version = models.CharField(max_length=100, default='')

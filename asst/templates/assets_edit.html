@@ -461,8 +461,16 @@ body {
                                         </div>
                                        </div>
                                     <div class="col-md-6">
-                                        <div class="form-group row" name="OS" id="OS">
+                                        <div class="form-group row" name="OS_type" id="OS_type">
                                             <label class="col-sm-3 col-form-label">Operating System:</label>
+                                          <div class="col-sm-9">
+                                           {{form.OS_type}}
+                                          </div>
+                                        </div>
+                                       </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row" name="OS" id="OS">
+                                            <label class="col-sm-3 col-form-label">Operating System Type:</label>
                                           <div class="col-sm-9">
                                            {{form.OS}}
                                           </div>
@@ -470,7 +478,7 @@ body {
                                        </div>
 
                                       <div class="col-md-6">
-                                        <div class="form-group row" >
+                                        <div class="form-group row" name="Operating_System_Version" id="Operating_System_Version">
                                             <label class="col-sm-3 col-form-label">Operating System Version:</label>
                                           <div class="col-sm-9">
                                               {{form.Operating_System_Version}}
@@ -535,8 +543,6 @@ body {
                                           </div>
                                         </div>
                                        </div>
-
-
                                     </div>
 
                           </div>
@@ -782,6 +788,30 @@ window.onload = function() {
         $("#Operating_System_Version5").parent('div').hide();
         $("#Operating_System_Version1").parent('div').hide();
 		$('#Operating_System_Version6').parent('div').show();
+		return false;
+		}
+    return true;
+});
+    $('#id_OS_type').on('change', function() {
+    if (this.checked == true){
+		$("#OS").parent('div').show();
+		$("#Operating_System_Version").parent('div').show();
+		OS.focus();
+		return false;
+		}
+    return true;
+});
+    $('#id_OS_type').on('change', function() {
+    if (this.checked == false){
+		$("#OS").parent('div').hide();
+		$("#Operating_System_Version").parent('div').hide();
+		$("#Operating_System_Version1").parent('div').hide();
+		$("#Operating_System_Version2").parent('div').hide();
+		$("#Operating_System_Version3").parent('div').hide();
+		$("#Operating_System_Version4").parent('div').hide();
+		$("#Operating_System_Version5").parent('div').hide();
+		$("#Operating_System_Version6").parent('div').hide();
+
 		return false;
 		}
     return true;
