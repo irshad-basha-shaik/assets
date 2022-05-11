@@ -356,6 +356,14 @@ body {
                       <div id="tab33" class="tab-content tab-pane" style="display: none;" role="tabpanel" >
                       <h3>Machine Software Details</h3>
                                 <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-4 col-form-check"> OS Type - OEM </label>
+                                          <div class="col-sm-8" type="checkbox" >
+                                           {{ form.OEM_Volume}}
+                                          </div>
+                                        </div>
+                                       </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group row" name="ms_office" id="ms_office">
@@ -451,14 +459,7 @@ body {
                                           </div>
                                         </div>
                                        </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                          <label class="col-sm-4 col-form-check"> OS Type - OEM </label>
-                                          <div class="col-sm-8" type="checkbox" >
-                                           {{ form.OEM_Volume}}
-                                          </div>
-                                        </div>
-                                       </div>
+
                                     <div class="col-md-6">
                                         <div class="form-group row" name="OS_type" id="OS_type">
                                             <label class="col-sm-3 col-form-label">Operating System:</label>
