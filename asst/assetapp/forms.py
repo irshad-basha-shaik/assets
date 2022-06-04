@@ -9,6 +9,12 @@ USAGE_TYPE = [
     ('Live','Live')
 
 ]
+OS_TYPE = [
+    ('OEM', 'OEM'),
+    ('VOLUME', 'VOLUME'),
+    ('DOS','DOS')
+
+]
 LOCATION = [
     ('HYDERABAD', 'HYDERABAD'),
     ('KRISHNAPATNAM', 'KRISHNAPATNAM'),
@@ -513,7 +519,7 @@ class AssetForm(forms.ModelForm):
     ms_365 = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=EmailType))
     ms_visio = forms.ChoiceField(choices=VISIO_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_access = forms.ChoiceField(choices=ACCESS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
-    OEM_Volume = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
+    OEM_Volume = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=OS_TYPE),required=False)
     Antivirus = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     AutoCAD = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     AutoCAD_version = forms.ChoiceField(choices=AUTOCAD_VERSION, widget=forms.Select(attrs={'class': 'form-control'}),required=False)
