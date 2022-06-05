@@ -59,7 +59,7 @@
                  {% csrf_token %}
           {% if assets %}
             <a  class="nav-link {{assets}}" >
-<select name="displayColumns" multiple="multiple" style="height:70vh">
+<select name="displayColumns" multiple="multiple" style="height:50vh">
     <option value="SerialNo" {% if displayColumn.SerialNo %}  selected{% endif %}>Serial No</option>
     <option value="Location" {% if displayColumn.Location %}  selected{% endif %}>Location</option>
     <option value="SubLocation" {% if displayColumn.SubLocation %}  selected{% endif %}>Sub Location</option>
