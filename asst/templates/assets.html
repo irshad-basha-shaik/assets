@@ -55,14 +55,18 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-
-<div class="content-wrapper">
+<style>
+    .table{float:left;}
+</style>
+<div class="content-wrapper"Excellent>
     <div class="col-lg-12 stretch-card">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Assets List</h4>
                 <div class="row">
-                    <div class="col-md-12 bg-light text-right">
+                    <div class="col-md-10 bg-light text-left">
+                    </div>
+                    <div class="col-md-2 bg-light text-right">
                         <a type="button" class="btn btn-success" href="/assets_entry">New Entry</a>
                     </div>
                 </div>
@@ -70,53 +74,53 @@
                     <table id="example" class="table table-bordered">
                       <thead>
                         <tr>
-                            <td style ="font-weight: bold;">Serial No </td>
-                            <td style ="font-weight: bold;"> Location </td>
-                            <td style ="font-weight: bold;"> Sub Location </td>
-                            <td style ="font-weight: bold;"> Asset No </td>
-                            <td style ="font-weight: bold;"> Emp Id </td>
-                            <td style ="font-weight: bold;"> OEM / Volume </td>
-                            <td style ="font-weight: bold;">Usage Type</td>
-                            <td style ="font-weight: bold;">Machine Type</td>
-                            <td style ="font-weight: bold;">GEF_Id</td>
-                            <td style ="font-weight: bold;">Domain / Workgroup</td>
-                            <td style ="font-weight: bold;">User Name</td>
-                            <td style ="font-weight: bold;">User Email ID</td>
-                            <td style ="font-weight: bold;">User Contact No</td>
-                            <td style ="font-weight: bold;">Machine Make</td>
-                            <td style ="font-weight: bold;">Machine Model.No</td>
-                            <td style ="font-weight: bold;">Machine Si.No</td>
-                            <td style ="font-weight: bold;">Machine Age</td>
-                            <td style ="font-weight: bold;">RAM</td>
-                            <td style ="font-weight: bold;">Processor</td>
-                            <td style ="font-weight: bold;">HDD Type</td>
-                            <td style ="font-weight: bold;">HDD Capacity</td>
-                            <td style ="font-weight: bold;">HDD Si.No</td>
-                            <td style ="font-weight: bold;">Purchase Date</td>
-                            <td style ="font-weight: bold;">Warranty / AMC</td>
+                           {% if displayColumn.SerialNo %}    <td style ="font-weight: bold;">Serial No </td>{% endif %}
+                           {% if displayColumn.Location %}    <td style ="font-weight: bold;"> Location </td>{% endif %}
+                           {% if displayColumn.SubLocation %}    <td style ="font-weight: bold;"> Sub Location </td>{% endif %}
+                           {% if displayColumn.AssetNo %}    <td style ="font-weight: bold;"> Asset No </td> {% endif %}
+                           {% if displayColumn.EmpId %}    <td style ="font-weight: bold;"> Emp Id </td>{% endif %}
+                           {% if displayColumn.Volume_OEM %}    <td style ="font-weight: bold;"> OEM / Volume </td>{% endif %}
+                           {% if displayColumn.UsageType %}    <td style ="font-weight: bold;">Usage Type</td>{% endif %}
+                           {% if displayColumn.MachineType %}   <td style ="font-weight: bold;">Machine Type</td>{% endif %}
+                           {% if displayColumn.GEF_ID %}    <td style ="font-weight: bold;">GEF_Id</td>{% endif %}
+                           {% if displayColumn.Domain %}    <td style ="font-weight: bold;">Domain / Workgroup</td>{% endif %}
+                           {% if displayColumn.UserName %}    <td style ="font-weight: bold;">User Name</td>{% endif %}
+                           {% if displayColumn.UserEmailId %}    <td style ="font-weight: bold;">User Email ID</td>{% endif %}
+                           {% if displayColumn.UserContact %}    <td style ="font-weight: bold;">User Contact No</td>{% endif %}
+                          {% if displayColumn.MachineMake %}     <td style ="font-weight: bold;">Machine Make</td>{% endif %}
+                          {% if displayColumn.MachineModel %}     <td style ="font-weight: bold;">Machine Model.No</td>{% endif %}
+                           {% if displayColumn.MachineSerialNo %}    <td style ="font-weight: bold;">Machine Si.No</td>{% endif %}
+                           {% if displayColumn.MachineAge %}    <td style ="font-weight: bold;">Machine Age</td>{% endif %}
+                           {% if displayColumn.RAM %}    <td style ="font-weight: bold;">RAM</td>{% endif %}
+                           {% if displayColumn.Processor %}    <td style ="font-weight: bold;">Processor</td>{% endif %}
+                           {% if displayColumn.HDDType %}    <td style ="font-weight: bold;">HDD Type</td>{% endif %}
+                           {% if displayColumn.HDDCapacity %}    <td style ="font-weight: bold;">HDD Capacity</td>{% endif %}
+                           {% if displayColumn.HDDSerialNumber %}    <td style ="font-weight: bold;">HDD Si.No</td>{% endif %}
+                           {% if displayColumn.PurchaseDate %}    <td style ="font-weight: bold;">Purchase Date</td>{% endif %}
+                           {% if displayColumn.Warranty %}    <td style ="font-weight: bold;">Warranty / AMC</td>{% endif %}
                             <!--td style ="font-weight: bold;">Warranty Start Date</td>
                             <td style ="font-weight: bold;">Warranty End Date</td-->
-                            <td style ="font-weight: bold;">Service Start Date</td>
-                            <td style ="font-weight: bold;">Service End Date</td>
-                            <td style ="font-weight: bold;">OS Version</td>
-                            <td style ="font-weight: bold;">OS</td>
-                            <td style ="font-weight: bold;">MS Office Version</td>
-                            <td style ="font-weight: bold;">O365/Zimbra/Public</td>
-                            <td style ="font-weight: bold;">Antivirus</td>
-                            <td style ="font-weight: bold;">AutoCAD</td>
-                            <td style ="font-weight: bold;">AutoCAD Version</td>
-                            <td style ="font-weight: bold;">Adobe Acrobat</td>
-                            <td style ="font-weight: bold;">MS Visio</td>
-                            <td style ="font-weight: bold;">Visio Version</td>
-                            <td style ="font-weight: bold;">MS Access</td>
-                            <td style ="font-weight: bold;">Access Version</td>
+                           {% if displayColumn.ServiceStart %}    <td style ="font-weight: bold;">Service Start Date</td>{% endif %}
+                           {% if displayColumn.ServiceEnd %}    <td style ="font-weight: bold;">Service End Date</td>{% endif %}
+                           {% if displayColumn.OSVersion %}    <td style ="font-weight: bold;">OS Version</td>{% endif %}
+                           {% if displayColumn.OS %}    <td style ="font-weight: bold;">OS</td>{% endif %}
+                           {% if displayColumn.MSOfficeVersion %}     <td style ="font-weight: bold;">MS Office Version</td>{% endif %}
+                           {% if displayColumn.O365 %}    <td style ="font-weight: bold;">O365/Zimbra/Public</td>{% endif %}
+                           {% if displayColumn.Antivirus %}    <td style ="font-weight: bold;">Antivirus</td>{% endif %}
+                           {% if displayColumn.AUTOCAD %}    <td style ="font-weight: bold;">AutoCAD</td>{% endif %}
+                           {% if displayColumn.AUTOCADVersion %}    <td style ="font-weight: bold;">AutoCAD Version</td>{% endif %}
+                           {% if displayColumn.AdobeAcrobat %}    <td style ="font-weight: bold;">Adobe Acrobat</td>{% endif %}
+                           {% if displayColumn.MSVisio %}    <td style ="font-weight: bold;">MS Visio</td>{% endif %}
+                           {% if displayColumn.MSVisioVersion %}    <td style ="font-weight: bold;">Visio Version</td>{% endif %}
+                           {% if displayColumn.MSAccess %}    <td style ="font-weight: bold;">MS Access</td>{% endif %}
+                           {% if displayColumn.MSAccessVersion %}    <td style ="font-weight: bold;">Access Version</td>{% endif %}
                             <!--td style ="font-weight: bold;">SAP GUI</td>
                             <td style ="font-weight: bold;">SAP User Id</td-->
-                            <td style ="font-weight: bold;">User_Acceptance Date</td>
-                            <td style ="font-weight: bold;">User_Handed Over Date</td>
-                            <td style ="font-weight: bold;">Other Installed Softwares</td>
-                            <td style ="font-weight: bold;">Status</td>
-                            <td style ="font-weight: bold;">Remarks</td>
+                           {% if displayColumn.UserAcceptanceDate %}    <td style ="font-weight: bold;">User_Acceptance Date</td>{% endif %}
+                           {% if displayColumn.UserHandOverDate %}    <td style ="font-weight: bold;">User_Handed Over Date</td>{% endif %}
+                           {% if displayColumn.Others %}    <td style ="font-weight: bold;">Other Installed Softwares</td>{% endif %}
+                           {% if displayColumn.status %}    <td style ="font-weight: bold;">Status</td>{% endif %}
+                           {% if displayColumn.remarks %}    <td style ="font-weight: bold;">Remarks</td>{% endif %}
                             <td style ="font-weight: bold;">Edit</td>
                             <td style ="font-weight: bold;">Delete</td>
                         </tr>
@@ -124,53 +128,53 @@
                       <tbody>
                             {% for form in list %}
                         <tr>
-                            <td>{{form.serial_no}}<span style="visibility:hidden">{{forloop.counter}}</span></td>
-                             <td>{{form.location}} </td>
-                            <td>{{form.sub_location}} </td>
-                            <td>{{form.asset_no}}</td>
-                            <td>{{form.emp_id}}</td>
-                            <td>{{form.OEM_Volume}}</td>
-                            <td>{{form.usage_type}}</td>
-                            <td>{{form.machine_type}}</td>
-                            <td>{{form.gef_id_number}}</td>
-                            <td>{{form.domain_workgroup}}</td>
-                            <td>{{form.user_name}} </td>
-                            <td>{{form.user_email}} </td>
-                            <td>{{form.user_contact}} </td>
-                            <td>{{form.machine_make}}</td>
-                            <td>{{form.machine_model_no}}</td>
-                            <td>{{form.machine_serial_no}}</td>
-                            <td>{{form.get_time_diff }}</td>
-                            <td>{{form.ram}}</td>
-                            <td>{{form.processor}}</td>
-                            <td>{{form.hdd_type}}</td>
-                            <td>{{form.hdd}}</td>
-                            <td>{{form.hdd_serial_no}}</td>
-                            <td>{{form.processor_purchase_date}}</td>
-                            <td>{% if form.date_type %} {{form.date_type}}{% else %}  {% endif %}</td>
+                             {% if displayColumn.SerialNo %} <td>{{form.serial_no}}<span style="visibility:hidden">{{forloop.counter}}</span></td>{% endif %}
+                              {% if displayColumn.Location %} <td>{{form.location}} </td>{% endif %}
+                             {% if displayColumn.SubLocation %} <td>{{form.sub_location}} </td>{% endif %}
+                             {% if displayColumn.AssetNo %} <td>{{form.asset_no}}</td>{% endif %}
+                             {% if displayColumn.EmpId %} <td>{{form.emp_id}}</td>{% endif %}
+                             {% if displayColumn.Volume_OEM %} <td>{% if form.OEM_Volume %}OEM {% else %}Volume{% endif %}</td>{% endif %}
+                             {% if displayColumn.UsageType %} <td>{{form.usage_type}}</td>{% endif %}
+                             {% if displayColumn.MachineType %} <td>{{form.machine_type}}</td>{% endif %}
+                             {% if displayColumn.GEF_ID %} <td>{{form.gef_id_number}}</td>{% endif %}
+                             {% if displayColumn.Domain %} <td>{{form.domain_workgroup}}</td>{% endif %}
+                             {% if displayColumn.UserName %} <td>{{form.user_name}} </td>{% endif %}
+                             {% if displayColumn.UserEmailId %} <td>{{form.user_email}} </td>{% endif %}
+                             {% if displayColumn.UserContact %} <td>{{form.user_contact}} </td>{% endif %}
+                             {% if displayColumn.MachineMake %} <td>{{form.machine_make}}</td>{% endif %}
+                             {% if displayColumn.MachineModel %} <td>{{form.machine_model_no}}</td>{% endif %}
+                             {% if displayColumn.MachineSerialNo %} <td>{{form.machine_serial_no}}</td>{% endif %}
+                             {% if displayColumn.MachineAge %} <td>{{form.get_time_diff }}</td>{% endif %}
+                             {% if displayColumn.RAM %} <td>{{form.ram}}</td>{% endif %}
+                             {% if displayColumn.Processor %} <td>{{form.processor}}</td>{% endif %}
+                             {% if displayColumn.HDDType %} <td>{{form.hdd_type}}</td>{% endif %}
+                             {% if displayColumn.HDDCapacity %} <td>{{form.hdd}}</td>{% endif %}
+                             {% if displayColumn.HDDSerialNumber %} <td>{{form.hdd_serial_no}}</td>{% endif %}
+                             {% if displayColumn.PurchaseDate %} <td>{{form.processor_purchase_date}}</td>{% endif %}
+                             {% if displayColumn.Warranty %} <td>{% if form.date_type %} {{form.date_type}}{% else %}  {% endif %}</td>{% endif %}
                             <!--td>{{form.warranty_start_date}}</td>
                             <td>{{form.warranty_end_date}}</td-->
-                            <td>{{form.amc_start_date}}</td>
-                            <td>{{form.amc_end_date}}</td>
-                            <td>{{form.Operating_System_Version}}</td>
-                            <td>{{form.OS}}</td>
-                            <td>{{form.ms_office_version}}</td>
-                            <td>{{form.ms_365}}</td>
-                            <td>{% if form.Antivirus %} Manage {% else %} {% endif %}</td>
-                            <td>{% if form.AutoCAD %} Yes {% else %}{% endif %}</td>
-                            <td>{{ form.AutoCAD_version }} </td>
-                            <td>{% if form.Adobe_acrobate %} Open Source {% endif %}</td>
-                            <td>{% if form.Visio %} Yes {% endif %}</td>
-                            <td>{{form.ms_visio }}</td>
-                            <td>{% if form.Access %} Yes {% endif %}</td>
-                            <td>{{form.ms_access }}</td>
+                             {% if displayColumn.ServiceStart %} <td>{{form.amc_start_date}}</td>{% endif %}
+                             {% if displayColumn.ServiceEnd %} <td>{{form.amc_end_date}}</td>{% endif %}
+                             {% if displayColumn.OSVersion %} <td>{{form.Operating_System_Version}}</td>{% endif %}
+                             {% if displayColumn.OS %} <td>{{form.OS}}</td>{% endif %}
+                             {% if displayColumn.MSOfficeVersion %} <td>{{form.ms_office_version}}</td>{% endif %}
+                             {% if displayColumn.O365 %} <td>{{form.ms_365}}</td>{% endif %}
+                             {% if displayColumn.Antivirus %} <td>{% if form.Antivirus %} Manage {% else %} {% endif %}</td>{% endif %}
+                             {% if displayColumn.AUTOCAD %} <td>{% if form.AutoCAD %} Yes {% else %}{% endif %}</td>{% endif %}
+                             {% if displayColumn.AUTOCADVersion %} <td>{{ form.AutoCAD_version }} </td>{% endif %}
+                             {% if displayColumn.AdobeAcrobat %} <td>{% if form.Adobe_acrobate %} Open Source {% endif %}</td>{% endif %}
+                             {% if displayColumn.MSVisio %} <td>{% if form.Visio %} Yes {% endif %}</td>{% endif %}
+                             {% if displayColumn.MSVisioVersion %} <td>{{form.ms_visio }}</td>{% endif %}
+                             {% if displayColumn.MSAccess %} <td>{% if form.Access %} Yes {% endif %}</td>{% endif %}
+                             {% if displayColumn.MSAccessVersion %} <td>{{form.ms_access }}</td>{% endif %}
                             <!--td>{% if form.SAP %} Yes {% endif %}</td>
                             <td>{{form.SAP_User_ID}}</td-->
-                            <td>{{form.user_acceptance_date}}</td>
-                            <td>{{form.user_handed_over_date}}</td>
-                            <td>{{form.Installed_Softwares}}</td>
-                            <td>{{form.Status}}</td>
-                            <td>{{form.Remarks}}</td>
+                             {% if displayColumn.UserAcceptanceDate %} <td>{{form.user_acceptance_date}}</td>{% endif %}
+                             {% if displayColumn.UserHandOverDate %} <td>{{form.user_handed_over_date}}</td>{% endif %}
+                             {% if displayColumn.Others %} <td>{{form.Installed_Softwares}}</td>{% endif %}
+                             {% if displayColumn.status %} <td>{{form.Status}}</td>{% endif %}
+                             {% if displayColumn.remarks %} <td>{{form.Remarks}}</td>{% endif %}
                             <td><a href="/assets_edit/{{form.id}}">Edit</a></td>
                             <td><a href="/assets_delete/{{form.id}}">Delete</a></td>
                         </tr>
@@ -251,7 +255,7 @@
                             <td>"{{form.sub_location}}" </td>
                             <td>"{{form.asset_no}}"</td>
                             <td>"{{form.emp_id}}"</td>
-                            <td>"{{form.OEM_Volume}}"</td>
+                            <td>{% if form.OEM_Volume %}OEM {% else %}Volume{% endif %}</td>
                             <td>"{{form.usage_type}}"</td>
                             <td>"{{form.machine_type}}"</td>
                             <td>"{{form.gef_id_number}}"</td>
@@ -440,4 +444,5 @@ function exportData(){
         link.click();
 }
 </script>
+
 {% endblock %}
