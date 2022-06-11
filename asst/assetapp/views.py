@@ -212,7 +212,7 @@ class PingModelUpdate(UpdateView):
     fields = ['Ip_Address','Name','Status','Alert_Range']
     template_name_suffix = '_update_form'
 
-
+#updated
 class PingModelDelete(DeleteView):
     model = PingModel
     success_url = reverse_lazy('pingmodel-list')
