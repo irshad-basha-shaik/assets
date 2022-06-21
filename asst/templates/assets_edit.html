@@ -89,14 +89,6 @@ body {
                         <h3>Employee Info</h3>
                                 <div class="row">
 
-                                    <div class="col-md-6" onfocusout="checkexist()">
-                                        <div class="form-group row" id="serial_no" name="serial_no">
-                                          <label class="col-sm-4 col-form-label">S.No</label>
-                                          <div class="col-sm-8">
-                                            {{ form.serial_no}}<span style="visibility:hidden" >{{forloop.counter}}</span>
-                                          </div>
-                                        </div>
-                                       </div>
 
                                      <div class="col-md-6">
                                         <div class="form-group row">
@@ -214,6 +206,14 @@ body {
                                           <label class="col-sm-4 col-form-label">SAP User ID</label>
                                           <div class="col-sm-8">
                                            {{ form.SAP_User_ID}}
+                                          </div>
+                                        </div>
+                                       </div>
+                                    <div style="visibility:hidden" class="col-md-6" onfocusout="checkexist()">
+                                        <div class="form-group row" id="serial_no" name="serial_no">
+                                          <label class="col-sm-4 col-form-label">S.No</label>
+                                          <div class="col-sm-8">
+                                            {{ form.serial_no}}<span  >{{forloop.counter}}</span>
                                           </div>
                                         </div>
                                        </div>

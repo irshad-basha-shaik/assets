@@ -223,6 +223,7 @@ class PingModelDelete(DeleteView):
 def new(request):
     context = {}
     context['form'] = AssetForm()
+    list = AssetModel.objects.all()
     if request.method == 'POST':
         form = AssetForm(request.POST)
         form.save()
