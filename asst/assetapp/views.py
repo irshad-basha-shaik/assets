@@ -223,6 +223,7 @@ class PingModelDelete(DeleteView):
 def new(request):
     context = {}
     context['form'] = AssetForm()
+    list = AssetModel.objects.all()
     if request.method == 'POST':
         form = AssetForm(request.POST)
         form.save()
@@ -254,6 +255,7 @@ def it_assets(request):
     list['cal'] = list6
     list7 = getAssetsByLocationMs365()
     list['O365'] = list7
+    list['it_assets']="active"
     if request.content_type == 'application/json':
         return JsonResponse(list)
     return render(request, "it_assets.html", list)
@@ -408,10 +410,20 @@ def getAssets():
 
 def index(request):
     list = AssetModel.objects.all()
+    displayList=['AssetNo','SerialNo']
+    if request.POST:
+        displayList1 = request.POST.getlist('displayColumns')
+        if len(displayList1)>0:
+            displayList = displayList1
     if request.content_type == 'application/json':
         return JsonResponse(list)
-    return render(request,"assets.html",{"list":list})
-
+    displayList = populateJSONDictionary(displayList)
+    return render(request,"assets.html",{"list":list,"assets":"active","displayColumn":displayList})
+def populateJSONDictionary(list):
+    dict1={}
+    for x in list:
+        dict1[x]=x
+    return  dict1
 def OSTally():
     win_live = []
     ser_live = []

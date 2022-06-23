@@ -22,6 +22,7 @@
         height: 100%;
         margin: 0 auto;
     }
+    .content-wrapper{padding:0px!important}
   </style>
   <!-- endinject -->
   <link rel="shortcut icon" href="{% static 'images/logo.png' %}" />
@@ -43,17 +44,70 @@
           </a>
         </li>
             <li class="nav-item">
-              <a class="nav-link" href="/it_assets">
+              <a class="nav-link" href="/it">
                 <i class="mdi mdi-view-quilt menu-icon"></i>
                 <span class="menu-title">My IT Assets</span>
               </a>
             </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="/assets">
+        <li class="nav-item {{assets}}">
+          <a class="nav-link" href="#" onclick="document.getElementById('form1').submit();">
             <i class="mdi mdi-view-headline menu-icon"></i>
             <span class="menu-title">Assets</span>
           </a>
+            <form id="form1" action="/assets" method="POST" style="background: #183188;">
+                 {% csrf_token %}
+          {% if assets %}
+            <a  class="nav-link {{assets}}" >
+<select name="displayColumns" multiple="multiple" style="height:50vh">
+    <option value="SerialNo" {% if displayColumn.SerialNo %}  selected{% endif %}>Serial No</option>
+    <option value="Location" {% if displayColumn.Location %}  selected{% endif %}>Location</option>
+    <option value="SubLocation" {% if displayColumn.SubLocation %}  selected{% endif %}>Sub Location</option>
+    <option value="AssetNo"  {% if displayColumn.AssetNo %}  selected{% endif %}>Asset Number</option>
+    <option value="EmpId"  {% if displayColumn.EmpId %}  selected{% endif %}>Employee Id</option>
+    <option value="Volume_OEM"  {% if displayColumn.Volume_OEM %}  selected{% endif %}>Volume / OEM </option>
+    <option value="UsageType"  {% if displayColumn.UsageType %}  selected{% endif %}>Usage Type </option>
+    <option value="MachineType"  {% if displayColumn.MachineType %}  selected{% endif %}>Machine Type </option>
+    <option value="GEF_ID"  {% if displayColumn.GEF_ID %}  selected{% endif %}>GEF ID </option>
+    <option value="Domain"  {% if displayColumn.Domain %}  selected{% endif %}>Domain </option>
+    <option value="UserName"  {% if displayColumn.UserName %}  selected{% endif %}>User Name </option>
+    <option value="UserEmailId"  {% if displayColumn.UserEmailId %}  selected{% endif %}>User Email ID </option>
+    <option value="UserContact"  {% if displayColumn.UserContact %}  selected{% endif %}>User Contact</option>
+    <option value="MachineMake"  {% if displayColumn.MachineMake %}  selected{% endif %}>Machine Make </option>
+    <option value="MachineModel"  {% if displayColumn.MachineModel %}  selected{% endif %}>Machine Model </option>
+    <option value="MachineSerialNo"  {% if displayColumn.MachineSerialNo %}  selected{% endif %}>Machine Serial No </option>
+    <option value="MachineAge"  {% if displayColumn.MachineAge %}  selected{% endif %}> Machine Age </option>
+    <option value="RAM"  {% if displayColumn.RAM %}  selected{% endif %}>RAM </option>
+    <option value="Processor"  {% if displayColumn.Processor %}  selected{% endif %}>Processor </option>
+    <option value="HDDType"  {% if displayColumn.HDDType %}  selected{% endif %}>HDD Type </option>
+    <option value="HDDCapacity"  {% if displayColumn.HDDCapacity %}  selected{% endif %}>HDD Capacity </option>
+    <option value="HDDSerialNumber"  {% if displayColumn.HDDSerialNumber %}  selected{% endif %}>HDD Serial Number </option>
+    <option value="PurchaseDate"  {% if displayColumn.PurchaseDate %}  selected{% endif %}>Purchase Date </option>
+    <option value="Warranty"  {% if displayColumn.Warranty %}  selected{% endif %}>Warranty/ AMC </option>
+    <option value="ServiceStart"  {% if displayColumn.ServiceStart %}  selected{% endif %}>Service Start </option>
+    <option value="ServiceEnd"  {% if displayColumn.ServiceEnd %}  selected{% endif %}>Service End </option>
+    <option value="OSVersion"  {% if displayColumn.OSVersion %}  selected{% endif %}>OS Version </option>
+    <option value="OS"  {% if displayColumn.OS %}  selected{% endif %}>OPerating System </option>
+    <option value="MSOfficeVersion"  {% if displayColumn.MSOfficeVersion %}  selected{% endif %}>MS Office Version </option>
+    <option value="O365"  {% if displayColumn.O365 %}  selected{% endif %}>Office 365 </option>
+    <option value="Antivirus"  {% if displayColumn.Antivirus %}  selected{% endif %}>Anti Virus</option>
+    <option value="AUTOCAD"  {% if displayColumn.AUTOCAD %}  selected{% endif %}>Auto CAD </option>
+    <option value="AUTOCADVersion"  {% if displayColumn.AUTOCADVersion %}  selected{% endif %}>Auto CAD Version </option>
+    <option value="AdobeAcrobat"  {% if displayColumn.AdobeAcrobat %}  selected{% endif %}>Adobe Acrobat </option>
+    <option value="MSVisio"  {% if displayColumn.MSVisio %}  selected{% endif %}>MS Visio </option>
+    <option value="MSVisioVersion"  {% if displayColumn.MSVisioVersion %}  selected{% endif %}>MS Visio Version</option>
+    <option value="MSVisio"  {% if displayColumn.MSVisio %}  selected{% endif %}>MS Visio </option>
+    <option value="MSAccess"  {% if displayColumn.MSAccess %}  selected{% endif %}>MS Access </option>
+    <option value="MSAccessVersion"  {% if displayColumn.MSAccessVersion %}  selected{% endif %}>MS Access Version </option>
+    <option value="UserAcceptanceDate"  {% if displayColumn.UserAcceptanceDate %}  selected{% endif %}>User Acceptance Date </option>
+    <option value="UserHandOverDate"  {% if displayColumn.UserHandOverDate %}  selected{% endif %}>User Handover Date </option>
+    <option value="Others"  {% if displayColumn.Others %}  selected{% endif %}>Other Softwares Insttalled </option>
+    <option value="status"  {% if displayColumn.status %}  selected{% endif %}>Status </option>
+    <option value="remarks"  {% if displayColumn.remarks %}  selected{% endif %}>Remarks </option>
+</select>
+      </a>
+{% endif %}
+                </form>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/list">

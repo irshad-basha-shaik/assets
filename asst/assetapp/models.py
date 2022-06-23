@@ -42,7 +42,7 @@ class AssetModel(models.Model):
     Operating_System_Version = models.CharField(max_length=100, default='')
     OS = models.CharField(max_length=100, default='')
     OS_type = models.CharField(max_length=100, default='')
-    OEM_Volume = models.BooleanField(default='')
+    OEM_Volume = models.CharField(max_length=100, default='')
     ms_office = models.BooleanField(default='')
     ms_office_version = models.CharField(max_length=100, default='')
     ms_365 = models.CharField(max_length=100, default='')
