@@ -341,7 +341,7 @@ body {
                                        </div>
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                          <label class="col-sm-3 col-form-label">Usage Type</label>
+                                          <label class="col-sm-3 col-form-check">Usage Type</label>
                                           <div class="col-sm-9">
                                             {{ form.usage_type}}
                                           </div>
@@ -358,7 +358,7 @@ body {
                                 <div class="row">
 
                                     <div class="col-md-6">
-                                        <div class="form-group row">
+                                        <div class="form-group row" name="OEM_Volume" id="OEM_Volume">
                                           <label class="col-sm-4 col-form-check"> OS Type - OEM </label>
                                           <div class="col-sm-8" >
                                            {{ form.OEM_Volume}}
@@ -929,7 +929,7 @@ function GEEKFORGEEKS() {
 		var gef_id_number = document.forms["myForm"]["gef_id_number"];
 		var machine_model_no = document.forms["myForm"]["machine_model_no"];
 		var machine_serial_no = document.forms["myForm"]["machine_serial_no"];
-		var ms_365 = document.forms["myForm"]["ms_365"];
+		var OEM_Volume = document.forms["myForm"]["OEM_Volume"];
 		var Status = document.forms["myForm"]["Status"];
 
         {
@@ -983,9 +983,9 @@ function GEEKFORGEEKS() {
 	    	$( "#tab33" ).show();
 
 
-		if (ms_365.value == "") {
-			alert("Please select Email Type");
-			ms_365.focus();
+		if (OEM_Volume.value == "") {
+			alert("Please select OS Type");
+			OEM_Volume.focus();
 			return false;
 		}
         }

@@ -358,7 +358,7 @@ body {
                                 <div class="row">
 
                                     <div class="col-md-6">
-                                        <div class="form-group row">
+                                        <div class="form-group row" name="OEM_Volume" id="OEM_Volume">
                                           <label class="col-sm-4 col-form-check"> OS Type - OEM </label>
                                           <div class="col-sm-8" >
                                            {{ form.OEM_Volume}}
@@ -643,10 +643,7 @@ body {
 
 <script>
 setTimeout(function() {
-$("#ms_access").parent('div').hide();
-$("#AutoCAD_version").parent('div').hide();
-$("#ms_visio").parent('div').hide();
-$("#ms_office_version").parent('div').hide();
+
 $('#tabs-nav li:first-child').addClass('active');
 $('.tab-content').hide();
 $('.tab-content:first').show();
@@ -799,7 +796,6 @@ window.onload = function() {
 		$('#Operating_System_Version6').parent('div').show();
 		return false;
 		}
-
     return true;
 });
     $('#id_OS_type').on('change', function() {
@@ -926,34 +922,12 @@ function TABS() {
 		return true;
 		}
 
-function handleClick(cb) {
-    if (cb.checked == "Access"){
-			$("#ms_access").parent('div').show();
-			ms_access.focus();
-			return false;
-		}
-	if (cb.checked == "AutoCAD"){
-			$("#AutoCAD_version").parent('div').show();
-			AutoCAD_version.focus();
-			return false;
-		}
-	if (cb.checked == "Visio"){
-			$("#ms_visio").parent('div').show();
-			ms_visio.focus();
-			return false;
-		}
-	if (cb.checked == "ms_office"){
-			$("#ms_office_version").parent('div').show();
-			ms_office_version.focus();
-			return false;
-		}
-}
 function GEEKFORGEEKS() {
 		var asset_no = document.forms["myForm"]["asset_no"];
 		var gef_id_number = document.forms["myForm"]["gef_id_number"];
 		var machine_model_no = document.forms["myForm"]["machine_model_no"];
 		var machine_serial_no = document.forms["myForm"]["machine_serial_no"];
-		var ms_365 = document.forms["myForm"]["ms_365"];
+		var OEM_Volume = document.forms["myForm"]["OEM_Volume"];
 		var Status = document.forms["myForm"]["Status"];
 
         {
@@ -1007,9 +981,9 @@ function GEEKFORGEEKS() {
 	    	$( "#tab33" ).show();
 
 
-		if (ms_365.value == "") {
-			alert("Please select Email Type");
-			ms_365.focus();
+		if (OEM_Volume.value == "") {
+			alert("Please select OS Type");
+			OEM_Volume.focus();
 			return false;
 		}
         }
