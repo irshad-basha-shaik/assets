@@ -410,7 +410,7 @@ def getAssets():
 
 def index(request):
     list = AssetModel.objects.all()
-    displayList=['AssetNo','SerialNo']
+    displayList=['AssetNo','SerialNo','OEM_Volume']
     if request.POST:
         displayList1 = request.POST.getlist('displayColumns')
         if len(displayList1)>0:
