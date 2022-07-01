@@ -365,14 +365,14 @@ body {
                                           </div>
                                         </div>
                                        </div>
-                                    <div class="col-md-6">
+                                    <!--div class="col-md-6">
                                         <div class="form-group row" name="OS_type" id="OS_type">
                                             <label class="col-sm-3 col-form-label">Operating System:</label>
                                           <div class="col-sm-9">
                                            {{form.OS_type}}
                                           </div>
                                         </div>
-                                       </div>
+                                       </div-->
                                     <div class="col-md-6">
                                         <div class="form-group row" name="OS" id="OS">
                                             <label class="col-sm-3 col-form-label">Operating System Type:</label>
@@ -676,6 +676,73 @@ window.onload = function() {
   $("#Operating_System_Version4").parent('div').hide();
   $("#Operating_System_Version5").parent('div').hide();
   $("#Operating_System_Version6").parent('div').hide();
+  $('#id_OEM_Volume').on('change', function() {
+    var rad = document.myForm.OEM_Volume;
+    var prev = null;
+    for (var i = 0; i < rad.length; i++) {
+        rad[i].addEventListener('change', function() {
+            (prev) ? console.log(prev.value): null;
+            if (this !== prev) {
+                prev = this;
+            }
+            if (this.value === 'OEM'){
+                $("#OS").parent('div').hide();
+                $("#ms_office").parent('div').hide();
+                $("#Visio").parent('div').hide();
+                $("#AutoCAD").parent('div').hide();
+                $("#Access").parent('div').hide();
+                $("#Antivirus").parent('div').hide();
+                $("#ms_365").parent('div').hide();
+                $("#Installed_Softwares").parent('div').hide();
+                $("#Operating_System_Version").parent('div').hide();
+                $("#Operating_System_Version1").parent('div').hide();
+                $("#Operating_System_Version2").parent('div').hide();
+                $("#Operating_System_Version3").parent('div').hide();
+                $("#Operating_System_Version4").parent('div').hide();
+                $("#Operating_System_Version5").parent('div').hide();
+                $("#Operating_System_Version6").parent('div').hide();
+                return false;
+		}
+		else if (this.value === 'VOLUME'){
+
+                $("#OS").parent('div').hide();
+                $("#ms_office").parent('div').hide();
+                $("#Visio").parent('div').hide();
+                $("#AutoCAD").parent('div').hide();
+                $("#Access").parent('div').hide();
+                $("#Antivirus").parent('div').hide();
+                $("#ms_365").parent('div').hide();
+                $("#Installed_Softwares").parent('div').hide();
+                $("#Operating_System_Version").parent('div').hide();
+                $("#Operating_System_Version1").parent('div').hide();
+                $("#Operating_System_Version2").parent('div').hide();
+                $("#Operating_System_Version3").parent('div').hide();
+                $("#Operating_System_Version4").parent('div').hide();
+                $("#Operating_System_Version5").parent('div').hide();
+                $("#Operating_System_Version6").parent('div').hide();
+
+                return false;
+                }
+        else if (this.value === 'DOS'){
+                    $("#OS").parent('div').show();
+                    $("#Operating_System_Version").parent('div').show();
+                    $("#ms_office").parent('div').show();
+                    $("#Visio").parent('div').show();
+                    $("#AutoCAD").parent('div').show();
+                    $("#Access").parent('div').show();
+                    $("#Antivirus").parent('div').show();
+                    $("#ms_365").parent('div').show();
+                    $("#Installed_Softwares").parent('div').show();
+                    return false;
+
+            return false;
+            }
+            console.log(this.value)
+        });
+    }
+    return true;
+});
+
   $('#id_location').on('change', function() {
     if (this.value == "HYDERABAD"){
 		$('#sub_location').parent('div').hide();
@@ -791,43 +858,8 @@ window.onload = function() {
 		}
     return true;
 });
-    $('#id_OS_type').on('change', function() {
-    if (this.checked == true){
-		$("#OS").parent('div').show();
-		$("#Operating_System_Version").parent('div').show();
-		$("#ms_office").parent('div').show();
-        $("#Visio").parent('div').show();
-        $("#AutoCAD").parent('div').show();
-        $("#Access").parent('div').show();
-        $("#Antivirus").parent('div').show();
-        $("#ms_365").parent('div').show();
-        $("#Installed_Softwares").parent('div').show();
-		return false;
-		}
-    return true;
-});
-    $('#id_OS_type').on('change', function() {
-    if (this.checked == false){
-		$("#OS").parent('div').hide();
-		$("#ms_office").parent('div').hide();
-        $("#Visio").parent('div').hide();
-        $("#AutoCAD").parent('div').hide();
-        $("#Access").parent('div').hide();
-        $("#Antivirus").parent('div').hide();
-        $("#ms_365").parent('div').hide();
-        $("#Installed_Softwares").parent('div').hide();
-		$("#Operating_System_Version").parent('div').hide();
-		$("#Operating_System_Version1").parent('div').hide();
-		$("#Operating_System_Version2").parent('div').hide();
-		$("#Operating_System_Version3").parent('div').hide();
-		$("#Operating_System_Version4").parent('div').hide();
-		$("#Operating_System_Version5").parent('div').hide();
-		$("#Operating_System_Version6").parent('div').hide();
 
-		return false;
-		}
-    return true;
-});
+
     $('#id_ms_office').on('change', function() {
     if (this.checked == true){
 		$("#ms_office_version").parent('div').show();

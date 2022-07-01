@@ -5,34 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4de185a6-5b75-4118-b986-abbe321a38ef" name="Default Changelist" comment="added last updated date.">
-      <change afterPath="$PROJECT_DIR$/2022-04-12/2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2022-04-12/3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2022-04-12/4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2022-04-12/5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2022-04-12/6.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2022-04-12/7.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2022-04-12/8.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2022-04-19/10.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2022-04-19/11.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2022-04-19/12.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2022-04-19/13.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2022-04-19/2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2022-04-19/3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2022-04-19/4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2022-04-19/5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2022-04-19/6.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2022-04-19/7.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2022-04-19/8.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2022-04-19/9.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assetapp/migrations/0008_alter_assetmodel_processor_purchase_date.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assetapp/migrations/0009_wifimodel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assetapp/migrations/0010_delete_wifimodel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assetapp/migrations/0011_firewallmodel_vccmodel_wifimodel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assetapp/migrations/0012_delete_firewallmodel_delete_vccmodel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assetapp/migrations/0013_wifi_model_delete_wifimodel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assetapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0015_assetmodel_os_type.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0015_auto_20220511_1141.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0016_merge_20220624_1457.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0017_alter_assetmodel_oem_volume_alter_assetmodel_id_and_more.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/assets_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/assets_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/assets_entry.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/assets_entry.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -588,6 +568,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="changf" />
@@ -627,6 +608,16 @@
           <line>131</line>
           <option name="timeStamp" value="146" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
+          <line>743</line>
+          <option name="timeStamp" value="147" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
+          <line>744</line>
+          <option name="timeStamp" value="148" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -638,13 +629,12 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="list" language="Python" />
-        <watch expression="status" language="Python" />
-        <watch expression="PingModel.objects.filter('Status')" language="Python" />
-        <watch expression="PingModel.objects.all()" language="Python" />
-        <watch expression="path_to_file" language="Python" />
-        <watch expression="lr" language="Python" />
-        <watch expression="{{context}}" language="Python" />
+        <watch expression="len(k)" language="Python" />
+        <watch expression="requst.GET['serial']" language="Python" />
+        <watch expression="srl" language="Python" />
+        <watch expression="AssetModel.g" language="Python" />
+        <watch expression="cursor.fetchone()" language="Python" />
+        <watch expression="sql" language="Python" />
       </configuration>
     </watches-manager>
   </component>
