@@ -688,44 +688,26 @@ window.onload = function() {
                 prev = this;
             }
             if (this.value === 'OEM'){
-                $("#OS").parent('div').hide();
-                $("#ms_office").parent('div').hide();
-                $("#Visio").parent('div').hide();
-                $("#AutoCAD").parent('div').hide();
-                $("#Access").parent('div').hide();
-                $("#Antivirus").parent('div').hide();
-                $("#ms_365").parent('div').hide();
-                $("#Installed_Softwares").parent('div').hide();
-                $("#Operating_System_Version").parent('div').hide();
-                $("#Operating_System_Version1").parent('div').hide();
-                $("#Operating_System_Version2").parent('div').hide();
-                $("#Operating_System_Version3").parent('div').hide();
-                $("#Operating_System_Version4").parent('div').hide();
-                $("#Operating_System_Version5").parent('div').hide();
-                $("#Operating_System_Version6").parent('div').hide();
+                    $("#OS").parent('div').show();
+                    $("#Operating_System_Version").parent('div').show();
+                    $("#ms_office").parent('div').show();
+                    $("#Visio").parent('div').show();
+                    $("#AutoCAD").parent('div').show();
+                    $("#Access").parent('div').show();
+                    $("#Antivirus").parent('div').show();
+                    $("#ms_365").parent('div').show();
+                    $("#Installed_Softwares").parent('div').show();   $("#OS").parent('div').show();
+                    $("#Operating_System_Version").parent('div').show();
+                    $("#ms_office").parent('div').show();
+                    $("#Visio").parent('div').show();
+                    $("#AutoCAD").parent('div').show();
+                    $("#Access").parent('div').show();
+                    $("#Antivirus").parent('div').show();
+                    $("#ms_365").parent('div').show();
+                    $("#Installed_Softwares").parent('div').show();
                 return false;
 		}
 		else if (this.value === 'VOLUME'){
-
-                $("#OS").parent('div').hide();
-                $("#ms_office").parent('div').hide();
-                $("#Visio").parent('div').hide();
-                $("#AutoCAD").parent('div').hide();
-                $("#Access").parent('div').hide();
-                $("#Antivirus").parent('div').hide();
-                $("#ms_365").parent('div').hide();
-                $("#Installed_Softwares").parent('div').hide();
-                $("#Operating_System_Version").parent('div').hide();
-                $("#Operating_System_Version1").parent('div').hide();
-                $("#Operating_System_Version2").parent('div').hide();
-                $("#Operating_System_Version3").parent('div').hide();
-                $("#Operating_System_Version4").parent('div').hide();
-                $("#Operating_System_Version5").parent('div').hide();
-                $("#Operating_System_Version6").parent('div').hide();
-
-                return false;
-                }
-        else if (this.value === 'DOS'){
                     $("#OS").parent('div').show();
                     $("#Operating_System_Version").parent('div').show();
                     $("#ms_office").parent('div').show();
@@ -735,7 +717,25 @@ window.onload = function() {
                     $("#Antivirus").parent('div').show();
                     $("#ms_365").parent('div').show();
                     $("#Installed_Softwares").parent('div').show();
-                    return false;
+
+                return false;
+                }
+        else if (this.value === 'DOS'){
+                    $("#OS").parent('div').hide();
+                    $("#ms_office").parent('div').hide();
+                    $("#Visio").parent('div').hide();
+                    $("#AutoCAD").parent('div').hide();
+                    $("#Access").parent('div').hide();
+                    $("#Antivirus").parent('div').hide();
+                    $("#ms_365").parent('div').hide();
+                    $("#Installed_Softwares").parent('div').hide();
+                    $("#Operating_System_Version").parent('div').hide();
+                    $("#Operating_System_Version1").parent('div').hide();
+                    $("#Operating_System_Version2").parent('div').hide();
+                    $("#Operating_System_Version3").parent('div').hide();
+                    $("#Operating_System_Version4").parent('div').hide();
+                    $("#Operating_System_Version5").parent('div').hide();
+                    $("#Operating_System_Version6").parent('div').hide();
 
             return false;
             }
