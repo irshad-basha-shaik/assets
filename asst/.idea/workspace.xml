@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4de185a6-5b75-4118-b986-abbe321a38ef" name="Default Changelist" comment="added last updated date.">
+    <list default="true" id="4de185a6-5b75-4118-b986-abbe321a38ef" name="Default Changelist" comment="changes in export data to excel">
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/manage.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/manage.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0015_assetmodel_os_type.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0015_auto_20220511_1141.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0016_merge_20220624_1457.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assetapp/migrations/0017_alter_assetmodel_oem_volume_alter_assetmodel_id_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/assetapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/assets_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/assets_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/assets.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/assets.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/assets_entry.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/assets_entry.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -188,11 +187,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.manage" />
       <item itemvalue="Python.makemigrations" />
+      <item itemvalue="Python.manage" />
       <item itemvalue="Python.migrate" />
-      <item itemvalue="Python.forms" />
       <item itemvalue="Python.cron" />
+      <item itemvalue="Python.forms" />
       <item itemvalue="Python.scheduleCron" />
     </list>
     <recent_temporary>
@@ -211,48 +210,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1644299402827</updated>
-    </task>
-    <task id="LOCAL-00011" summary="added software changes to dashboard">
-      <created>1644407543374</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1644407543374</updated>
-    </task>
-    <task id="LOCAL-00012" summary="added machine age">
-      <created>1644988109367</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1644988109367</updated>
-    </task>
-    <task id="LOCAL-00013" summary="added machine age and on save moving to the next tab is completed.">
-      <created>1645010763230</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1645010763230</updated>
-    </task>
-    <task id="LOCAL-00014" summary="added machine age and on save moving to the next tab is completed.">
-      <created>1645014016093</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1645014016093</updated>
-    </task>
-    <task id="LOCAL-00015" summary="added machine age and on save moving to the next tab is completed.">
-      <created>1645082942591</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1645082942591</updated>
-    </task>
-    <task id="LOCAL-00016" summary="added machine age and on save moving to the next tab is completed.">
-      <created>1645083033353</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1645083033353</updated>
     </task>
     <task id="LOCAL-00017" summary="HDD and OS selection options.">
       <created>1645167709109</created>
@@ -555,7 +512,49 @@
       <option name="project" value="LOCAL" />
       <updated>1650361652262</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="changes in export data to excel">
+      <created>1656679501682</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1656679501683</updated>
+    </task>
+    <task id="LOCAL-00061" summary="changes in export data to excel">
+      <created>1656679558274</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1656679558275</updated>
+    </task>
+    <task id="LOCAL-00062" summary="changes in export data to excel">
+      <created>1656680442252</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1656680442252</updated>
+    </task>
+    <task id="LOCAL-00063" summary="changes in export data to excel">
+      <created>1656681572840</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1656681572840</updated>
+    </task>
+    <task id="LOCAL-00064" summary="changes in export data to excel">
+      <created>1656681974410</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1656681974410</updated>
+    </task>
+    <task id="LOCAL-00065" summary="changes in export data to excel">
+      <created>1656997649766</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1656997649767</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -581,14 +580,14 @@
     <MESSAGE value="javascript changes" />
     <MESSAGE value="changes in hdd_types and os_versions" />
     <MESSAGE value="changes in hdd_types and os_versions date type" />
-    <MESSAGE value="changes in export data to excel" />
     <MESSAGE value="serial no exist or not" />
     <MESSAGE value="export excel sheet." />
     <MESSAGE value="export serial no exist indication" />
     <MESSAGE value="connections using class base views (CBV) method" />
     <MESSAGE value="connections" />
     <MESSAGE value="added last updated date." />
-    <option name="LAST_COMMIT_MESSAGE" value="added last updated date." />
+    <MESSAGE value="changes in export data to excel" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes in export data to excel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -610,13 +609,73 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/assetapp/views.py</url>
-          <line>743</line>
-          <option name="timeStamp" value="147" />
+          <line>673</line>
+          <option name="timeStamp" value="156" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/assetapp/views.py</url>
-          <line>744</line>
-          <option name="timeStamp" value="148" />
+          <line>658</line>
+          <option name="timeStamp" value="157" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
+          <line>405</line>
+          <option name="timeStamp" value="172" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
+          <line>355</line>
+          <option name="timeStamp" value="173" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
+          <line>304</line>
+          <option name="timeStamp" value="174" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
+          <line>298</line>
+          <option name="timeStamp" value="175" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
+          <line>282</line>
+          <option name="timeStamp" value="177" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
+          <line>269</line>
+          <option name="timeStamp" value="178" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
+          <line>258</line>
+          <option name="timeStamp" value="179" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
+          <line>242</line>
+          <option name="timeStamp" value="180" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
+          <line>120</line>
+          <option name="timeStamp" value="182" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
+          <line>245</line>
+          <option name="timeStamp" value="244" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
+          <line>240</line>
+          <option name="timeStamp" value="257" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/assetapp/views.py</url>
+          <line>237</line>
+          <option name="timeStamp" value="259" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -629,12 +688,11 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="len(k)" language="Python" />
-        <watch expression="requst.GET['serial']" language="Python" />
-        <watch expression="srl" language="Python" />
-        <watch expression="AssetModel.g" language="Python" />
-        <watch expression="cursor.fetchone()" language="Python" />
-        <watch expression="sql" language="Python" />
+        <watch expression="OS" language="Python" />
+        <watch expression="len(list)" language="Python" />
+        <watch expression="AssetModel.objects.all().filter(OEM_Volume=oem)" language="Python" />
+        <watch expression="student.hdd" language="Python" />
+        <watch expression="request.POST[z[0]]" language="Python" />
       </configuration>
     </watches-manager>
   </component>
