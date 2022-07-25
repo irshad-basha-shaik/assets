@@ -145,18 +145,18 @@
                              {% if displayColumn.MachineMake %} <td>{{form.machine_make}}</td>{% endif %}
                              {% if displayColumn.MachineModel %} <td>{{form.machine_model_no}}</td>{% endif %}
                              {% if displayColumn.MachineSerialNo %} <td>{{form.machine_serial_no}}</td>{% endif %}
-                             {% if displayColumn.MachineAge %} <td>{{form.get_time_diff }}</td>{% endif %}
+                             {% if displayColumn.MachineAge %} <td>"{{form.get_time_diff }}"</td>{% endif %}
                              {% if displayColumn.RAM %} <td>{{form.ram}}</td>{% endif %}
                              {% if displayColumn.Processor %} <td>{{form.processor}}</td>{% endif %}
                              {% if displayColumn.HDDType %} <td>{{form.hdd_type}}</td>{% endif %}
                              {% if displayColumn.HDDCapacity %} <td>{{form.hdd}}</td>{% endif %}
                              {% if displayColumn.HDDSerialNumber %} <td>{{form.hdd_serial_no}}</td>{% endif %}
-                             {% if displayColumn.PurchaseDate %} <td>{{form.processor_purchase_date}}</td>{% endif %}
+                             {% if displayColumn.PurchaseDate %} <td>"{{form.processor_purchase_date}}"</td>{% endif %}
                              {% if displayColumn.Warranty %} <td>{% if form.date_type %} {{form.date_type}}{% else %}  {% endif %}</td>{% endif %}
                             <!--td>{{form.warranty_start_date}}</td>
                             <td>{{form.warranty_end_date}}</td-->
-                             {% if displayColumn.ServiceStart %} <td>{{form.amc_start_date}}</td>{% endif %}
-                             {% if displayColumn.ServiceEnd %} <td>{{form.amc_end_date}}</td>{% endif %}
+                             {% if displayColumn.ServiceStart %} <td>"{{form.amc_start_date}}"</td>{% endif %}
+                             {% if displayColumn.ServiceEnd %} <td>"{{form.amc_end_date}}"</td>{% endif %}
                              {% if displayColumn.OSVersion %} <td>{{form.Operating_System_Version}}</td>{% endif %}
                              {% if displayColumn.OS %} <td>{{form.OS}}</td>{% endif %}
                              {% if displayColumn.MSOfficeVersion %} <td>{{form.ms_office_version}}</td>{% endif %}
@@ -171,8 +171,8 @@
                              {% if displayColumn.MSAccessVersion %} <td>{{form.ms_access }}</td>{% endif %}
                             <!--td>{% if form.SAP %} Yes {% endif %}</td>
                             <td>{{form.SAP_User_ID}}</td-->
-                             {% if displayColumn.UserAcceptanceDate %} <td>{{form.user_acceptance_date}}</td>{% endif %}
-                             {% if displayColumn.UserHandOverDate %} <td>{{form.user_handed_over_date}}</td>{% endif %}
+                             {% if displayColumn.UserAcceptanceDate %} <td>"{{form.user_acceptance_date}}"</td>{% endif %}
+                             {% if displayColumn.UserHandOverDate %} <td>"{{form.user_handed_over_date}}"</td>{% endif %}
                              {% if displayColumn.Others %} <td>{{form.Installed_Softwares}}</td>{% endif %}
                              {% if displayColumn.status %} <td>{{form.Status}}</td>{% endif %}
                              {% if displayColumn.remarks %} <td>{{form.Remarks}}</td>{% endif %}
@@ -266,18 +266,18 @@
                              {% if displayColumn.MachineMake %} <td>{{form.machine_make}}</td>{% endif %}
                              {% if displayColumn.MachineModel %} <td>{{form.machine_model_no}}</td>{% endif %}
                              {% if displayColumn.MachineSerialNo %} <td>{{form.machine_serial_no}}</td>{% endif %}
-                             {% if displayColumn.MachineAge %} <td>{{form.get_time_diff }}</td>{% endif %}
+                             {% if displayColumn.MachineAge %} <td>"{{form.get_time_diff }}"</td>{% endif %}
                              {% if displayColumn.RAM %} <td>{{form.ram}}</td>{% endif %}
                              {% if displayColumn.Processor %} <td>{{form.processor}}</td>{% endif %}
                              {% if displayColumn.HDDType %} <td>{{form.hdd_type}}</td>{% endif %}
                              {% if displayColumn.HDDCapacity %} <td>{{form.hdd}}</td>{% endif %}
                              {% if displayColumn.HDDSerialNumber %} <td>{{form.hdd_serial_no}}</td>{% endif %}
-                             {% if displayColumn.PurchaseDate %} <td>{{form.processor_purchase_date}}</td>{% endif %}
+                             {% if displayColumn.PurchaseDate %} <td>"{{form.processor_purchase_date}}"</td>{% endif %}
                              {% if displayColumn.Warranty %} <td>{% if form.date_type %} {{form.date_type}}{% else %}  {% endif %}</td>{% endif %}
                             <!--td>{{form.warranty_start_date}}</td>
                             <td>{{form.warranty_end_date}}</td-->
-                             {% if displayColumn.ServiceStart %} <td>{{form.amc_start_date}}</td>{% endif %}
-                             {% if displayColumn.ServiceEnd %} <td>{{form.amc_end_date}}</td>{% endif %}
+                             {% if displayColumn.ServiceStart %} <td>"{{form.amc_start_date}}"</td>{% endif %}
+                             {% if displayColumn.ServiceEnd %} <td>"{{form.amc_end_date}}"</td>{% endif %}
                              {% if displayColumn.OSVersion %} <td>{{form.Operating_System_Version}}</td>{% endif %}
                              {% if displayColumn.OS %} <td>{{form.OS}}</td>{% endif %}
                              {% if displayColumn.MSOfficeVersion %} <td>{{form.ms_office_version}}</td>{% endif %}
@@ -292,8 +292,8 @@
                              {% if displayColumn.MSAccessVersion %} <td>{{form.ms_access }}</td>{% endif %}
                             <!--td>{% if form.SAP %} Yes {% endif %}</td>
                             <td>{{form.SAP_User_ID}}</td-->
-                             {% if displayColumn.UserAcceptanceDate %} <td>{{form.user_acceptance_date}}</td>{% endif %}
-                             {% if displayColumn.UserHandOverDate %} <td>{{form.user_handed_over_date}}</td>{% endif %}
+                             {% if displayColumn.UserAcceptanceDate %} <td>"{{form.user_acceptance_date}}"</td>{% endif %}
+                             {% if displayColumn.UserHandOverDate %} <td>"{{form.user_handed_over_date}}"</td>{% endif %}
                              {% if displayColumn.Others %} <td>{{form.Installed_Softwares}}</td>{% endif %}
                              {% if displayColumn.status %} <td>{{form.Status}}</td>{% endif %}
                              {% if displayColumn.remarks %} <td>{{form.Remarks}}</td>{% endif %}
