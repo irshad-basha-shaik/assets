@@ -428,8 +428,8 @@ def OSTally():
     win_live = []
     ser_live = []
     for os in OS:
-        c1 = getAssetCount(os[1], False)
-        c2 = getAssetCount(os[1], True)
+        c1 = getAssetCount(os[1], 'Volume')
+        c2 = getAssetCount(os[1], 'OEM')
         c3 = getAvailableLicence(os[1])
         c4 = c3 - c1
         c5 = False
@@ -476,7 +476,7 @@ def MS365():
     Zimbra = []
     for os in EmailType:
         c1 = getMS365Count(os[1])
-        c2 = getAssetCount(os[1], True)
+        c2 = getAssetCount1(os[1], True)
         c3 = getAvailableLicence(os[1])
         c4 = c3 - c1
         c5 = False
@@ -681,7 +681,13 @@ def getAssetCountByLocationO365(l,r):
         list = AssetModel.objects.all().filter(ms_365=r, location=l)
     return len(list)
 def getAssetCount(os,oem):
-    list = AssetModel.objects.all().filter(OS=os,OEM_Volume=oem,usage_type='Live')
+    if oem == 'OEM':
+        list = AssetModel.objects.all().filter(OS=os, OEM_Volume=oem, usage_type='Live')
+    elif oem == 'Volume':
+        list = AssetModel.objects.all().filter(OS=os, OEM_Volume=oem, usage_type='Live')
+    return len(list)
+def getAssetCount1(os,oem):
+    list = AssetModel.objects.all().filter(OS=os, OEM_Volume=oem, usage_type='Live')
     return len(list)
 
 def getMSOfficeCount(oem):
