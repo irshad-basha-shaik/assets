@@ -665,12 +665,10 @@ def getAssetCountByLocationRemarksOS(l,r,m):
     r1 = False
     if r=='OS Windows Details (Volume)':
         list = AssetModel.objects.all().filter(OEM_Volume='Volume', OS=m, location=l).exclude(user_name__iexact='Spare')
-    elif r == 'OS Windows Details (OEM)':
-        list = AssetModel.objects.all().filter(OEM_Volume='OEM', OS=m, location=l).exclude(user_name__iexact='Spare Old')
     elif r == 'OS Server Details (Volume)':
-        list = AssetModel.objects.all().filter(OEM_Volume='Volume', OS=m, location=l).exclude(user_name__iexact='Spare')
+        list = AssetModel.objects.all().filter(OEM_Volume='Volume', Operating_System_Version=m, location=l).exclude(user_name__iexact='Spare')
     elif r == 'OS Details (OEM)':
-        list = AssetModel.objects.all().filter(OEM_Volume='OEM', OS=m, location=l).exclude(user_name__iexact='Spare Old')
+        list = AssetModel.objects.all().filter(OEM_Volume='OEM', Operating_System_Version=m, location=l).exclude(user_name__iexact='Spare Old')
     else:
         r1 = True
         list = AssetModel.objects.all().filter(ms_office=r1, ms_office_version=m, location=l)

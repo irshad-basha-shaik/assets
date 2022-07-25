@@ -344,6 +344,7 @@ OS_VERSIONS = (
     )
 OS_VERSION = (
     ('Win-7 Pro.32 Bit','Win-7 Pro.32 Bit'),
+    ('Ser.2012','Ser.2012'),
     ('Win-Server-2012','Win-Server-2012'),
     ('Win-10 Pro 64 Bit','Win-10 Pro 64 Bit'),
     ('Win-8.1 Pro.32 Bit','Win-8.1 Pro.32 Bit'),
@@ -363,6 +364,8 @@ OS_VERSION = (
     ('Windows 10 Pro 64 Bit','Windows 10 Pro 64 Bit'),
     ('Win-Server-2016','Win-Server-2016'),
     ('Win-Server-2019','Win-Server-2019'),
+    ('Ser.2016','Ser.2016'),
+    ('Ser.2019','Ser.2019'),
     ('Win-10 Home Single Lan.','Win-10 Home Single Lan.'),
     ('Win-10 Home Single Lan','Win-10 Home Single Lan'),
     ('Win-10 Pro 64 bit','Win-10 Pro 64 bit'),
@@ -401,9 +404,9 @@ OS_VERSION5 = (
 
 )
 OS_VERSION6 = (
-    ('Win-Server-2012','Win-Server-2012'),
-    ('Win-Server-2016','Win-Server-2016'),
-    ('Win-Server-2019','Win-Server-2019'),
+    ('Ser.2012','Ser.2012'),
+    ('Ser.2016','Ser.2016'),
+    ('Ser.2019','Ser.2019'),
     ('',''),
 
 )
@@ -519,7 +522,7 @@ class AssetForm(forms.ModelForm):
     ms_365 = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=EmailType),required=False)
     ms_visio = forms.ChoiceField(choices=VISIO_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_access = forms.ChoiceField(choices=ACCESS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
-    OEM_Volume = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=OS_TYPE),required=False)
+    OEM_Volume = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=OS_TYPE))
     Antivirus = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     AutoCAD = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     AutoCAD_version = forms.ChoiceField(choices=AUTOCAD_VERSION, widget=forms.Select(attrs={'class': 'form-control'}),required=False)
@@ -532,7 +535,7 @@ class AssetForm(forms.ModelForm):
     Access = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     SAP = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     SAP_User_ID = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
-    Status = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
+    Status = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     Remarks = forms.ChoiceField(choices=REMARKS,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
 
     def clean(self):
