@@ -662,16 +662,15 @@ def getAssetCountByLocationRemarksMachineType(l,r,m):
     return len(list)
 
 def getAssetCountByLocationRemarksOS(l,r,m):
-    r1= False
+    r1 = False
     if r=='OS Windows Details (Volume)':
-        r1 = False
-        list = AssetModel.objects.all().filter(OEM_Volume=r1, OS=m, location=l).exclude(user_name__iexact='Spare')
+        list = AssetModel.objects.all().filter(OEM_Volume='Volume', OS=m, location=l).exclude(user_name__iexact='Spare')
+    elif r == 'OS Windows Details (OEM)':
+        list = AssetModel.objects.all().filter(OEM_Volume='OEM', OS=m, location=l).exclude(user_name__iexact='Spare Old')
     elif r == 'OS Server Details (Volume)':
-        r1 = False
-        list = AssetModel.objects.all().filter(OEM_Volume=r1, OS=m, location=l).exclude(user_name__iexact='Spare')
+        list = AssetModel.objects.all().filter(OEM_Volume='Volume', OS=m, location=l).exclude(user_name__iexact='Spare')
     elif r == 'OS Details (OEM)':
-        r1 = True
-        list = AssetModel.objects.all().filter(OEM_Volume=r1, OS=m, location=l).exclude(user_name__iexact='Spare Old')
+        list = AssetModel.objects.all().filter(OEM_Volume='OEM', OS=m, location=l).exclude(user_name__iexact='Spare Old')
     else:
         r1 = True
         list = AssetModel.objects.all().filter(ms_office=r1, ms_office_version=m, location=l)
