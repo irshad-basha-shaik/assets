@@ -656,6 +656,15 @@ $('#tabs-nav li').click(function () {
 }, 100);
 
 window.onload = function() {
+  $("#OS").parent('div').show();
+  $("#Operating_System_Version").parent('div').show();
+  $("#ms_office").parent('div').show();
+  $("#Visio").parent('div').show();
+  $("#AutoCAD").parent('div').show();
+  $("#Access").parent('div').show();
+  $("#Antivirus").parent('div').show();
+  $("#ms_365").parent('div').show();
+  $("#Installed_Softwares").parent('div').show();
   $("#ms_access").parent('div').hide();
   $("#AutoCAD_version").parent('div').hide();
   $("#ms_visio").parent('div').hide();
@@ -670,65 +679,21 @@ window.onload = function() {
   $("#Operating_System_Version4").parent('div').hide();
   $("#Operating_System_Version5").parent('div').hide();
   $("#Operating_System_Version6").parent('div').hide();
-  $('#id_OEM_Volume').on('change', function() {
-    var rad = document.myForm.OEM_Volume;
-    var prev = null;
-    for (var i = 0; i < rad.length; i++) {
-        rad[i].addEventListener('change', function() {
-            (prev) ? console.log(prev.value): null;
-            if (this !== prev) {
-                prev = this;
-            }
-            if (this.value === 'OEM'){
-                $("#OS").parent('div').show();
-                $("#Operating_System_Version").parent('div').show();
-                $("#ms_office").parent('div').show();
-                $("#Visio").parent('div').show();
-                $("#AutoCAD").parent('div').show();
-                $("#Access").parent('div').show();
-                $("#Antivirus").parent('div').show();
-                $("#ms_365").parent('div').show();
-                $("#Installed_Softwares").parent('div').show();
-
-                return false;
-		}
-		else if (this.value === 'VOLUME'){
-                $("#OS").parent('div').show();
-                $("#Operating_System_Version").parent('div').show();
-                $("#ms_office").parent('div').show();
-                $("#Visio").parent('div').show();
-                $("#AutoCAD").parent('div').show();
-                $("#Access").parent('div').show();
-                $("#Antivirus").parent('div').show();
-                $("#ms_365").parent('div').show();
-                $("#Installed_Softwares").parent('div').show();
-
-                return false;
-                }
-        else if (this.value === 'DOS'){
-                $("#OS").parent('div').hide();
-                $("#ms_office").parent('div').hide();
-                $("#Visio").parent('div').hide();
-                $("#AutoCAD").parent('div').hide();
-                $("#Access").parent('div').hide();
-                $("#Antivirus").parent('div').hide();
-                $("#ms_365").parent('div').hide();
-                $("#Installed_Softwares").parent('div').hide();
-                $("#Operating_System_Version").parent('div').hide();
-                $("#Operating_System_Version1").parent('div').hide();
-                $("#Operating_System_Version2").parent('div').hide();
-                $("#Operating_System_Version3").parent('div').hide();
-                $("#Operating_System_Version4").parent('div').hide();
-                $("#Operating_System_Version5").parent('div').hide();
-                $("#Operating_System_Version6").parent('div').hide();
-            return false;
-            }
-            console.log(this.value)
-        });
-    }
+  $('#id_OEM_Volume input:radio').click(function() {
+    if (this.value === 'DOS'){
+        $("#OS").parent('div').hide();
+        $("#Operating_System_Version").parent('div').hide();
+        $("#ms_office").parent('div').hide();
+        $("#Visio").parent('div').hide();
+        $("#AutoCAD").parent('div').hide();
+        $("#Access").parent('div').hide();
+        $("#Antivirus").parent('div').hide();
+        $("#ms_365").parent('div').hide();
+        $("#Installed_Softwares").parent('div').hide();
+        return true;
+        }
     return true;
-});
-
+    });
   $('#id_location').on('change', function() {
     if (this.value == "HYDERABAD"){
 		$('#sub_location').parent('div').hide();
