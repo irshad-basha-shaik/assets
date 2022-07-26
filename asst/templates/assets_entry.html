@@ -690,6 +690,30 @@ window.onload = function() {
         $("#Installed_Softwares").parent('div').hide();
         return true;
         }
+    if (this.value === 'OEM'){
+        $("#OS").parent('div').show();
+        $("#Operating_System_Version").parent('div').show();
+        $("#ms_office").parent('div').show();
+        $("#Visio").parent('div').show();
+        $("#AutoCAD").parent('div').show();
+        $("#Access").parent('div').show();
+        $("#Antivirus").parent('div').show();
+        $("#ms_365").parent('div').show();
+        $("#Installed_Softwares").parent('div').show();
+        return true;
+        }
+    if (this.value === 'VOLUME'){
+        $("#OS").parent('div').show();
+        $("#Operating_System_Version").parent('div').show();
+        $("#ms_office").parent('div').show();
+        $("#Visio").parent('div').show();
+        $("#AutoCAD").parent('div').show();
+        $("#Access").parent('div').show();
+        $("#Antivirus").parent('div').show();
+        $("#ms_365").parent('div').show();
+        $("#Installed_Softwares").parent('div').show();
+        return true;
+        }
     return true;
     });
   $('#id_location').on('change', function() {
