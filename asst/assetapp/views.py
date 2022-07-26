@@ -310,7 +310,7 @@ def getAssetCountByLocationAntivirus(l,r):
 def getAssetsByLocation():
     list = {"remark":[],"LOCATION":LOCATION,"gtotal":[]}
     REM = [("OS Windows Details (Volume)", ["Win.XP", "Win.7", "Win.8", "Win.10", "Win.11"], 6, "Total"),
-           ("OS Server Details (Volume)", ["Ser.2012", "Ser.2016", "Ser.2019"], 4, "Total"),
+           ("OS Server Details (Volume)", ["Win-Server-2012", "Win-Server-2016", "Win-Server-2019"], 4, "Total"),
            ("OS Details (OEM)", ["Win.7", "Win.8", "Win.10", "Win.11"], 5, "Total"),
             ("MS Office Details",["MS Office Standard 2010", "MS Office Standard 2013", "MS Office Standard 2016", "MS Office Standard 2019"], 5, "Total")]
 
@@ -668,7 +668,7 @@ def getAssetCountByLocationRemarksOS(l,r,m):
     elif r == 'OS Server Details (Volume)':
         list = AssetModel.objects.all().filter(OEM_Volume='Volume', Operating_System_Version=m, location=l).exclude(user_name__iexact='Spare')
     elif r == 'OS Details (OEM)':
-        list = AssetModel.objects.all().filter(OEM_Volume='OEM', Operating_System_Version=m, location=l).exclude(user_name__iexact='Spare Old')
+        list = AssetModel.objects.all().filter(OEM_Volume='OEM', OS=m, location=l).exclude(user_name__iexact='Spare Old')
     else:
         r1 = True
         list = AssetModel.objects.all().filter(ms_office=r1, ms_office_version=m, location=l)
