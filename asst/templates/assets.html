@@ -333,7 +333,7 @@ function exportData(){
         //rows would be accessed using the "row" variable assigned in the for loop
         //Get each cell value/column from the row
         var arr=[]
-        for(var j=0;j<row.cells.length;j++) arr.push(row.cells[j].innerText)
+        for(var j=0;j<row.cells.length;j++) arr.push((row.cells[j].innerText+"").replaceAll(' ',' ').replaceAll('"','').replaceAll(',',' '))
         column1 = getRow(row.cells[0].innerText);
         /*column2 = row.cells[1].innerText;
         column3 = row.cells[2].innerText;
