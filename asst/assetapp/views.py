@@ -313,7 +313,6 @@ def getAssetsByLocation():
            ("OS Server Details (Volume)", ["Win-Server-2012", "Win-Server-2016", "Win-Server-2019"], 4, "Total"),
            ("OS Details (OEM)", ["Win.7", "Win.8", "Win.10", "Win.11"], 5, "Total"),
             ("MS Office Details",["MS Office Standard 2010", "MS Office Standard 2013", "MS Office Standard 2016", "MS Office Standard 2019"], 5, "Total")]
-
     grand_total = [0, 0, 0, 0, 0, 0, 0]
     for i in range(len(REM)):
         r=REM[i][0]
@@ -326,8 +325,6 @@ def getAssetsByLocation():
         for mtypes in MTYP:
             list2 ={"name":"Total","location":[],"ALLLocationSUM":0 }
             list2["name"] = mtypes
-
-           # list2["ALLLocationSUM"] = mtypes
             for l1 in  range(len(LOCATION)):
                 l= LOCATION[l1]
                 dat = getAssetCountByLocationRemarksOS(l[1],r,mtypes)
@@ -375,8 +372,6 @@ def getAssets():
         for mtypes in MTYP:
             list2 ={"name":"Total","location":[],"ALLLocationSUM":0 }
             list2["name"] = mtypes
-
-           # list2["ALLLocationSUM"] = mtypes
             for l1 in  range(len(LOCATION)):
                 l= LOCATION[l1]
                 dat = getAssetCountByLocationRemarksMachineType(l[1],r,mtypes)
@@ -411,10 +406,14 @@ def getAssets():
 def index(request):
     list = AssetModel.objects.all()
     displayList=['AssetNo','SerialNo','OEM_Volume']
+    #displaySubList = ['HYDERABAD', 'KRISHNAPATNAM', 'KAKINADA','KAKINADA3','MARKETING','DEPOT','Spare_Old','Spare_New','Live','OEM','VOLUME','DOS','Laptop','Desktop','Server','SATA','SSD','SSDSATA','MS Office 365','Zimbra','Public','Win.XP','Win.7','Win.8','Win.10','Win.11','Win-Server','Domain','Workgroup','Spare','Used','Not Working']
     if request.POST:
         displayList1 = request.POST.getlist('displayColumns')
+        #displaySubList1 = request.POST.getlist('displaySubColumns')
         if len(displayList1)>0:
             displayList = displayList1
+        # if len(displaySubList1)>0:
+        #     displaySubList = displaySubList1
     if request.content_type == 'application/json':
         return JsonResponse(list)
     displayList = populateJSONDictionary(displayList)
@@ -429,8 +428,10 @@ def OSTally():
     ser_live = []
     for os in OS:
         c1 = getAssetCount(os[1], 'Volume')
+        c7 = getAssetCount(os[1], 'volume')
         c2 = getAssetCount(os[1], 'OEM')
         c3 = getAvailableLicence(os[1])
+        c1 = c1+c7
         c4 = c3 - c1
         c5 = False
         c6 = True
@@ -652,23 +653,29 @@ def getAvailableLicence(obj):
 
     return s
 def getAssetCountByLocationRemarksMachineType(l,r,m):
-
-    if r == 'Used Workstations' :
+    if r == 'Used Workstations':
         list = AssetModel.objects.all().filter(usage_type='Live', machine_type=m, location=l)
-    elif r == 'Spare_Old Workstations' :
-        list = AssetModel.objects.all().filter(user_name__iexact='Spare Old',machine_type=m, location=l).exclude(Status='Not working')
-    elif r == 'Spare_New  Workstations' :
-        list = AssetModel.objects.all().filter(user_name__iexact='Spare New',machine_type=m, location=l).exclude(Status='Not working')
+    elif r == 'Spare_Old Workstations':
+        list = AssetModel.objects.all().filter(user_name__iexact='Spare Old', machine_type=m, location=l).exclude(Status='Not working')
+    elif r == 'Spare_New  Workstations':
+        list = AssetModel.objects.all().filter(user_name__iexact='Spare New', machine_type=m, location=l).exclude(Status='Not working')
+    else:
+        list = AssetModel.objects.all().filter(user_name__iexact='Spare New', machine_type=m, location=l)
     return len(list)
 
 def getAssetCountByLocationRemarksOS(l,r,m):
     r1 = False
-    if r=='OS Windows Details (Volume)':
-        list = AssetModel.objects.all().filter(OEM_Volume='Volume', OS=m, location=l).exclude(user_name__iexact='Spare')
+    if r == 'OS Windows Details (Volume)':
+        list = AssetModel.objects.all().filter(OEM_Volume__in=['Volume','volume'], OS=m, location=l).exclude(
+            user_name__iexact='Spare')
+    elif r == 'OS Windows Details (Volume)':
+        list = AssetModel.objects.all().filter(OEM_Volume__in=['Volume','volume'], Operating_System_Version=m, location=l
+                                               ).exclude(user_name__iexact='Spare')
     elif r == 'OS Server Details (Volume)':
-        list = AssetModel.objects.all().filter(OEM_Volume='Volume', Operating_System_Version=m, location=l).exclude(user_name__iexact='Spare')
+        list = AssetModel.objects.all().filter(OEM_Volume__in=['Volume','volume'], Operating_System_Version=m, location=l).exclude(user_name__iexact='Spare')
     elif r == 'OS Details (OEM)':
-        list = AssetModel.objects.all().filter(OEM_Volume='OEM', OS=m, location=l).exclude(user_name__iexact='Spare Old')
+        list = AssetModel.objects.all().filter(OEM_Volume='OEM', OS=m, location=l).exclude(
+            user_name__iexact='Spare Old')
     else:
         r1 = True
         list = AssetModel.objects.all().filter(ms_office=r1, ms_office_version=m, location=l)
@@ -681,6 +688,10 @@ def getAssetCount(os,oem):
     if oem == 'OEM':
         list = AssetModel.objects.all().filter(OS=os, OEM_Volume=oem, usage_type='Live')
     elif oem == 'Volume':
+        list = AssetModel.objects.all().filter(OS=os, OEM_Volume=oem, usage_type='Live')
+    elif oem == 'volume':
+        list = AssetModel.objects.all().filter(OS=os, OEM_Volume=oem, usage_type='Live')
+    else:
         list = AssetModel.objects.all().filter(OS=os, OEM_Volume=oem, usage_type='Live')
     return len(list)
 def getAssetCount1(os,oem):
