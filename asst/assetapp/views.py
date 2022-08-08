@@ -428,10 +428,9 @@ def OSTally():
     ser_live = []
     for os in OS:
         c1 = getAssetCount(os[1], 'Volume')
-        c7 = getAssetCount(os[1], 'volume')
         c2 = getAssetCount(os[1], 'OEM')
         c3 = getAvailableLicence(os[1])
-        c1 = c1+c7
+        c1 = c1
         c4 = c3 - c1
         c5 = False
         c6 = True
@@ -666,13 +665,13 @@ def getAssetCountByLocationRemarksMachineType(l,r,m):
 def getAssetCountByLocationRemarksOS(l,r,m):
     r1 = False
     if r == 'OS Windows Details (Volume)':
-        list = AssetModel.objects.all().filter(OEM_Volume__in=['Volume','volume'], OS=m, location=l).exclude(
+        list = AssetModel.objects.all().filter(OEM_Volume__in=['VOLUME','Volume','volume'], OS=m, location=l).exclude(
             user_name__iexact='Spare')
     elif r == 'OS Windows Details (Volume)':
-        list = AssetModel.objects.all().filter(OEM_Volume__in=['Volume','volume'], Operating_System_Version=m, location=l
+        list = AssetModel.objects.all().filter(OEM_Volume__in=['VOLUME','Volume','volume'], Operating_System_Version=m, location=l
                                                ).exclude(user_name__iexact='Spare')
     elif r == 'OS Server Details (Volume)':
-        list = AssetModel.objects.all().filter(OEM_Volume__in=['Volume','volume'], Operating_System_Version=m, location=l).exclude(user_name__iexact='Spare')
+        list = AssetModel.objects.all().filter(OEM_Volume__in=['VOLUME','Volume','volume'], Operating_System_Version=m, location=l).exclude(user_name__iexact='Spare')
     elif r == 'OS Details (OEM)':
         list = AssetModel.objects.all().filter(OEM_Volume='OEM', OS=m, location=l).exclude(
             user_name__iexact='Spare Old')
@@ -688,9 +687,7 @@ def getAssetCount(os,oem):
     if oem == 'OEM':
         list = AssetModel.objects.all().filter(OS=os, OEM_Volume=oem, usage_type='Live')
     elif oem == 'Volume':
-        list = AssetModel.objects.all().filter(OS=os, OEM_Volume=oem, usage_type='Live')
-    elif oem == 'volume':
-        list = AssetModel.objects.all().filter(OS=os, OEM_Volume=oem, usage_type='Live')
+        list = AssetModel.objects.all().filter(OS=os, OEM_Volume__in=['Volume','VOLUME','volume'], usage_type='Live')
     else:
         list = AssetModel.objects.all().filter(OS=os, OEM_Volume=oem, usage_type='Live')
     return len(list)
