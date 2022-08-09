@@ -2,6 +2,7 @@
 from django.db import models
 from django.urls import reverse
 from datetime import date
+from django.core.mail import EmailMessage
 import datetime
 from django.conf import settings
 from django.utils import dateformat
@@ -69,6 +70,12 @@ class AssetModel(models.Model):
             return timesince(self.processor_purchase_date)
         else:
             return timesince(self.processor_purchase_date)
+    def get_day_diff(self):
+        if self.amc_end_date!=None:
+            remaining = (self.amc_end_date - date.today()).days
+            if remaining >0:
+                if remaining <= 91:
+                    return remaining
 class PingModel(models.Model):
     Ip_Address = models.CharField(max_length=100)
     Name = models.CharField(max_length=100)

@@ -60,12 +60,21 @@
     .dataTables_scrollBody{height:40vh!important;}
 </style>
 <div class="content-wrapper"Excellent>
-    <div class="col-lg-12 stretch-card">
+    <div class="col-lg-12 col-md-12 col-sm-12 stretch-card">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Assets List</h4>
                 <div class="row">
-                    <div class="col-md-10 bg-light text-left">
+                    <div class="col-md-2 bg-light text-left">
+                        <!--a type="button" class="btn btn-success" href="/licences">Add Licence</a-->
+                    </div>
+                    <div class="col-md-8 bg-light text-left">
+                        <div class="alert alert-warning">
+                            {% for form in list %}
+                            {% if form.get_day_diff %}
+                            <strong>Warning!</strong> warning that Asset No {{form.asset_no }} warranty is expiring soon {{form.get_day_diff }} days left.
+                            {% else %} {% endif %}{% endfor %}
+                          </div>
                     </div>
                     <div class="col-md-2 bg-light text-right">
                         <a type="button" class="btn btn-success" href="/assets_entry">New Entry</a>
