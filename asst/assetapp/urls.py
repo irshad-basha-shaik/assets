@@ -4,8 +4,11 @@ urlpatterns = [
     path('assetapp', views.index, name='home'),
     path('', views.home, name='home1'),
     path('checkSerialNumber', views.checkSerialNumber, name='checkSerialNumber'),
-
     path('assets', views.index, name='assets'),
+    path('licences', views.Lindex, name='licences'),
+    path('add_licences', views.add_licences, name='add_licences'),
+    path('licence_edit/<int:id>', views.licence_edit, name='licence_edit'),
+    path('licence_delete/<int:id>', views.licence_delete, name='licence_delete'),
     path('assets_entry', views.new, name='entry'),
     path('assets_edit/<int:id>',views.edit,name='edit'),
     path('assets_delete/<int:id>',views.delete,name='delete'),

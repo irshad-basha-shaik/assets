@@ -2,8 +2,8 @@ from datetime import datetime, timezone
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm, AVAILABLE_LICENCE, AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, EmailType, Softwares, OS_VERSIONS, HDDS
-from .models import AssetModel,PingModel #,WifiModel,FirewallModel,VCCModel,PrinterModel
+from .forms import AssetForm,LicenceForm, AVAILABLE_LICENCE, AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, EmailType, Softwares, OS_VERSIONS, HDDS
+from .models import AssetModel,PingModel,LicenceModel #,WifiModel,FirewallModel,VCCModel,PrinterModel
 from threading import Timer
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
@@ -402,7 +402,11 @@ def getAssets():
     grand_total.append(ggct)
     list["gtotal"]=grand_total
     return list
-
+def Lindex(request):
+    list = LicenceModel.objects.all()
+    if request.content_type == 'application/json':
+        return JsonResponse(list)
+    return render(request,"licence.html",{"list":list})
 def index(request):
     list = AssetModel.objects.all()
     displayList=['AssetNo','SerialNo','OEM_Volume']
@@ -645,8 +649,9 @@ def getOSPosition(obj):
     except:
         return -1
 def getAvailableLicence(obj):
+    list = LicenceModel.objects.all().get(Licences=obj)
     try:
-        s=AVAILABLE_LICENCE[obj]
+        s=list.nlicences
     except:
         s=-1
 
@@ -749,6 +754,38 @@ def sum(obj):
         temp["Balance"] = temp["Balance"] + x["Balance"]
         temp["CurrentAvailableBalance"] = temp["CurrentAvailableBalance"] + x["CurrentAvailableBalance"]
     return temp
+@login_required
+def add_licences(request):
+    context = {}
+    context['form'] = LicenceForm()
+    list = LicenceModel.objects.all()
+    if request.method == 'POST':
+        form = LicenceForm(request.POST)
+        form.save()
+        if form.is_valid():
+            student = form.save(commit=False)
+            student.save()
+            return Lindex(request)
+
+    return render(request,"add_licences.html",context)
+@login_required
+def licence_edit(request,id):
+    obj = get_object_or_404(LicenceModel, pk=id)
+    context = {}
+    form = LicenceForm(instance=obj)
+    if request.method == 'POST':
+        form = LicenceForm(request.POST)
+        if form.is_valid():
+            LicenceModel.objects.filter(pk=id).update(Licences=form.cleaned_data['Licences'],nlicences=form.cleaned_data['nlicences'])
+            return Lindex(request)
+    context['form'] = form
+    return render(request,"licences_edit.html",context)
+@login_required
+def licence_delete(request,id):
+    context = {}
+    obj = get_object_or_404(LicenceModel, id=id)
+    obj.delete()
+    return HttpResponseRedirect("/")
 @login_required
 def edit(request,id):
     obj = get_object_or_404(AssetModel, pk=id)

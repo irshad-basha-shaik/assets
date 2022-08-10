@@ -76,6 +76,10 @@ class AssetModel(models.Model):
             if remaining >0:
                 if remaining <= 91:
                     return remaining
+
+class LicenceModel(models.Model):
+    Licences = models.CharField(max_length=100, default='')
+    nlicences = models.CharField(max_length=100, default='')
 class PingModel(models.Model):
     Ip_Address = models.CharField(max_length=100)
     Name = models.CharField(max_length=100)
