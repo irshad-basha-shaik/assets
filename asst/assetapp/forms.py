@@ -419,6 +419,12 @@ OS = (
     ('Win-Server', 'Win-Server'),
     ('', ''),
 )
+OS1 = (
+    ('Ser.2012', 'Ser.2012'),
+    ('Ser.2016', 'Ser.2016'),
+    ('Ser.2019', 'Ser.2019'),
+    ('', ''),
+)
 Available_Licences = (
     ('Win.XP', 'Win.XP'),
     ('Win.7', 'Win.7'),

@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm,LicenceForm, AVAILABLE_LICENCE, AVAILABLE_LICENCE_ORDER, LOCATION, OS, MS_VERSION, EmailType, Softwares, OS_VERSIONS, HDDS
+from .forms import AssetForm,LicenceForm, AVAILABLE_LICENCE,Available_Licences, AVAILABLE_LICENCE_ORDER, LOCATION, OS,OS1, MS_VERSION, EmailType, Softwares, OS_VERSIONS, HDDS
 from .models import AssetModel,PingModel,LicenceModel #,WifiModel,FirewallModel,VCCModel,PrinterModel
 from threading import Timer
 from django.views.decorators.csrf import csrf_exempt
@@ -649,12 +649,18 @@ def getOSPosition(obj):
     except:
         return -1
 def getAvailableLicence(obj):
-    list = LicenceModel.objects.all().get(Licences=obj)
+    s = 0
     try:
-        s=list.nlicences
+        if obj != 'Win-Server':
+            list = LicenceModel.objects.all().get(Licences=obj)
+            s=int(list.nlicences)
+        else:
+            for x in OS1:
+                list = LicenceModel.objects.all().get(Licences=x[1])
+                s = s+int(list.nlicences)
+
     except:
         s=-1
-
     return s
 def getAssetCountByLocationRemarksMachineType(l,r,m):
     if r == 'Used Workstations':
