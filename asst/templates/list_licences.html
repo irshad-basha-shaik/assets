@@ -86,18 +86,18 @@
                       <thead>
                         <tr>
                            <td style ="font-weight: bold;">Serial No </td>
+                            <td style ="font-weight: bold;">ID </td>
                            <td style ="font-weight: bold;"> Asset Name </td>
-                            <td style ="font-weight: bold;"> Number of Licences</td>
                             <td style ="font-weight: bold;">Edit</td>
                             <td style ="font-weight: bold;">Delete</td>
                         </tr>
                       </thead>
                       <tbody>
-                            {% for form in list %}
+                            {% for form in form_list %}
                         <tr>
-                             <td><span >{{forloop.counter}}</span></td>
-                              <td>{{form.Licences}} </td>
-                             <td>{{form.nlicences}} </td>
+                             <td><span >{{forloop.counter}}</span>
+                                <td>{{form.id}} </td>
+                              <td>{{form.new_licence}} </td>
                             <td><a href="/licence_edit/{{form.id}}">Edit</a></td>
                             <td><a href="/licence_delete/{{form.id}}">Delete</a></td>
                         </tr>
@@ -109,35 +109,7 @@
               </div>
             </div>
           </div>
-<div hidden class="content-wrapper">
-    <div class="col-lg-12 stretch-card">
-        <div class="card">
-            <div class="card-body">
-                <div class="table-responsive pt-3">
-                    <table id="tblStocks" class="table table-bordered">
-                      <thead>
-                        <tr>
-                            <td style ="font-weight: bold;">Serial No </td>
-                           <td style ="font-weight: bold;"> Asset Name </td>
-                            <td style ="font-weight: bold;"> Number of Licences</td>
 
-                        </tr>
-                      </thead>
-                      <tbody>
-                            {% for form in list %}
-                        <tr>
-                           <td><span >{{forloop.counter}}</span></td>
-                              <td>{{form.Licences}} </td>
-                             <td>{{form.nlicences}} </td>
-                        </tr>
-                        {% endfor %}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
 {% endif %}
 <script>

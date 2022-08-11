@@ -59,27 +59,12 @@ body {
                     {% csrf_token %}
                     <div class="row">
                      <div class="col-md-6">
-                        <div class="form-group row" name="Licences" id="Licences">
-                          <label class="col-sm-4 col-form-label">Asset Name:</label>
-                          {% for form in res %}
-                            <div class="col-sm-8">
-
-                            {{ form.Licences}}
-                          </div>
-                            {% endfor %}
+                        <div class="form-group row" name="new_licence" id="new_licence">
+                          <label for="new_licence" class="col-sm-4 col-form-label">Licence Name:</label>
+                          <input type="text" name="new_licence"/>
                         </div>
                      </div>
                     </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group row" name="nlicences" id="nlicences">
-                                <label class="col-sm-4 col-form-label">Number of Licences</label>
-                                <div class="col-sm-8">
-                                    {{ form.nlicences}}
-                                </div>
-                            </div>
-                        </div>
-                      </div>
                     <input class="btn btn-primary btn-rounded btn-fw" type = "submit" value="Save">
                   </form>
                 </div>

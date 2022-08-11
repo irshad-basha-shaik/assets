@@ -574,7 +574,6 @@ class LicenceForm(forms.ModelForm):
     Licences = forms.ChoiceField(choices=Available_Licences, widget=forms.Select(attrs={'class': 'form-control'}),
                                  required=False)
     nlicences = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}), required=False)
-
     class Meta:
         model = LicenceModel
         fields = ['Licences','nlicences']
