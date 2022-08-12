@@ -81,10 +81,6 @@ class LicenceModel(models.Model):
     Licences = models.CharField(max_length=100, default='')
     nlicences = models.CharField(max_length=100, default='')
 
-class Nlicence(models.Model):
-    new_licence=models.CharField(max_length=100)
-    class Meta:
-        db_table='Nlicence'
 
 class PingModel(models.Model):
     Ip_Address = models.CharField(max_length=100)

@@ -61,12 +61,10 @@ body {
                      <div class="col-md-6">
                         <div class="form-group row" name="Licences" id="Licences">
                           <label class="col-sm-4 col-form-label">Asset Name:</label>
-                          {% for form in res %}
                             <div class="col-sm-8">
+                                {{ form.Licences}}
+                            </div>
 
-                            {{ form.Licences}}
-                          </div>
-                            {% endfor %}
                         </div>
                      </div>
                     </div>

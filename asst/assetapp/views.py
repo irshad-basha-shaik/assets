@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from .forms import AssetForm,LicenceForm, AVAILABLE_LICENCE,Available_Licences, AVAILABLE_LICENCE_ORDER, LOCATION, OS,OS1, MS_VERSION, EmailType, Softwares, OS_VERSIONS, HDDS
-from .models import AssetModel,PingModel,LicenceModel,Nlicence #,WifiModel,FirewallModel,VCCModel,PrinterModel
+from .models import AssetModel,PingModel,LicenceModel #,WifiModel,FirewallModel,VCCModel,PrinterModel
 from threading import Timer
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
@@ -404,10 +404,9 @@ def getAssets():
     return list
 def Lindex(request):
     list = LicenceModel.objects.all()
-    res = Nlicence.objects.all
     if request.content_type == 'application/json':
         return JsonResponse(list)
-    return render(request,"licence.html",{"list":list,"NL":res})
+    return render(request,"licence.html",{"list":list})
 def index(request):
     list = AssetModel.objects.all()
     displayList=['AssetNo','SerialNo','OEM_Volume']
@@ -757,24 +756,12 @@ def sum(obj):
         temp["Balance"] = temp["Balance"] + x["Balance"]
         temp["CurrentAvailableBalance"] = temp["CurrentAvailableBalance"] + x["CurrentAvailableBalance"]
     return temp
-@login_required
-def lmenu(request):
-    res=Nlicence.objects.all()
-    return render(request,"list_licences.html",{"form_list":res})
-def licence_entry(request):
-    context = {}
-    context['form'] = LicenceForm()
-    if request.method == 'POST':
-        l = Nlicence(new_licence=request.POST['new_licence'])
-        l.save()
-        return Lindex(request)
-    return render(request,"licence_entry.html")
+
 @login_required
 def add_licences(request):
     list = LicenceModel.objects.all()
     context = {}
     context['form'] = LicenceForm()
-    res = Nlicence.objects.all()
     if request.method == 'POST':
         form = LicenceForm(request.POST)
         form.save()

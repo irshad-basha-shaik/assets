@@ -320,16 +320,47 @@
           </div>
 
 {% endif %}
+
 <script>
 setTimeout(function(){
     $(document).ready(function() {
     $('#example').DataTable( {
         "scrollX": true
     } );
+
 } );
 
 },100);
+</script>
+<script>
+window.onload = function() {
+    $('#SerialNo').prop('checked', true);
+    $('#AssetNo').prop('checked', true);
+    if ($("#Location").is(':checked')){
+    $("#Location").parent('a').addClass('{{assets}}');
+}
+    $('#Location').on('change', function() {
+    if (this.checked == true){
+		$("#Location").parent('div').addClass('{{assets}}');
+		return false;
+		}
+	else {
+	    $("#Location").parent('div').addClass('');
+	    }
+    return true;
+    });
+};
+</script><script>
+function loadData(){
+    document.getElementById("form1").submit();
+    if ($("#Location").is(':checked')){
+    $("#Location").parent('a').addClass('{{assets}}');
+    return false;
+    }
+    return true;
 
+  };
+</script><script>
 function exportData(){
     /* Get the HTML data using Element by Id */
     var table = document.getElementById("tblStocks");

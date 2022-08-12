@@ -571,12 +571,12 @@ class AssetForm(forms.ModelForm):
         fields = ['user_name','user_contact','user_email','location','sub_location','asset_no','serial_no','emp_id','usage_type','machine_type','gef_id_number','domain_workgroup','Domain_User_Name','machine_make','machine_age','machine_model_no','machine_serial_no','hdd','hdd_type','hdd_make','hdd_model','hdd_serial_no','ram','processor','processor_purchase_date','date_type','amc_start_date','amc_end_date','user_acceptance_date','user_handed_over_date','Operating_System_Version','OS','OEM_Volume','ms_office','ms_office_version','ms_365','ms_visio','ms_access','Antivirus','AutoCAD','Coral_Draw','Pdf_Writer','Winzip','Installed_Softwares','Adobe_acrobate','Visio','Access','SAP','SAP_User_ID','Status','Remarks']
 
 class LicenceForm(forms.ModelForm):
-    Licences = forms.ChoiceField(choices=Available_Licences, widget=forms.Select(attrs={'class': 'form-control'}),
-                                 required=False)
+    Licences = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     nlicences = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}), required=False)
     class Meta:
         model = LicenceModel
         fields = ['Licences','nlicences']
+
 class PingForm(forms.ModelForm):
     Ip_Address = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     Name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))

@@ -96,10 +96,10 @@
                             {% for form in form_list %}
                         <tr>
                              <td><span >{{forloop.counter}}</span>
-                                <td>{{form.id}} </td>
+                                <!--td>{{form.id}} </td-->
                               <td>{{form.new_licence}} </td>
-                            <td><a href="/licence_edit/{{form.id}}">Edit</a></td>
-                            <td><a href="/licence_delete/{{form.id}}">Delete</a></td>
+                            <!--td><a href="/list_licence_edit/{{form.id}}">Edit</a></td>
+                            <td><a href="/list_licence_delete/{{form.id}}">Delete</a></td-->
                         </tr>
                         {% endfor %}
                       </tbody>
