@@ -20472,7 +20472,7 @@ dl li {
 }
 
 .navbar-fixed-top .main-panel {
-  padding-top: 262px;
+  padding-top: 0;
 }
 
 .documentation.navbar-fixed-top .main-panel {
@@ -20988,7 +20988,8 @@ dl li {
 
 @media (max-width: 991px) {
   .navbar.navbar-mini.fixed-top {
-    left: 0;
+    left: 240px;
+    transition: left 0.25s ease, width 0.25s ease;
   }
 }
 
