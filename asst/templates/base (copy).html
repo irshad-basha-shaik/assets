@@ -1,0 +1,440 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>ASSET MANAGEMENT</title>
+  <!-- base:css -->
+  <link rel="stylesheet" href="{% static 'vendors/mdi/css/materialdesignicons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/jquery.dataTables.min.css' %}">
+  <style>
+    div.dataTables_wrapper {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+    .content-wrapper{padding:0px!important}
+  </style>
+  <!-- endinject -->
+  <link rel="shortcut icon" href="{% static 'images/logo.png' %}" />
+</head>
+<body>
+  <div class="container-scroller d-flex">
+    <!-- partial:./partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <ul class="nav">
+        <li class="nav-item sidebar-category">
+          <p>Navigation</p>
+          <span></span>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/licences">
+            <i class="mdi mdi-view-quilt menu-icon"></i>
+            <span class="menu-title"> List of Licences</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            <i class="mdi mdi-view-quilt menu-icon"></i>
+            <span class="menu-title">Licences</span>
+            <div class="badge badge-info badge-pill">2</div>
+          </a>
+        </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/it">
+                <i class="mdi mdi-view-quilt menu-icon"></i>
+                <span class="menu-title">My IT Assets</span>
+              </a>
+            </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/assets" onclick="loadassets()">
+            <i class="mdi mdi-view-headline menu-icon"></i>
+            <span class="menu-title">Assets</span>
+          </a>
+            <form id="form1" action="/assets"  method="POST" style="background: #183188;">
+                 {% csrf_token %}
+                {% if assets %}
+            <a class="nav-link " >
+                <input type="checkbox" id="SerialNo">
+                    <select name="SerialNo"  style="width:50vh">
+                        <option value="SerialNo" >Serial No</option>
+                    </select>
+                </input>
+            </a>
+            <a  class="nav-link ">
+                <input type="checkbox" id="Location">
+                    <select name="Location"   style="width:50vh" >
+                        <option value="Location" >Location</option>
+                    </select>
+                </input>
+            </a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="SubLocation">
+                        <select name="SubLocation"   style="width:50vh" >
+                            <option value="SubLocation">Sub Location</option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="AssetNo">
+                <select name="AssetNo"   style="width:50vh" >
+                    <option value="AssetNo" >Asset Number</option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="EmpId">
+                <select name="EmpId"   style="width:50vh" >
+                    <option value="EmpId">Employee Id</option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="Volume_OEM">
+                        <select name="Volume_OEM"   style="width:50vh" >
+                            <option value="Volume_OEM" >Volume / OEM </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="UsageType">
+                        <select name="UsageType"   style="width:50vh" >
+                            <option value="UsageType">Usage Type </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="MachineType">
+                        <select name="MachineType"   style="width:50vh" >
+                            <option value="MachineType" >Machine Type </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="GEF_ID">
+                        <select name="GEF_ID"   style="width:50vh" >
+                            <option value="GEF_ID">GEF ID </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="Domain">
+                        <select name="Domain"   style="width:50vh" >
+                            <option value="Domain">Domain </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="UserName">
+                        <select name="UserName"   style="width:50vh" >
+                            <option value="UserName">User Name </option></select></input></a>
+
+            <a  class="nav-link " >
+                <input type="checkbox" id="UserEmailId">
+                        <select name="UserEmailId"   style="width:50vh" >
+                            <option value="UserEmailId">User Email ID </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="UserContact">
+                        <select name="UserContact"   style="width:50vh" >
+                            <option value="UserContact" >User Contact</option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="MachineMake">
+                        <select name="MachineMake"   style="width:50vh" >
+                            <option value="MachineMake">Machine Make </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="MachineModel">
+                        <select name="MachineModel"   style="width:50vh" >
+                            <option value="MachineModel" >Machine Model </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="MachineSerialNo">
+                        <select name="MachineSerialNo"   style="width:50vh" >
+                            <option value="MachineSerialNo">Machine Serial No </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="MachineAge">
+                        <select name="MachineAge"   style="width:50vh" >
+                            <option value="MachineAge"> Machine Age </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="RAM">
+                        <select name="RAM"   style="width:50vh" >
+                            <option value="RAM">RAM </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="Processor">
+                        <select name="Processor"   style="width:50vh" >
+                            <option value="Processor">Processor </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="HDDType">
+                        <select name="HDDType"   style="width:50vh" >
+                            <option value="HDDType">HDD Type </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="HDDCapacity">
+                        <select name="HDDCapacity"   style="width:50vh" >
+                            <option value="HDDCapacity">HDD Capacity </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="HDDSerialNumber">
+                        <select name="HDDSerialNumber"   style="width:50vh" >
+                            <option value="HDDSerialNumber">HDD Serial Number </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="PurchaseDate">
+                        <select name="PurchaseDate"   style="width:50vh" >
+                            <option value="PurchaseDate">Purchase Date </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="Warranty">
+                        <select name="Warranty"   style="width:50vh" >
+                            <option value="Warranty" >Warranty/ AMC </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="ServiceStart">
+                        <select name="ServiceStart"   style="width:50vh" ><option value="ServiceStart">Service Start </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="ServiceEnd">
+                        <select name="ServiceEnd"   style="width:50vh" ><option value="ServiceEnd">Service End </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="OSVersion">
+                        <select name="OSVersion"   style="width:50vh" ><option value="OSVersion" >OS Version </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="OS">
+                        <select name="OS"   style="width:50vh" ><option value="OS">OPerating System </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="MSOfficeVersion" >
+                        <select name="MSOfficeVersion"   style="width:50vh" ><option value="MSOfficeVersion">MS Office Version </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="O365">
+                        <select name="O365"   style="width:50vh" ><option value="O365" >Office 365 </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="Antivirus">
+                        <select name="Antivirus"   style="width:50vh" ><option value="Antivirus">Anti Virus</option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="AUTOCAD">
+                        <select name="AUTOCAD"   style="width:50vh" ><option value="AUTOCAD">Auto CAD </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="AUTOCADVersion">
+                        <select name="AUTOCADVersion"   style="width:50vh" ><option value="AUTOCADVersion" >Auto CAD Version </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="AdobeAcrobat">
+                        <select name="AdobeAcrobat"   style="width:50vh" ><option value="AdobeAcrobat">Adobe Acrobat </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="MSVisio">
+                        <select name="MSVisio"   style="width:50vh" ><option value="MSVisio"  >MS Visio </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="MSVisioVersion">
+                        <select name="MSVisioVersion"   style="width:50vh" ><option value="MSVisioVersion" >MS Visio Version</option></select></input></a>
+            <!--a  class="nav-link " >
+                <input type="checkbox" id="MSVisio">
+                        <select name="displayColumns"   style="width:50vh" ><option value="MSVisio" >MS Visio </option></select></input></a-->
+            <a  class="nav-link " >
+                <input type="checkbox" id="MSAccess">
+                        <select name="MSAccess"   style="width:50vh" ><option value="MSAccess" >MS Access </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="MSAccessVersion">
+                        <select name="MSAccessVersion"   style="width:50vh" ><option value="MSAccessVersion" >MS Access Version </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="UserAcceptanceDate">
+                        <select name="UserAcceptanceDate"   style="width:50vh" ><option value="UserAcceptanceDate" >User Acceptance Date </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="UserHandOverDate">
+                        <select name="UserHandOverDate"   style="width:50vh" ><option value="UserHandOverDate" >User Handover Date </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="Others">
+                        <select name="Others"   style="width:50vh" ><option value="Others" >Other Softwares Insttalled </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="status">
+                        <select name="status"   style="width:50vh" ><option value="status" >Status </option></select></input></a>
+            <a  class="nav-link " >
+                <input type="checkbox" id="remarks">
+                        <select name="remarks"   style="width:50vh" ><option value="remarks" >Remarks </option></select></input></a>
+</select>
+      </a>
+
+{% endif %}
+                </form>
+            <!--form id="form1" action="/assets" method="POST" style="background: #183188;">
+                 {% csrf_token %}
+          {% if assets %}
+            <a  class="nav-link {{assets}}" >
+<select name="displayColumns" multiple="multiple" style="height:50vh" >
+    <option value="SerialNo" {% if displayColumn.SerialNo %}  selected{% endif %}>Serial No</option>
+    <option value="Location" {% if displayColumn.Location %}  selected{% endif %}>Location</input></select></a></option>
+    <option value="SubLocation" {% if displayColumn.SubLocation %}  selected{% endif %}>Sub Location</input></select></a></option>
+    <option value="AssetNo"  {% if displayColumn.AssetNo %}  selected{% endif %}>Asset Number</option>
+    <option value="EmpId"  {% if displayColumn.EmpId %}  selected{% endif %}>Employee Id</option>
+    <option value="Volume_OEM"  {% if displayColumn.Volume_OEM %}  selected{% endif %}>Volume / OEM </option>
+    <option value="UsageType"  {% if displayColumn.UsageType %}  selected{% endif %}>Usage Type </option>
+    <option value="MachineType"  {% if displayColumn.MachineType %}  selected{% endif %}>Machine Type </option>
+    <option value="GEF_ID"  {% if displayColumn.GEF_ID %}  selected{% endif %}>GEF ID </option>
+    <option value="Domain"  {% if displayColumn.Domain %}  selected{% endif %}>Domain </option>
+    <option value="UserName"  {% if displayColumn.UserName %}  selected{% endif %}>User Name </option>
+    <option value="UserEmailId"  {% if displayColumn.UserEmailId %}  selected{% endif %}>User Email ID </option>
+    <option value="UserContact"  {% if displayColumn.UserContact %}  selected{% endif %}>User Contact</option>
+    <option value="MachineMake"  {% if displayColumn.MachineMake %}  selected{% endif %}>Machine Make </option>
+    <option value="MachineModel"  {% if displayColumn.MachineModel %}  selected{% endif %}>Machine Model </option>
+    <option value="MachineSerialNo"  {% if displayColumn.MachineSerialNo %}  selected{% endif %}>Machine Serial No </option>
+    <option value="MachineAge"  {% if displayColumn.MachineAge %}  selected{% endif %}> Machine Age </option>
+    <option value="RAM"  {% if displayColumn.RAM %}  selected{% endif %}>RAM </option>
+    <option value="Processor"  {% if displayColumn.Processor %}  selected{% endif %}>Processor </option>
+    <option value="HDDType"  {% if displayColumn.HDDType %}  selected{% endif %}>HDD Type </option>
+    <option value="HDDCapacity"  {% if displayColumn.HDDCapacity %}  selected{% endif %}>HDD Capacity </option>
+    <option value="HDDSerialNumber"  {% if displayColumn.HDDSerialNumber %}  selected{% endif %}>HDD Serial Number </option>
+    <option value="PurchaseDate"  {% if displayColumn.PurchaseDate %}  selected{% endif %}>Purchase Date </option>
+    <option value="Warranty"  {% if displayColumn.Warranty %}  selected{% endif %}>Warranty/ AMC </option>
+    <option value="ServiceStart"  {% if displayColumn.ServiceStart %}  selected{% endif %}>Service Start </option>
+    <option value="ServiceEnd"  {% if displayColumn.ServiceEnd %}  selected{% endif %}>Service End </option>
+    <option value="OSVersion"  {% if displayColumn.OSVersion %}  selected{% endif %}>OS Version </option>
+    <option value="OS"  {% if displayColumn.OS %}  selected{% endif %}>OPerating System </option>
+    <option value="MSOfficeVersion"  {% if displayColumn.MSOfficeVersion %}  selected{% endif %}>MS Office Version </option>
+    <option value="O365"  {% if displayColumn.O365 %}  selected{% endif %}>Office 365 </option>
+    <option value="Antivirus"  {% if displayColumn.Antivirus %}  selected{% endif %}>Anti Virus</option>
+    <option value="AUTOCAD"  {% if displayColumn.AUTOCAD %}  selected{% endif %}>Auto CAD </option>
+    <option value="AUTOCADVersion"  {% if displayColumn.AUTOCADVersion %}  selected{% endif %}>Auto CAD Version </option>
+    <option value="AdobeAcrobat"  {% if displayColumn.AdobeAcrobat %}  selected{% endif %}>Adobe Acrobat </option>
+    <option value="MSVisio"  {% if displayColumn.MSVisio %}  selected{% endif %}>MS Visio </option>
+    <option value="MSVisioVersion"  {% if displayColumn.MSVisioVersion %}  selected{% endif %}>MS Visio Version</option>
+    <option value="MSVisio"  {% if displayColumn.MSVisio %}  selected{% endif %}>MS Visio </option>
+    <option value="MSAccess"  {% if displayColumn.MSAccess %}  selected{% endif %}>MS Access </option>
+    <option value="MSAccessVersion"  {% if displayColumn.MSAccessVersion %}  selected{% endif %}>MS Access Version </option>
+    <option value="UserAcceptanceDate"  {% if displayColumn.UserAcceptanceDate %}  selected{% endif %}>User Acceptance Date </option>
+    <option value="UserHandOverDate"  {% if displayColumn.UserHandOverDate %}  selected{% endif %}>User Handover Date </option>
+    <option value="Others"  {% if displayColumn.Others %}  selected{% endif %}>Other Softwares Insttalled </option>
+    <option value="status"  {% if displayColumn.status %}  selected{% endif %}>Status </option>
+    <option value="remarks"  {% if displayColumn.remarks %}  selected{% endif %}>Remarks </option>
+</select>
+      </a>
+{% endif %}
+                </form-->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/list">
+            <i class="mdi mdi-view-headline menu-icon"></i>
+            <span class="menu-title">LAN</span>
+          </a>
+        </li>
+
+        <!--li class="nav-item">
+          <a class="nav-link" href="/wifi">
+            <i class="mdi mdi-access-point-network menu-icon"></i>
+            <span class="menu-title">Wifi</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/firewall">
+            <i class="mdi mdi-grid-large menu-icon"></i>
+            <span class="menu-title">Firewall</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/vcc">
+            <i class="mdi mdi-emoticon menu-icon"></i>
+            <span class="menu-title">VCC</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/printer">
+            <i class="mdi mdi-emoticon menu-icon"></i>
+            <span class="menu-title">Printer</span>
+          </a>
+        </li-->
+
+      </ul>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:./partials/_navbar.html -->
+      <nav class="navbar col-lg-12 col-12 px-0 py-0 py-lg-4 d-flex flex-row">
+        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-menu"></span>
+          </button>
+          <div class="navbar-brand-wrapper">
+            <a class="navbar-brand brand-logo" href="index.html"><img src="{% static 'images/logo.png' %}" alt="logo"/></a>
+            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{% static 'images/logo.png' %}" alt="logo"/></a>
+          </div>
+          <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">Welcome back, {{user}}</h4>
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item">
+              <h4 class="mb-0 font-weight-bold d-none d-xl-block">{{now}}</h4>
+            </li>
+
+            <li class="nav-item dropdown mr-2">
+              <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
+                <i class="mdi mdi-account"></i>
+
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                <p class="mb-0 font-weight-normal float-left dropdown-header"></p>
+                {% if user.is_authenticated %}
+                <a class="dropdown-item preview-item" href="/user/logout">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-info">
+                      <i class="mdi mdi-account-box mx-0"></i>
+                    </div>
+                  </div>
+
+                  <div class="preview-item-content">
+                    <h6 class="preview-subject font-weight-normal">Logout</h6>
+                    <p class="font-weight-light small-text mb-0 text-muted">
+                      2 days ago
+                    </p>
+                  </div>
+                </a>
+                {% else %}
+                 <a class="dropdown-item preview-item" href="/user/login">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-info">
+                      <i class="mdi mdi-account-box mx-0"></i>
+                    </div>
+                  </div>
+
+                  <div class="preview-item-content">
+                    <h6 class="preview-subject font-weight-normal">Login</h6>
+                    <p class="font-weight-light small-text mb-0 text-muted">
+                      2 days ago
+                    </p>
+                  </div>
+                </a>
+                {% endif %}
+              </div>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+       </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          {% block content %}{% endblock %}
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:./partials/_footer.html >
+        <footer class="footer">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Distributed By: <a href="https://www.themewagon.com/" target="_blank">ThemeWagon</a></span>
+                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard templates</a> from Bootstrapdash.com</span>
+              </div>
+            </div>
+          </div>
+        </footer-->
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- base:js -->
+
+
+  <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <script src="{% static 'vendors/chart.js/Chart.min.js' %}"></script>
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="{% static 'js/off-canvas.js' %}"></script>
+  <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'js/template.js' %}"></script>
+  <!-- endinject -->
+  <!-- plugin js for this page -->
+  <!-- End plugin js for this page -->
+  <!-- Custom js for this page-->
+  <script src="{% static 'js/dashboard.js' %}"></script>
+  <script src="{% static 'js/jquery-3.5.1.js' %}"></script>
+  <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+
+
+
+
+  <!-- End custom js for this page-->
+</body>
+
+</html>
