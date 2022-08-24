@@ -439,6 +439,43 @@
 <script>
 setTimeout(function(){
     $(document).ready(function() {
+        document.getElementById('select').onclick = function() {
+            var checkboxes = document.querySelectorAll('input[name="vehicle"]:checked');
+            for (var checkbox of checkboxes) {
+                document.body.append(checkbox.value + ' ');
+            }
+        }
+        $('input[value="SerialNo"]').prop('checked', true);
+        $('input[value="AssetNo"]').prop('checked', true);
+        $('input[value="SubLocation"]').is(':checked');
+        $('input[value="Location"]').prop(':checked');
+<!--        $('input[value="EmpId"]').each(check).change(check);-->
+<!--        $('input[value="Volume_OEM"]').each(check).change(check);-->
+<!--        $('input[value="UsageType"]').each(check).change(check);-->
+<!--        $('input[value="MachineType"]').each(check).change(check);-->
+<!--        $('input[value="GEF_ID"]').each(check);-->
+<!--        $('input[value="Domain"]').each(check);-->
+<!--        $('input[value="Location"]').each(check).change(check);-->
+<!--        $('input[value="Location"]').each(check).change(check);-->
+<!--        $('input[value="Location"]').each(check).change(check);-->
+<!--        $('input[value="Location"]').each(check).change(check);-->
+<!--        $('input[value="Location"]').each(check).change(check);-->
+<!--        $('input[value="Location"]').each(check).change(check);-->
+<!--        $('input[value="Location"]').each(check).change(check);-->
+<!--        $('input[value="Location"]').each(check).change(check);-->
+<!--        $('input[value="Location"]').each(check).change(check);-->
+<!--        $('input[value="Location"]').each(check).change(check);-->
+<!--        $('input[value="Location"]').each(check).change(check);-->
+<!--        $('input[value="Location"]').each(check).change(check);-->
+<!--        $('input[value="Location"]').each(check).change(check);-->
+<!--        $('input[value="Location"]').each(check).change(check);-->
+<!--        $('input[value="Location"]').each(check).change(check);-->
+<!--        $('input[value="Location"]').each(check).change(check);-->
+
+<!--        if ($('input[value="Location"]').checked){-->
+<!--            $(this).prop("checked", true);-->
+<!--            }-->
+
     $('#example').DataTable( {
         "scrollX": true
     } );
@@ -448,66 +485,6 @@ setTimeout(function(){
 },100);
 </script>
 <script>
-window.onload = function() {
-    $('#SerialNo').prop('checked', true);
-    $('#AssetNo').prop('checked', true);
-    $('#Location').prop('checked', false);
-    $('#SubLocation').prop('checked', false);
-    $('#EmpId').prop('checked', false);
-    $('#Volume_OEM').prop('checked', false);
-    $('#UsageType').prop('checked', false);
-    $('#MachineType').prop('checked', false);
-    $('#GEF_ID').prop('checked', false);
-    $('#Domain').prop('checked', false);
-    $('#UserName').prop('checked', false);
-    $('#UserEmailId').prop('checked', false);
-    $('#UserContact').prop('checked', false);
-    $('#MachineMake').prop('checked', false);
-    $('#MachineModel').prop('checked', false);
-    $('#MachineSerialNo').prop('checked', false);
-    $('#MachineAge').prop('checked', false);
-    $('#RAM').prop('checked', false);
-    $('#Processor').prop('checked', false);
-    $('#HDDType').prop('checked', false);
-    $('#HDDCapacity').prop('checked', false);
-    $('#HDDSerialNumber').prop('checked', false);
-    $('#PurchaseDate').prop('checked', false);
-    $('#Warranty').prop('checked', false);
-    $('#ServiceStart').prop('checked', false);
-    $('#ServiceEnd').prop('checked', false);
-    $('#OSVersion').prop('checked', false);
-    $('#OS').prop('checked', false);
-    $('#MSOfficeVersion').prop('checked', false);
-    $('#O365').prop('checked', false);
-    $('#Antivirus').prop('checked', false);
-    $('#AUTOCAD').prop('checked', false);
-    $('#AUTOCADVersion').prop('checked', false);
-    $('#AdobeAcrobat').prop('checked', false);
-    $('#MSVisio').prop('checked', false);
-    $('#MSVisioVersion').prop('checked', false);
-    $('#MSAccess').prop('checked', false);
-    $('#MSAccessVersion').prop('checked', false);
-    $('#UserAcceptanceDate').prop('checked', false);
-    $('#UserHandOverDate').prop('checked', false);
-    $('#Others').prop('checked', false);
-    $('#status').prop('checked', false);
-    $('#remarks').prop('checked', false);
-    $('#Location input:checkbox').click(function() {
-    if(this.checked) {
-        //I am checked
-    }else{
-        //I'm not checked
-    }
-});
-    $('#Location').on('change', function() {
-    if (this.checked == true){
-		$('#Location').prop('checked', true);
-		return false;
-		}
-    return true;
-    });
-    };
-</script><script>
 function exportData(){
     /* Get the HTML data using Element by Id */
     var table = document.getElementById("tblStocks");
