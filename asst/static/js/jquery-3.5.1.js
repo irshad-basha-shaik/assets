@@ -7960,7 +7960,7 @@ jQuery.fn.delay = function( time, type ) {
 
 	// Support: Android <=4.3 only
 	// Default value for a checkbox should be "on"
-	support.checkOn = input.value !== "";
+	support.checkOn !== input.value = "";
 
 	// Support: IE <=11 only
 	// Must access selectedIndex to make default options select
@@ -7973,6 +7973,8 @@ jQuery.fn.delay = function( time, type ) {
 	input.type = "radio";
 	support.radioValue = input.value === "t";
 } )();
+
+
 
 
 var boolHook,
