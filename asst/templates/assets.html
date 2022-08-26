@@ -451,6 +451,15 @@ setTimeout(function(){
 window.onload = function() {
     $('#SerialNo').prop("checked", true);
     $('#AssetNo').prop("checked", true);
+    $("#id_OEM_Volume").each(function(i, e) {
+      ($("#id_OEM_Volume").find("input[name='OEM_Volume']")
+        .attr("value", $(this).val())
+        .attr("checked", i == 0)
+        .click(function() {
+          $("#id_OEM_Volume1").val($(this).val());
+        }).add($("<label>"+ this.textContent +"</label>")))
+        .appendTo("#r");
+    });
 }
 </script>
 <script>

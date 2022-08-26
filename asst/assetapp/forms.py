@@ -502,6 +502,7 @@ class AssetForm(forms.ModelForm):
     serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     emp_id = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     usage_type = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=USAGE_TYPE),required=False)
+    usage_type1 = forms.CharField(choices=USAGE_TYPE,widget=forms.Select(attrs={'class': 'form-control', 'width': '50vh'}),required=False)
     machine_type = forms.ChoiceField(choices=MACHINE_TYPE,widget=forms.Select(attrs={'class': 'form-control', 'width': '50vh'}),required=False)
     gef_id_number = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     domain_workgroup = forms.ChoiceField(choices=DOMAIN_WORKGROUP,widget=forms.Select(attrs={'class': 'form-control', 'width': '50vh'}),required=False)
@@ -538,9 +539,11 @@ class AssetForm(forms.ModelForm):
     ms_office = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     ms_office_version = forms.ChoiceField(choices=MS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_365 = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=EmailType),required=False)
+    ms_3651 = forms.CharField(choices=EmailType,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_visio = forms.ChoiceField(choices=VISIO_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_access = forms.ChoiceField(choices=ACCESS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     OEM_Volume = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=OS_TYPE))
+    OEM_Volume1 = forms.CharField(choices=OS_TYPE,widget=forms.Select(attrs={'class': 'form-control'}),requeired=False)
     Antivirus = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     AutoCAD = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     AutoCAD_version = forms.ChoiceField(choices=AUTOCAD_VERSION, widget=forms.Select(attrs={'class': 'form-control'}),required=False)
@@ -560,6 +563,10 @@ class AssetForm(forms.ModelForm):
         cleaned_data = super(AssetForm, self).clean()
         self.instance.field = 'value'
         return cleaned_data
+
+    def __init__(self, *args, **kwargs):
+        super(AssetForm, self).__init__(*args, **kwargs)
+        self.base_fields['location'].initial = 'HYDERABAD'
 
     class Meta:
         model = AssetModel
