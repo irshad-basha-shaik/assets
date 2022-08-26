@@ -66,17 +66,16 @@
                 {% if assets %}
             <a class="nav-link {{assets}}" >
                 <input type="checkbox" name="displayColumns" value="SerialNo" {% if displayColumn.SerialNo %}checked{% endif %}>
-                    <select   style="width:50vh">
+                    <select  style="width:50vh">
                         <option  >Serial No</option>
                     </select>
                 </input>
             </a>
             <a class="nav-link" >
                 <input type="checkbox" name="displayColumns" value="Location" {% if displayColumn.Location %}checked{% endif %}>
-
-                    <select style="width:50vh" >
-                        <option  >Location</option>
-                    </select>
+                    <div >
+                        {{ lk.location}}
+                    </div>
                 </input>
             </a>
             <a class="nav-link" >
@@ -106,25 +105,25 @@
             <a class="nav-link" >
                 <input type="checkbox" name="displayColumns" value="Volume_OEM" {% if displayColumn.Volume_OEM %}checked{% endif %}>
 
-                        <select style="width:50vh" >
-                            <option  >Volume / OEM </option>
-                        </select>
+                        <div >
+                        {{ lk.OEM_Volume}}
+                    </div>
                 </input>
             </a>
             <a class="nav-link" >
                 <input type="checkbox" name="displayColumns" value="UsageType" {% if displayColumn.UsageType %}checked{% endif %}>
 
-                        <select style="width:50vh" >
-                            <option >Usage Type </option>
-                        </select>
+                        <div >
+                        {{ lk.usage_type}}
+                    </div>
                 </input>
             </a>
             <a class="nav-link" >
                 <input type="checkbox" name="displayColumns" value="MachineType" {% if displayColumn.MachineType %}checked{% endif %}>
 
-                        <select style="width:50vh" >
-                            <option >Machine Type </option>
-                        </select>
+                        <div >
+                        {{ lk.machine_type}}
+                    </div>
                 </input>
             </a>
             <a class="nav-link" >
@@ -137,9 +136,9 @@
             <a class="nav-link" >
                 <input type="checkbox" name="displayColumns" value="Domain" {% if displayColumn.Domain %}checked{% endif %}>
 
-                        <select style="width:50vh" >
-                            <option  >Domain </option>
-                        </select>
+                        <div >
+                        {{ lk.domain_workgroup}}
+                    </div>
                 </input>
             </a>
             <a class="nav-link" >
@@ -148,133 +147,172 @@
                             <option >User Name </option></select></input></a>
 
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="UserEmailId" {% if displayColumn.UserEmailId %}checked{% endif %}>
+                <input type="checkbox"  name="displayColumns" value="UserEmailId" {% if displayColumn.UserEmailId %}checked{% endif %}>
                         <select    style="width:50vh" >
                             <option >User Email ID </option></select></input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="UserContact" {% if displayColumn.UserContact %}checked{% endif %}>
+                <input type="checkbox"  name="displayColumns" value="UserContact" {% if displayColumn.UserContact %}checked{% endif %}>
                         <select    style="width:50vh" >
                             <option >User Contact</option></select></input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="MachineMake" {% if displayColumn.MachineMake %}checked{% endif %}>
+                <input type="checkbox"  name="displayColumns" value="MachineMake" {% if displayColumn.MachineMake %}checked{% endif %}>
                         <select    style="width:50vh" >
                             <option >Machine Make </option></select></input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="MachineModel" {% if displayColumn.MachineModel %}checked{% endif %}>
+                <input type="checkbox"  name="displayColumns" value="MachineModel" {% if displayColumn.MachineModel %}checked{% endif %}>
                         <select style="width:50vh" >
                             <option >Machine Model </option></select></input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="MachineSerialNo" {% if displayColumn.MachineSerialNo %}checked{% endif %}>
+                <input type="checkbox"  name="displayColumns" value="MachineSerialNo" {% if displayColumn.MachineSerialNo %}checked{% endif %}>
                         <select    style="width:50vh" >
                             <option >Machine Serial No </option></select></input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="MachineAge" {% if displayColumn.MachineAge %}checked{% endif %}>
+                <input type="checkbox"  name="displayColumns" value="MachineAge" {% if displayColumn.MachineAge %}checked{% endif %}>
                         <select    style="width:50vh" >
                             <option > Machine Age </option></select></input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="RAM" {% if displayColumn.RAM %}checked{% endif %}>
-                        <select    style="width:50vh" >
-                            <option >RAM </option></select></input></a>
+                <input type="checkbox"  name="displayColumns" value="RAM" {% if displayColumn.RAM %}checked{% endif %}>
+                        <div >
+                        {{ lk.ram}}
+                    </div>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="Processor" {% if displayColumn.Processor %}checked{% endif %}>
-                        <select    style="width:50vh" >
-                            <option >Processor </option></select></input></a>
+                <input type="checkbox"  name="displayColumns" value="Processor" {% if displayColumn.Processor %}checked{% endif %}>
+                        <div >
+                        {{ lk.processor}}
+                    </div>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="HDDType" {% if displayColumn.HDDType %}checked{% endif %}>
-                        <select    style="width:50vh" >
-                            <option >HDD Type </option></select></input></a>
+                <input type="checkbox"  name="displayColumns" value="HDDType" {% if displayColumn.HDDType %}checked{% endif %}>
+                        <div >
+                        {{ lk.hdd_type}}
+                    </div>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="HDDSerialNumber" {% if displayColumn.HDDSerialNumber %}checked{% endif %}>
-                        <select    style="width:50vh" >
-                            <option >HDD Capacity </option></select></input></a>
+                <input type="checkbox"  name="displayColumns" value="HDDSerialNumber" {% if displayColumn.HDDSerialNumber %}checked{% endif %}>
+                        <div >
+                        {{ lk.hdd}}
+                    </div>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="HDDSerialNumber" {% if displayColumn.HDDSerialNumber %}checked{% endif %}>
-                        <select    style="width:50vh" >
-                            <option >HDD Serial Number </option></select></input></a>
+                <input type="checkbox"  name="displayColumns" value="HDDSerialNumber" {% if displayColumn.HDDSerialNumber %}checked{% endif %}>
+                        <select style="width:50vh" >
+                            <option >HDD Serial Number </option></select>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="PurchaseDate" {% if displayColumn.PurchaseDate %}checked{% endif %}>
+                <input type="checkbox"  name="displayColumns" value="PurchaseDate" {% if displayColumn.PurchaseDate %}checked{% endif %}>
                         <select    style="width:50vh" >
-                            <option >Purchase Date </option></select></input></a>
+                            <option >Purchase Date </option></select>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="Warranty" {% if displayColumn.Warranty %}checked{% endif %}>
-                        <select    style="width:50vh" >
-                            <option >Warranty/ AMC </option></select></input></a>
+                <input type="checkbox"  name="displayColumns" value="Warranty" {% if displayColumn.Warranty %}checked{% endif %}>
+                        <div >
+                        {{ lk.date_type}}
+                    </div>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="ServiceStart" {% if displayColumn.ServiceStart %}checked{% endif %}>
+                <input type="checkbox"  name="displayColumns" value="ServiceStart" {% if displayColumn.ServiceStart %}checked{% endif %}>
                         <select    style="width:50vh" >
-                            <option >Service Start </option></select></input></a>
+                            <option >Service Start </option></select>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="ServiceEnd" {% if displayColumn.ServiceEnd %}checked{% endif %}>
+                <input type="checkbox"  name="displayColumns" value="ServiceEnd" {% if displayColumn.ServiceEnd %}checked{% endif %}>
                         <select    style="width:50vh" >
-                            <option >Service End </option></select></input></a>
+                            <option >Service End </option></select>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="OSVersion" {% if displayColumn.OSVersion %}checked{% endif %}>
-                        <select    style="width:50vh" >
-                            <option >OS Version </option></select></input></a>
+                <input type="checkbox"  name="displayColumns" value="OSVersion" {% if displayColumn.OSVersion %}checked{% endif %}>
+                        <div >
+                        {{ lk.Operating_System_Version}}
+                    </div>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="OS" {% if displayColumn.OS %}checked{% endif %}>
-                        <select    style="width:50vh" >
-                            <option >OPerating System </option></select></input></a>
+                <input type="checkbox"  name="displayColumns" value="OS" {% if displayColumn.OS %}checked{% endif %}>
+                        <div >
+                        {{ lk.OS}}
+                    </div>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="MSOfficeVersion" {% if displayColumn.MSOfficeVersion %}checked{% endif %}>
-                        <select    style="width:50vh" >
-                            <option >MS Office Version </option></select></input></a>
+                <input type="checkbox"  name="displayColumns" value="MSOfficeVersion" {% if displayColumn.MSOfficeVersion %}checked{% endif %}>
+                        <div >
+                        {{ lk.ms_office_version}}
+                    </div>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="O365" {% if displayColumn.O365 %}checked{% endif %}>
-                        <select    style="width:50vh" >
-                            <option >Office 365 </option></select></input></a>
+                <input type="checkbox"  name="displayColumns" value="O365" {% if displayColumn.O365 %}checked{% endif %}>
+                        <div >
+                        {{ lk.ms_365}}
+                    </div>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="Antivirus" {% if displayColumn.Antivirus %}checked{% endif %}>
+                <input type="checkbox"  name="displayColumns" value="Antivirus" {% if displayColumn.Antivirus %}checked{% endif %}>
                         <select    style="width:50vh" >
-                            <option >Anti Virus</option></select></input></a>
+                            <option >Anti Virus</option></select>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="AUTOCAD" {% if displayColumn.AUTOCAD %}checked{% endif %}>
+                <input type="checkbox"  name="displayColumns" value="AUTOCAD" {% if displayColumn.AUTOCAD %}checked{% endif %}>
                         <select    style="width:50vh" >
-                            <option >Auto CAD </option></select></input></a>
+                            <option >Auto CAD </option></select>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="AUTOCADVersion" {% if displayColumn.AUTOCADVersion %}checked{% endif %}>
-                        <select    style="width:50vh" >
-                            <option >Auto CAD Version </option></select></input></a>
+                <input type="checkbox"  name="displayColumns" value="AUTOCADVersion" {% if displayColumn.AUTOCADVersion %}checked{% endif %}>
+                        <div >
+                        {{ lk.AutoCAD_version}}
+                    </div>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="AdobeAcrobat" {% if displayColumn.AdobeAcrobat %}checked{% endif %}>
+                <input type="checkbox"  name="displayColumns" value="AdobeAcrobat" {% if displayColumn.AdobeAcrobat %}checked{% endif %}>
                         <select    style="width:50vh" >
-                            <option >Adobe Acrobat </option></select></input></a>
+                            <option >Adobe Acrobat </option></select>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="MSVisio" {% if displayColumn.MSVisio %}checked{% endif %}>
+                <input type="checkbox"  name="displayColumns" value="MSVisio" {% if displayColumn.MSVisio %}checked{% endif %}>
                         <select    style="width:50vh" >
-                            <option >MS Visio </option></select></input></a>
+                            <option >MS Visio </option></select>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="MSVisioVersion" {% if displayColumn.MSVisioVersion %}checked{% endif %}>
-                        <select    style="width:50vh" >
-                            <option >MS Visio Version</option></select></input></a>
+                <input type="checkbox"  name="displayColumns" value="MSVisioVersion" {% if displayColumn.MSVisioVersion %}checked{% endif %}>
+                        <div >
+                        {{ lk.ms_visio}}
+                    </div>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="MSAccess" {% if displayColumn.MSAccess %}checked{% endif %}>
+                <input type="checkbox"  name="displayColumns" value="MSAccess" {% if displayColumn.MSAccess %}checked{% endif %}>
                         <select    style="width:50vh" >
-                            <option >MS Access </option></select></input></a>
+                            <option >MS Access </option></select>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="MSAccessVersion" {% if displayColumn.MSAccessVersion %}checked{% endif %}>
-                        <select    style="width:50vh" >
-                            <option >MS Access Version </option></select></input></a>
+                <input type="checkbox"  name="displayColumns" value="MSAccessVersion" {% if displayColumn.MSAccessVersion %}checked{% endif %}>
+                        <div >
+                        {{ lk.ms_access}}
+                    </div>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="UserAcceptanceDate" {% if displayColumn.UserAcceptanceDate %}checked{% endif %}>
+                <input type="checkbox"  name="displayColumns" value="UserAcceptanceDate" {% if displayColumn.UserAcceptanceDate %}checked{% endif %}>
                         <select    style="width:50vh" >
-                            <option >User Acceptance Date </option></select></input></a>
+                            <option >User Acceptance Date </option></select>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="UserHandOverDate" {% if displayColumn.UserHandOverDate %}checked{% endif %}>
+                <input type="checkbox"  name="displayColumns" value="UserHandOverDate" {% if displayColumn.UserHandOverDate %}checked{% endif %}>
                         <select    style="width:50vh" >
-                            <option >User Handover Date </option></select></input></a>
+                            <option >User Handover Date </option></select>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="Others" {% if displayColumn.Others %}checked{% endif %}>
+                <input type="checkbox"  name="displayColumns" value="Others" {% if displayColumn.Others %}checked{% endif %}>
                         <select    style="width:50vh" >
-                            <option >Other Installed Soft</option></select></input></a>
+                            <option >Other Installed Soft</option></select>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="status" {% if displayColumn.status %}checked{% endif %}>
+                <input type="checkbox"  name="displayColumns" value="status" {% if displayColumn.status %}checked{% endif %}>
                         <select    style="width:50vh" >
-                            <option >Status </option></select></input></a>
+                            <option >Status </option></select>
+                </input></a>
             <a class="nav-link" >
-                <input type="checkbox" multiple="multiple" name="displayColumns" value="remarks" {% if displayColumn.remarks %}checked{% endif %}>
-                        <select    style="width:50vh" >
-                            <option >Remarks </option></select></input></a>
+                <input type="checkbox"  name="displayColumns" value="remarks" {% if displayColumn.remarks %}checked{% endif %}>
+                        <div >
+                        {{ lk.Remarks}}
+                    </div>
+                </input></a>
 </select>
       </a>
 

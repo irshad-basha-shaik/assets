@@ -443,12 +443,6 @@ setTimeout(function(){
     $('#example').DataTable( {
         "scrollX": true
     } );
-<!--    $function loadData(){-->
-<!--        document.getElementById('form1').submit();-->
-<!--        $( "input[value='Location']" ).change(function() {-->
-<!--            $( this ).prop('checked',true);-->
-<!--        });-->
-<!--        };-->
 } );
 
 },100);
@@ -457,103 +451,7 @@ setTimeout(function(){
 window.onload = function() {
     $('#SerialNo').prop("checked", true);
     $('#AssetNo').prop("checked", true);
-<!--    $('#Location').prop("checked", false);-->
-<!--    $('#SubLocation').prop("checked", false);-->
-<!--    $('#EmpId').prop("checked", false);-->
-<!--    $('input[value="Volume_OEM"]').prop("checked", false);-->
-<!--    $('input[value="UsageType"]').prop("checked", false);-->
-<!--    $('input[value="MachineType"]').prop("checked", false);-->
-<!--    $('input[value="GEF_ID"]').prop("checked", false);-->
-<!--    $('input[value="Domain"]').prop("checked", false);-->
-<!--    $('input[value="UserName"]').prop("checked", false);-->
-<!--    $('input[value="UserEmailId"]').prop("checked", false);-->
-<!--    $('input[value="UserContact"]').prop("checked", false);-->
-<!--    $('input[value="MachineMake"]').prop("checked", false);-->
-<!--    $('input[value="MachineModel"]').prop("checked", false);-->
-<!--    $('input[value="MachineSerialNo"]').prop("checked", false);-->
-<!--    $('input[value="MachineAge"]').prop("checked", false);-->
-<!--    $('input[value="RAM"]').prop("checked", false);-->
-<!--    $('input[value="Processor"]').prop("checked", false);-->
-<!--    $('input[value="HDDType"]').prop("checked", false);-->
-<!--    $('input[value="HDDSerialNumber"]').prop("checked", false);-->
-<!--    $('input[value="PurchaseDate"]').prop("checked", false);-->
-<!--    $('input[value="Warranty"]').prop("checked", false);-->
-<!--    $('input[value="ServiceStart"]').prop("checked", false);-->
-<!--    $('input[value="ServiceEnd"]').prop("checked", false);-->
-<!--    $('input[value="OSVersion"]').prop("checked", false);-->
-<!--    $('input[value="OS"]').prop("checked", false);-->
-<!--    $('input[value="MSOfficeVersion"]').prop("checked", false);-->
-<!--    $('input[value="O365"]').prop("checked", false);-->
-<!--    $('input[value="Antivirus"]').prop("checked", false);-->
-<!--    $('input[value="AUTOCAD"]').prop("checked", false);-->
-<!--    $('input[value="AUTOCADVersion"]').prop("checked", false);-->
-<!--    $('input[value="AdobeAcrobat"]').prop("checked", false);-->
-<!--    $('input[value="MSVisio"]').prop("checked", false);-->
-<!--    $('input[value="MSVisioVersion"]').prop("checked", false);-->
-<!--    $('input[value="MSAccess"]').prop("checked", false);-->
-<!--    $('input[value="MSAccessVersion"]').prop("checked", false);-->
-<!--    $('input[value="UserAcceptanceDate"]').prop("checked", false);-->
-<!--    $('input[value="UserHandOverDate"]').prop("checked", false);-->
-<!--    $('input[value="Others"]').prop("checked", false);-->
-<!--    $('input[value="status"]').prop("checked", false);-->
-<!--    $('input[value="remarks"]').prop("checked", false);-->
-<!--    $('#Location').on("change", function() {-->
-<!--        if (this.checked == true){-->
-<!--            $(this).parent().addClass('active');-->
-<!--            return false;-->
-<!--            }-->
-<!--        else {-->
-<!--            $(this).parent().removeClass('active');-->
-<!--            return false;-->
-<!--            }-->
-<!--        return true;-->
-<!--    });-->
-<!--    $('#Location').submit(function() {-->
-<!--        if ($('input:checkbox', this).length == $('input:checked', this).length ) {-->
-<!--            // everything's fine...-->
-<!--        } else {-->
-<!--            alert('Please tick all checkboxes!');-->
-<!--            return false;-->
-<!--        }-->
-<!--    });-->
-<!--    $('input[name="displayColumns"] :checked').each(function(i, el){-->
-<!--        var val = $(this).attr('value');-->
-<!--        $('input[value='+val+']').prop('checked', true);-->
-<!--    });-->
-     //var atLeastOneIsChecked = $('input[name="displayColumns"]:checked').length > 0;
-<!--     if ($('input[value="Location"]').is(':checked')) {-->
-<!--            $('input[value="Location"]').prop("checked", true);-->
-<!--        } else {-->
-<!--            $('input[value="Location"]').prop("checked", false);-->
-<!--        }-->
-
-<!--     var sList = "";-->
-<!--     $('input[name="displayColumns"]:checked').each(function () {-->
-<!--        var sThisVal = (this.checked ? "1" : "0");-->
-<!--        sList += (sList=="" ? this.value : "," + this.value);-->
-<!--        });-->
-
-<!--    var values = [];-->
-<!--    for (i = 0; i < check.length; i++) {-->
-<!--        if (check[i].checked == true) {-->
-<!--            //  alert($(check[i]).value);-->
-<!--            var el = $(check[i]);-->
-
-<!--          var test = el.next().text();-->
-<!--           alert(test);-->
-
-<!--            values.push($(test).text());-->
-<!--        }-->
-<!--    }-->
-    // alert(values.eq(0));
-    //alert(values.join());
-    //alert(values);
-    //var text[]=values.text();
-    //  alert(text);
 }
-
-
-
 </script>
 <script>
 function exportData(){

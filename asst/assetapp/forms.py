@@ -25,12 +25,10 @@ LOCATION = [
 ]
 
 MACHINE_TYPE = [
-    (' ', ' '),
     ('Laptop','Laptop'),
     ('Desktop','Desktop'),
-    ('Server','Server')
-
-
+    ('Server','Server'),
+    (' ', ' ')
 ]
 HDD = [
     ('160 GB', '160 GB'),
@@ -96,7 +94,7 @@ SSDSATA = [
     ('', '')
     ]
 
-HDD_CAPACITY = (
+HDD_CAPACITY = [
     ('500MB','500MB'),
     ('120GB', '120GB'),
     ('160GB', '160GB'),
@@ -108,7 +106,7 @@ HDD_CAPACITY = (
     ('2TB', '2TB'),
     ('10TB', '10TB'),
     (' ', ' ')
-)
+]
 RAM = [
     ('2 GB','2 GB'),
     ('3 GB','3 GB'),
@@ -124,7 +122,6 @@ RAM = [
     ('', ''),
 ]
 PROCESSOR = [
-    (' ', ' '),
     ('Core i-3', 'Core i-3'),
     ('Core i-3 2.00 GHz', 'Core i-3 2.00 GHz'),
     ('Core i-3 2.40 GHZ', 'Core i-3 2.40 GHZ'),
@@ -242,7 +239,8 @@ PROCESSOR = [
     ('InteL- 3.10 Ghz', 'InteL- 3.10 Ghz'),
     ('InteL- 3.50 Ghz', 'InteL- 3.50 Ghz'),
     ('Intel®Xeon 3.50GHZ', 'Intel®Xeon 3.50GHZ'),
-    ('P Dualcore-3 GHZ', 'P Dualcore-3 GHZ')
+    ('P Dualcore-3 GHZ', 'P Dualcore-3 GHZ'),
+    (' ', ' ')
 
 ]
 YEARS= [x for x in range(1940,2200)]
@@ -265,9 +263,9 @@ HDD_Type = [
     ('SSDSATA', 'SSDSATA'),
 ]
 Date_Type = [
-    ('',''),
     ('Warranty', 'Warranty'),
     ('AMC', 'AMC'),
+    ('','')
 ]
 
 Softwares = [
@@ -277,29 +275,29 @@ Softwares = [
     ('Pdf Writer', 'Pdf Writer'),
     ('Winzip', 'Winzip'),
 ]
-MS_VERSION =  (
+MS_VERSION =  [
     ('MS Office Standard 2010', 'MS Office Standard 2010'),
     ('MS Office Standard 2013', 'MS Office Standard 2013'),
     ('MS Office Standard 2016', 'MS Office Standard 2016'),
     ('MS Office Standard 2019', 'MS Office Standard 2019'),
     ('','')
-)
+]
 
-VISIO_VERSION =  (
+VISIO_VERSION =  [
     ('MS Visio 2010', 'MS Visio 2010'),
     ('MS Visio 2013', 'MS Visio 2013'),
     ('MS Visio 2016', 'MS Visio 2016'),
     ('MS Visio 2019', 'MS Visio 2019'),
     ('','')
-)
-ACCESS_VERSION =  (
+]
+ACCESS_VERSION =  [
     ('MS Access 2010', 'MS Access 2010'),
     ('MS Access 2013', 'MS Access 2013'),
     ('MS Access 2016', 'MS Access 2016'),
     ('MS Access 2019', 'MS Access 2019'),
     ('','')
-)
-AUTOCAD_VERSION =  (
+]
+AUTOCAD_VERSION =  [
     ('    AutoCAD 2000    15    ', '	AutoCAD 2000	15	'),
     ('    AutoCAD 2002    15.2    ', '	AutoCAD 2002	15.2	'),
     ('    AutoCAD 2004    16    ', '	AutoCAD 2004	16	'),
@@ -322,9 +320,8 @@ AUTOCAD_VERSION =  (
     ('    AutoCAD 2021    24    ', '	AutoCAD 2021	24	'),
     ('    AutoCAD 2022    24.1    ', '	AutoCAD 2022	24.1	'),
     ('    AutoCAD 2023    24.2    ', '	AutoCAD 2023	24.2	'),
-
     ('','')
-)
+]
 ANTIVIRUS_VERSION =  (
     ('Antivirus 2010', 'Antivirus 2010'),
     ('Antivirus 2013', 'Antivirus 2013'),
@@ -333,7 +330,7 @@ ANTIVIRUS_VERSION =  (
     ('','')
 )
 OEM_VOLUME = [x for x in range(1990,2021)]
-OS_VERSIONS = (
+OS_VERSIONS = [
     ("Operating_System_Version","Operating_System_Version"),
     ("Operating_System_Version1","Operating_System_Version1"),
     ("Operating_System_Version2","Operating_System_Version2"),
@@ -341,8 +338,8 @@ OS_VERSIONS = (
     ("Operating_System_Version4","Operating_System_Version4"),
     ("Operating_System_Version5","Operating_System_Version5"),
     ("Operating_System_Version6","Operating_System_Version6")
-    )
-OS_VERSION = (
+    ]
+OS_VERSION = [
     ('Win-7 Pro.32 Bit','Win-7 Pro.32 Bit'),
     ('Ser.2012','Ser.2012'),
     ('Win-Server-2012','Win-Server-2012'),
@@ -371,8 +368,7 @@ OS_VERSION = (
     ('Win-10 Pro 64 bit','Win-10 Pro 64 bit'),
     ('Win-11 Pro 64 bit','Win-11 Pro 64 bit'),
     ('',''),
-
-)
+]
 OS_VERSION1 = (
     ('Windows Xp Pro 32 Bit','Windows Xp Pro 32 Bit'),
     ('Windows Xp Pro 64 Bit','Windows Xp Pro 64 Bit'),
@@ -410,15 +406,15 @@ OS_VERSION6 = (
     ('',''),
 
 )
-OS = (
+OS = [
     ('Win.XP', 'Win.XP'),
     ('Win.7', 'Win.7'),
     ('Win.8', 'Win.8'),
     ('Win.10', 'Win.10'),
     ('Win.11', 'Win.11'),
     ('Win-Server', 'Win-Server'),
-    ('', ''),
-)
+    ('', '')
+]
 OS1 = (
     ('Ser.2012', 'Ser.2012'),
     ('Ser.2016', 'Ser.2016'),
@@ -473,18 +469,17 @@ AVAILABLE_LICENCE_ORDER={
     'MS Office Standard 2016':4.3,
     'MS Office Standard 2019': 4.4
 }
-DOMAIN_WORKGROUP = (
+DOMAIN_WORKGROUP = [
     ('Domain','Domain'),
     ('Workgroup','Workgroup'),
     ('', '')
-
-)
-REMARKS = (
-    ('',''),
+]
+REMARKS = [
     ('Spare','Spare'),
     ('Used','Used'),
-    ('Not Working','Not Working')
-)
+    ('Not Working','Not Working'),
+    ('','')
+]
 DEVICES = (
     ('Access Point','Access Point'),
     ('Wifi','Wifi')
@@ -501,15 +496,15 @@ class AssetForm(forms.ModelForm):
     user_name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     user_contact = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     user_email = forms.EmailField(max_length=100,widget=forms.EmailInput(attrs={'class': 'form-control'}),required=False)
-    location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}))
+    location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control','width': '50vh'}))
     sub_location = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     asset_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     emp_id = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     usage_type = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=USAGE_TYPE),required=False)
-    machine_type = forms.ChoiceField(choices=MACHINE_TYPE,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    machine_type = forms.ChoiceField(choices=MACHINE_TYPE,widget=forms.Select(attrs={'class': 'form-control', 'width': '50vh'}),required=False)
     gef_id_number = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
-    domain_workgroup = forms.ChoiceField(choices=DOMAIN_WORKGROUP,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    domain_workgroup = forms.ChoiceField(choices=DOMAIN_WORKGROUP,widget=forms.Select(attrs={'class': 'form-control', 'width': '50vh'}),required=False)
     Domain_User_Name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     machine_make = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     machine_age = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
