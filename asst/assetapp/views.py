@@ -409,16 +409,17 @@ def Lindex(request):
     return render(request,"licence.html",{"list":list})
 def index(request):
     list = AssetModel.objects.all()
+    kl = AssetForm()
     displayList=['AssetNo','SerialNo']
-    form = AssetForm()
     if request.POST:
-        displayList1 = request.POST.getlist('displayColumn')
+        form = AssetForm(request.POST)
+        displayList1 = request.POST.getlist('displayColumns')
         if len(displayList1)>0:
             displayList = displayList1
     if request.content_type == 'application/json':
         return JsonResponse(list)
     displayList = populateJSONDictionary(displayList)
-    return render(request,"assets.html",{"list":list,"assets":"active","displayColumn":displayList, "form":form})
+    return render(request,"assets.html",{"list":list,"assets":"active","displayColumn":displayList, "lk":kl})
 def populateJSONDictionary(list):
     dict1={}
     for x in list:

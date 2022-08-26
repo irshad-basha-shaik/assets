@@ -193,7 +193,6 @@
                         {% endfor %}
                       </tbody>
                     </table>
-
                      <!--table id="example" class="table table-bordered">
 
                       <thead>
@@ -443,17 +442,89 @@ setTimeout(function(){
     $('#example').DataTable( {
         "scrollX": true
     } );
+
 } );
 
 },100);
 </script>
 <script>
 window.onload = function() {
-    $('#SerialNo').prop("checked", true);
-    $('#AssetNo').prop("checked", true);
-}
-</script>
-<script>
+    $('#SerialNo').prop('checked', true);
+    $('#AssetNo').prop('checked', true);
+    $('#Location').prop('checked', true);
+    //$('#Location').prop('checked', true);
+    $('#SubLocation').prop('checked', true);
+    $('#EmpId').prop('checked', true);
+    $('#Volume_OEM').prop('checked', true);
+    $('#UsageType').prop('checked', true);
+    $('#MachineType').prop('checked', true);
+    $('#GEF_ID').prop('checked', true);
+    $('#Domain').prop('checked', true);
+    $('#UserName').prop('checked', true);
+    $('#UserEmailId').prop('checked', true);
+    $('#UserContact').prop('checked', true);
+    $('#MachineMake').prop('checked', true);
+    $('#MachineModel').prop('checked', true);
+    $('#MachineSerialNo').prop('checked', true);
+    $('#MachineAge').prop('checked', true);
+    $('#RAM').prop('checked', true);
+    $('#Processor').prop('checked', true);
+    $('#HDDType').prop('checked', true);
+    $('#HDDCapacity').prop('checked', true);
+    $('#HDDSerialNumber').prop('checked', true);
+    $('#PurchaseDate').prop('checked', true);
+    $('#Warranty').prop('checked', true);
+    $('#ServiceStart').prop('checked', true);
+    $('#ServiceEnd').prop('checked', true);
+    $('#OSVersion').prop('checked', true);
+    $('#OS').prop('checked', true);
+    $('#MSOfficeVersion').prop('checked', true);
+    $('#O365').prop('checked', true);
+    $('#Antivirus').prop('checked', true);
+    $('#AUTOCAD').prop('checked', true);
+    $('#AUTOCADVersion').prop('checked', true);
+    $('#AdobeAcrobat').prop('checked', true);
+    $('#MSVisio').prop('checked', true);
+    $('#MSVisioVersion').prop('checked', true);
+    $('#MSAccess').prop('checked', true);
+    $('#MSAccessVersion').prop('checked', true);
+    $('#UserAcceptanceDate').prop('checked', true);
+    $('#UserHandOverDate').prop('checked', true);
+    $('#Others').prop('checked', true);
+    $('#status').prop('checked', true);
+    $('#remarks').prop('checked', true);
+    /*$('#Location').on('change',function() {
+        if($(this).prop('checked')== true){
+            $(this.parentNode).addClass('active');
+            return true;
+        } else {
+            $(this).prop('checked', false).submit();
+            return true;
+    }return true;
+        });*/
+    };
+
+/*function loadassets() {
+		var SerialNo = document.getElementById("SerialNo");
+		var Location = document.getElementById("Location");
+		var SubLocation = document.getElementById("SubLocation");
+		var AssetNo = document.getElementById("AssetNo");
+		var EmpId = document.getElementById("EmpId");
+		var Volume_OEM = document.getElementById("Volume_OEM");
+
+        {
+		if (Location.checked == true) {
+		    k = Location.parentElement.className;
+		    $('#Location a.nav-link').prop('checked', true);
+		    return false;
+		}
+		}
+
+		return true;
+	}*/
+
+</script><script>
+
 function exportData(){
     /* Get the HTML data using Element by Id */
     var table = document.getElementById("tblStocks");
