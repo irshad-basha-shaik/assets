@@ -6,13 +6,15 @@ from .models import AssetModel,PingModel,LicenceModel
 USAGE_TYPE = [
     ('Spare_Old', 'Spare_Old'),
     ('Spare_New', 'Spare_New'),
-    ('Live','Live')
+    ('Live','Live'),
+    ('None', 'None')
 
 ]
 OS_TYPE = [
     ('OEM', 'OEM'),
     ('VOLUME', 'VOLUME'),
-    ('DOS','DOS')
+    ('DOS','DOS'),
+    ('None', 'None')
 
 ]
 LOCATION = [
@@ -21,14 +23,15 @@ LOCATION = [
     ('KAKINADA', 'KAKINADA'),
     ('KAKINADA-3', 'KAKINADA-3'),
     ('MARKETING', 'MARKETING'),
-    ('DEPOT', 'DEPOT')
+    ('DEPOT', 'DEPOT'),
+    ('None', 'None')
 ]
 
 MACHINE_TYPE = [
     ('Laptop','Laptop'),
     ('Desktop','Desktop'),
     ('Server','Server'),
-    (' ', ' ')
+    ('None', 'None')
 ]
 HDD = [
     ('160 GB', '160 GB'),
@@ -60,7 +63,7 @@ HDD = [
     ('2 TB SATA+256 GB SSD', '2 TB SATA+256 GB SSD'),
     ('2 TB SATA+500 GB SSD', '2 TB SATA+500 GB SSD'),
     ('2 TB SATA+1 TB SSD', '2 TB SATA+1 TB SSD'),
-    ('', '')
+    ('None', 'None')
 ]
 
 SATA = [
@@ -74,7 +77,7 @@ SATA = [
     ('1 TB', '1 TB'),
     ('2 TB', '2 TB'),
     ('2TB+4TB', '2TB+4TB'),
-    ('', '')
+    ('None', 'None')
     ]
 SSD = [
     ('128 GB SSD', '128 GB SSD'),
@@ -82,7 +85,7 @@ SSD = [
     ('512 GB SSD', '512 GB SSD'),
     ('1 TB SSD', '1 TB SSD'),
     ('2 TB SSD', '2 TB SSD'),
-    ('', '')
+    ('None', 'None')
     ]
 SSDSATA = [
     ('1 TB SATA+256 GB SSD', '1 TB SATA+256 GB SSD'),
@@ -91,7 +94,7 @@ SSDSATA = [
     ('2 TB SATA+256 GB SSD', '2 TB SATA+256 GB SSD'),
     ('2 TB SATA+500 GB SSD', '2 TB SATA+500 GB SSD'),
     ('2 TB SATA+1 TB SSD', '2 TB SATA+1 TB SSD'),
-    ('', '')
+    ('None', 'None')
     ]
 
 HDD_CAPACITY = [
@@ -105,7 +108,7 @@ HDD_CAPACITY = [
     ('1TB', '1TB'),
     ('2TB', '2TB'),
     ('10TB', '10TB'),
-    (' ', ' ')
+    ('None', 'None')
 ]
 RAM = [
     ('2 GB','2 GB'),
@@ -119,7 +122,7 @@ RAM = [
     ('24 GB', '24 GB'),
     ('32 GB', '32 GB'),
     ('64 GB', '64 GB'),
-    ('', ''),
+    ('None', 'None')
 ]
 PROCESSOR = [
     ('Core i-3', 'Core i-3'),
@@ -240,7 +243,7 @@ PROCESSOR = [
     ('InteL- 3.50 Ghz', 'InteL- 3.50 Ghz'),
     ('Intel®Xeon 3.50GHZ', 'Intel®Xeon 3.50GHZ'),
     ('P Dualcore-3 GHZ', 'P Dualcore-3 GHZ'),
-    (' ', ' ')
+    ('None', 'None')
 
 ]
 YEARS= [x for x in range(1940,2200)]
@@ -248,24 +251,27 @@ YEARS= [x for x in range(1940,2200)]
 EmailType = [
     ('MS Office 365', 'MS Office 365'),
     ('Zimbra', 'Zimbra'),
-    ('Public', 'Public')
+    ('Public', 'Public'),
+    ('None', 'None')
 ]
 HDDS = [
     ('hdd', 'hdd'),
     ('hdd1', 'hdd1'),
     ('hdd2', 'hdd2'),
     ('hdd3', 'hdd3'),
+    ('None', 'None')
 ]
 HDD_Type = [
     ('HDD', 'HDD'),
     ('SATA', 'SATA'),
     ('SSD', 'SSD'),
     ('SSDSATA', 'SSDSATA'),
+    ('None', 'None')
 ]
 Date_Type = [
     ('Warranty', 'Warranty'),
     ('AMC', 'AMC'),
-    ('','')
+    ('None', 'None')
 ]
 
 Softwares = [
@@ -274,13 +280,14 @@ Softwares = [
     ('Autocad', 'Autocad'),
     ('Pdf Writer', 'Pdf Writer'),
     ('Winzip', 'Winzip'),
+    ('None', 'None')
 ]
 MS_VERSION =  [
     ('MS Office Standard 2010', 'MS Office Standard 2010'),
     ('MS Office Standard 2013', 'MS Office Standard 2013'),
     ('MS Office Standard 2016', 'MS Office Standard 2016'),
     ('MS Office Standard 2019', 'MS Office Standard 2019'),
-    ('','')
+    ('None', 'None')
 ]
 
 VISIO_VERSION =  [
@@ -288,46 +295,46 @@ VISIO_VERSION =  [
     ('MS Visio 2013', 'MS Visio 2013'),
     ('MS Visio 2016', 'MS Visio 2016'),
     ('MS Visio 2019', 'MS Visio 2019'),
-    ('','')
+    ('None', 'None')
 ]
 ACCESS_VERSION =  [
     ('MS Access 2010', 'MS Access 2010'),
     ('MS Access 2013', 'MS Access 2013'),
     ('MS Access 2016', 'MS Access 2016'),
     ('MS Access 2019', 'MS Access 2019'),
-    ('','')
+    ('None', 'None')
 ]
 AUTOCAD_VERSION =  [
-    ('    AutoCAD 2000    15    ', '	AutoCAD 2000	15	'),
-    ('    AutoCAD 2002    15.2    ', '	AutoCAD 2002	15.2	'),
-    ('    AutoCAD 2004    16    ', '	AutoCAD 2004	16	'),
-    ('    AutoCAD 2005    16.1    ', '	AutoCAD 2005	16.1	'),
-    ('    AutoCAD 2006    16.2    ', '	AutoCAD 2006	16.2	'),
-    ('    AutoCAD 2007    17    ', '	AutoCAD 2007	17	'),
-    ('    AutoCAD 2008    17.1    ', '	AutoCAD 2008	17.1	'),
-    ('    AutoCAD 2009    17.2    ', '	AutoCAD 2009	17.2	'),
-    ('    AutoCAD 2010    18    ', '	AutoCAD 2010	18	'),
-    ('    AutoCAD 2011    18.1    ', '	AutoCAD 2011	18.1	'),
-    ('    AutoCAD 2012    18.2    ', '	AutoCAD 2012	18.2	'),
-    ('    AutoCAD 2013    19    ', '	AutoCAD 2013	19	'),
-    ('    AutoCAD 2014    19.1    ', '	AutoCAD 2014	19.1	'),
-    ('    AutoCAD 2015    20    ', '	AutoCAD 2015	20	'),
-    ('    AutoCAD 2016    20.1    ', '	AutoCAD 2016	20.1	'),
-    ('    AutoCAD 2017    21    ', '	AutoCAD 2017	21	'),
-    ('    AutoCAD 2018    22    ', '	AutoCAD 2018	22	'),
-    ('    AutoCAD 2019    23    ', '	AutoCAD 2019	23	'),
-    ('    AutoCAD 2020    23.1    ', '	AutoCAD 2020	23.1	'),
-    ('    AutoCAD 2021    24    ', '	AutoCAD 2021	24	'),
-    ('    AutoCAD 2022    24.1    ', '	AutoCAD 2022	24.1	'),
-    ('    AutoCAD 2023    24.2    ', '	AutoCAD 2023	24.2	'),
-    ('','')
+    ('AutoCAD 2000 15', ' AutoCAD 2000 15'),
+    ('AutoCAD 2002 15.2', ' AutoCAD 2002 15.2'),
+    ('AutoCAD 2004 16', ' AutoCAD 2004 16'),
+    ('AutoCAD 2005 16.1', ' AutoCAD 2005 16.1'),
+    ('AutoCAD 2006 16.2', ' AutoCAD 2006 16.2'),
+    ('AutoCAD 2007 17', ' AutoCAD 2007 17'),
+    ('AutoCAD 2008 17.1', ' AutoCAD 2008 17.1'),
+    ('AutoCAD 2009 17.2', ' AutoCAD 2009 17.2'),
+    ('AutoCAD 2010 18', ' AutoCAD 2010 18'),
+    ('AutoCAD 2011 18.1', ' AutoCAD 2011 18.1'),
+    ('AutoCAD 2012 18.2', ' AutoCAD 2012 18.2'),
+    ('AutoCAD 2013 19', ' AutoCAD 2013 19'),
+    ('AutoCAD 2014 19.1', ' AutoCAD 2014 19.1'),
+    ('AutoCAD 2015 20', ' AutoCAD 2015 20'),
+    ('AutoCAD 2016 20.1', ' AutoCAD 2016 20.1'),
+    ('AutoCAD 2017 21', ' AutoCAD 2017 21'),
+    ('AutoCAD 2018 22', ' AutoCAD 2018 22'),
+    ('AutoCAD 2019 23', ' AutoCAD 2019 23'),
+    ('AutoCAD 2020 23.1', ' AutoCAD 2020 23.1'),
+    ('AutoCAD 2021 24', ' AutoCAD 2021 24'),
+    ('AutoCAD 2022 24.1', ' AutoCAD 2022 24.1'),
+    ('AutoCAD 2023 24.2', ' AutoCAD 2023 24.2'),
+    ('None', 'None')
 ]
 ANTIVIRUS_VERSION =  (
     ('Antivirus 2010', 'Antivirus 2010'),
     ('Antivirus 2013', 'Antivirus 2013'),
     ('Antivirus 2016', 'Antivirus 2016'),
     ('Antivirus 2019', 'Antivirus 2019'),
-    ('','')
+    ('None', 'None')
 )
 OEM_VOLUME = [x for x in range(1990,2021)]
 OS_VERSIONS = [
@@ -337,7 +344,8 @@ OS_VERSIONS = [
     ("Operating_System_Version3","Operating_System_Version3"),
     ("Operating_System_Version4","Operating_System_Version4"),
     ("Operating_System_Version5","Operating_System_Version5"),
-    ("Operating_System_Version6","Operating_System_Version6")
+    ("Operating_System_Version6","Operating_System_Version6"),
+    ('None', 'None')
     ]
 OS_VERSION = [
     ('Win-7 Pro.32 Bit','Win-7 Pro.32 Bit'),
@@ -367,43 +375,43 @@ OS_VERSION = [
     ('Win-10 Home Single Lan','Win-10 Home Single Lan'),
     ('Win-10 Pro 64 bit','Win-10 Pro 64 bit'),
     ('Win-11 Pro 64 bit','Win-11 Pro 64 bit'),
-    ('',''),
+    ('None', 'None')
 ]
 OS_VERSION1 = (
     ('Windows Xp Pro 32 Bit','Windows Xp Pro 32 Bit'),
     ('Windows Xp Pro 64 Bit','Windows Xp Pro 64 Bit'),
-    ('',''),
+    ('None', 'None')
 )
 OS_VERSION2 = (
     ('Win-7 Pro.32 Bit','Win-7 Pro.32 Bit'),
     ('Win-7 Pro.64 Bit','Win-7 Pro.64 Bit'),
-    ('',''),
+    ('None', 'None')
 
 )
 OS_VERSION3 = (
     ('Win-8.1 Pro.32 Bit','Win-8.1 Pro.32 Bit'),
     ('Win-8.1 Pro 64 Bit','Win-8.1 Pro 64 Bit'),
-    ('',''),
+    ('None', 'None')
 
 )
 OS_VERSION4 = (
     ('Win-10 Pro 32 Bit','Win-10 Pro 32 Bit'),
     ('Win-10 Pro 64 Bit','Win-10 Pro 64 Bit'),
     ('Win-10 Home Single Lan','Win-10 Home Single Lan'),
-    ('',''),
+    ('None', 'None')
 
 )
 OS_VERSION5 = (
     ('Win-11 Pro 32 bit','Win-11 Pro 32 bit'),
     ('Win-11 Pro 64 bit','Win-11 Pro 64 bit'),
-    ('',''),
+    ('None', 'None')
 
 )
 OS_VERSION6 = (
     ('Ser.2012','Ser.2012'),
     ('Ser.2016','Ser.2016'),
     ('Ser.2019','Ser.2019'),
-    ('',''),
+    ('None', 'None')
 
 )
 OS = [
@@ -413,13 +421,24 @@ OS = [
     ('Win.10', 'Win.10'),
     ('Win.11', 'Win.11'),
     ('Win-Server', 'Win-Server'),
-    ('', '')
+    ('None', 'None')
+]
+Os = [
+    ('Win.XP', 'Win.XP'),
+    ('Win.7', 'Win.7'),
+    ('Win.8', 'Win.8'),
+    ('Win.10', 'Win.10'),
+    ('Win.11', 'Win.11'),
+    ('Ser.2012', 'Ser.2012'),
+    ('Ser.2016', 'Ser.2016'),
+    ('Ser.2019', 'Ser.2019'),
+    ('None', 'None')
 ]
 OS1 = (
     ('Ser.2012', 'Ser.2012'),
     ('Ser.2016', 'Ser.2016'),
     ('Ser.2019', 'Ser.2019'),
-    ('', ''),
+    ('None', 'None')
 )
 Available_Licences = (
     ('Win.XP', 'Win.XP'),
@@ -436,7 +455,8 @@ Available_Licences = (
     ('MS Office Standard 2019', 'MS Office Standard 2019'),
     ('MS Office 365', 'MS Office 365'),
     ('Domain', 'Domain'),
-    ('Antivirus', 'Antivirus')
+    ('Antivirus', 'Antivirus'),
+    ('None', 'None')
 )
 AVAILABLE_LICENCE={
     'Win.7': 56,
@@ -472,17 +492,19 @@ AVAILABLE_LICENCE_ORDER={
 DOMAIN_WORKGROUP = [
     ('Domain','Domain'),
     ('Workgroup','Workgroup'),
-    ('', '')
+    ('None', 'None')
+
 ]
 REMARKS = [
     ('Spare','Spare'),
     ('Used','Used'),
     ('Not Working','Not Working'),
-    ('','')
+    ('None', 'None')
 ]
 DEVICES = (
     ('Access Point','Access Point'),
-    ('Wifi','Wifi')
+    ('Wifi','Wifi'),
+    ('None', 'None')
 )
 Warranty = [
     ('processor_purchase_date', 'processor_purchase_date'),
@@ -490,6 +512,7 @@ Warranty = [
     ('amc_end_date', 'amc_end_date'),
     ('user_acceptance_date', 'user_acceptance_date'),
     ('user_handed_over_date', 'user_handed_over_date'),
+    ('None', 'None')
 ]
 
 class AssetForm(forms.ModelForm):
@@ -566,7 +589,11 @@ class AssetForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(AssetForm, self).__init__(*args, **kwargs)
-        self.base_fields['location'].initial = 'HYDERABAD'
+        try:
+            self.base_fields['location','OEM_Volume1','usage_type1','machine_type','domain_workgroup','ram','processor','hdd_type','hdd','date_type','Operating_System_Version','OS','ms_office_version','ms_3651','AutoCAD_version','ms_visio','ms_access','Remarks'].initial = 'HYDERABAD','OEM','Spare_Old','Desktop','Domain','4 GB','Core i-5','HDD','256 SSD','Warranty','Windows 10 Pro 64 Bit','Win.10','MS Office Standard 2013','MS Office 365','AutoCAD 2000 15','MS Visio 2010','MS Access 2010','Spare'
+        except:
+            s=10
+
 
     class Meta:
         model = AssetModel

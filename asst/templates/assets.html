@@ -391,7 +391,7 @@
                             {% for form in list %}
                         <tr>
                            {% if displayColumn.SerialNo %} <td><span >{{forloop.counter}}</span></td>{% endif %}
-                              {% if displayColumn.Location %} <td>{{form.location}} </td>{% endif %}
+                              {% if location.HYDERABAD %} <td>{{form.location}} </td>{% endif %}
                              {% if displayColumn.SubLocation %} <td>{{form.sub_location}} </td>{% endif %}
                              {% if displayColumn.AssetNo %} <td>{{form.asset_no}}</td>{% endif %}
                              {% if displayColumn.EmpId %} <td>{{form.emp_id}}</td>{% endif %}
@@ -469,6 +469,33 @@ setTimeout(function(){
 window.onload = function() {
     $('#SerialNo').prop("checked", true);
     $('#AssetNo').prop("checked", true);
+    $('#id_location').on('change', function() {
+    if (this.value == "HYDERABAD"){
+		$('#sub_location').parent('div').hide();
+		return false;
+		}
+    if (this.value == "KRISHNAPATNAM"){
+		$('#sub_location').parent('div').hide();
+		return false;
+		}
+	if (this.value == "KAKINADA"){
+		$('#sub_location').parent('div').hide();
+		return false;
+		}
+    if (this.value == "KAKINADA-3"){
+		$('#sub_location').parent('div').hide();
+		return false;
+		}
+	if (this.value == "MARKETING"){
+		$('#sub_location').parent('div').show();
+		return false;
+		}
+    if (this.value == "DEPOT"){
+		$('#sub_location').parent('div').show();
+		return false;
+		}
+    return true;
+});
 
 }
 </script>

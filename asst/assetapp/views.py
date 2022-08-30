@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm,LicenceForm, AVAILABLE_LICENCE,Available_Licences, AVAILABLE_LICENCE_ORDER, LOCATION, OS,OS1, MS_VERSION, EmailType, Softwares, OS_VERSIONS, HDDS
+from .forms import AssetForm, LicenceForm, AVAILABLE_LICENCE, Available_Licences, AVAILABLE_LICENCE_ORDER, LOCATION, OS, OS1, MS_VERSION, EmailType, Softwares, OS_VERSIONS, HDDS, Os
 from .models import AssetModel,PingModel,LicenceModel #,WifiModel,FirewallModel,VCCModel,PrinterModel
 from threading import Timer
 from django.views.decorators.csrf import csrf_exempt
@@ -19,7 +19,7 @@ import os, fnmatch
 
 
 
-
+del MS_VERSION[-1]
 #import tensorflow as tf
 from django.contrib.auth.decorators import login_required
 log=""
@@ -356,6 +356,7 @@ def getAssetsByLocation():
     list["gtotal"]=grand_total
     return list
 def getAssets():
+    del LOCATION[-1]
     list = {"remark":[],"LOCATION":LOCATION,"gtotal":[]}
     REM = [ ("Used Workstations",["Desktop","Laptop", "Server"],4,"Total Used") ,
             ("Spare_Old Workstations",["Desktop","Laptop"],3,"Total Old Spare"),
@@ -372,9 +373,13 @@ def getAssets():
         for mtypes in MTYP:
             list2 ={"name":"Total","location":[],"ALLLocationSUM":0 }
             list2["name"] = mtypes
-            for l1 in  range(len(LOCATION)):
+
+            for l1 in range(len(LOCATION)):
                 l= LOCATION[l1]
-                dat = getAssetCountByLocationRemarksMachineType(l[1],r,mtypes)
+                try:
+                    dat = getAssetCountByLocationRemarksMachineType(l[1],r,mtypes)
+                except:
+                    l[1] = "None"
                 list2['location'].append({"LOCATION": l[1],"Machine": mtypes[1],"remark":r[1],"data":dat})
                 td = total[l1]
                 td = td+dat
@@ -410,10 +415,46 @@ def Lindex(request):
 def index(request):
     list = AssetModel.objects.all()
     kl = AssetForm()
-    displayList=['AssetNo','SerialNo']
+    displayList=['AssetNo','SerialNo','Location']
     if request.POST:
-        form = AssetForm(request.POST)
+        kl = AssetForm(request.POST)
         displayList1 = request.POST.getlist('displayColumns')
+        # if request.POST['location']!='':
+        #     displayList1.append('Location')
+        # if request.POST['OEM_Volume1']!='':
+        #     displayList1.append('Volume_OEM')
+        # if request.POST['usage_type1']!='':
+        #     displayList1.append('UsageType')
+        # if request.POST['machine_type']!='':
+        #     displayList1.append('MachineType')
+        # if request.POST['domain_workgroup']!='':
+        #     displayList1.append('Domain')
+        # if request.POST['ram']!='':
+        #     displayList1.append('RAM')
+        # if request.POST['processor']!='':
+        #     displayList1.append('Processor')
+        # if request.POST['hdd']!='':
+        #     displayList1.append('HDDCapacity')
+        # if request.POST['hdd_type']!='':
+        #     displayList1.append('HDDType')
+        # if request.POST['date_type']!='':
+        #     displayList1.append('Warranty')
+        # if request.POST['Operating_System_Version']!='':
+        #     displayList1.append('OSVersion')
+        # if request.POST['OS']!='':
+        #     displayList1.append('OS')
+        # if request.POST['ms_office_version']!='':
+        #     displayList1.append('MSOfficeVersion')
+        # if request.POST['ms_3651']!='':
+        #     displayList1.append('O365')
+        # if request.POST['AutoCAD_version']!='':
+        #     displayList1.append('AUTOCADVersion')
+        # if request.POST['ms_visio']!='':
+        #     displayList1.append('MSVisioVersion')
+        # if request.POST['ms_access']!='':
+        #     displayList1.append('MSAccessVersion')
+        # if request.POST['Remarks']!='':
+        #     displayList1.append('remarks')
         if len(displayList1)>0:
             displayList = displayList1
     if request.content_type == 'application/json':
@@ -428,27 +469,28 @@ def populateJSONDictionary(list):
 def OSTally():
     win_live = []
     ser_live = []
-    for os in OS:
-        c1 = getAssetCount(os[1], 'Volume')
-        c2 = getAssetCount(os[1], 'OEM')
-        c3 = getAvailableLicence(os[1])
-        c1 = c1
-        c4 = c3 - c1
-        c5 = False
-        c6 = True
-        if (c4 < 0):
-            c5 = True
-            c6 = False
-        temp = {"OS": os[1], "VolumeLicence": c1, "OEM": c2, "pos": 0, "Available": c3, "Balance": c4,
-                 "CurrentAvailableBalance": c4, "BorrowPath": []}
-        if os[1].startswith("Win."):
-            b = getOSPosition(os[1])
-            temp['pos'] = b
-            win_live.append(temp)
-        elif os[1].startswith("Ser."):
-            b = getOSPosition(os[1])
-            temp['pos'] = b
-            ser_live.append(temp)
+    for os in Os:
+        if os[1]!='None':
+            c1 = getAssetCount(os[1], 'Volume')
+            c2 = getAssetCount(os[1], 'OEM')
+            c3 = getAvailableLicence(os[1])
+            c1 = c1
+            c4 = c3 - c1
+            c5 = False
+            c6 = True
+            if (c4 < 0):
+                c5 = True
+                c6 = False
+            temp = {"OS": os[1], "VolumeLicence": c1, "OEM": c2, "pos": 0, "Available": c3, "Balance": c4,
+                     "CurrentAvailableBalance": c4, "BorrowPath": []}
+            if os[1].startswith("Win."):
+                b = getOSPosition(os[1])
+                temp['pos'] = b
+                win_live.append(temp)
+            elif os[1].startswith("Ser."):
+                b = getOSPosition(os[1])
+                temp['pos'] = b
+                ser_live.append(temp)
     win_live = generateCarryForward(win_live)
     ser_live = generateCarryForward(ser_live)
     return win_live,ser_live
@@ -751,7 +793,7 @@ def home(request):
 def sum(obj):
     temp = { "VolumeLicence":  0, "OEM": 0,"Available": 0, "Balance": 0,
             "CurrentAvailableBalance": 0}
-    for  x in obj:
+    for x in obj:
         temp["VolumeLicence"]=temp["VolumeLicence"]+x["VolumeLicence"]
         temp["Available"] = temp["Available"] + x["Available"]
         temp["OEM"] = temp["OEM"] + x["OEM"]
