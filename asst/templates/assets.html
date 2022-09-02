@@ -102,9 +102,10 @@
                       <thead>
                         <tr>
                            {% if displayColumn.SerialNo %}<td style ="font-weight: bold;">Serial No </td>{% endif %}
+                            {% if displayColumn.AssetNo %}<td style ="font-weight: bold;"> Asset No </td>{% endif %}
                                {% if displayColumn.Location %}<td style ="font-weight: bold;"> Location </td>{% endif %}
                                {% if displayColumn.SubLocation %}<td style ="font-weight: bold;"> Sub Location </td>{% endif %}
-                               {% if displayColumn.AssetNo %}<td style ="font-weight: bold;"> Asset No </td>{% endif %}
+
                                {% if displayColumn.EmpId %}<td style ="font-weight: bold;"> Emp Id </td>{% endif %}
                                {% if displayColumn.Volume_OEM %}<td style ="font-weight: bold;"> OEM / Volume </td>{% endif %}
                                {% if displayColumn.UsageType %}<td style ="font-weight: bold;">Usage Type</td>{% endif %}
@@ -154,9 +155,13 @@
                       </thead>
                       <tbody>
                             {% for form in list %}
+                            {% for form1 in display %}
+
+                            {% if form1 == form.location and form1 == form.usage_type1 %}
+
                         <tr>
                              {% if displayColumn.SerialNo %}<td><span >{{forloop.counter}}</span></td>{% endif %}
-                               {% if displayColumn.Location %}<td>{{form.location}} </td>{% endif %}
+                             {% if displayColumn.Location %}<td>{{form1}}</td>{% endif %}
                               {% if displayColumn.SubLocation %}<td>{{form.sub_location}} </td>{% endif %}
                               {% if displayColumn.AssetNo %}<td>{{form.asset_no}}</td>{% endif %}
                               {% if displayColumn.EmpId %}<td>{{form.emp_id}}</td>{% endif %}
@@ -205,6 +210,8 @@
                             <td><a href="/assets_edit/{{form.id}}">Edit</a></td>
                             <td><a href="/assets_delete/{{form.id}}">Delete</a></td>
                         </tr>
+                            {% endif %}
+                               {% endfor %}
                         {% endfor %}
                       </tbody>
                     </table>
@@ -391,7 +398,18 @@
                             {% for form in list %}
                         <tr>
                            {% if displayColumn.SerialNo %} <td><span >{{forloop.counter}}</span></td>{% endif %}
-                              {% if location.HYDERABAD %} <td>{{form.location}} </td>{% endif %}
+                              {% if displayColumn.Location %}
+                                    {% for form1 in display %}
+                                        {{form1}}
+                                        <!--{% if form1 == 'HYDERABAD' %}<td>{{form1}}</td>
+                                        {% elif form1 == 'KRISHNAPATNAM' %}<td>{{form1}}</td>
+                                        {% elif form1 == 'KAKINADA' %}<td>{{form1}}</td>
+                                        {% elif form1 == 'KAKINADA-3' %}<td>{{form1}}</td>
+                                        {% elif form1 == 'MARKETING' %}<td>{{form1}}</td>
+                                        {% elif form1 == 'DEPOT' %}<td>{{form1}}</td>
+                                        {% endif %}-->
+                                    {% endfor %}
+                              {% endif %}
                              {% if displayColumn.SubLocation %} <td>{{form.sub_location}} </td>{% endif %}
                              {% if displayColumn.AssetNo %} <td>{{form.asset_no}}</td>{% endif %}
                              {% if displayColumn.EmpId %} <td>{{form.emp_id}}</td>{% endif %}

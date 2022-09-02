@@ -412,55 +412,102 @@ def Lindex(request):
     if request.content_type == 'application/json':
         return JsonResponse(list)
     return render(request,"licence.html",{"list":list})
+def display_assets(request):
+    assts_list = []
+    displayList1 = []
+    if len(request) > 1:
+        try:
+            assts_list.append(request['location'])
+            assts_list.append(request['OEM_Volume1'])
+            assts_list.append(request['usage_type1'])
+            assts_list.append(request['machine_type'])
+            assts_list.append(request['domain_workgroup'])
+            assts_list.append(request['ram'])
+            assts_list.append(request['processor'])
+            assts_list.append(request['hdd'])
+            assts_list.append(request['hdd_type'])
+            assts_list.append(request['date_type'])
+            assts_list.append(request['Operating_System_Version'])
+            assts_list.append(request['OS'])
+            assts_list.append(request['ms_office_version'])
+            assts_list.append(request['ms_3651'])
+            assts_list.append(request['AutoCAD_version'])
+            assts_list.append(request['ms_visio'])
+            assts_list.append(request['ms_access'])
+            assts_list.append(request['Remarks'])
+            if request['location'] != 'None':
+                displayList1.append('Location')
+
+            if request['OEM_Volume1']!='None':
+                displayList1.append('Volume_OEM')
+
+            if request['usage_type1']!='None':
+                displayList1.append('UsageType')
+
+            if request['machine_type']!='None':
+                displayList1.append('MachineType')
+
+            if request['domain_workgroup']!='None':
+                displayList1.append('Domain')
+
+            if request['ram']!='None':
+                displayList1.append('RAM')
+
+            if request['processor']!='None':
+                displayList1.append('Processor')
+
+            if request['hdd']!='None':
+                displayList1.append('HDDCapacity')
+
+            if request['hdd_type']!='None':
+                displayList1.append('HDDType')
+
+            if request['date_type']!='None':
+                displayList1.append('Warranty')
+
+            if request['Operating_System_Version']!='None':
+                displayList1.append('OSVersion')
+
+            if request['OS']!='None':
+                displayList1.append('OS')
+
+            if request['ms_office_version']!='None':
+                displayList1.append('MSOfficeVersion')
+
+            if request['ms_3651']!='None':
+                displayList1.append('O365')
+
+            if request['AutoCAD_version']!='None':
+                displayList1.append('AUTOCADVersion')
+
+            if request['ms_visio']!='None':
+                displayList1.append('MSVisioVersion')
+
+            if request['ms_access']!='None':
+                displayList1.append('MSAccessVersion')
+
+            if request['Remarks']!='None':
+                displayList1.append('remarks')
+
+        except:
+            displayList1 = request.getlist('displayColumns')
+    return assts_list,displayList1
 def index(request):
     list = AssetModel.objects.all()
     kl = AssetForm()
-    displayList=['AssetNo','SerialNo','Location']
+    display = []
+    displayList=['AssetNo','SerialNo']
     if request.POST:
         kl = AssetForm(request.POST)
         displayList1 = request.POST.getlist('displayColumns')
-        # if request.POST['location']!='':
-        #     displayList1.append('Location')
-        # if request.POST['OEM_Volume1']!='':
-        #     displayList1.append('Volume_OEM')
-        # if request.POST['usage_type1']!='':
-        #     displayList1.append('UsageType')
-        # if request.POST['machine_type']!='':
-        #     displayList1.append('MachineType')
-        # if request.POST['domain_workgroup']!='':
-        #     displayList1.append('Domain')
-        # if request.POST['ram']!='':
-        #     displayList1.append('RAM')
-        # if request.POST['processor']!='':
-        #     displayList1.append('Processor')
-        # if request.POST['hdd']!='':
-        #     displayList1.append('HDDCapacity')
-        # if request.POST['hdd_type']!='':
-        #     displayList1.append('HDDType')
-        # if request.POST['date_type']!='':
-        #     displayList1.append('Warranty')
-        # if request.POST['Operating_System_Version']!='':
-        #     displayList1.append('OSVersion')
-        # if request.POST['OS']!='':
-        #     displayList1.append('OS')
-        # if request.POST['ms_office_version']!='':
-        #     displayList1.append('MSOfficeVersion')
-        # if request.POST['ms_3651']!='':
-        #     displayList1.append('O365')
-        # if request.POST['AutoCAD_version']!='':
-        #     displayList1.append('AUTOCADVersion')
-        # if request.POST['ms_visio']!='':
-        #     displayList1.append('MSVisioVersion')
-        # if request.POST['ms_access']!='':
-        #     displayList1.append('MSAccessVersion')
-        # if request.POST['Remarks']!='':
-        #     displayList1.append('remarks')
+        display,display2 = display_assets(request.POST)
+        displayList1.extend(display2)
         if len(displayList1)>0:
             displayList = displayList1
     if request.content_type == 'application/json':
         return JsonResponse(list)
     displayList = populateJSONDictionary(displayList)
-    return render(request,"assets.html",{"list":list,"assets":"active","displayColumn":displayList, "lk":kl})
+    return render(request,"assets.html",{"list":list,"assets":"active","display":display,"displayColumn":displayList, "lk":kl})
 def populateJSONDictionary(list):
     dict1={}
     for x in list:
