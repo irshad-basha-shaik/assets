@@ -590,7 +590,7 @@ class AssetForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(AssetForm, self).__init__(*args, **kwargs)
         try:
-            self.base_fields['location','OEM_Volume1','usage_type1','machine_type','domain_workgroup','ram','processor','hdd_type','hdd','date_type','Operating_System_Version','OS','ms_office_version','ms_3651','AutoCAD_version','ms_visio','ms_access','Remarks'].initial = 'HYDERABAD','OEM','Spare_Old','Desktop','Domain','4 GB','Core i-5','HDD','256 SSD','Warranty','Windows 10 Pro 64 Bit','Win.10','MS Office Standard 2013','MS Office 365','AutoCAD 2000 15','MS Visio 2010','MS Access 2010','Spare'
+            self.base_fields['location','OEM_Volume1','usage_type1','machine_type','domain_workgroup','ram','processor','hdd_type','hdd','date_type','Operating_System_Version','OS','ms_office_version','ms_3651','AutoCAD_version','ms_visio','ms_access','Remarks'].initial = 'HYDERABAD','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'
         except:
             s=10
 
@@ -616,30 +616,7 @@ class PingForm(forms.ModelForm):
         model = PingModel
         fields = ['Ip_Address','Name','Status','Alert_Range','Last_Updated']
 
-class DynamicForm(forms.Form):
 
-    options = [
-    ('Textbox1', 'Textbox1'),
-    ('Textbox2', 'Textbox2'),
-    ...
-    ]
-
-    dynamic_data = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=options)
-
-    def __init__(self, *args, **kwargs):
-        super(DynamicForm, self).__init__(*args, **kwargs)
-
-        for i in range(1,len(self.options)+1):
-            self.fields['dd_func_'+str(i)] = forms.ChoiceField(widget=forms.Select, choices= [
-                            ('average', 'average'),
-                            ('sum', 'sum')], initial='sum', required=False)
-
-    def __getitem__(self, name):
-        try:
-            field = self.fields[name]
-        except KeyError:
-            raise KeyError('Key %r not found in Form' % name)
-        return forms.forms.BoundField(self, field, name)
 '''
 class Wifi_Form(forms.ModelForm):
     location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control'}))
