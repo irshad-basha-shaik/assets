@@ -412,102 +412,137 @@ def Lindex(request):
     if request.content_type == 'application/json':
         return JsonResponse(list)
     return render(request,"licence.html",{"list":list})
+def All(a,request):
+    if request == 'ms_office_version':
+        list = AssetModel.objects.all().filter(ms_office_version__in=['MS Office Standard 2010', 'MS Office Standard 2013', 'MS Office Standard 2016', 'MS Office Standard 2019'])
+    return list
 def display_assets(request):
-    assts_list = []
+    assts_Location_list = []
+    assts_Usage_list = []
+    assts_Machine_list = []
+    assts_Osv_list = []
+    assts_Os_list = []
+    assts_Msv_list = []
     displayList1 = []
     if len(request) > 1:
         try:
-            assts_list.append(request['location'])
-            assts_list.append(request['OEM_Volume1'])
-            assts_list.append(request['usage_type1'])
-            assts_list.append(request['machine_type'])
-            assts_list.append(request['domain_workgroup'])
-            assts_list.append(request['ram'])
-            assts_list.append(request['processor'])
-            assts_list.append(request['hdd'])
-            assts_list.append(request['hdd_type'])
-            assts_list.append(request['date_type'])
-            assts_list.append(request['Operating_System_Version'])
-            assts_list.append(request['OS'])
-            assts_list.append(request['ms_office_version'])
-            assts_list.append(request['ms_3651'])
-            assts_list.append(request['AutoCAD_version'])
-            assts_list.append(request['ms_visio'])
-            assts_list.append(request['ms_access'])
-            assts_list.append(request['Remarks'])
+
             if request['location'] != 'None':
                 displayList1.append('Location')
-
-            if request['OEM_Volume1']!='None':
-                displayList1.append('Volume_OEM')
+                assts_Location_list.append(request['location'])
+            else:
+                displayList1.append('Location')
+                assts_Location_list.append('HYDERABAD')
+                assts_Location_list.append('KRISHNAPATNAM')
+                assts_Location_list.append('KAKINADA')
+                assts_Location_list.append('KAKINADA-3')
+                assts_Location_list.append('MARKETING')
+                assts_Location_list.append('DEPOT')
+                assts_Location_list.append(' ')
 
             if request['usage_type1']!='None':
                 displayList1.append('UsageType')
+                assts_Usage_list.append(request['usage_type1'])
+            else:
+                displayList1.append('UsageType')
+                assts_Usage_list.append('Spare Old')
+                assts_Usage_list.append('Spare New')
+                assts_Usage_list.append('Live')
+                assts_Usage_list.append('Spare')
+                assts_Usage_list.append(' ')
 
             if request['machine_type']!='None':
                 displayList1.append('MachineType')
-
-            if request['domain_workgroup']!='None':
-                displayList1.append('Domain')
-
-            if request['ram']!='None':
-                displayList1.append('RAM')
-
-            if request['processor']!='None':
-                displayList1.append('Processor')
-
-            if request['hdd']!='None':
-                displayList1.append('HDDCapacity')
-
-            if request['hdd_type']!='None':
-                displayList1.append('HDDType')
-
-            if request['date_type']!='None':
-                displayList1.append('Warranty')
+                assts_Machine_list.append(request['machine_type'])
+            else:
+                displayList1.append('MachineType')
+                assts_Machine_list.append('Laptop')
+                assts_Machine_list.append('Desktop')
+                assts_Machine_list.append('Server')
+                assts_Machine_list.append(' ')
 
             if request['Operating_System_Version']!='None':
                 displayList1.append('OSVersion')
+                assts_Osv_list.append(request['Operating_System_Version'])
+            else:
+                displayList1.append('OSVersion')
+                assts_Osv_list.append('Win-7 Pro.32 Bit')
+                assts_Osv_list.append('Ser.2012')
+                assts_Osv_list.append('Win-10 Pro 64 Bit')
+                assts_Osv_list.append('Win-11 Pro 64 bit')
+                assts_Osv_list.append('Win-10 Pro 64 bit')
+                assts_Osv_list.append('Win-10 Home Single Lan')
+                assts_Osv_list.append('Win-10 Home Single Lan.')
+                assts_Osv_list.append('Ser.2019')
+                assts_Osv_list.append('Ser.2016')
+                assts_Osv_list.append('Windows 10 Pro 64 Bit')
+                assts_Osv_list.append('Win-8.1Pro 32 Bit')
+                assts_Osv_list.append('Windows Xp Pro.')
+                assts_Osv_list.append('Windows 10Pro.64bit')
+                assts_Osv_list.append('Win-8.1 Pro.64 Bit')
+                assts_Osv_list.append('Win- 8.1 Pro 64 Bit')
+                assts_Osv_list.append('Win- 8.1Pro.64bit')
+                assts_Osv_list.append('windows 10Pro.64bit')
+                assts_Osv_list.append('Win-8.1 Pro 32 Bit')
+                assts_Osv_list.append('Win-8.1pro 64 Bit')
+                assts_Osv_list.append('Win.10 pro. 64 Bit')
+                assts_Osv_list.append('Win-7 Pro.64 Bit')
+                assts_Osv_list.append('Win-10 Pro. 32 Bit')
+                assts_Osv_list.append('Win-8.1 Pro 64 Bit')
+                assts_Osv_list.append('Win-8.1 Pro.32 Bit')
+                assts_Osv_list.append('Win-Server-2012 Std')
+                assts_Osv_list.append('Win-Server-2012')
+                assts_Osv_list.append('Win-Server-2016')
+                assts_Osv_list.append('Win-Server-2019')
+                assts_Osv_list.append('')
 
             if request['OS']!='None':
                 displayList1.append('OS')
+                assts_Os_list.append(request['OS'])
+            else:
+                displayList1.append('OS')
+                assts_Os_list.append('Win.XP')
+                assts_Os_list.append('Win.7')
+                assts_Os_list.append('Win.8')
+                assts_Os_list.append('Win.10')
+                assts_Os_list.append('Win.11')
+                assts_Os_list.append('Win-Server')
+                assts_Os_list.append('')
 
             if request['ms_office_version']!='None':
                 displayList1.append('MSOfficeVersion')
-
-            if request['ms_3651']!='None':
-                displayList1.append('O365')
-
-            if request['AutoCAD_version']!='None':
-                displayList1.append('AUTOCADVersion')
-
-            if request['ms_visio']!='None':
-                displayList1.append('MSVisioVersion')
-
-            if request['ms_access']!='None':
-                displayList1.append('MSAccessVersion')
-
-            if request['Remarks']!='None':
-                displayList1.append('remarks')
-
+                assts_Msv_list.append(request['ms_office_version'])
+            else:
+                displayList1.append('MSOfficeVersion')
+                assts_Msv_list.append('MS Office Standard 2010')
+                assts_Msv_list.append('MS Office Standard 2013')
+                assts_Msv_list.append('MS Office Standard 2016')
+                assts_Msv_list.append('MS Office Standard 2019')
+                assts_Msv_list.append('')
         except:
             displayList1 = request.getlist('displayColumns')
-    return assts_list,displayList1
+    return assts_Location_list, assts_Usage_list, assts_Machine_list, assts_Osv_list, assts_Os_list, assts_Msv_list, displayList1
 def index(request):
     list = AssetModel.objects.all()
     kl = AssetForm()
-    display = []
+    Location_list = []
+    Usage_list = []
+    Machine_list = []
+    Osv_list = []
+    Os_list = []
+    Msv_list = []
     displayList=['AssetNo','SerialNo']
     if request.POST:
         kl = AssetForm(request.POST)
         displayList1 = request.POST.getlist('displayColumns')
-        display,display2 = display_assets(request.POST)
+        Location_list, Usage_list, Machine_list, Osv_list, Os_list, Msv_list, display2 = display_assets(request.POST)
         displayList1.extend(display2)
         if len(displayList1)>0:
             displayList = displayList1
     if request.content_type == 'application/json':
         return JsonResponse(list)
     displayList = populateJSONDictionary(displayList)
-    return render(request,"assets.html",{"list":list,"assets":"active","display":display,"displayColumn":displayList, "lk":kl})
+    return render(request,"assets.html",{"list":list,"assets":"active","Location_list":Location_list,"Usage_list":Usage_list,"Machine_list":Machine_list,"Osv_list":Osv_list,"Os_list":Os_list,"Msv_list":Msv_list,"displayColumn":displayList, "lk":kl})
 def populateJSONDictionary(list):
     dict1={}
     for x in list:
