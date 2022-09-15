@@ -181,6 +181,60 @@
                                         {% endfor %}
                                     {% endif %}
                                 {% endfor %}
+
+
+                            {% else %}
+                        <tr>
+                             {% if displayColumn.SerialNo %}<td><span >{{forloop.counter}}</span></td>{% endif %}
+                             {% if displayColumn.Location %}<td>{{form.location}}</td>{% endif %}
+                              {% if displayColumn.SubLocation %}<td>{{form.sub_location}} </td>{% endif %}
+                              {% if displayColumn.AssetNo %}<td>{{form.asset_no}}</td>{% endif %}
+                              {% if displayColumn.EmpId %}<td>{{form.emp_id}}</td>{% endif %}
+                              {% if displayColumn.Volume_OEM %}<td>{{form.OEM_Volume}}</td>{% endif %}
+                              {% if displayColumn.UsageType %}<td>{{form.usage_type}}</td>{% endif %}
+                              {% if displayColumn.MachineType %}<td>{{form.machine_type}}</td>{% endif %}
+                              {% if displayColumn.GEF_ID %}<td>{{form.gef_id_number}}</td>{% endif %}
+                              {% if displayColumn.Domain %}<td>{{form.domain_workgroup}}</td>{% endif %}
+                              {% if displayColumn.UserName %}<td>{{form.user_name}} </td>{% endif %}
+                              {% if displayColumn.UserEmailId %}<td>{{form.user_email}} </td>{% endif %}
+                              {% if displayColumn.UserContact %}<td>{{form.user_contact}} </td>{% endif %}
+                              {% if displayColumn.MachineMake %}<td>{{form.machine_make}}</td>{% endif %}
+                              {% if displayColumn.MachineModel %}<td>{{form.machine_model_no}}</td>{% endif %}
+                              {% if displayColumn.MachineSerialNo %}<td>{{form.machine_serial_no}}</td>{% endif %}
+                              {% if displayColumn.MachineAge %}<td>"{{form.get_time_diff }}"</td>{% endif %}
+                              {% if displayColumn.RAM %}<td>{{form.ram}}</td>{% endif %}
+                              {% if displayColumn.Processor %}<td>"{{form.processor}}"</td>{% endif %}
+                              {% if displayColumn.HDDType %}<td>{{form.hdd_type}}</td>{% endif %}
+                              {% if displayColumn.HDDCapacity %}<td>"{{form.hdd}}"</td>{% endif %}
+                              {% if displayColumn.HDDSerialNumber %}<td>"{{form.hdd_serial_no}}"</td>{% endif %}
+                              {% if displayColumn.PurchaseDate %}<td>"{{form.processor_purchase_date}}"</td>{% endif %}
+                              {% if displayColumn.Warranty %}<td>{% if form.date_type %} {{form.date_type}}{% else %}  {% endif %}</td>{% endif %}
+                            <!--td>{{form.warranty_start_date}}</td>
+                            <td>{{form.warranty_end_date}}</td-->
+                             {% if displayColumn.ServiceStart %}<td>"{{form.amc_start_date}}"</td>{% endif %}
+                              {% if displayColumn.ServiceEnd %}<td>"{{form.amc_end_date}}"</td>{% endif %}
+                              {% if displayColumn.OSVersion %}<td>{{form.Operating_System_Version}}</td>{% endif %}
+                              {% if displayColumn.OS %}<td>{{form.OS}}</td>{% endif %}
+                              {% if displayColumn.MSOfficeVersion %}<td>{{form.ms_office_version}}</td>{% endif %}
+                              {% if displayColumn.O365 %}<td>{{form.ms_365}}</td>{% endif %}
+                              {% if displayColumn.Antivirus %}<td>{% if form.Antivirus %} Manage {% else %} {% endif %}</td>{% endif %}
+                              {% if displayColumn.AUTOCAD %}<td>{% if form.AutoCAD %} Yes {% else %}{% endif %}</td>{% endif %}
+                              {% if displayColumn.AUTOCADVersion %}<td>{{ form.AutoCAD_version }} </td>{% endif %}
+                              {% if displayColumn.AdobeAcrobat %}<td>{% if form.Adobe_acrobate %} Open Source {% endif %}</td>{% endif %}
+                              {% if displayColumn.MSVisio %}<td>{% if form.Visio %} Yes {% endif %}</td>{% endif %}
+                              {% if displayColumn.MSVisioVersion %}<td>{{form.ms_visio }}</td>{% endif %}
+                              {% if displayColumn.MSAccess %}<td>{% if form.Access %} Yes {% endif %}</td>{% endif %}
+                              {% if displayColumn.MSAccessVersion %}<td>{{form.ms_access }}</td>{% endif %}
+                            <!--td>{% if form.SAP %} Yes {% endif %}</td>
+                            <td>{{form.SAP_User_ID}}</td-->
+                             {% if displayColumn.UserAcceptanceDate %}<td>"{{form.user_acceptance_date}}"</td>{% endif %}
+                              {% if displayColumn.UserHandOverDate %}<td>"{{form.user_handed_over_date}}"</td>{% endif %}
+                              {% if displayColumn.Others %}<td>{{form.Installed_Softwares}}</td>{% endif %}
+                              {% if displayColumn.status %}<td>{{form.Status}}</td>{% endif %}
+                              {% if displayColumn.remarks %}<td>{{form.Remarks}}</td>{% endif %}
+                            <td><a href="/assets_edit/{{form.id}}">Edit</a></td>
+                            <td><a href="/assets_delete/{{form.id}}">Delete</a></td>
+                        </tr>
                             {% endif %}
                         {% endfor %}
                       </tbody>
