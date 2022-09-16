@@ -4,11 +4,11 @@ from django import forms
 from .models import AssetModel,PingModel,LicenceModel
 
 USAGE_TYPE = [
-    ('',''),
     ('None', 'None'),
     ('Spare_Old', 'Spare_Old'),
     ('Spare_New', 'Spare_New'),
-    ('Live','Live')
+    ('Live','Live'),
+    ('','')
 
 ]
 OS_TYPE = [
@@ -19,22 +19,22 @@ OS_TYPE = [
 
 ]
 LOCATION = [
-    ('',''),
     ('None', 'None'),
     ('HYDERABAD', 'HYDERABAD'),
     ('KRISHNAPATNAM', 'KRISHNAPATNAM'),
     ('KAKINADA', 'KAKINADA'),
     ('KAKINADA-3', 'KAKINADA-3'),
     ('MARKETING', 'MARKETING'),
-    ('DEPOT', 'DEPOT')
+    ('DEPOT', 'DEPOT'),
+    ('','')
 ]
 
 MACHINE_TYPE = [
-    ('',''),
     ('None', 'None'),
     ('Laptop','Laptop'),
     ('Desktop','Desktop'),
-    ('Server','Server')
+    ('Server','Server'),
+    ('','')
 ]
 HDD = [
     ('160 GB', '160 GB'),
@@ -286,12 +286,12 @@ Softwares = [
     ('None', 'None')
 ]
 MS_VERSION = [
-    ('',''),
     ('None', 'None'),
     ('MS Office Standard 2010', 'MS Office Standard 2010'),
     ('MS Office Standard 2013', 'MS Office Standard 2013'),
     ('MS Office Standard 2016', 'MS Office Standard 2016'),
-    ('MS Office Standard 2019', 'MS Office Standard 2019')
+    ('MS Office Standard 2019', 'MS Office Standard 2019'),
+    ('','')
 ]
 
 VISIO_VERSION =  [
@@ -352,7 +352,6 @@ OS_VERSIONS = [
     ('None', 'None')
     ]
 OS_VERSION = [
-    ('',''),
     ('None', 'None'),
     ('Win-7 Pro.32 Bit','Win-7 Pro.32 Bit'),
     ('Ser.2012','Ser.2012'),
@@ -381,7 +380,7 @@ OS_VERSION = [
     ('Win-10 Home Single Lan','Win-10 Home Single Lan'),
     ('Win-10 Pro 64 bit','Win-10 Pro 64 bit'),
     ('Win-11 Pro 64 bit','Win-11 Pro 64 bit'),
-
+    ('','')
 ]
 OS_VERSION1 = (
     ('Windows Xp Pro 32 Bit','Windows Xp Pro 32 Bit'),
@@ -421,14 +420,14 @@ OS_VERSION6 = (
 
 )
 OS = [
-    ('',''),
     ('None', 'None'),
     ('Win.XP', 'Win.XP'),
     ('Win.7', 'Win.7'),
     ('Win.8', 'Win.8'),
     ('Win.10', 'Win.10'),
     ('Win.11', 'Win.11'),
-    ('Win-Server', 'Win-Server')
+    ('Win-Server', 'Win-Server'),
+    ('','')
 
 ]
 Os = [
