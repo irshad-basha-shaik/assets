@@ -4,10 +4,10 @@ from django import forms
 from .models import AssetModel,PingModel,LicenceModel
 
 USAGE_TYPE = [
+    ('None', 'None'),
     ('Spare_Old', 'Spare_Old'),
     ('Spare_New', 'Spare_New'),
-    ('Live','Live'),
-    ('None', 'None')
+    ('Live','Live')
 
 ]
 OS_TYPE = [
@@ -18,20 +18,20 @@ OS_TYPE = [
 
 ]
 LOCATION = [
+    ('None', 'None'),
     ('HYDERABAD', 'HYDERABAD'),
     ('KRISHNAPATNAM', 'KRISHNAPATNAM'),
     ('KAKINADA', 'KAKINADA'),
     ('KAKINADA-3', 'KAKINADA-3'),
     ('MARKETING', 'MARKETING'),
-    ('DEPOT', 'DEPOT'),
-    ('None', 'None')
+    ('DEPOT', 'DEPOT')
 ]
 
 MACHINE_TYPE = [
+    ('None', 'None'),
     ('Laptop','Laptop'),
     ('Desktop','Desktop'),
-    ('Server','Server'),
-    ('None', 'None')
+    ('Server','Server')
 ]
 HDD = [
     ('160 GB', '160 GB'),
@@ -282,12 +282,12 @@ Softwares = [
     ('Winzip', 'Winzip'),
     ('None', 'None')
 ]
-MS_VERSION =  [
+MS_VERSION = [
+    ('None', 'None'),
     ('MS Office Standard 2010', 'MS Office Standard 2010'),
     ('MS Office Standard 2013', 'MS Office Standard 2013'),
     ('MS Office Standard 2016', 'MS Office Standard 2016'),
-    ('MS Office Standard 2019', 'MS Office Standard 2019'),
-    ('None', 'None')
+    ('MS Office Standard 2019', 'MS Office Standard 2019')
 ]
 
 VISIO_VERSION =  [
@@ -348,6 +348,7 @@ OS_VERSIONS = [
     ('None', 'None')
     ]
 OS_VERSION = [
+    ('None', 'None'),
     ('Win-7 Pro.32 Bit','Win-7 Pro.32 Bit'),
     ('Ser.2012','Ser.2012'),
     ('Win-Server-2012','Win-Server-2012'),
@@ -375,7 +376,7 @@ OS_VERSION = [
     ('Win-10 Home Single Lan','Win-10 Home Single Lan'),
     ('Win-10 Pro 64 bit','Win-10 Pro 64 bit'),
     ('Win-11 Pro 64 bit','Win-11 Pro 64 bit'),
-    ('None', 'None')
+
 ]
 OS_VERSION1 = (
     ('Windows Xp Pro 32 Bit','Windows Xp Pro 32 Bit'),
@@ -415,13 +416,14 @@ OS_VERSION6 = (
 
 )
 OS = [
+    ('None', 'None'),
     ('Win.XP', 'Win.XP'),
     ('Win.7', 'Win.7'),
     ('Win.8', 'Win.8'),
     ('Win.10', 'Win.10'),
     ('Win.11', 'Win.11'),
-    ('Win-Server', 'Win-Server'),
-    ('None', 'None')
+    ('Win-Server', 'Win-Server')
+
 ]
 Os = [
     ('Win.XP', 'Win.XP'),
@@ -590,7 +592,7 @@ class AssetForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(AssetForm, self).__init__(*args, **kwargs)
         try:
-            self.base_fields['location','OEM_Volume1','usage_type1','machine_type','domain_workgroup','ram','processor','hdd_type','hdd','date_type','Operating_System_Version','OS','ms_office_version','ms_3651','AutoCAD_version','ms_visio','ms_access','Remarks'].initial = 'HYDERABAD','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None','None'
+            self.base_fields['location','usage_type1','machine_type','Operating_System_Version','OS','ms_office_version'].initial = 'None','None','None','None','None','None'
         except:
             s=10
 
