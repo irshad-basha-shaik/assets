@@ -4,6 +4,7 @@ from django import forms
 from .models import AssetModel,PingModel,LicenceModel
 
 USAGE_TYPE = [
+    ('',''),
     ('None', 'None'),
     ('Spare_Old', 'Spare_Old'),
     ('Spare_New', 'Spare_New'),
@@ -18,6 +19,7 @@ OS_TYPE = [
 
 ]
 LOCATION = [
+    ('',''),
     ('None', 'None'),
     ('HYDERABAD', 'HYDERABAD'),
     ('KRISHNAPATNAM', 'KRISHNAPATNAM'),
@@ -28,6 +30,7 @@ LOCATION = [
 ]
 
 MACHINE_TYPE = [
+    ('',''),
     ('None', 'None'),
     ('Laptop','Laptop'),
     ('Desktop','Desktop'),
@@ -283,6 +286,7 @@ Softwares = [
     ('None', 'None')
 ]
 MS_VERSION = [
+    ('',''),
     ('None', 'None'),
     ('MS Office Standard 2010', 'MS Office Standard 2010'),
     ('MS Office Standard 2013', 'MS Office Standard 2013'),
@@ -348,6 +352,7 @@ OS_VERSIONS = [
     ('None', 'None')
     ]
 OS_VERSION = [
+    ('',''),
     ('None', 'None'),
     ('Win-7 Pro.32 Bit','Win-7 Pro.32 Bit'),
     ('Ser.2012','Ser.2012'),
@@ -416,6 +421,7 @@ OS_VERSION6 = (
 
 )
 OS = [
+    ('',''),
     ('None', 'None'),
     ('Win.XP', 'Win.XP'),
     ('Win.7', 'Win.7'),
