@@ -531,7 +531,8 @@ def index(request):
     Osv_list = []
     Os_list = []
     Msv_list = []
-    displayList=['AssetNo','SerialNo']
+    displayList=['AssetNo','SubLocation','SerialNo','EmpId','GEF_ID','Domain','UserName','UserEmailId','UserContact','MachineMake','MachineModel','MachineSerialNo','MachineAge','RAM','Processor','HDDType','HDDCapacity','HDDSerialNumber','PurchaseDate','Warranty','ServiceStart','ServiceEnd','O365','Antivirus','AUTOCAD','AUTOCADVersion','AdobeAcrobat','MSVisio','MSVisioVersion','MSAccess','MSAccessVersion','UserAcceptanceDate','UserHandOverDate','Others','status','remarks']
+    #displayList = ['AssetNo', 'SerialNo']
     if request.POST:
         kl = AssetForm(request.POST)
         displayList1 = request.POST.getlist('displayColumns')

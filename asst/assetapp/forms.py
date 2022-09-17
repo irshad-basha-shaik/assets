@@ -8,14 +8,13 @@ USAGE_TYPE = [
     ('Spare_Old', 'Spare_Old'),
     ('Spare_New', 'Spare_New'),
     ('Live','Live'),
-    ('','')
+
 
 ]
 OS_TYPE = [
+    ('None', 'None'),
     ('OEM', 'OEM'),
-    ('VOLUME', 'VOLUME'),
-    ('DOS','DOS'),
-    ('None', 'None')
+    ('VOLUME', 'VOLUME')
 
 ]
 LOCATION = [
@@ -26,7 +25,7 @@ LOCATION = [
     ('KAKINADA-3', 'KAKINADA-3'),
     ('MARKETING', 'MARKETING'),
     ('DEPOT', 'DEPOT'),
-    ('','')
+
 ]
 
 MACHINE_TYPE = [
@@ -34,7 +33,7 @@ MACHINE_TYPE = [
     ('Laptop','Laptop'),
     ('Desktop','Desktop'),
     ('Server','Server'),
-    ('','')
+
 ]
 HDD = [
     ('160 GB', '160 GB'),
@@ -291,7 +290,7 @@ MS_VERSION = [
     ('MS Office Standard 2013', 'MS Office Standard 2013'),
     ('MS Office Standard 2016', 'MS Office Standard 2016'),
     ('MS Office Standard 2019', 'MS Office Standard 2019'),
-    ('','')
+
 ]
 
 VISIO_VERSION =  [
@@ -380,7 +379,7 @@ OS_VERSION = [
     ('Win-10 Home Single Lan','Win-10 Home Single Lan'),
     ('Win-10 Pro 64 bit','Win-10 Pro 64 bit'),
     ('Win-11 Pro 64 bit','Win-11 Pro 64 bit'),
-    ('','')
+
 ]
 OS_VERSION1 = (
     ('Windows Xp Pro 32 Bit','Windows Xp Pro 32 Bit'),
@@ -427,7 +426,7 @@ OS = [
     ('Win.10', 'Win.10'),
     ('Win.11', 'Win.11'),
     ('Win-Server', 'Win-Server'),
-    ('','')
+
 
 ]
 Os = [
@@ -597,7 +596,7 @@ class AssetForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(AssetForm, self).__init__(*args, **kwargs)
         try:
-            self.base_fields['location','usage_type1','machine_type','Operating_System_Version','OS','ms_office_version'].initial = 'None','None','None','None','None','None'
+            self.base_fields['location','OEM_Volume1','usage_type1','machine_type','Operating_System_Version','OS','ms_office_version'].initial = 'None','None','None','None','None','None','None'
         except:
             s=10
 
