@@ -76,38 +76,41 @@
             <form id="form1" action="/assets" method="POST" style="background: #183188;">
                  {% csrf_token %}
                 {% if assets %}
-            <label style="margin-left:2rem !important color:aliceblue !important;">Location</label><a class="nav-link1" >
+                <nav >
+                    <ul class="nav">
+            <label class="nav-link1">Location</label><a class="nav-link1" >
                     <div name="displayColumns" value="Location">
                         {{ lk.location}}
                     </div>
-            </a>
-            <label>Volume_OEM</label>
+      </a>
+            <label class="nav-link1">Volume_OEM</label>
                 <a class="nav-link1" >
                 <div name="displayColumns" value="Volume_OEM">
                         {{ lk.OEM_Volume1}}
                 </div>
             </a>
-            <label>usage_type1</label><a class="nav-link1" >
+
+            <label class="nav-link1">usage_type1</label><a class="nav-link1" >
                 <div name="displayColumns" value="usage_type1">
                 {{ lk.usage_type1}}
                     </div>
             </a>
-            <label>MachineType</label><a class="nav-link1" >
+            <label class="nav-link1">MachineType</label><a class="nav-link1" >
                 <div name="displayColumns" value="MachineType">
                         {{ lk.machine_type}}
                 </div>
             </a>
-            <label>OSVersion</label><a class="nav-link1" >
+            <label class="nav-link1">OSVersion</label><a class="nav-link1" >
                         <div name="displayColumns" value="OSVersion">
                         {{ lk.Operating_System_Version}}
                     </div>
                 </a>
-            <label>OS</label><a class="nav-link1" >
+            <label class="nav-link1">OS</label><a class="nav-link1" >
                         <div name="displayColumns" value="OS">
                         {{ lk.OS}}
                     </div>
                 </a>
-            <label>MSOfficeVersion</label><a class="nav-link1" >
+            <label class="nav-link1">MSOfficeVersion</label><a class="nav-link1" >
                         <div name="displayColumns" value="MSOfficeVersion">
                         {{ lk.ms_office_version}}
                     </div>
@@ -268,6 +271,7 @@ Employee Id
                 <input type="checkbox"  name="displayColumns" value="remarks" {% if displayColumn.remarks %}checked{% endif %}>
                         Remarks
                 </input></a>
+                        </ul></nav>
 
 </select>
       </a>
