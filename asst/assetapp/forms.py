@@ -27,6 +27,16 @@ LOCATION = [
     ('DEPOT', 'DEPOT'),
 
 ]
+LOCATION1 = [
+    ('None', 'None'),
+    ('HYDERABAD', 'HYDERABAD'),
+    ('KRISHNAPATNAM', 'KRISHNAPATNAM'),
+    ('KAKINADA', 'KAKINADA'),
+    ('KAKINADA-3', 'KAKINADA-3'),
+    ('MARKETING', 'MARKETING'),
+    ('DEPOT', 'DEPOT'),
+
+]
 
 MACHINE_TYPE = [
     ('None', 'None'),
