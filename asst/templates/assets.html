@@ -60,38 +60,69 @@
     .dataTables_scrollBody{height:40vh!important;}
 </style>
 <div class="content-wrapper"Excellent>
+    {% for form in list %}
+                    {% if form.get_day_diff %}
+
+
+                              <div style="position: absolute; top: 20px; right: 20px;">
+                                <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-autohide="false">
+                                  <div class="toast-header">
+                                    <svg width="20" height="20" class="mr-2" viewBox="0 0 24 24">
+                                      <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z" fill="#ccc"></path>
+                                    </svg>
+                                    <strong class="mr-auto">Licence Expiry Alert</strong>
+                                    <small><strong>Warning!</strong></small>
+                                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                                  </div>
+                                  <div class="toast-body">
+                                    <h6>Asset No {{form.asset_no }} warranty expiry {{form.get_day_diff }} days left.</h6>
+                                  </div>
+                                </div>
+                              </div>
+                            {% endif %}
+                            {% endfor %}
     <div class="col-lg-12 col-md-12 col-sm-12 stretch-card">
         <div class="card">
             <div class="card-body">
+
                 <h4 class="card-title">Assets List</h4>
-                <div class="container">
-                    {% for form in list %}
-                                {% if form.get_day_diff %}
-                        <div class="toast" data-autohide="false">
-                            <div class="toast-header">
-                              <strong class="mr-auto text-primary">Warning!</strong>
-                              <small class="text-muted">{{form.get_day_diff }} days left</small>
-                              <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
-                            </div>
-                            <div class="toast-body">
-                              warning that Asset No {{form.asset_no }} warranty is expiring soon {{form.get_day_diff }} days left.
-                            </div>
-                          </div>{% endif %}
-                            {% endfor %}
-                    </div>
+
                 <div class="row">
                     <div class="col-md-2 bg-light text-left">
                         <a type="button" class="btn btn-primary mr-2" href="/add_licences">Add Licence</a>
                     </div>
 
                     <div class="col-md-8 bg-light text-left">
-                        <div class="alert alert-warning">
+                        <!--div class="alert alert-warning">
                             {% for form in list %}
+                            {% if form.amc_end_date %}
                                 {% if form.get_day_diff %}
-                                    <h4><strong>Warning!</strong>Asset No {{form.asset_no }} warranty is expiring soon {{form.get_day_diff }} days left.</h4>
-                                {% endif %}
+                            {{form.get_day_diff}}
+                            <div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
+                              <div style="position: absolute; top: 20px; right: 20px;">
+                                <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-autohide="false">
+                                  <div class="toast-header">
+                                    <svg width="20" height="20" class="mr-2" viewBox="0 0 24 24">
+                                      <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z" fill="#ccc"></path>
+                                    </svg>
+                                    <strong class="mr-auto">Licence Expiry Alert</strong>
+                                    <small>11 mins ago</small>
+                                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                                  </div>
+                                  <div class="toast-body">
+                                    Hello, world! This is a toast message.
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <h4><strong>Warning!</strong>Asset No {{form.asset_no }} warranty is expiring soon {{form.get_day_diff }} days left.</h4>
+                                {% endif %}{% endif %}
                             {% endfor %}
-                          </div>
+                          </div-->
                     </div>
                     <div class="col-md-2 bg-light text-right">
                         <a type="button" class="btn btn-success mr-2"  href="/assets_entry">New Entry</a>
@@ -158,17 +189,21 @@
                             {% if Location_list %}
                                 {% for form1 in Location_list %}
                                     {% if form1 == form.location %}
-                                        {% for form2 in Usage_list %}
-                                            {% if form2 == form.usage_type %}
-                                                {% for form3 in Machine_list %}
-                                                    {% if form3 == form.machine_type %}
-                                                        {% for form4 in Osv_list %}
-                                                            {% if form4 == form.Operating_System_Version %}
-                                                                {% for form5 in Os_list %}
-                                                                    {% if form5 == form.OS %}
-                                                                        {% for form6 in Msv_list %}
-                                                                            {% if form6 == form.ms_office_version %}
+                                        {% for form7 in Oem_Volume %}
+                                            {% if form7 == form.OEM_Volume %}
+                                                {% for form2 in Usage_list %}
+                                                    {% if form2 == form.usage_type %}
+                                                        {% for form3 in Machine_list %}
+                                                            {% if form3 == form.machine_type %}
+                                                                {% for form4 in Osv_list %}
+                                                                    {% if form4 == form.Operating_System_Version %}
+                                                                        {% for form5 in Os_list %}
+                                                                            {% if form5 == form.OS %}
+                                                                                {% for form6 in Msv_list %}
+                                                                                    {% if form6 == form.ms_office_version %}
                                                                                 <tr>{% if displayColumn.SerialNo %}<td><span >{{form.serial_no}}</span></td>{% endif %}{% if displayColumn.Location %}<td>{{form.location}}</td>{% endif %}{% if displayColumn.SubLocation %}<td>{{form.sub_location}} </td>{% endif %}{% if displayColumn.AssetNo %}<td>{{form.asset_no}}</td>{% endif %}{% if displayColumn.EmpId %}<td>{{form.emp_id}}</td>{% endif %}{% if displayColumn.Volume_OEM %}<td>{{form.OEM_Volume}}</td>{% endif %}{% if displayColumn.UsageType %}<td>{% if form.user_name == 'Spare Old'%}{{form.usage_type}}{% elif form.user_name == 'Spare New' %}{{form.usage_type}}{% else %}{{form.usage_type}}{% endif %}</td>{% endif %}{% if displayColumn.MachineType %}<td>{{form.machine_type}}</td>{% endif %}{% if displayColumn.GEF_ID %}<td>{{form.gef_id_number}}</td>{% endif %}{% if displayColumn.Domain %}<td>{{form.domain_workgroup}}</td>{% endif %}{% if displayColumn.UserName %}<td>{{form.user_name}}</td>{% endif %}{% if displayColumn.UserEmailId %}<td>{{form.user_email}} </td>{% endif %}{% if displayColumn.UserContact %}<td>{{form.user_contact}} </td>{% endif %}{% if displayColumn.MachineMake %}<td>{{form.machine_make}}</td>{% endif %}{% if displayColumn.MachineModel %}<td>{{form.machine_model_no}}</td>{% endif %}{% if displayColumn.MachineSerialNo %}<td>{{form.machine_serial_no}}</td>{% endif %}{% if displayColumn.MachineAge %}<td>"{{form.get_time_diff }}"</td>{% endif %}{% if displayColumn.RAM %}<td>{{form.ram}}</td>{% endif %}{% if displayColumn.Processor %}<td>"{{form.processor}}"</td>{% endif %}{% if displayColumn.HDDType %}<td>{{form.hdd_type}}</td>{% endif %}{% if displayColumn.HDDCapacity %}<td>"{{form.hdd}}"</td>{% endif %}{% if displayColumn.HDDSerialNumber %}<td>"{{form.hdd_serial_no}}"</td>{% endif %}{% if displayColumn.PurchaseDate %}<td>"{{form.processor_purchase_date}}"</td>{% endif %}{% if displayColumn.Warranty %}<td>{% if form.date_type %} {{form.date_type}}{% else %}  {% endif %}</td>{% endif %}{% if displayColumn.ServiceStart %}<td>"{{form.amc_start_date}}"</td>{% endif %}{% if displayColumn.ServiceEnd %}<td>"{{form.amc_end_date}}"</td>{% endif %}{% if displayColumn.OSVersion %}<td>{% if form.asset_no %}{{form.Operating_System_Version}}{% endif %}</td>{% endif %}{% if displayColumn.OS %}<td>{% if form.OS == form.Operating_System_Version == '' %}{% else %}{{form.OS}}{% endif %}</td>{% endif %}{% if displayColumn.MSOfficeVersion %}<td>{{form.ms_office_version}}</td>{% endif %}{% if displayColumn.O365 %}<td>{{form.ms_365}}</td>{% endif %}{% if displayColumn.Antivirus %}<td>{% if form.Antivirus %} Manage {% else %} {% endif %}</td>{% endif %}{% if displayColumn.AUTOCAD %}<td>{% if form.AutoCAD %} Yes {% else %}{% endif %}</td>{% endif %}{% if displayColumn.AUTOCADVersion %}<td>{{ form.AutoCAD_version }} </td>{% endif %}{% if displayColumn.AdobeAcrobat %}<td>{% if form.Adobe_acrobate %} Open Source {% endif %}</td>{% endif %}{% if displayColumn.MSVisio %}<td>{% if form.Visio %} Yes {% endif %}</td>{% endif %}{% if displayColumn.MSVisioVersion %}<td>{{form.ms_visio }}</td>{% endif %}{% if displayColumn.MSAccess %}<td>{% if form.Access %} Yes {% endif %}</td>{% endif %}{% if displayColumn.MSAccessVersion %}<td>{{form.ms_access }}</td>{% endif %}{% if displayColumn.UserAcceptanceDate %}<td>"{{form.user_acceptance_date}}"</td>{% endif %}{% if displayColumn.UserHandOverDate %}<td>"{{form.user_handed_over_date}}"</td>{% endif %}{% if displayColumn.Others %}<td>{{form.Installed_Softwares}}</td>{% endif %}{% if displayColumn.status %}<td>{{form.Status}}</td>{% endif %}{% if displayColumn.remarks %}<td>{{form.Remarks}}</td>{% endif %}<td><a href="/assets_edit/{{form.id}}">Edit</a></td><td><a href="/assets_delete/{{form.id}}">Delete</a></td></tr>
+                                                                                    {% endif %}
+                                                                                {% endfor %}
                                                                             {% endif %}
                                                                         {% endfor %}
                                                                     {% endif %}
@@ -492,6 +527,7 @@
             </div>
           </div>
 
+
 {% endif %}
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
@@ -499,6 +535,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 setTimeout(function(){
+    $('.toast').toast("show")
     $(document).ready(function() {
     $('#example').DataTable( {
         "scrollX": true

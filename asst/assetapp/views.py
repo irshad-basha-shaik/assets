@@ -229,6 +229,8 @@ def new(request):
         form.save()
         if form.is_valid():
             student = form.save(commit=False)
+            del HDDS[-1]
+            del OS_VERSIONS[-1]
             for z in HDDS:
                 if request.POST[z[0]] != '':
                     student.hdd = request.POST[z[0]]
@@ -418,6 +420,7 @@ def All(a,request):
     return list
 def display_assets(request):
     assts_Location_list = []
+    assts_Oem_Volume = []
     assts_Usage_list = []
     assts_Machine_list = []
     assts_Osv_list = []
@@ -439,7 +442,15 @@ def display_assets(request):
                 assts_Location_list.append('MARKETING')
                 assts_Location_list.append('DEPOT')
                 assts_Location_list.append(' ')
-
+            if request['OEM_Volume1'] != 'None':
+                displayList1.append('Volume_OEM')
+                assts_Oem_Volume.append(request['OEM_Volume'])
+            else:
+                displayList1.append('Volume_OEM')
+                assts_Oem_Volume.append('OEM_Volume')
+                assts_Oem_Volume.append('Volume')
+                assts_Oem_Volume.append('OEM')
+                assts_Oem_Volume.append(' ')
             if request['usage_type1']!='None':
                 displayList1.append('UsageType')
                 assts_Usage_list.append(request['usage_type1'])
@@ -521,11 +532,12 @@ def display_assets(request):
                 assts_Msv_list.append('')
         except:
             displayList1 = request.getlist('displayColumns')
-    return assts_Location_list, assts_Usage_list, assts_Machine_list, assts_Osv_list, assts_Os_list, assts_Msv_list, displayList1
+    return assts_Location_list, assts_Oem_Volume, assts_Usage_list, assts_Machine_list, assts_Osv_list, assts_Os_list, assts_Msv_list, displayList1
 def index(request):
     list = AssetModel.objects.all()
     kl = AssetForm()
     Location_list = []
+    Oem_Volume = []
     Usage_list = []
     Machine_list = []
     Osv_list = []
@@ -536,14 +548,14 @@ def index(request):
     if request.POST:
         kl = AssetForm(request.POST)
         displayList1 = request.POST.getlist('displayColumns')
-        Location_list, Usage_list, Machine_list, Osv_list, Os_list, Msv_list, display2 = display_assets(request.POST)
+        Location_list, Oem_Volume, Usage_list, Machine_list, Osv_list, Os_list, Msv_list, display2 = display_assets(request.POST)
         displayList1.extend(display2)
         if len(displayList1)>0:
             displayList = displayList1
     if request.content_type == 'application/json':
         return JsonResponse(list)
     displayList = populateJSONDictionary(displayList)
-    return render(request,"assets.html",{"list":list,"assets":"active","Location_list":Location_list,"Usage_list":Usage_list,"Machine_list":Machine_list,"Osv_list":Osv_list,"Os_list":Os_list,"Msv_list":Msv_list,"displayColumn":displayList, "lk":kl})
+    return render(request,"assets.html",{"list":list,"assets":"active","Location_list":Location_list, "Oem_Volume":Oem_Volume,"Usage_list":Usage_list,"Machine_list":Machine_list,"Osv_list":Osv_list,"Os_list":Os_list,"Msv_list":Msv_list,"displayColumn":displayList, "lk":kl})
 def populateJSONDictionary(list):
     dict1={}
     for x in list:
