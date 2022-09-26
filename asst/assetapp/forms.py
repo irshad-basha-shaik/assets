@@ -5,8 +5,7 @@ from .models import AssetModel,PingModel,LicenceModel
 
 USAGE_TYPE = [
     ('None', 'None'),
-    ('Spare_Old', 'Spare_Old'),
-    ('Spare_New', 'Spare_New'),
+    ('Spare', 'Spare'),
     ('Live','Live'),
 
 
@@ -28,14 +27,12 @@ LOCATION = [
 
 ]
 LOCATION1 = [
-    ('None', 'None'),
     ('HYDERABAD', 'HYDERABAD'),
     ('KRISHNAPATNAM', 'KRISHNAPATNAM'),
     ('KAKINADA', 'KAKINADA'),
     ('KAKINADA-3', 'KAKINADA-3'),
     ('MARKETING', 'MARKETING'),
-    ('DEPOT', 'DEPOT'),
-
+    ('DEPOT', 'DEPOT')
 ]
 
 MACHINE_TYPE = [

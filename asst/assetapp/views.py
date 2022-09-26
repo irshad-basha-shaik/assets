@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm, LicenceForm, AVAILABLE_LICENCE, Available_Licences, AVAILABLE_LICENCE_ORDER, LOCATION, OS, OS1, MS_VERSION, EmailType, Softwares, OS_VERSIONS, HDDS, Os
+from .forms import AssetForm, LicenceForm, AVAILABLE_LICENCE, Available_Licences, AVAILABLE_LICENCE_ORDER, LOCATION,LOCATION1, OS, OS1, MS_VERSION, EmailType, Softwares, OS_VERSIONS, HDDS, Os
 from .models import AssetModel,PingModel,LicenceModel #,WifiModel,FirewallModel,VCCModel,PrinterModel
 from threading import Timer
 from django.views.decorators.csrf import csrf_exempt
@@ -358,8 +358,8 @@ def getAssetsByLocation():
     list["gtotal"]=grand_total
     return list
 def getAssets():
-    LOCATION.pop(0)
-    list = {"remark":[],"LOCATION":LOCATION,"gtotal":[]}
+    #LOCATION.pop(0)
+    list = {"remark":[],"LOCATION":LOCATION1,"gtotal":[]}
     REM = [ ("Used Workstations",["Desktop","Laptop", "Server"],4,"Total Used") ,
             ("Spare_Old Workstations",["Desktop","Laptop"],3,"Total Old Spare"),
             ("Spare_New  Workstations",["Desktop","Laptop"],3,"Total New spare")]
@@ -376,8 +376,8 @@ def getAssets():
             list2 ={"name":"Total","location":[],"ALLLocationSUM":0 }
             list2["name"] = mtypes
 
-            for l1 in range(len(LOCATION)):
-                l= LOCATION[l1]
+            for l1 in range(len(LOCATION1)):
+                l= LOCATION1[l1]
                 try:
                     dat = getAssetCountByLocationRemarksMachineType(l[1],r,mtypes)
                 except:
@@ -444,20 +444,24 @@ def display_assets(request):
                 assts_Location_list.append(' ')
             if request['OEM_Volume1'] != 'None':
                 displayList1.append('Volume_OEM')
-                assts_Oem_Volume.append(request['OEM_Volume'])
+                assts_Oem_Volume.append(request['OEM_Volume1'])
             else:
-                displayList1.append('Volume_OEM')
-                assts_Oem_Volume.append('OEM_Volume')
+                displayList1.append('Volume_OEM1')
+                assts_Oem_Volume.append('OEM_Volume1')
                 assts_Oem_Volume.append('Volume')
+                assts_Oem_Volume.append('volume')
+                assts_Oem_Volume.append('VOLUME')
                 assts_Oem_Volume.append('OEM')
-                assts_Oem_Volume.append(' ')
+                assts_Oem_Volume.append('Oem')
+                assts_Oem_Volume.append('oem')
+                assts_Oem_Volume.append('')
             if request['usage_type1']!='None':
                 displayList1.append('UsageType')
                 assts_Usage_list.append(request['usage_type1'])
             else:
                 displayList1.append('UsageType')
-                assts_Usage_list.append('Spare Old')
-                assts_Usage_list.append('Spare New')
+                assts_Usage_list.append('Spare')
+                assts_Usage_list.append('spare')
                 assts_Usage_list.append('Live')
                 assts_Usage_list.append('Spare')
                 assts_Usage_list.append(' ')
