@@ -444,17 +444,13 @@ def display_assets(request):
                 assts_Location_list.append(' ')
             if request['OEM_Volume1'] != 'None':
                 displayList1.append('Volume_OEM')
+                #assts_Oem_Volume.append(request['OEM_Volume1'].casefold())
                 assts_Oem_Volume.append(request['OEM_Volume1'])
             else:
                 displayList1.append('Volume_OEM1')
-                assts_Oem_Volume.append('OEM_Volume1')
                 assts_Oem_Volume.append('Volume')
                 assts_Oem_Volume.append('volume')
-                assts_Oem_Volume.append('VOLUME')
                 assts_Oem_Volume.append('OEM')
-                assts_Oem_Volume.append('Oem')
-                assts_Oem_Volume.append('oem')
-                assts_Oem_Volume.append('')
             if request['usage_type1']!='None':
                 displayList1.append('UsageType')
                 assts_Usage_list.append(request['usage_type1'])

@@ -13,7 +13,7 @@ USAGE_TYPE = [
 OS_TYPE = [
     ('None', 'None'),
     ('OEM', 'OEM'),
-    ('VOLUME', 'VOLUME')
+    ('Volume', 'Volume')
 
 ]
 LOCATION = [
