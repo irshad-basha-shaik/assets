@@ -299,6 +299,13 @@ MS_VERSION = [
     ('MS Office Standard 2019', 'MS Office Standard 2019'),
 
 ]
+MS_VERSION1 = [
+    ('MS Office Standard 2010', 'MS Office Standard 2010'),
+    ('MS Office Standard 2013', 'MS Office Standard 2013'),
+    ('MS Office Standard 2016', 'MS Office Standard 2016'),
+    ('MS Office Standard 2019', 'MS Office Standard 2019'),
+
+]
 
 VISIO_VERSION =  [
     ('MS Visio 2010', 'MS Visio 2010'),

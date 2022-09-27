@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm, LicenceForm, AVAILABLE_LICENCE, Available_Licences, AVAILABLE_LICENCE_ORDER, LOCATION,LOCATION1, OS, OS1, MS_VERSION, EmailType, Softwares, OS_VERSIONS, HDDS, Os
+from .forms import AssetForm, LicenceForm, AVAILABLE_LICENCE, Available_Licences, AVAILABLE_LICENCE_ORDER, LOCATION,LOCATION1, OS, OS1, MS_VERSION,MS_VERSION1, EmailType, Softwares, OS_VERSIONS, HDDS, Os
 from .models import AssetModel,PingModel,LicenceModel #,WifiModel,FirewallModel,VCCModel,PrinterModel
 from threading import Timer
 from django.views.decorators.csrf import csrf_exempt
@@ -19,7 +19,7 @@ import os, fnmatch
 
 
 
-del MS_VERSION[-1]
+
 #import tensorflow as tf
 from django.contrib.auth.decorators import login_required
 log=""
@@ -593,7 +593,7 @@ def OSTally():
     return win_live,ser_live
 def MSOFfice():
     win_live = []
-    for os in MS_VERSION:
+    for os in MS_VERSION1:
         c1 = getMSOfficeCount(os[1])
         c3 = getAvailableLicence(os[1])
         c4 = c3 - c1
