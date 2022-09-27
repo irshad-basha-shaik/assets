@@ -267,8 +267,8 @@ def getAssetsByLocationMs365():
     list = {"location": [], "data": []}
     r = "MS Office 365"
     total = 0
-    for l1 in range(len(LOCATION)):
-        l = LOCATION[l1]
+    for l1 in range(len(LOCATION1)):
+        l = LOCATION1[l1]
         dat = getAssetCountByLocationO365(l[1], r)
         total = total + dat
         list['location'].append({"LOCATION": l[1], "data": dat})
@@ -278,8 +278,8 @@ def getAssetsByLocationDomain():
     list = {"location": [], "data": []}
     r = "Domain / Workgoup"
     total = 0
-    for l1 in range(len(LOCATION)):
-        l = LOCATION[l1]
+    for l1 in range(len(LOCATION1)):
+        l = LOCATION1[l1]
         dat = getAssetCountByLocationDomain(l[1], r)
         total = total + dat
         list['location'].append({"LOCATION": l[1], "data": dat})
@@ -296,8 +296,8 @@ def getAssetsByLocationAntivirus():
     list = { "location": [],"data": []}
     r = "Antivirus"
     total = 0
-    for l1 in range(len(LOCATION)):
-        l = LOCATION[l1]
+    for l1 in range(len(LOCATION1)):
+        l = LOCATION1[l1]
         dat = getAssetCountByLocationAntivirus(l[1], r)
         total = total+dat
         list['location'].append({"LOCATION": l[1], "data": dat})
@@ -310,7 +310,7 @@ def getAssetCountByLocationAntivirus(l,r):
         list = AssetModel.objects.all().filter(Antivirus=r1, location=l)
     return len(list)
 def getAssetsByLocation():
-    list = {"remark":[],"LOCATION":LOCATION,"gtotal":[]}
+    list = {"remark":[],"LOCATION":LOCATION1,"gtotal":[]}
     REM = [("OS Windows Details (Volume)", ["Win.XP", "Win.7", "Win.8", "Win.10", "Win.11"], 6, "Total"),
            ("OS Server Details (Volume)", ["Win-Server-2012", "Win-Server-2016", "Win-Server-2019"], 4, "Total"),
            ("OS Details (OEM)", ["Win.7", "Win.8", "Win.10", "Win.11"], 5, "Total"),
@@ -327,8 +327,8 @@ def getAssetsByLocation():
         for mtypes in MTYP:
             list2 ={"name":"Total","location":[],"ALLLocationSUM":0 }
             list2["name"] = mtypes
-            for l1 in  range(len(LOCATION)):
-                l= LOCATION[l1]
+            for l1 in  range(len(LOCATION1)):
+                l= LOCATION1[l1]
                 dat = getAssetCountByLocationRemarksOS(l[1],r,mtypes)
                 list2['location'].append({"LOCATION": l[1],"Machine": mtypes[1],"remark":r[1],"data":dat})
                 td = total[l1]
