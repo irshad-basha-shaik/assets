@@ -593,6 +593,15 @@ window.onload = function() {
     $('#SAP_User_ID').prop("checked", true);
     $('#Status').prop("checked", true);
     $('#Remarks').prop("checked", true);
+    var seen = {};
+    $('tbody tr').each(function() {
+        var txt = $(this).text();
+        if (seen[txt])
+           $(this).remove();
+        else
+           seen[txt] = true;
+    });
+    return false;
     $('#id_location').on('change', function() {
     if (this.value == "HYDERABAD"){
 		$('#sub_location').parent('div').hide();

@@ -451,6 +451,7 @@ def display_assets(request):
                 assts_Oem_Volume.append('Volume')
                 assts_Oem_Volume.append('volume')
                 assts_Oem_Volume.append('OEM')
+                assts_Oem_Volume.append('')
             if request['usage_type1']!='None':
                 displayList1.append('UsageType')
                 assts_Usage_list.append(request['usage_type1'])
