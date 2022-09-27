@@ -446,8 +446,9 @@ def display_assets(request):
                 displayList1.append('Volume_OEM')
                 #assts_Oem_Volume.append(request['OEM_Volume1'].casefold())
                 assts_Oem_Volume.append(request['OEM_Volume1'])
+                assts_Oem_Volume.append(request['OEM_Volume1'].casefold())
             else:
-                displayList1.append('Volume_OEM1')
+                displayList1.append('Volume_OEM')
                 assts_Oem_Volume.append('Volume')
                 assts_Oem_Volume.append('volume')
                 assts_Oem_Volume.append('OEM')
