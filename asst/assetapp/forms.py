@@ -1,22 +1,29 @@
 from django import forms
 
 # creating a form
+from django.forms import ChoiceField
+
 from .models import AssetModel,PingModel,LicenceModel
 
-USAGE_TYPE = [
+USAGE_TYPE1 = [
     ('None', 'None'),
     ('Spare', 'Spare'),
     ('Live','Live'),
-
-
 ]
-OS_TYPE = [
+USAGE_TYPE = [
+    ('Spare', 'Spare'),
+    ('Live','Live'),
+]
+OS_TYPE1 = [
     ('None', 'None'),
     ('OEM', 'OEM'),
     ('Volume', 'Volume')
-
 ]
-LOCATION = [
+OS_TYPE = [
+    ('OEM', 'OEM'),
+    ('Volume', 'Volume')
+]
+LOCATION1 = [
     ('None', 'None'),
     ('HYDERABAD', 'HYDERABAD'),
     ('KRISHNAPATNAM', 'KRISHNAPATNAM'),
@@ -26,7 +33,7 @@ LOCATION = [
     ('DEPOT', 'DEPOT'),
 
 ]
-LOCATION1 = [
+LOCATION = [
     ('HYDERABAD', 'HYDERABAD'),
     ('KRISHNAPATNAM', 'KRISHNAPATNAM'),
     ('KAKINADA', 'KAKINADA'),
@@ -35,14 +42,20 @@ LOCATION1 = [
     ('DEPOT', 'DEPOT')
 ]
 
-MACHINE_TYPE = [
+MACHINE_TYPE1 = [
     ('None', 'None'),
     ('Laptop','Laptop'),
     ('Desktop','Desktop'),
     ('Server','Server'),
 
 ]
-HDD = [
+MACHINE_TYPE = [
+    ('Laptop','Laptop'),
+    ('Desktop','Desktop'),
+    ('Server','Server'),
+
+]
+HDD1 = [
     ('160 GB', '160 GB'),
     ('128 GB SSD', '128 GB SSD'),
     ('240 GB', '240 GB'),
@@ -73,6 +86,37 @@ HDD = [
     ('2 TB SATA+500 GB SSD', '2 TB SATA+500 GB SSD'),
     ('2 TB SATA+1 TB SSD', '2 TB SATA+1 TB SSD'),
     ('None', 'None')
+]
+HDD = [
+    ('160 GB', '160 GB'),
+    ('128 GB SSD', '128 GB SSD'),
+    ('240 GB', '240 GB'),
+    ('250 GB', '250 GB'),
+    ('256 SSD', '256 SSD'),
+    ('320 GB', '320 GB'),
+    ('350 GB', '350 GB'),
+    ('500 GB', '500 GB'),
+    ('512 GB', '512 GB'),
+    ('512 GB SSD', '512 GB SSD'),
+    ('1 TB', '1 TB'),
+    ('1 TB SSD', '1 TB SSD'),
+    ('1 TB  SSD', '1 TB SSD'),
+    ('1 TB+256 SSD', '1 TB+256 SSD'),
+    ('1TB+256GB', '1 TB+256 SSD'),
+    ('1 TB 256 SSD', '1 TB 256 SSD'),
+    ('1 TB+256 GB SSD', '1 TB+256 GB SSD'),
+    ('1 TB 256 GB SSD', '1 TB 256 GB SSD'),
+    ('256 SSD+1 TB', '256 SSD+1 TB'),
+    ('2 TB', '2 TB'),
+    ('2 TB SSD', '2 TB SSD'),
+    ('2TB+4TB', '2TB+4TB'),
+    ('256 GB SSD', '256 GB SSD'),
+    ('1 TB SATA+256 GB SSD', '1 TB SATA+256 GB SSD'),
+    ('1 TB SATA+500 GB SSD', '1 TB SATA+500 GB SSD'),
+    ('1 TB SATA+1 TB SSD', '1 TB SATA+1 TB SSD'),
+    ('2 TB SATA+256 GB SSD', '2 TB SATA+256 GB SSD'),
+    ('2 TB SATA+500 GB SSD', '2 TB SATA+500 GB SSD'),
+    ('2 TB SATA+1 TB SSD', '2 TB SATA+1 TB SSD')
 ]
 
 SATA = [
@@ -119,7 +163,7 @@ HDD_CAPACITY = [
     ('10TB', '10TB'),
     ('None', 'None')
 ]
-RAM = [
+RAM1 = [
     ('2 GB','2 GB'),
     ('3 GB','3 GB'),
     ('4 GB', '4 GB'),
@@ -133,7 +177,20 @@ RAM = [
     ('64 GB', '64 GB'),
     ('None', 'None')
 ]
-PROCESSOR = [
+RAM = [
+    ('2 GB','2 GB'),
+    ('3 GB','3 GB'),
+    ('4 GB', '4 GB'),
+    ('6 GB', '6 GB'),
+    ('8 GB', '8 GB'),
+    ('10 GB', '10 GB'),
+    ('12 GB', '12 GB'),
+    ('16 GB', '16 GB'),
+    ('24 GB', '24 GB'),
+    ('32 GB', '32 GB'),
+    ('64 GB', '64 GB')
+]
+PROCESSOR1 = [
     ('Core i-3', 'Core i-3'),
     ('Core i-3 2.00 GHz', 'Core i-3 2.00 GHz'),
     ('Core i-3 2.40 GHZ', 'Core i-3 2.40 GHZ'),
@@ -255,32 +312,173 @@ PROCESSOR = [
     ('None', 'None')
 
 ]
+PROCESSOR = [
+    ('Core i-3', 'Core i-3'),
+    ('Core i-3 2.00 GHz', 'Core i-3 2.00 GHz'),
+    ('Core i-3 2.40 GHZ', 'Core i-3 2.40 GHZ'),
+    ('Core i-3 3.70 GHZ', 'Core i-3 3.70 GHZ'),
+    ('Core i-3, 2.10 GHZ', 'Core i-3, 2.10 GHZ'),
+    ('Core i-5', 'Core i-5'),
+    ('Core i-5 1.60 Ghz', 'Core i-5 1.60 Ghz'),
+    ('Core i-5 1.80 Ghz', 'Core i-5 1.80 Ghz'),
+    ('Core i-5 2.19 GHZ', 'Core i-5 2.19 GHZ'),
+    ('Core i-5 2.20 GHZ', 'Core i-5 2.20 GHZ'),
+    ('Core i-5 2.20GHZ', 'Core i-5 2.20GHZ'),
+    ('Core i-5 2.30 GHZ', 'Core i-5 2.30 GHZ'),
+    ('Core i-5 2.40 GHZ', 'Core i-5 2.40 GHZ'),
+    ('Core I-5 2.40 Ghz', 'Core I-5 2.40 Ghz'),
+    ('Core i-5 2.40 Ghz', 'Core i-5 2.40 Ghz'),
+    ('Core i-5 2.50 GHZ', 'Core i-5 2.50 GHZ'),
+    ('Core i-5, 1.60 GHz', 'Core i-5, 1.60 GHz'),
+    ('Core i-5, 2.11 GHz', 'Core i-5, 2.11 GHz'),
+    ('Core i-5, 2.18 GHz', 'Core i-5, 2.18 GHz'),
+    ('Core i-5, 2.20 GHz', 'Core i-5, 2.20 GHz'),
+    ('Core I-5, 2.40 GHz', 'Core I-5, 2.40 GHz'),
+    ('Core i-5, 2.50 GHZ', 'Core i-5, 2.50 GHZ'),
+    ('Core i-5, 2.50 GHz', 'Core i-5, 2.50 GHz'),
+    ('Core i-5, 2.60 GHZ', 'Core i-5, 2.60 GHZ'),
+    ('Core i-5, 2.60 GHz', 'Core i-5, 2.60 GHz'),
+    ('Core i-5, 2.70 GHZ', 'Core i-5, 2.70 GHZ'),
+    ('Core i-5, 3.20 GHz', 'Core i-5, 3.20 GHz'),
+    ('core i-5, 3.20 Ghz', 'core i-5, 3.20 Ghz'),
+    ('core i-5, 3.20 GHz', 'core i-5, 3.20 GHz'),
+    ('Core i-5,2.20 GHz', 'Core i-5,2.20 GHz'),
+    ('core i-5,2.60 GHz', 'core i-5,2.60 GHz'),
+    ('Core i-7', 'Core i-7'),
+    ('Core I-7 1.80 GHz', 'Core I-7 1.80 GHz'),
+    ('Core i-7 1.90 GHz', 'Core i-7 1.90 GHz'),
+    ('Core I-7 1.90 GHz', 'Core I-7 1.90 GHz'),
+    ('Core i-7, 2.30 GHz', 'Core i-7, 2.30 GHz'),
+    ('Core i-7, 2.90 GHz', 'Core i-7, 2.90 GHz'),
+    ('Core i-7,1.19 GHz', 'Core i-7,1.19 GHz'),
+    ('Core i3  3.60 GHz', 'Core i3  3.60 GHz'),
+    ('Core i3  3.70 GHz', 'Core i3  3.70 GHz'),
+    ('Core i5  1.60GHz', 'Core i5  1.60GHz'),
+    ('Core i5  2.20GHz', 'Core i5  2.20GHz'),
+    ('Core i5 2.20 GHZ', 'Core i5 2.20 GHZ'),
+    ('Core i5 2.20 GHz', 'Core i5 2.20 GHz'),
+    ('Core i5 2.50 GHZ', 'Core i5 2.50 GHZ'),
+    ('Core i5 2.60 GHz', 'Core i5 2.60 GHz'),
+    ('Core i5 2.90 GHZ', 'Core i5 2.90 GHZ'),
+    ('Core i5 3.2 GHZ', 'Core i5 3.2 GHZ'),
+    ('Core i5 3.20 GHz', 'Core i5 3.20 GHz'),
+    ('core i5 3.30 GHZ', 'core i5 3.30 GHZ'),
+    ('Core i5 3.7GHz', 'Core i5 3.7GHz'),
+    ('Core i5 4.1GHz', 'Core i5 4.1GHz'),
+    ('Core i5, 1.80 GHz', 'Core i5, 1.80 GHz'),
+    ('Core i5-2.20 GHZ', 'Core i5-2.20 GHZ'),
+    ('Core i5-2.40 GHZ', 'Core i5-2.40 GHZ'),
+    ('Core i5-2.50 GHZ', 'Core i5-2.50 GHZ'),
+    ('Core i5-2.60 GHZ', 'Core i5-2.60 GHZ'),
+    ('Core I5-6th 2.3 Ghz', 'Core I5-6th 2.3 Ghz'),
+    ('Core-i-7,  2.30 GHz', 'Core-i-7,  2.30 GHz'),
+    ('Core-i3 8thgen', 'Core-i3 8thgen'),
+    ('Core-i5', 'Core-i5'),
+    ('Core-i5  1.60GHz', 'Core-i5  1.60GHz'),
+    ('Core-i5  2.20GHz', 'Core-i5  2.20GHz'),
+    ('Core-i5  2.50GHz', 'Core-i5  2.50GHz'),
+    ('Core-i5  2.60GHz', 'Core-i5  2.60GHz'),
+    ('Core-i5  3.20GHz', 'Core-i5  3.20GHz'),
+    ('Core-i5  3.90GHz', 'Core-i5  3.90GHz'),
+    ('Core-i5 10th gen', 'Core-i5 10th gen'),
+    ('Core-i5 11th gen', 'Core-i5 11th gen'),
+    ('Core-i5 2.20GHz', 'Core-i5 2.20GHz'),
+    ('Core-i5 2.30GHz', 'Core-i5 2.30GHz'),
+    ('Core-i5 2.50 GHZ', 'Core-i5 2.50 GHZ'),
+    ('CORE-i5 3.90 GHZ', 'CORE-i5 3.90 GHZ'),
+    ('Core-i5 7thgen', 'Core-i5 7thgen'),
+    ('Core-i5 8thgen', 'Core-i5 8thgen'),
+    ('Core-i7  1.80GHz', 'Core-i7  1.80GHz'),
+    ('Core-i7 10th gen', 'Core-i7 10th gen'),
+    ('Core2dual 2.40 GHz', 'Core2dual 2.40 GHz'),
+    ('Core2Dual 2.93 GHz', 'Core2Dual 2.93 GHz'),
+    ('Core2Duo 2.40 Ghz', 'Core2Duo 2.40 Ghz'),
+    ('Core2Duo 2.93 Ghz', 'Core2Duo 2.93 Ghz'),
+    ('Core2Duo 2.93 GHz', 'Core2Duo 2.93 GHz'),
+    ('Core2Duo 3.30 Ghz', 'Core2Duo 3.30 Ghz'),
+    ('Core2Duo-2.40 GHZ', 'Core2Duo-2.40 GHZ'),
+    ('Core2Duo-2.93 GHZ', 'Core2Duo-2.93 GHZ'),
+    ('Corei-5 1.60 GHz', 'Corei-5 1.60 GHz'),
+    ('Corei-5 2.50 GHz', 'Corei-5 2.50 GHz'),
+    ('Corei3 3.60 GHz', 'Corei3 3.60 GHz'),
+    ('Corei3 3.70GHz', 'Corei3 3.70GHz'),
+    ('Corei3-3.10 GHZ', 'Corei3-3.10 GHZ'),
+    ('Corei3-3.30 GHZ', 'Corei3-3.30 GHZ'),
+    ('Corei3-3.7 GHZ', 'Corei3-3.7 GHZ'),
+    ('Corei3-6100-3.70GHZ', 'Corei3-6100-3.70GHZ'),
+    ('Corei5 3.30 GHz', 'Corei5 3.30 GHz'),
+    ('Corei5-4590-3.30GHZ', 'Corei5-4590-3.30GHZ'),
+    ('Corei5-6500-3.20GHZ', 'Corei5-6500-3.20GHZ'),
+    ('Corei5-9500, 3.2GHZ', 'Corei5-9500, 3.2GHZ'),
+    ('i-3, 2.30Ghz', 'i-3, 2.30Ghz'),
+    ('I-5 3.20 Ghz', 'I-5 3.20 Ghz'),
+    ('I-7, 1.90 Ghz', 'I-7, 1.90 Ghz'),
+    ('i3 3.6 GHZ', 'i3 3.6 GHZ'),
+    ('i3 3.9 GHZ', 'i3 3.9 GHZ'),
+    ('I3-7th Gen 3.7 Ghz', 'I3-7th Gen 3.7 Ghz'),
+    ('I3-7th Gen 3.9 Ghz', 'I3-7th Gen 3.9 Ghz'),
+    ('I3-8th Gen 3.6 Ghz', 'I3-8th Gen 3.6 Ghz'),
+    ('I5 processor', 'I5 processor'),
+    ('I5, Gen 3.0 Ghz', 'I5, Gen 3.0 Ghz'),
+    ('I5-7th Gen', 'I5-7th Gen'),
+    ('I5-8th Gen', 'I5-8th Gen'),
+    ('I5-8th Gen 3.0 Ghz', 'I5-8th Gen 3.0 Ghz'),
+    ('I5-8th Gen 3.0Ghz', 'I5-8th Gen 3.0Ghz'),
+    ('I7-9th Gen 3.0Ghz to 4.7Ghz', 'I7-9th Gen 3.0Ghz to 4.7Ghz'),
+    ('I7-9th Gen 4.7 Ghz', 'I7-9th Gen 4.7 Ghz'),
+    ('Intel Xeon Silver 4110 2.10GHZ', 'Intel Xeon Silver 4110 2.10GHZ'),
+    ('InteL- 3.10 Ghz', 'InteL- 3.10 Ghz'),
+    ('InteL- 3.50 Ghz', 'InteL- 3.50 Ghz'),
+    ('Intel®Xeon 3.50GHZ', 'Intel®Xeon 3.50GHZ'),
+    ('P Dualcore-3 GHZ', 'P Dualcore-3 GHZ')
+]
 YEARS= [x for x in range(1940,2200)]
 
-EmailType = [
+EmailType1 = [
     ('MS Office 365', 'MS Office 365'),
     ('Zimbra', 'Zimbra'),
     ('Public', 'Public'),
     ('None', 'None')
 ]
-HDDS = [
+EmailType = [
+    ('MS Office 365', 'MS Office 365'),
+    ('Zimbra', 'Zimbra'),
+    ('Public', 'Public'),
+]
+HDDS1 = [
     ('hdd', 'hdd'),
     ('hdd1', 'hdd1'),
     ('hdd2', 'hdd2'),
     ('hdd3', 'hdd3'),
     ('None', 'None')
 ]
-HDD_Type = [
+HDDS = [
+    ('hdd', 'hdd'),
+    ('hdd1', 'hdd1'),
+    ('hdd2', 'hdd2'),
+    ('hdd3', 'hdd3')
+]
+HDD_Type1 = [
     ('HDD', 'HDD'),
     ('SATA', 'SATA'),
     ('SSD', 'SSD'),
     ('SSDSATA', 'SSDSATA'),
     ('None', 'None')
 ]
-Date_Type = [
+HDD_Type = [
+    ('HDD', 'HDD'),
+    ('SATA', 'SATA'),
+    ('SSD', 'SSD'),
+    ('SSDSATA', 'SSDSATA')
+]
+Date_Type1 = [
     ('Warranty', 'Warranty'),
     ('AMC', 'AMC'),
     ('None', 'None')
+]
+Date_Type = [
+    ('Warranty', 'Warranty'),
+    ('AMC', 'AMC')
 ]
 
 Softwares = [
@@ -291,7 +489,7 @@ Softwares = [
     ('Winzip', 'Winzip'),
     ('None', 'None')
 ]
-MS_VERSION = [
+MS_VERSION1 = [
     ('None', 'None'),
     ('MS Office Standard 2010', 'MS Office Standard 2010'),
     ('MS Office Standard 2013', 'MS Office Standard 2013'),
@@ -299,7 +497,7 @@ MS_VERSION = [
     ('MS Office Standard 2019', 'MS Office Standard 2019'),
 
 ]
-MS_VERSION1 = [
+MS_VERSION = [
     ('MS Office Standard 2010', 'MS Office Standard 2010'),
     ('MS Office Standard 2013', 'MS Office Standard 2013'),
     ('MS Office Standard 2016', 'MS Office Standard 2016'),
@@ -354,7 +552,7 @@ ANTIVIRUS_VERSION =  (
     ('None', 'None')
 )
 OEM_VOLUME = [x for x in range(1990,2021)]
-OS_VERSIONS = [
+OS_VERSIONS1 = [
     ("Operating_System_Version","Operating_System_Version"),
     ("Operating_System_Version1","Operating_System_Version1"),
     ("Operating_System_Version2","Operating_System_Version2"),
@@ -364,7 +562,16 @@ OS_VERSIONS = [
     ("Operating_System_Version6","Operating_System_Version6"),
     ('None', 'None')
     ]
-OS_VERSION = [
+OS_VERSIONS = [
+    ("Operating_System_Version","Operating_System_Version"),
+    ("Operating_System_Version1","Operating_System_Version1"),
+    ("Operating_System_Version2","Operating_System_Version2"),
+    ("Operating_System_Version3","Operating_System_Version3"),
+    ("Operating_System_Version4","Operating_System_Version4"),
+    ("Operating_System_Version5","Operating_System_Version5"),
+    ("Operating_System_Version6","Operating_System_Version6")
+    ]
+OS_VERSION7 = [
     ('None', 'None'),
     ('Win-7 Pro.32 Bit','Win-7 Pro.32 Bit'),
     ('Ser.2012','Ser.2012'),
@@ -393,7 +600,35 @@ OS_VERSION = [
     ('Win-10 Home Single Lan','Win-10 Home Single Lan'),
     ('Win-10 Pro 64 bit','Win-10 Pro 64 bit'),
     ('Win-11 Pro 64 bit','Win-11 Pro 64 bit'),
-
+]
+OS_VERSION = [
+    ('Win-7 Pro.32 Bit','Win-7 Pro.32 Bit'),
+    ('Ser.2012','Ser.2012'),
+    ('Win-Server-2012','Win-Server-2012'),
+    ('Win-10 Pro 64 Bit','Win-10 Pro 64 Bit'),
+    ('Win-8.1 Pro.32 Bit','Win-8.1 Pro.32 Bit'),
+    ('Win-8.1 Pro 64 Bit','Win-8.1 Pro 64 Bit'),
+    ('Win-10 Pro. 32 Bit','Win-10 Pro. 32 Bit'),
+    ('Win-7 Pro.64 Bit','Win-7 Pro.64 Bit'),
+    ('Win.10 pro. 64 Bit','Win.10 pro. 64 Bit'),
+    ('Win-8.1pro 64 Bit','Win-8.1pro 64 Bit'),
+    ('Win-8.1 Pro 32 Bit','Win-8.1 Pro 32 Bit'),
+    ('windows 10Pro.64bit','windows 10Pro.64bit'),
+    ('Win- 8.1Pro.64bit','Win- 8.1Pro.64bit'),
+    ('Win- 8.1 Pro 64 Bit','Win- 8.1 Pro 64 Bit'),
+    ('Win-8.1 Pro.64 Bit','Win-8.1 Pro.64 Bit'),
+    ('Windows 10Pro.64bit','Windows 10Pro.64bit'),
+    ('Windows Xp Pro.','Windows Xp Pro.'),
+    ('Win-8.1Pro 32 Bit','Win-8.1Pro 32 Bit'),
+    ('Windows 10 Pro 64 Bit','Windows 10 Pro 64 Bit'),
+    ('Win-Server-2016','Win-Server-2016'),
+    ('Win-Server-2019','Win-Server-2019'),
+    ('Ser.2016','Ser.2016'),
+    ('Ser.2019','Ser.2019'),
+    ('Win-10 Home Single Lan.','Win-10 Home Single Lan.'),
+    ('Win-10 Home Single Lan','Win-10 Home Single Lan'),
+    ('Win-10 Pro 64 bit','Win-10 Pro 64 bit'),
+    ('Win-11 Pro 64 bit','Win-11 Pro 64 bit'),
 ]
 OS_VERSION1 = (
     ('Windows Xp Pro 32 Bit','Windows Xp Pro 32 Bit'),
@@ -432,7 +667,7 @@ OS_VERSION6 = (
     ('None', 'None')
 
 )
-OS = [
+OS11 = [
     ('None', 'None'),
     ('Win.XP', 'Win.XP'),
     ('Win.7', 'Win.7'),
@@ -440,8 +675,14 @@ OS = [
     ('Win.10', 'Win.10'),
     ('Win.11', 'Win.11'),
     ('Win-Server', 'Win-Server'),
-
-
+]
+OS = [
+    ('Win.XP', 'Win.XP'),
+    ('Win.7', 'Win.7'),
+    ('Win.8', 'Win.8'),
+    ('Win.10', 'Win.10'),
+    ('Win.11', 'Win.11'),
+    ('Win-Server', 'Win-Server'),
 ]
 Os = [
     ('Win.XP', 'Win.XP'),
@@ -509,17 +750,25 @@ AVAILABLE_LICENCE_ORDER={
     'MS Office Standard 2016':4.3,
     'MS Office Standard 2019': 4.4
 }
-DOMAIN_WORKGROUP = [
+DOMAIN_WORKGROUP1 = [
     ('Domain','Domain'),
     ('Workgroup','Workgroup'),
     ('None', 'None')
-
 ]
-REMARKS = [
+DOMAIN_WORKGROUP = [
+    ('Domain','Domain'),
+    ('Workgroup','Workgroup')
+]
+REMARKS1 = [
     ('Spare','Spare'),
     ('Used','Used'),
     ('Not Working','Not Working'),
     ('None', 'None')
+]
+REMARKS = [
+    ('Spare','Spare'),
+    ('Used','Used'),
+    ('Not Working','Not Working')
 ]
 DEVICES = (
     ('Access Point','Access Point'),
@@ -539,16 +788,19 @@ class AssetForm(forms.ModelForm):
     user_name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     user_contact = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     user_email = forms.EmailField(max_length=100,widget=forms.EmailInput(attrs={'class': 'form-control'}),required=False)
-    location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control','width': '50vh'}))
+    location = forms.ChoiceField(choices=LOCATION,widget=forms.Select(attrs={'class': 'form-control','width': '50vh'}),required=False)
+    location1 = forms.ChoiceField(choices=LOCATION1,widget=forms.Select(attrs={'class': 'form-control', 'width': '50vh'}),required=False)
     sub_location = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     asset_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     serial_no = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     emp_id = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     usage_type = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=USAGE_TYPE),required=False)
-    usage_type1 = forms.ChoiceField(choices=USAGE_TYPE,widget=forms.Select(attrs={'class': 'form-control', 'width': '50vh'}),required=False)
+    usage_type1 = forms.ChoiceField(choices=USAGE_TYPE1,widget=forms.Select(attrs={'class': 'form-control', 'width': '50vh'}),required=False)
     machine_type = forms.ChoiceField(choices=MACHINE_TYPE,widget=forms.Select(attrs={'class': 'form-control', 'width': '50vh'}),required=False)
+    machine_type1 = forms.ChoiceField(choices=MACHINE_TYPE1,widget=forms.Select(attrs={'class': 'form-control', 'width': '50vh'}),required=False)
     gef_id_number = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     domain_workgroup = forms.ChoiceField(choices=DOMAIN_WORKGROUP,widget=forms.Select(attrs={'class': 'form-control', 'width': '50vh'}),required=False)
+    domain_workgroup1 = forms.ChoiceField(choices=DOMAIN_WORKGROUP1,widget=forms.Select(attrs={'class': 'form-control', 'width': '50vh'}),required=False)
     Domain_User_Name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     machine_make = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
     machine_age = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
@@ -571,22 +823,25 @@ class AssetForm(forms.ModelForm):
     user_acceptance_date = forms.DateField(initial='N/A',label='User Acceptance Date', widget=forms.NumberInput(attrs={'type': 'date'}),required=False)
     user_handed_over_date = forms.DateField(initial='N/A',label='User Handed Over Date', widget=forms.NumberInput(attrs={'type': 'date'}),required=False)
     Operating_System_Version = forms.ChoiceField(choices=OS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    Operating_System_Version7 = forms.ChoiceField(choices=OS_VERSION7,widget=forms.Select(attrs={'class': 'form-control'}), required=False)
     Operating_System_Version1 = forms.ChoiceField(choices=OS_VERSION1,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     Operating_System_Version2 = forms.ChoiceField(choices=OS_VERSION2,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     Operating_System_Version3 = forms.ChoiceField(choices=OS_VERSION3,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     Operating_System_Version4 = forms.ChoiceField(choices=OS_VERSION4,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     Operating_System_Version5 = forms.ChoiceField(choices=OS_VERSION5,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     Operating_System_Version6 = forms.ChoiceField(choices=OS_VERSION6,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
-    OS = forms.ChoiceField(choices=OS,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    OS = forms.ChoiceField(choices=OS, widget=forms.Select(attrs={'class': 'form-control'}), required=False)
+    OS11 = forms.ChoiceField(choices=OS11,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     OS_type = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     ms_office = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
-    ms_office_version = forms.ChoiceField(choices=MS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    ms_office_version: ChoiceField = forms.ChoiceField(choices=MS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
+    ms_office_version1: ChoiceField = forms.ChoiceField(choices=MS_VERSION1,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_365 = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=EmailType),required=False)
-    ms_3651 = forms.ChoiceField(choices=EmailType,widget=forms.Select(attrs={'class': 'form-control', 'width': '50vh'}),required=False)
+    ms_3651 = forms.ChoiceField(choices=EmailType1,widget=forms.Select(attrs={'class': 'form-control', 'width': '50vh'}),required=False)
     ms_visio = forms.ChoiceField(choices=VISIO_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     ms_access = forms.ChoiceField(choices=ACCESS_VERSION,widget=forms.Select(attrs={'class': 'form-control'}),required=False)
     OEM_Volume = forms.CharField(label='Gender', widget=forms.RadioSelect(choices=OS_TYPE))
-    OEM_Volume1 = forms.ChoiceField(choices=OS_TYPE,widget=forms.Select(attrs={'class': 'form-control', 'width': '50vh'}),required=False)
+    OEM_Volume1 = forms.ChoiceField(choices=OS_TYPE1,widget=forms.Select(attrs={'class': 'form-control', 'width': '50vh'}),required=False)
     Antivirus = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     AutoCAD = forms.CharField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),required=False)
     AutoCAD_version = forms.ChoiceField(choices=AUTOCAD_VERSION, widget=forms.Select(attrs={'class': 'form-control'}),required=False)

@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import AssetForm, LicenceForm, AVAILABLE_LICENCE, Available_Licences, AVAILABLE_LICENCE_ORDER, LOCATION,LOCATION1, OS, OS1, MS_VERSION,MS_VERSION1, EmailType, Softwares, OS_VERSIONS, HDDS, Os
+from .forms import AssetForm, LicenceForm, AVAILABLE_LICENCE, Available_Licences, AVAILABLE_LICENCE_ORDER, LOCATION,LOCATION1, OS, OS1, MS_VERSION,MS_VERSION1, EmailType, Softwares, OS_VERSIONS,OS_VERSIONS1, HDDS,HDDS1, Os
 from .models import AssetModel,PingModel,LicenceModel #,WifiModel,FirewallModel,VCCModel,PrinterModel
 from threading import Timer
 from django.views.decorators.csrf import csrf_exempt
@@ -229,8 +229,6 @@ def new(request):
         form.save()
         if form.is_valid():
             student = form.save(commit=False)
-            del HDDS[-1]
-            del OS_VERSIONS[-1]
             for z in HDDS:
                 if request.POST[z[0]] != '':
                     student.hdd = request.POST[z[0]]
@@ -430,7 +428,7 @@ def display_assets(request):
     if len(request) > 1:
         try:
 
-            if request['location'] != 'None':
+            if request['location1'] != 'None':
                 displayList1.append('Location')
                 assts_Location_list.append(request['location'])
             else:
@@ -464,7 +462,7 @@ def display_assets(request):
                 assts_Usage_list.append('Spare')
                 assts_Usage_list.append(' ')
 
-            if request['machine_type']!='None':
+            if request['machine_type1']!='None':
                 displayList1.append('MachineType')
                 assts_Machine_list.append(request['machine_type'])
             else:
@@ -474,7 +472,7 @@ def display_assets(request):
                 assts_Machine_list.append('Server')
                 assts_Machine_list.append(' ')
 
-            if request['Operating_System_Version']!='None':
+            if request['Operating_System_Version7']!='None':
                 displayList1.append('OSVersion')
                 assts_Osv_list.append(request['Operating_System_Version'])
             else:
@@ -509,7 +507,7 @@ def display_assets(request):
                 assts_Osv_list.append('Win-Server-2019')
                 assts_Osv_list.append('')
 
-            if request['OS']!='None':
+            if request['OS11']!='None':
                 displayList1.append('OS')
                 assts_Os_list.append(request['OS'])
             else:
@@ -522,7 +520,7 @@ def display_assets(request):
                 assts_Os_list.append('Win-Server')
                 assts_Os_list.append('')
 
-            if request['ms_office_version']!='None':
+            if request['ms_office_version1']!='None':
                 displayList1.append('MSOfficeVersion')
                 assts_Msv_list.append(request['ms_office_version'])
             else:
