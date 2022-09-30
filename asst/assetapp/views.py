@@ -430,7 +430,7 @@ def display_assets(request):
 
             if request['location1'] != 'None':
                 displayList1.append('Location')
-                assts_Location_list.append(request['location'])
+                assts_Location_list.append(request['location1'])
             else:
                 displayList1.append('Location')
                 assts_Location_list.append('HYDERABAD')
@@ -445,6 +445,7 @@ def display_assets(request):
                 #assts_Oem_Volume.append(request['OEM_Volume1'].casefold())
                 assts_Oem_Volume.append(request['OEM_Volume1'])
                 assts_Oem_Volume.append(request['OEM_Volume1'].casefold())
+
             else:
                 displayList1.append('Volume_OEM')
                 assts_Oem_Volume.append('Volume')
@@ -464,7 +465,8 @@ def display_assets(request):
 
             if request['machine_type1']!='None':
                 displayList1.append('MachineType')
-                assts_Machine_list.append(request['machine_type'])
+                assts_Machine_list.append(request['machine_type1'])
+
             else:
                 displayList1.append('MachineType')
                 assts_Machine_list.append('Laptop')
@@ -474,7 +476,7 @@ def display_assets(request):
 
             if request['Operating_System_Version7']!='None':
                 displayList1.append('OSVersion')
-                assts_Osv_list.append(request['Operating_System_Version'])
+                assts_Osv_list.append(request['Operating_System_Version7'])
             else:
                 displayList1.append('OSVersion')
                 assts_Osv_list.append('Win-7 Pro.32 Bit')
@@ -509,7 +511,7 @@ def display_assets(request):
 
             if request['OS11']!='None':
                 displayList1.append('OS')
-                assts_Os_list.append(request['OS'])
+                assts_Os_list.append(request['OS11'])
             else:
                 displayList1.append('OS')
                 assts_Os_list.append('Win.XP')
@@ -522,7 +524,7 @@ def display_assets(request):
 
             if request['ms_office_version1']!='None':
                 displayList1.append('MSOfficeVersion')
-                assts_Msv_list.append(request['ms_office_version'])
+                assts_Msv_list.append(request['ms_office_version1'])
             else:
                 displayList1.append('MSOfficeVersion')
                 assts_Msv_list.append('MS Office Standard 2010')
@@ -535,7 +537,6 @@ def display_assets(request):
     return assts_Location_list, assts_Oem_Volume, assts_Usage_list, assts_Machine_list, assts_Osv_list, assts_Os_list, assts_Msv_list, displayList1
 def index(request):
     list = AssetModel.objects.all()
-    kl = AssetForm()
     Location_list = []
     Oem_Volume = []
     Usage_list = []
@@ -546,7 +547,7 @@ def index(request):
     displayList=['AssetNo','SubLocation','SerialNo','EmpId','GEF_ID','Domain','UserName','UserEmailId','UserContact','MachineMake','MachineModel','MachineSerialNo','MachineAge','RAM','Processor','HDDType','HDDCapacity','HDDSerialNumber','PurchaseDate','Warranty','ServiceStart','ServiceEnd','O365','Antivirus','AUTOCAD','AUTOCADVersion','AdobeAcrobat','MSVisio','MSVisioVersion','MSAccess','MSAccessVersion','UserAcceptanceDate','UserHandOverDate','Others','status','remarks']
     #displayList = ['AssetNo', 'SerialNo']
     if request.POST:
-        kl = AssetForm(request.POST)
+        form = AssetForm(request.POST)
         displayList1 = request.POST.getlist('displayColumns')
         Location_list, Oem_Volume, Usage_list, Machine_list, Osv_list, Os_list, Msv_list, display2 = display_assets(request.POST)
         displayList1.extend(display2)
@@ -555,7 +556,7 @@ def index(request):
     if request.content_type == 'application/json':
         return JsonResponse(list)
     displayList = populateJSONDictionary(displayList)
-    return render(request,"assets.html",{"list":list,"assets":"active","Location_list":Location_list, "Oem_Volume":Oem_Volume,"Usage_list":Usage_list,"Machine_list":Machine_list,"Osv_list":Osv_list,"Os_list":Os_list,"Msv_list":Msv_list,"displayColumn":displayList, "lk":kl})
+    return render(request,"assets.html",{"list":list,"assets":"active","Location_list":Location_list, "Oem_Volume":Oem_Volume,"Usage_list":Usage_list,"Machine_list":Machine_list,"Osv_list":Osv_list,"Os_list":Os_list,"Msv_list":Msv_list,"displayColumn":displayList, "lk":form})
 def populateJSONDictionary(list):
     dict1={}
     for x in list:
