@@ -88,6 +88,14 @@ body {
                       <div id="tab11" class="tab-content tab-pane" style="display: none;" role="tabpanel">
                         <h3>Employee Info</h3>
                                 <div class="row">
+                                    <div class="col-md-6">
+                                            <div class="form-group row" name="serial_no" id="serial_no">
+                                              <label class="col-sm-4 col-form-label">serial_no</label>
+                                              <div class="col-sm-8">
+                                                {{ form.serial_no}}
+                                              </div>
+                                            </div>
+                                        </div>
 
 
                                      <div class="col-md-6">
@@ -208,14 +216,7 @@ body {
                                           </div>
                                         </div>
                                        </div>
-                                    <div style="visibility:hidden" class="col-md-6" onfocusout="checkexist()">
-                                        <div class="form-group row" id="serial_no" name="serial_no">
-                                          <label class="col-sm-4 col-form-label">S.No</label>
-                                          <div class="col-sm-8">
-                                            <!--{{ form.serial_no}}--><span >{{forloop.counter}}</span>
-                                          </div>
-                                        </div>
-                                       </div>
+
                                 </div>
 
                       </div>
